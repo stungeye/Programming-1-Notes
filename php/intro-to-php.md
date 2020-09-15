@@ -1,9 +1,9 @@
 ---
-id: intro-to-php
 title: Intro to PHP
 ---
 
 ## Table of contents
+{: .no_toc }
 
 - Do not remove this line (it will not be displayed)
 {:toc}
