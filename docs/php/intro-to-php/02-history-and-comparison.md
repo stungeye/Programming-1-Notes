@@ -28,7 +28,7 @@ nav_order: 2
 - [PHP & Zend Engine](http://www.zend.com/en/community/php)
 - [PHP History @ PHP.net](http://us.php.net/manual/en/history.php.php)
 
-## Wello Horld \* 4
+## A Short PHP Example
 
 Here's a short PHP program:
 

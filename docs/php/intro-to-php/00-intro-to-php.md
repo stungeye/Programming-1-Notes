@@ -1,7 +1,7 @@
 ---
 title: Intro to PHP
 has_children: true
-nav_order: 1
+nav_order: 3
 ---
 
 # Intro to PHP
