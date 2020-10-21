@@ -8,6 +8,7 @@ nav_order: 2
 # HTTP and the Web
 {: .no_toc }
 
+HTTP, the Hypertext Transfer Protocol, is the network protocol of the Web. It is both simple and powerful. As web programmers it is important that you understand how this protocol works and how best to work with it when you develop server-side web applications.
 
 ## Table of Contents
 {: .no_toc .text-delta }
@@ -20,14 +21,17 @@ nav_order: 2
 
 ![Introduction](first_web_server.jpg)
 
-HTTP, the Hypertext Transfer Protocol, is the network protocol of the Web. It is both simple and powerful. As web programmers it is important that you understand how this protocol works and how best to work with it when you develop server-side web applications.
-
 The sticker in this photo appears on [the world's first web server](http://www.flickr.com/photos/scobleizer/2251820987/). That's the handwriting of Sir Tim Berners-Lee's on the computer that he used to invent the World Wide Web.
+
+The HTTP protocol that powers the web was initially developed by Berners-Lee at [CERN](https://en.wikipedia.org/wiki/CERN) in 1989. The 1.0 and 1.1 versions of the protocol were standardized in 1996 and 1999 respectively.
+
+Version 2 of the protocol was published in 2015, and although it's still a draft standard, version 3 of the protocol can be enabled as an experimental protocol in all the major browsers.
 
 #### Resources
 
 - [How Web Servers Work](http://computer.howstuffworks.com/web-server.htm)
 - [Sir Tim Berners-Lee](http://en.wikipedia.org/wiki/Tim_Berners-Lee)
+- [HTTP @ Wikipedia](https://en.wikipedia.org/wiki/Hypertext_Transfer_Protocol)
 
 ## Objectives
 
@@ -121,7 +125,7 @@ Some headers that we make use of in this course:
 
 ## Manual HTTP Requests
 
-HTTP is a text based protocol. This means we can impersonate an HTTP client and communicate directly with a web server. Using telnet connect to stungeye.com on port 80:
+Version one of HTTP is a text based protocol. This means we can impersonate an v1.1 HTTP client and communicate directly with a web server. Using telnet connect to stungeye.com on port 80:
 
 ```
 telnet stungeye.com 80
