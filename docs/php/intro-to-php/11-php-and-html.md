@@ -146,4 +146,4 @@ When processed this line would generate:
 
 #### Resources
 
-Another way to manage the complexity of the PHP embedded in your markup is to use a templating library like [Twig](http://twig.sensiolabs.org/) or [Blade](https://laravel.com/docs/5.1/blade). To use these libraries you'll have to look into [Composer](https://getcomposer.org/), the PHP dependency manager.
+Another way to manage the complexity of the PHP embedded in your markup is to use a templating library like [Twig](http://twig.sensiolabs.org/). To use a library like this you'll have to look into [Composer](https://getcomposer.org/), the PHP dependency manager.
