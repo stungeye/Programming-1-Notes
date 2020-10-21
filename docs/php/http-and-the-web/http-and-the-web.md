@@ -105,6 +105,7 @@ All HTTP responses sent by a server will include an HTTP status code. Some of th
 #### Resources
 
 - [HTTP Status Codes](http://www.tutorialspoint.com/http/http_status_codes.htm)
+- [HTTP Status Cats](https://http.cat/) 😻
 - [HTTP Status Code Flow Chart](http://viswaug.files.wordpress.com/2008/11/http-headers-status1.png)
 
 ## HTTP Headers
