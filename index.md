@@ -5,17 +5,27 @@ nav_order: 1
 permalink: /
 ---
 
-# WEBD-2008 - Web Development Two 
+# Programming 1
 
-Web Development 2 builds upon skills learned in Web Development 1. In this course we will continue to explore the Web Development stack by working with server side code using PHP as the main language.
+This is the first course in a two-part introduction to object-oriented programming and design in the context of graphics and sound programming. Assignments will pull from real-world game development problems with an emphasis on modern tooling and coding best practices.
 
-We will use PHP to create dynamic webpages with data derived from databases, cookies, sessions, and JSON files. You will work in groups to complete your assignments in the first half of the course.
+## Course Outcomes
 
-The second half of the course will be dedicated to an individual project where you will create a working Content Management System.
+By the end of this course of study, using the C++ programming language, the student should be able to:
+
+- Write and compile procedural and object-oriented programs.
+- Design programs that make use of:
+  - Standard library container classes.
+  - I/O Streams and text formatting.
+  - User defined types.
+  - Functions and lambda expressions.
+  - Custom object hierarchies using classes, inheritance and polymorphism.
+- Debug complex error situations involving logical, compile-time, link-time, and run-time errors.
+- Make use of 3rd party object-oriented graphics and sound libraries to solve game development problems.
 
 ## Course Notes
 
-All of your course notes can be found on this site. A list of all available modules is shown on the left (or via the menu for smaller screens).
+All of your programming 1 course notes can be found on this site. A list of all available modules is shown on the left (or via the menu for smaller screens).
 
 You can use the search bar at the top to search the notes for specific topics.
 
