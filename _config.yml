@@ -16,7 +16,7 @@
 title: Programming 1 
 description: >- # this means to ignore newlines until "baseurl:"
   Course notes for the Red River College Game Development Programming 1 Course.
-baseurl: "/programming-1" # the subpath of your site, e.g. /blog
+baseurl: "/Programming-1-Notes" # the subpath of your site, e.g. /blog
 # url: "" # the base hostname & protocol for your site, e.g. http://example.com
 
 # Build settings
