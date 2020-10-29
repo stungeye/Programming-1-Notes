@@ -11,7 +11,7 @@ This is the first course in a two-part introduction to object-oriented programmi
 
 ## Course Outcomes
 
-By the end of this course of study, using the C++ programming language, the student should be able to:
+By the end of this course, using the C++ programming language, the student should be able to:
 
 - Write and compile procedural and object-oriented programs.
 - Design programs that make use of:
