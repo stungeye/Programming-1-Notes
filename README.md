@@ -2,7 +2,7 @@
 
 These Full Stack Web Development notes were built using the [Jekyll static-site generator](https://jekyllrb.com/) with the [Just the Docs theme](https://pmarsceill.github.io/just-the-docs/).
 
-The published notes are hosted on GitHub Pages here: [stungeye.github.io/Full-Stack-Notes/](https://stungeye.github.io/Full-Stack-Notes/)
+The published notes are hosted on GitHub Pages here: [stungeye.github.io/Programming-1-Notes/](https://stungeye.github.io/Programming-1-Notes/)
 
 ## Quick Overview for Other Instructors
 
@@ -177,7 +177,7 @@ bundle install
 bundle exec jekyll serve
 ```
 
-You can now edit the markdown files in the `docs` folder directly on your computer using any text editor. The changes you make can be previewed in your browser by visiting the [http://localhost:4000/Web-Dev-2-Notes/](http://localhost:4000/Web-Dev-2-Notes/) preview server.
+You can now edit the markdown files in the `docs` folder directly on your computer using any text editor. The changes you make can be previewed in your browser by visiting the [http://localhost:4000/Programming-1-Notes/](http://localhost:4000/Programming-1-Notes/) preview server.
 
 To push your changes to the deployed notes you will need to use git to add, commit, and push your changes:
 
