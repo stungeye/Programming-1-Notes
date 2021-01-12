@@ -2,6 +2,35 @@
   margin-bottom: 2rem;
 }
 
-.main-content h1, .main-content h2, .main-content h3, .main-content h4, .main-content h5, .main-content h6 {
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content h4,
+.main-content h5,
+.main-content h6 {
   margin-bottom: 1em;
+}
+
+.main-content img.small {
+  max-height: 200px;
+}
+
+.main-content img.medium {
+  max-height: 300px;
+}
+
+.main-content img.large {
+  max-height: 400px;
+}
+
+@media only screen and (min-width: 900px) {
+  .main-content img.inline {
+    float: right;
+    margin-left: 1rem;
+    margin-bottom: 1rem;
+  }
+}
+
+.main-content img:hover {
+  cursor: pointer;
 }
