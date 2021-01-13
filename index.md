@@ -7,7 +7,7 @@ permalink: /
 
 # Programming 1
 
-This is the first course in a two-part introduction to object-oriented programming and design in the context of graphics and sound programming. Assignments will pull from real-world game development problems with an emphasis on modern tooling and coding best practices.
+This is the first course in a two-part introduction to object-oriented programming in the context of graphics and sound programming. Students will learn to design, write, compile, and debug procedural and object-oriented programs that make use of 3rd-party graphic and sound libraries. Assignments will pull from real-world game development problems with an emphasis on modern tooling and coding best practices.
 
 ## Course Outcomes
 
