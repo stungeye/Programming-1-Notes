@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Programming 1 
+title: Programming 1
 description: >- # this means to ignore newlines until "baseurl:"
   Course notes for the Red River College Game Development Programming 1 Course.
 baseurl: "/Programming-1-Notes" # the subpath of your site, e.g. /blog
@@ -24,7 +24,7 @@ markdown: kramdown
 remote_theme: pmarsceill/just-the-docs
 
 kramdown:
-  toc_levels: 1..3
+  toc_levels: 1..2
 
 # Back to top link
 back_to_top: true

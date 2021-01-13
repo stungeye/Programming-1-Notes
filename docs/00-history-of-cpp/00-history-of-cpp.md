@@ -1,10 +1,22 @@
 ---
 layout: default
-title: Intro to C++
+title: History of C++
 nav_order: 2
 ---
 
-# Intro to C++
+<!--prettier-ignore-start-->
+# Brief History of the C++ Language
+{: .no_toc }
+
+This section provides you with a brief history of the C++ programming language from the 1970s untils today.
+
+### Table of Contents
+{: .no_toc }  
+
+1. TOC
+{:toc}
+
+<!--prettier-ignore-end-->
 
 ## In the Beginning There Was C
 
@@ -22,10 +34,16 @@ With each new version of the language come new language features and standard li
 
 ## Modern C++
 
-Another thing you'll here often in the C++ world are mentions of "Modern C++". There's no real definition of what makes a particular feature or usage of the language modern. In fact every time a new version of the language is released it's new features are often referred to as "modern C++".
+Another thing you'll often hear in the C++ world are mentions of "Modern C++". There's no real definition of what makes a particular feature or usage of the language modern. In fact every time a new version of the language is released its new features are often referred to as "Modern C++".
 
-Separate from the language, the term Modern C++ can also refer to newer best practices for designing, writing, and building C++ programs.
+Separate from the language, the term "Modern C++" can also refer to newer best practices for designing, writing, and building C++ applications.
 
-## Five Minute Tour of C++
+## Why C++
 
-## Hello World with Visual Studio
+Here are some of the reasons why C++ remains such a popular language:
+
+- Flexible: It supports different styles of coding including imperative, object-oriented, generic, and functional programming.
+- Safe: The language is statically-typed, meaning the compiler can catch a wide range of type related bugs.
+- Performant: With data types that map directly to machine hardware the compiler can produced highly optimized native code.
+- Cross-Platform: Carefully written C++ can be compiled to run on different CPU architectures and for different operating systems.
+- "Batteries-Included": C++ ships with an excellent standard library that includes high quality implemtation of commonly needed data-structures and algorithms.

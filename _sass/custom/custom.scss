@@ -35,6 +35,20 @@
   cursor: pointer;
 }
 
+/* Ensure that if images have been floated we clear floats before the next section. */
+.main-content hr:before,
+.main-content footer:before,
+.main-content h1:before,
+.main-content h2:before,
+.main-content h3:before,
+.main-content h4:before,
+.main-content h5:before,
+.main-content h6:before {
+  content: "";
+  clear: both;
+  display: table;
+}
+
 .main-content a {
   white-space: normal;
 }
