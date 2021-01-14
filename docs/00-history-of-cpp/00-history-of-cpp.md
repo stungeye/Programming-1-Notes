@@ -54,4 +54,8 @@ Here are some of the reasons why C++ remains such a popular language:
 - **Cross-Platform:** Carefully written C++ can be compiled to run on different CPU architectures and for different operating systems.
 - **"Batteries-Included":** C++ ships with an excellent standard library that includes high-quality implementation of commonly needed data-structures and algorithms.
 
-### Resources
+## Further Reading
+
+- [Foundations of C++ by Bjarne Stroustrup](https://www.stroustrup.com/ETAPS12-corrected)
+- [C++ on Wikipedia](https://en.wikipedia.org/wiki/C%2B%2Bs)
+- [History of C++: 1979 to 1991 by Bjarne Stroustrup](https://www.stroustrup.com/hopl2.pdf)

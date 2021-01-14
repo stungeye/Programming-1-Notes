@@ -124,8 +124,10 @@ The Console App project uses [the MSBuild system](https://docs.microsoft.com/en-
 
 The CMake Project isn't reliant on the MSBuild system, instead these projects are configured to be built using [the cross-platform CMake build system](https://cmake.org). Visual Studio has support for building projects using CMake, but projects created in this manner can also be edited and built without Visual Studio using the CMake directly on Windows, Mac and Linux.
 
-### Resources
+### Further Reading
 
+- [Learn C++ in Y minutes](https://learnxinyminutes.com/docs/c++/) - Part of the "Learn X in Y Minutes" series.
+- C++ Online References: [cppreference.com](https://en.cppreference.com/w/) and [cplusplus.com](http://www.cplusplus.com/)
 - [About Visual Studio Project and Solutions](https://docs.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2019)
 - [Official Visual Studio "Create A Console Calculator" Tutorial](https://docs.microsoft.com/en-us/cpp/get-started/tutorial-console-cpp?view=msvc-160&viewFallbackFrom=vs-2019)
 - [Using Visual Studio for Cross-Platform C++ Development Targeting Windows and Linux](https://devblogs.microsoft.com/cppblog/using-visual-studio-for-cross-platform-c-development-targeting-windows-and-linux/) - This tutorial uses the awesome [Bullet Physics](bulletphysics.org) collision detection and physics simulation library.
