@@ -8,7 +8,7 @@ nav_order: 3
 # Tour of C++ and Visual Studio 
 {: .no_toc }
 
-This section begins with a line-by-line walkthrough of a short C++ program. After that we'll explore two methods for creating C++ console application using Visual Studio.
+This section begins with a line-by-line walkthrough of a short C++ program. After that we'll explore two methods for creating C++ console applications using Visual Studio.
 
 ### Table of Contents
 {: .no_toc }  
@@ -38,7 +38,7 @@ We use `#include` statements to import code from other files, including built-in
 #include <string>
 ```
 
-The `string` data type is not built in to the core language. Strings are defined in the `string` library within the `std` namespace. Namespaces are used to organize code without polluting the global namespace.
+The `string` data type is not built into the core language. Strings are defined in the `string` library within the `std` namespace. Namespaces are used to organize code without polluting the global namespace.
 
 ```cpp
 // The main function is the entry point of our program.
@@ -62,7 +62,7 @@ The `cout` function is how we write to the console's standard output. `cout` is 
 std::string adjective {"wonderful"};
 ```
 
-Here we are delcaring a variable of type `string` with an initial value of `"wonderful"`. The `string` data type is also defined within the `std` namespace. We could also have assigned the string its value with the `=` operator like this: `std::string adjective = "wonderful";`
+Here we are declaring a variable of type `string` with an initial value of `"wonderful"`. The `string` data type is also defined within the `std` namespace. We could also have assigned the string its value with the `=` operator like this: `std::string adjective = "wonderful";`
 
 ```cpp
 std::cout << "Welcome to the " << adjective << " world of C++." << "\n";
@@ -93,7 +93,7 @@ Let's create two "Hello World" programs using Visual Studio:
 
 ![Click the "Create a new project" button.](start_visual_studio.png){:class="small inline"}
 
-For both of these program we start by launching Visual Studio and clicking on the "Create a new project" button.
+For both of these programs we start by launching Visual Studio and clicking on the "Create a new project" button.
 
 Click on the thumbnail Visual Studio screenshots to see larger versions.
 
@@ -128,4 +128,4 @@ The CMake Project isn't reliant on the MSBuild system, instead these projects ar
 
 - [About Visual Studio Project and Solutions](https://docs.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2019)
 - [Official Visual Studio "Create A Console Calculator" Tutorial](https://docs.microsoft.com/en-us/cpp/get-started/tutorial-console-cpp?view=msvc-160&viewFallbackFrom=vs-2019)
-- [Using Visual Studio for Cross Platform C++ Development Targeting Windows and Linux](https://devblogs.microsoft.com/cppblog/using-visual-studio-for-cross-platform-c-development-targeting-windows-and-linux/) - This tutorial uses the awesome [Bullet Physics](bulletphysics.org) collision detection and physics simulation library.
+- [Using Visual Studio for Cross-Platform C++ Development Targeting Windows and Linux](https://devblogs.microsoft.com/cppblog/using-visual-studio-for-cross-platform-c-development-targeting-windows-and-linux/) - This tutorial uses the awesome [Bullet Physics](bulletphysics.org) collision detection and physics simulation library.
