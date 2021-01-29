@@ -8,7 +8,7 @@ nav_order: 1
 # The Basics 
 {: .no_toc }
 
-There are some basic things you need to know to start coding in C++. These topics include the various steps taken when preparing and executing a C++ program, C++ expressions and statements, and comments in C++ source code.
+There are some basic things you need to know to start coding in C++. These topics include C++ expressions and statements, comments in C++ source code, and the difference between `.cpp` and `.h` files.
 
 ### Table of Contents
 {: .no_toc }
