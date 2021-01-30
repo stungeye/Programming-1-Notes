@@ -1,10 +1,10 @@
 ---
-title: Introduction to C++ 
+title: Introduction to C++
 has_children: true
-nav_order: 4
+nav_order: 5
 ---
 
-# Introduction to C++ 
+# Introduction to C++
 
 This module is an introduction to the C++ programming language. It will also serve as a programming reference that you can use throughout the course.
 

@@ -1,7 +1,7 @@
 ---
 layout: default
 title: History of C++
-nav_order: 2
+nav_order: 3
 ---
 
 <!--prettier-ignore-start-->

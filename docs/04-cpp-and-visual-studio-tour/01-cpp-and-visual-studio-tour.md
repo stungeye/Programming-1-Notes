@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Tour of C++ and Visual Studio
-nav_order: 3
+nav_order: 4
 ---
 
 <!--prettier-ignore-start-->
@@ -20,11 +20,11 @@ This section begins with a line-by-line walkthrough of a short C++ program. Afte
 
 ## Hello C++
 
-Without further ado, here's our first look at a C++ program. Try editing and running this program.
+Without further ado, here's our first look at a C++ program. Try editing and running the program.
 
 <iframe height="510px" width="100%" src="https://repl.it/@stungeye/Hello-World?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
-## Line By Line Code Walk-Through
+## Line-By-Line Code Walk-Through
 
 These explantions are purposefully over-simplified. We'll get into more details later.
 

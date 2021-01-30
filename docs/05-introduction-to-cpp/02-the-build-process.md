@@ -186,7 +186,29 @@ The most common errors generated during this step will have to do with undefined
 
 Linkers can also be used to create static or dynamic binary library files.
 
+## Build Tooling
+
+For a simple application, say one `.cpp` and one `.h` file, you could build your executable using only a compiler. To manage the build process of more complex applications we employ build systems.
+
+There are many different choices for C++ compilers and build systems. Different build systems can also be combined with different compilers.
+
+The three most popular compilers in 2020 were:
+
+- [GCC - The GNU Compiler Collection](The GNU Compiler Collection)
+- [Clang - The LLVM Compiler](https://clang.llvm.org/)
+- [MSVC - The Microsoft Visual C++ Compiler](https://en.wikipedia.org/wiki/Microsoft_Visual_C%2B%2B)
+
+The three most popular build systems in 2020 were:
+
+- [CMake - Open-Source, Cross-Platform Build System](https://cmake.org/)
+- [Visual Studio MSBuild](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild?view=vs-2019)
+- [Makefiles](https://www.gnu.org/software/make/manual/html_node/Introduction.html)
+
+In this course we'll be using MSVC with MSBuild to build our openFrameworks projects. The openFrameworks project generator automates the setup of new MSVC/MSBuild projects.
+
 ## Further Reading
 
 - [Other Preprocessor Directives Not Covered Here](https://en.cppreference.com/w/cpp/preprocessor)
 - [More Information on Static and Dynamic Libraries](https://www.geeksforgeeks.org/static-vs-dynamic-libraries/)
+- [2020 C++ Development Ecosystem Survey Results](https://www.jetbrains.com/lp/devecosystem-2020/cpp/)
+- [Alternate Compiler and Build Setups for openFramworks for Mac, Linux, and Windows](https://openframeworks.cc/download/)
