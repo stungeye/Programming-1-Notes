@@ -71,18 +71,24 @@ Sometimes you just need to wait until later in the notes to learn more. :)
 
 ## Code Conventions
 
-All source code in the notes will be syntax highlighted like so:
+Source code in the notes will be syntax highlighted like so:
 
 ```cpp
 #include <iostream>
 
-int ghost_quota = 37;
-int caught_ghost = 12;
+int main() {
+  int ghostQuota = 37;
+  int ghostsCaught = 12;
 
-if (caughtGhosts > ghostQuota) {
-  std::cout << "You are done for the day.\n";
-} else {
-  auto ghostsRequired = ghostQuota - caughtGhosts;
-  std::cout << "You need to find " << ghostsRequired << " more ghosts.\n";
+  if (ghostsCaught > ghostQuota) {
+    std::cout << "You are done for the day.\n";
+  } else {
+    auto ghostsRequired = ghostQuota - ghostsCaught;
+    std::cout << "You need to find " << ghostsRequired << " more ghosts. 👻\n";
+  }
 }
 ```
+
+Or will be embedded using a [repl.it](https://repl.it) interactive C++ environment:
+
+<iframe height="650px" width="100%" src="https://repl.it/@stungeye/Ghost-Quota?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
