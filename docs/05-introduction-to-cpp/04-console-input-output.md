@@ -38,7 +38,19 @@ From the hierarchy shown in the image, we typically use streams from the followi
 
 ## Outputting Text To the Console
 
-As we saw in our [initial tour of C++](/Programming-1-Notes/docs/04-cpp-and-visual-studio-tour/01-cpp-and-visual-studio-tour.html#hello-c) we can use `cout` with the "put to" operator `<<` to write to the standard output stream, the console. There is also a standard error and logging output stream, `cerr` and `clog`.
+As we saw in our [initial tour of C++](/Programming-1-Notes/docs/04-cpp-and-visual-studio-tour/01-cpp-and-visual-studio-tour.html#hello-c) we can use `std::cout` with the "put to" operator `<<` to write to the standard output stream, the console.
+
+There is also a standard error and logging output stream, `std::cerr` and `std::clog`.
+
+The `std::` part means these streams are part of the "standard" namespace.
+
+⏳ Wait For It:
+{: .label .label-blue}
+
+Namespaces help prevent name conflicts in large projects. See namespaces section.
+{: .d-inline-block}
+
+## Console Output Example
 
 ```cpp
 #include <iostream>

@@ -1,11 +1,11 @@
 ---
-title: The Basics
+title: Getting Started
 parent: Introduction to C++
 nav_order: 1
 ---
 
 <!--prettier-ignore-start-->
-# The Basics 
+# Getting Started
 {: .no_toc }
 
 There are some basic things you need to know to start coding C++ applications. These foundational topics include C++ expressions and statements, comments in C++ source code, and the difference between `.cpp` and `.h` files.
