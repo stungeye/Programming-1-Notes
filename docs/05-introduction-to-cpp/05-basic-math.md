@@ -77,20 +77,12 @@ We can write `3 * std::pow(10, 23)` as `3e23` using scientific notation.
 ⚡ Warning:
 {: .label .label-red}
 
-It's very easy to cause an overflow when using `std::pow` with `int`s.
+It's very easy to cause an [integer overflow](/Programming-1-Notes/docs/05-introduction-to-cpp/05-basic-math.html#integer-overflow) when using `std::pow`.
 {: .d-inline-block }
-
-## Negative Exponents
-
-Negative exponents are used to perform the reciprocal of an exponent.
-
-By this I mean that `std::pow(a, -b)` is another way of writing `1 / pow(a, b)`.
-
-For example, `std::pow(2, -4)` is a short-form for `1 / (2 * 2 * 2 * 2)`.
 
 ## Common Mathematical Functions
 
-The `<cmath>` header and other build in libraries provide ways to:
+The `<cmath>` library provides ways to:
 
 - Compute square root or cubic root: `std::sqrt()` and `std::cbrt`
 - Round up, down, and trucate: `std::ceil()` and `std::floor()` and `std::truncate()`
@@ -128,6 +120,52 @@ These unary operators have a very high precedence with respect to the other math
 
 ## Floating Point Rounding Errors
 
+Not all numbers can be stored precisely in a fixed number of binary digits.
+
+Take the result of `1/3` for example:
+
+- Decimal result: `0.33333333...` _(The threes continue infinitely.)_
+- When stored as binary: `0.01010101...` _(The pattern continue infinitely.)_
+
+Or even the result of `1/10`:
+
+- In decimal we can be precise: `0.1`
+- But when stored in binary: `0.000110011..` _(Infinite digits still required.)_
+
+⚡ Warning:
+{: .label .label-red}
+
+C++ floating point numbers should always be considered approximations.
+{: .d-inline-block}
+
 ## Floating Point Equality
 
+The approximations in floating point math make some code error prone:
+
+<iframe height="925px" width="100%" src="https://repl.it/@stungeye/Floating-Point-Errors?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+## Integer Overflow
+
+Integer math can be problematic too. C++ will not stop you from accidentally assigning an out-of-range a value for a particular type.
+
+```cpp
+short secondsInDay = 60 * 60 * 24; // 86,400 is larger than the maximum short!
+```
+
+You also need to watch for variables that could increment or decrement past range limits:
+
+<iframe height="780px" width="100%" src="https://repl.it/@stungeye/Integer-Overflow?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+⚡ Warning:
+{: .label .label-red}
+
+Watch out for integer overflow as it results in undefined behavior.
+{: .d-inline-block}
+
 ## Further Reading
+
+- [Floating Point Numbers @ learncpp.com](https://www.learncpp.com/cpp-tutorial/floating-point-numbers/)
+- [Tempted to build your own `isAlmostEqual()` function for comparing floats](https://www.learncpp.com/cpp-tutorial/relational-operators-and-floating-point-comparisons/)?
+- [0.30000000000000004.com](https://0.30000000000000004.com) - Float approximations as seen in many languages.
+- [What Every Computer Scientist Should Know About Floating-Point Arithmetic](https://docs.oracle.com/cd/E19957-01/806-3568/ncg_goldberg.html)
+- [Binary Fractions @ Wikipedia](https://en.wikipedia.org/wiki/Binary_number#Fractions)

@@ -118,6 +118,12 @@ There are other types of data types for whole numbers. Each one supports a speci
 - `long` -2,147,483,648 to +2,147,483,647 (Same as `int` since both typically use 4 bytes.)
 - `long long` -9,223,372,036,854,775,808 to +9,223,372,036,854,775,807 (8 bytes)
 
+⏳ Wait For It:
+{: .label .label-blue}
+
+Integers have undefined behaviour for values outside these ranges. See [Basic Math](/Programming-1-Notes/docs/05-introduction-to-cpp/05-basic-math.html#integer-overflow).
+{: .d-inline-block}
+
 ## Unsigned Whole Numbers
 
 It is possible to use the whole number types in the last section in as _unsigned numbers_.
@@ -153,24 +159,6 @@ long grainsOfSand{2'000'555'000l};
 long long maxLongLong{9'223'372'036'854'775'807ll};
 ```
 
-## Integer Overflow
-
-C++ will not stop you from accidentally assigning an out-of-range a value for a particular type.
-
-```cpp
-short secondsInDay = 60 * 60 * 24; // 86,400 is larger than the maximum short!
-```
-
-You also need to watch for variables that could increment or decrement past range limits:
-
-<iframe height="780px" width="100%" src="https://repl.it/@stungeye/Integer-Overflow?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
-
-⚡ Warning:
-{: .label .label-red}
-
-Watch out for integer overflow as it results in undefined behavior.
-{: .d-inline-block}
-
 ## Floating Point Numbers
 
 We use floating point numbers to store values that include fractional components, or for numbers that are large than the maximum integer.
@@ -202,6 +190,12 @@ Really large floating point values can be defined using scientific notation.
 ```cpp
 float avogadrosNumber{6.02214179e23f}; // Scientific notation:6.02214179 x 10²³
 ```
+
+⏳ Wait For It:
+{: .label .label-blue}
+
+C++ floating point numbers are only approximations. See [Basic Math](/Programming-1-Notes/docs/05-introduction-to-cpp/05-basic-math.html#floating-point-rounding-errors).
+{: .d-inline-block}
 
 ## Void
 
@@ -250,6 +244,7 @@ Try running this program in the embedded environment and then in Visual Studio o
 
 ## Further Reading
 
+- [Using `std::numeric_limits` to find the numeric limits of various types](https://en.cppreference.com/w/cpp/types/numeric_limits).
 - [Initialization - Copy = vs Direct () vs List {}](https://www.learncpp.com/cpp-tutorial/variable-assignment-and-initialization/)
 - [Data Types - Chapter 4 - learncpp.com](https://www.learncpp.com/cpp-tutorial/introduction-to-fundamental-data-types/)
 - [C++ Style Best Practices](https://github.com/lefticus/cppbestpractices/blob/master/03-Style.md)

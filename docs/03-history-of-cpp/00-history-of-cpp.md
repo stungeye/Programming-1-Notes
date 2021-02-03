@@ -8,7 +8,7 @@ nav_order: 3
 # Brief History of the C++ Language
 {: .no_toc }
 
-This section provides a brief history of the C++ programming language from the 1970s until today. This is followed by an explanation of what constitutes "Modern C++" and an overview of why this 40-year-old technology remains relevant today.
+This section provides a brief history of the C++ programming language from the 1970s until today. We'll also explore what "Modern C++" means and review why this 40-year-old technology remains relevant today.
 
 ### Table of Contents
 {: .no_toc }  
@@ -36,7 +36,7 @@ In the late 70s [Bjarne Stroustrup](https://en.wikipedia.org/wiki/Bjarne_Stroust
 
 The first book on C++ was written by Stroustrup in 1985 but the language wasn't fully formalized until 1998 when in became an [ISO](https://en.wikipedia.org/wiki/International_Organization_for_Standardization) standard. Since this standardization, changes to C++ are managed by [the C++ Standards Committee](https://isocpp.org/std/the-committee). Since 2011 the committee has been releasing a new version of C++ every three years. The major versions being C++98 (1998), C++03 (2003), C++11 (2011), C++14 (2014), C++17 (2017) and C++20 (2020).
 
-With each new version of the language come new language features and standard library improvements. You'll often hear language featured referred to as specific to a version of the language, as in "Oh that's a C++14 feature."
+With each new version of the language come new language features and standard library improvements. You'll often hear language featured referred to as specific to a version of the language, as in "Oh, that's a C++14 feature."
 
 ## Modern C++
 
@@ -44,13 +44,15 @@ Another thing you'll often hear in the C++ world are mentions of "Modern C++". T
 
 Separate from the language, the term "Modern C++" can also refer to newer best practices for designing, writing, and building C++ applications.
 
+In this course we'll study C++ from both a "Modern C++" and a "Legacy C++" perspective. The hope is that you learn to write new code in the modern fashion, with the ability to maintain existing code.
+
 ## Why C++
 
 Here are some of the reasons why C++ remains such a popular language:
 
-- **Flexible:** It supports different styles of coding including imperative, object-oriented, generic, and functional programming.
+- **Flexible:** It supports different coding styles including imperative, object-oriented, generic, and functional programming.
 - **Safe:** The language is statically-typed, meaning the compiler can catch a wide range of type-related bugs.
-- **Performant:** With data types that map directly to machine hardware the compiler can produced highly optimized native code.
+- **Performant:** With data types that map directly to machine hardware the compiler can produce highly optimized native code.
 - **Cross-Platform:** Carefully written C++ can be compiled to run on different CPU architectures and for different operating systems.
 - **"Batteries-Included":** C++ ships with an excellent standard library that includes high-quality implementation of commonly needed data-structures and algorithms.
 
