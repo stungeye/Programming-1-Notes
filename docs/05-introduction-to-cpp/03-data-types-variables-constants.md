@@ -34,7 +34,7 @@ For this reason, we will use `camelCase` for our variable, constant, and functio
 
 ## Variable Definition and Assignment
 
-Before we can use a variable it must first be defined with a data type and an identifier in statement structure like this: `type identifier;`
+Before we can use a variable it must first be defined with a data type and an identifier in a statement structured like this: `type identifier;`
 
 ```cpp
 int userAge;
@@ -104,6 +104,26 @@ There are certain special characters that can be used in C++ that are encoded us
 - `\'` - Single Quote
 - `\"` - Double Quote
 - `\\` - Backslash
+
+## Strings
+
+Strings are not primitive types, but we'll treat them as such for now.
+
+To use variables of type `std::string` you must `#include` the `<string>` header file.
+
+```cpp
+#include <string>
+
+int main() {
+  std:string simpsonsQuote = "It was the best of times, it was the blurst of times.";
+}
+```
+
+⏳ Wait For It:
+{: .label .label-blue}
+
+We'll learn a lot more about strings in the section on standard collection types.
+{: .d-inline-block}
 
 ## Whole Numbers
 
@@ -212,6 +232,31 @@ void logNumber(int number) {
 
 When we learn about pointers we'll see that `void` has another use there.
 {: .d-inline-block }
+
+## Auto
+
+The `auto` keyword allows us to define variables with their types inferred based on their initialization.
+
+```cpp
+char newline() {
+  return '\n';
+}
+
+int main() {
+  auto answer{42}; // Type int due to integer literal.
+  auto temperature{12.23}; // Type double due to double literal.
+  auto combo{answer + temperature}; // Type double due to expression.
+  auto enter{newline()}; // Type char due to return type.
+}
+```
+
+💡 Best Practice?
+{: .label .label-green }
+
+Some folks in the community follow the "AAA Style" meaning "Almost Always Auto".
+{: .d-inline-block}
+
+There's also the AAAA camp: Almost Always Avoid Auto 🤣 [Further Reading](https://h-deb.clg.qc.ca/Sujets/Divers--cplusplus/auto-when.html)
 
 ## Constants
 

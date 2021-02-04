@@ -70,6 +70,16 @@ for (int x{0}, y{9}; x < 10; ++x, --y) {
 The two update expressions are separated by a comma.
 {: .d-inline-block}
 
+## Auto With For
+
+It's common to see the `auto` keyword used with loop variable initialization:
+
+```cpp
+for (auto apples{10}; apples <= 20; apples++) {
+  std::cout << apples << ": How to you like them apples?\n";
+}
+```
+
 ## Nested Loops
 
 Loops can go inside of loops inside of other loops.
