@@ -18,7 +18,7 @@ Loops allow us to automate repetition. In this section we'll review `while`, `do
 
 <!--prettier-ignore-end-->
 
-## Loop Da Loop - While and Do While
+## While and Do While Statements
 
 C++ contains standard `while` and `do while` loops. They work as you might expect:
 
@@ -43,7 +43,7 @@ An intentionally infinite `do while` loop can be helpful when validating user in
 Standard C-style for loops are also available. These loops are best used for counting tasks:
 
 ```cpp
-for (int apples = 10; apples <= 20; apples++) {
+for (int apples{10}; apples <= 20; apples++) {
   std::cout << apples << ": How to you like them apples?\n";
 }
 ```
@@ -56,7 +56,31 @@ Always use braces, even though they are optional for single statement loops.
 
 ## Multi-Counter For Loops
 
+There's nothing stopping you from using multiple counters in your `for` loops:
+
+```cpp
+for (int x{0}, y{9}; x < 10; ++x, --y) {
+    std::cout << x << ' ' << y << '\n';
+}
+```
+
+🎵 Note:
+{: .label .label-yellow}
+
+The two update expressions are separated by a comma.
+{: .d-inline-block}
+
 ## Nested Loops
+
+Loops can go inside of loops inside of other loops.
+
+<iframe height="650px" width="100%" src="https://repl.it/@stungeye/Nested-Loops?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+⚡ Warning:
+{: .label .label-red}
+
+"Expensive" operations inside of nested loops can lead to performance issues.
+{: .d-inline-block}
 
 ## Loops for Arrays and Objects
 
