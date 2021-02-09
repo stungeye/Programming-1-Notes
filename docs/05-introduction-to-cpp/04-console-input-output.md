@@ -47,7 +47,7 @@ The `std::` part means these streams are part of the "standard" namespace.
 ⏳ Wait For It:
 {: .label .label-blue}
 
-Namespaces help prevent name conflicts in large projects. See namespaces section.
+Namespaces help prevent name conflicts in large projects. See [namespaces section](/Programming-1-Notes/docs/06-containers-and-file-io/01-namespaces.html).
 {: .d-inline-block}
 
 ## Console Output Example

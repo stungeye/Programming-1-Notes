@@ -14,10 +14,14 @@ This module will cover variable data types, boolean branching structures, loopin
 
 Upon completion of this module, you should be able to:
 
+- Describe the three-part C++ build process.
 - Use comments in your C++ code.
 - Store data in variables and constants.
-- Output variables to the console for debugging purposed.
+- Understand the purpose for, and limits of, the primitive data types.
+- Output variables to the console.
+- Fetch user input from the keyboard.
 - Perform math operations on numbers and numeric variables.
 - Code various conditional and looping structures.
 - Define and use your own functions.
+- Use header files to forward declare functions.
 - Understand C++ scoping rules.
