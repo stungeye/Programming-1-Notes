@@ -82,6 +82,19 @@ std::string pizzaMessage(int piecesLeft, int hungryPeople) {
 std::cout << pizzaMessage(13, 7) << "\n";
 ```
 
+## Whitespace
+
+Because C++ ignores whitespace you'll sometimes see function calls spread over multiple lines.
+
+This is done for readability purposes and helps avoid extra-long lines of code.
+
+```cpp
+functionName(argumentOne,
+             argumentTwo,
+             argumentThree,
+             argumentFour);
+```
+
 ## Forward Declaration
 
 Functions need to be declared before they can be used.
