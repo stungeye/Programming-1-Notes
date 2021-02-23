@@ -52,13 +52,13 @@ Avoid using C-Style Arrays in C++.
 C-Style Arrays are defined with a type and a length.
 
 ```cpp
-int prime[4]{}; // An array of four ints.
+int primes[4]{}; // An array of four ints.
 ```
 
 Arrays can be initialized when declared:
 
 ```cpp
-int prime[4]{2, 3, 5, 7};
+int primes[4]{2, 3, 5, 7};
 ```
 
 🎵 Note:
@@ -72,15 +72,15 @@ Array length cannot be changed once defined.
 We can store and retrieve data into the array positions using zero-base indexes and square braces:
 
 ```cpp
-int prime[4]{}; // An array of four ints.
+int primes[4]{}; // An array of four ints.
 
-prime[0] = 2; // First element has index 0
-prime[1] = 3;
-prime[2] = 5;
-prime[3] = 7; // Last element has index 3 (length-1)
+primes[0] = 2; // First element has index 0
+primes[1] = 3;
+primes[2] = 5;
+primes[3] = 7; // Last element has index 3 (length-1)
 
 // Retrieve array elements by position:
-int sum = prime[0] + prime[1] + prime[2] + prime[3]
+int sum = primes[0] + primes[1] + primes[2] + primes[3]
 ```
 
 ## C-Style Array Length
@@ -148,13 +148,13 @@ Standard arrays are defined with a type and a size:
 
 ```cpp
 // Array of five integers
-std::array<int, 5> doubles;
+std::array<int, 5> evenNumbers;
 ```
 
 The type and size can be inferred if an initializer list is provided:
 
 ```cpp
-std::array doubles{2, 4, 6, 8, 10};
+std::array evenNumbers{2, 4, 6, 8, 10};
 ```
 
 🎵 Note:
@@ -168,8 +168,8 @@ Uninitialized array positions default to a value of zero.
 A standard array can be queried for its own length using the `size()` method.
 
 ```cpp
-std::array doubles{2, 4, 6, 8, 10};
-int length = doubles.size();
+std::array evenNumbers{2, 4, 6, 8, 10};
+int length = evenNumbers.size();
 ```
 
 ## C-Style vs Standard Array
@@ -177,6 +177,18 @@ int length = doubles.size();
 Here's a program that demonstrates some of the differences between `std::array` and C-Style Arrays.
 
 <iframe height="700px" width="100%" src="https://repl.it/@stungeye/C-Style-Array-Copy?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+## Out of Bounds Behaviour
+
+Both C-Style and Standard Arrays are missing array boundary checking. Historically this has been (and continues to be) a major source of bugs and security exploits.
+
+<iframe height="600px" width="100%" src="https://repl.it/@stungeye/Array-Out-of-Bounds?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+💡 Best Practice:
+{: .label .label-green }
+
+Manually include guards in your code to prevent out of bounds reads or writes.
+{: .d-inline-block }
 
 ## Looping Over Standard Arrays
 
@@ -221,7 +233,7 @@ We can switch to _pass-by-reference_ with the `&` operator. Passing a reference 
 ```cpp
 // Array passed as a reference for performance and as a const for safety:
 void calculateAverage(const std::array<double, 5>& data) {
-  // Identical function body as aboe.
+  // Identical function body as above.
 }
 ```
 

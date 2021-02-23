@@ -6,12 +6,15 @@ nav_order: 6
 
 # Container Structures
 
-C++ gives us a number of built-in data structures for storing and processing collections of data.
+C++ provides built-in data structures for storing and processing collections of data.
 
 ## Objectives
 
-- Namespaces
-- Arrays, Vectors, Maps, Sets
-- Range Based Looping
-- Optional, Pair, Tuple
-- Structured Bindings
+Upon completion of this module, you should be able to:
+
+- Describe the purpose of namespaces in relation to scope.
+- Use types defined in existing namespaces.
+- Define custom namespaces.
+- Store and access data of a uniform type in standard arrays and vectors.
+- Loop through the elements of an array or vector using a standard and range-based for loops.
+- List other helpful C++ container classes and their Unreal Engine counterparts.
