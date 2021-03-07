@@ -1,5 +1,5 @@
 ---
-title: Functions & Scope
+title: Functions
 parent: Introduction to C++
 nav_order: 8
 ---
@@ -159,24 +159,110 @@ The `<cstdlib>` header defines two status code you can use when returning from `
 
 ## Variable Scope
 
-Variables are scoped to the functions or the blocks in which they are defined.
+Like other `{}` blocks, C++ functions each have their own scope.
 
 ```cpp
 std::string gemFactory(int numberOfGems) {
   // The gems variable is a local variable.
-  std::string gems = std::string(numberOfGems, '💎');
+  std::string gems = std::string(numberOfGems, '💎'); // gems variable is scoped to function.
   return gems;
 }
 
-std::cout << gemFactory(5) << "\n";
-std::cout << gems; // Error. Variable is out of scope.
+int main() {
+  std::cout << gemFactory(5) << "\n";
+  std::cout << gems; // Error: "gems" variable is out of scope.
+}
+```
 
-int requestedGems;
-std::cout << "How many gems do you want? "
-std::cin >> requestedGems;
-if (requestedGems > 0) {
-  std::string yourGems = gemFactory(requestedGems); // yourGems is only scoped to this block.
+## Pass by Value
+
+C++ functions are _pass-by-value_ by default, meaning copies are made of the arguments passed to a function.
+
+```cpp
+int increment(int number) {
+  number++;
+  return number;
 }
 
-std::cout << yourGems << "\n"; // Error. The yourGems variable is out of scope.
+void main() {
+  int a = 5;
+  int b = increment(a); // The value of "a" is copied to the "number" parameter.
+
+  std::cout << a << "\n"; // Remained 5
+  std::cout << b << "\n"; // 6
+}
 ```
+
+🎵 Note:
+{: .label .label-yellow}
+
+There is a performance "copy cost" for non-primitive types like arrays or objects.
+{: .d-inline-block}
+
+## Pass By Const Reference
+
+To avoid the performance cost associated with pass-by-value we use [const references](/Programming-1-Notes/docs/05-introduction-to-cpp/03-data-types-variables-constants.html#reference-variables) for our function parameters. Passing a reference to a variable means no copy needs to be performed, the `const` prevents the function from changing the referenced variable.
+
+For example, let's use a reference parameter to avoid the cost of copying a large object into a function.
+
+```cpp
+void logMonster(const Monster& m) {
+  // Implementation details are unimportant.
+}
+```
+
+☝️ _Code assumes the `Monster` class is defined elsewhere._
+
+## Pass by Reference
+
+Changes made to non-`const` reference parameter affect the variable passed into the function.
+
+```cpp
+int mutator(int& number) {
+  number++; // Changes the value of the variable referenced by "number".
+  return number;
+}
+
+void main() {
+  int a = 5;
+  int b = mutator(a); // "a" and "b" become 6.
+
+  std::cout << a << "\n"; // 6
+  std::cout << b << "\n"; // 6
+}
+```
+
+💡 Best Practice:
+{: .label .label-green }
+
+[Prefer `return` statements](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rf-out) to using references to return data from functions.
+{: .d-inline-block}
+
+## In-Out Parameters
+
+Keeping the above best practice in mind, the performance hit of copying large variables into a function can be avoided using **in-out-parameters**.
+
+Non-`const` reference parameters allow expensive to copy variables to be modified by a function:
+
+```cpp
+void update(Monster& monster) {
+  // Updates the object referenced by "monster".
+  // Implementation unimportant.
+}
+```
+
+## Multiple Out Parameters
+
+Resist the urge to use reference parameters as a way of returning multiple values from a function.
+
+```cpp
+void calculateMovement(int time, int& xPosition, int& yPosition) {
+  // Implementation unimportant.
+}
+```
+
+⏳ Wait For It:
+{: .label .label-blue}
+
+It's better to return a composite data type like a `struct`, `tuple`, `pair`, etc.
+{: .d-inline-block}

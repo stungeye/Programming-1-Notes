@@ -56,17 +56,36 @@ int numberOfApples {6};  // List Initialization
 Initialize your variables on definition and use list initialization whenever possible.
 {: .d-inline-block }
 
+## Variable Scope
+
+Scope defines where in a program a variable is accessible.
+
+In C++, variables are scoped to the `{}` blocks in which they are defined.
+
+```cpp
+int existingGemCount = 3;
+int requestedGems = askUser('How many gems did you find?');
+
+if (requestedGems > 0) { // block starts here
+  int releasedGems = gemOracle(requestedGems); // releasedGems is only scoped to this block.
+} // block ends here
+
+existingGemCount += releasedGems // Error: "releasedGems" variable is out of scope.
+```
+
+☝️ Assumes that `askUser()` and `gemOracle()` have been defined elsewhere to return integers.
+
 ## Data Types
 
 We cannot define a variable without first declaring its data type. C++ supports user-defined data types, but we will start by looking at the built-in _primitive data types_.
 
 Data types in C++ fall into the following categories:
 
-- Booleans
-- Characters
-- Whole Numbers
-- Floating Point Numbers
-- Void
+- Booleans -- `bool`
+- Characters -- `char`
+- Whole Numbers -- `short`, `int` and `long`
+- Floating Point Numbers -- `float`, `double` and `long double`
+- Void -- `void`
 
 ## Booleans
 
@@ -269,7 +288,7 @@ constexpr double pi{3.1415926};
 pi = 3; // Error. Cannot redefine a constant.
 ```
 
-We use `const` to mark variables as immutable even if their value isn't know at compile time;
+We use `const` to mark variables as immutable even if their value isn't known at compile time;
 
 ```cpp
 const double temperature{someTemperatureFunction()};
@@ -278,6 +297,41 @@ temperature = 1.2; // Error. Cannot redefine a constant.
 
 💡 Best Practice:
 {: .label .label-green }
+
+## Reference Variables
+
+A reference is a type of variable that acts as an alias to another variable.
+
+References are declared using an ampersand `&` after the name of the type:
+
+```cpp
+int theAnswer = 42;
+int& referenceToTheAnswer{theAnswer};
+
+std::cout << theAnswer << "\n"; // 42
+std::cout << referenceToTheAnswer << "\n"; // 42
+
+referenceToTheAnswer = 0; // Change the value of the referenced variable.
+std::cout << theAnswer << "\n"; // 0
+```
+
+References can also be declared as `const` which prevents the referenced variable from being changed by way of the reference:
+
+```cpp
+int theAnswer = 42;
+const int& immutableAnswer{theAnswer};
+
+immutableAnswer = 0; // Compiler Error: Cannot assign to const-qualified reference.
+```
+
+⏳ Wait For It:
+{: .label .label-blue}
+
+References allow us to avoid the performance cost associated with copying data:
+{: .d-inline-block}
+
+- [Using references when passing arrays to functions](/Programming-1-Notes/docs/06-container-structures/02-arrays.html#passing-arrays-by-reference).
+- [Using references when passing vectors to functions](/Programming-1-Notes/docs/06-container-structures/03-vectors.html#passing-vectors-to-functions).
 
 ## Sizes Can Be Different
 

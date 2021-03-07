@@ -106,13 +106,14 @@ dreams %= 2; // Same as: dreams = dreams % 2
 
 ## Unary Increment and Decrement
 
-Like other C-influenced languages we have increment (`++`) and decrement (`--`) operators:
+Like other C-influenced languages we have increment (`++`) and decrement (`--`) operators.
 
 ```cpp
 let milesFromHome = 14333; // Miles away from everything you hold dear.
 milesFromHome++; // Up to 14334. Sames as: milesFromHome += 1
 milesFromHome--; // Back to 14333. Same as: milesFromHome -= 1
 milesFromHome--; // Down to 14332
+
 ++milesFromHome; // Prefix increment and decrements work too.
 ```
 

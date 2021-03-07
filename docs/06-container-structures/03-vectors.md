@@ -202,3 +202,4 @@ These affordances will make more sense once we study pointers and iterators.
 - [Standard Vector @ cpprefernce.com](https://en.cppreference.com/w/cpp/container/vector)
 - [Introduction to std::vector @ learncpp.com](https://www.learncpp.com/cpp-tutorial/an-introduction-to-stdvector/)
 - [Vector Capacity and Stack Behavior @ learncpp.com](https://www.learncpp.com/cpp-tutorial/stdvector-capacity-and-stack-behavior/)
+- [push_back vs emplace_back](https://yasenh.github.io/post/cpp-diary-1-emplace_back/)

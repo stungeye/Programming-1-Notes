@@ -17,6 +17,7 @@ Upon completion of this module, you should be able to:
 - Describe the three-part C++ build process.
 - Use comments in your C++ code.
 - Store data in variables and constants.
+- Define and use reference variables.
 - Understand the purpose for, and limits of, the primitive data types.
 - Output variables to the console.
 - Fetch user input from the keyboard.
