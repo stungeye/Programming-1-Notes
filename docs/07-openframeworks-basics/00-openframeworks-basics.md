@@ -158,7 +158,7 @@ int height = ofGetHeight();
 
 ## Drawing 2D Shapes
 
-There are a number of method that allow you to draw 2D shapes to the canvas like:
+There are a number of methods that allow you to draw 2D shapes to the canvas like:
 
 - [ofDrawLine()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawLine)
 - [ofDrawCircle()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawCircle) with [ofSetCircleResolution()](https://openframeworks.cc/documentation/graphics/ofGraphics/#show_ofSetCircleResolution)
@@ -168,6 +168,19 @@ There are a number of method that allow you to draw 2D shapes to the canvas like
 - [ofDrawTriangle()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawTriangle)
 
 Custom shapes can also be drawn using `ofPolyLine` and `ofPath`. [See the ofBook chapter on Advanced Graphics for more details](http://openframeworks.kr/ofBook/chapters/advanced_graphics.html).
+
+### Resources
+
+- 📺 [2D Shapes Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=MefIqbEXMFs&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=4) (9m04s)
+- 📺 [3D Shapes Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=ZNH8LvIhbMc&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=5) (6m33s)
+
+## Drawing Lines in 2D
+
+To be written.
+
+### Resources
+
+- 📺 [Smooth Lines Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=pkx9SwXxDXU&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=16) (5m47s)
 
 ## Shape Colour
 
@@ -186,6 +199,10 @@ ofSetColor(255,0,0,127); // Red, 50% transparent
 ofDrawRectangle(20,20,100,100);
 ofDisableAlphaBlending(); // Disable if you don't need alpha any more.
 ```
+
+### Resources
+
+- 📺 [Color Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=phjAR40MIjQ&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=7) (4m35s)
 
 ## ofColor Class
 
@@ -250,7 +267,7 @@ ofSetBackgroundAuto(false); // Disable automatic background clearing.
 ofSetBackgroundAuto(true); // Enable automatic background clearing.
 ```
 
-## Translation and Rotation
+## Translation, Rotation, and Scaling
 
 We can change the position, scale, and rotation of the coordinate system using a variety of translate and rotate methods.
 
@@ -271,6 +288,11 @@ ofDrawRectangle(0, 0, 100, 100); // Draw a diamond.
 ofPopMatrix(); // Restore the original coordinate system.
 ofDrawRectangle(0, 0, 100, 100); // Draw a square in the top left corner.
 ```
+
+### Resources
+
+- 📺 [Translate Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=1KfihADxxsI&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=6) (4m34s)
+- 📺 [Rotation Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=wM4gdiJXeIE&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=21) (6m53s)
 
 ## Mouse Position and Input
 
@@ -298,6 +320,10 @@ The value of the `button` parameter will be:
 
 More details on these callbacks and their touch event equivalents can be seen in the [`ofBaseApp` documentation](https://openframeworks.cc/documentation/application/ofBaseApp/).
 
+### Resources
+
+- 📺 [Mouse Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=RFr5cM4m5XA&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=15) (5m04s)
+
 ## Keyboard Events
 
 There are similar `keyPressed(int key)` and `keyReleased(int key)` callbacks available to handle keyboard events.
@@ -315,6 +341,10 @@ void keyPressed(int key){
 ```
 
 There are constants available to test for the arrow keys, backspace, return, and other special non-character keys: `OF_KEY_BACKSPACE`, `OF_KEY_RETURN`, `OF_KEY_PRINTSCR`, `OF_KEY_F1` to `OF_KEY_F12`, `OF_KEY_LEFT`, `OF_KEY_UP`, `OF_KEY_RIGHT`, `OF_KEY_DOWN`, `OF_KEY_PAGE_UP`, `OF_KEY_PAGE_DOWN`, `OF_KEY_HOME`, `OF_KEY_END`, `OF_KEY_INSERT`
+
+### Resources
+
+- 📺 [Keyboard Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=3DHpmJAzas4&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=14) (5m57s)
 
 ## Persistent Variables
 
@@ -351,6 +381,10 @@ freakyGoatGhost.draw(10, 50); // Top left corner at x = 10 and y = 50
 freakyGoatGhost.draw(100, 100, 50, 90); // Drawn at (100,100) resized to 50 width and 90 heights.
 ```
 
+### Resources
+
+- 📺 [Image Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=OLLtdyJC_Zs&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=8) (6m04s)
+
 ## Processing Image Pixels
 
 The color and brightness of any image pixel can be retrieved:
@@ -362,9 +396,28 @@ float brightnessAtXY = colorAtXY.getBrightness();
 
 The ofBook contains [a great chapter on computer vision and the sorts of low-level things you can do with image pixels](https://openframeworks.cc/ofBook/chapters/image_processing_computer_vision.html).
 
+## Simple Text
+
+We can draw simple debugging messages to the screen at a set font size using:
+
+```cpp
+// Using the current color set by `ofSetColor()`:
+ofDrawBitmapString("Hello Whirled", 100, 200); // Write text to x = 100, y = 200.
+// White text on black background.
+ofDrawBitmapStringHighlight("Hello Whirled", 100, 120);
+// Blue text on yellow background.
+ofDrawBitmapStringHighlight("Hello Whirled", 100, 140, ofColor::yellow, ofColor::blue);
+```
+
+### Resources
+
+- 📺 [Text Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=0grroKrKI1I&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=9) (2m31s)
+
 ## Text and Fonts
 
-Grab a true type font from your `c:\windows\fonts` folder a put it in the `bin\data` folder. For the sake of example, let's say you grabbed `verdana.ttf`.
+To draw text of any size we need to use a TrueType font.
+
+Grab a font from your `c:\windows\fonts` folder a put it in the `bin\data` folder. For the sake of example, let's say you grabbed `verdana.ttf`.
 
 In your project's `ofApp.h` file below the method definitions:
 
@@ -390,13 +443,50 @@ verdanatText.drawString("Hello Squirrel", 50, 100); // Output text at x = 50, y 
 
 More details in [the official `ofTrueTypeFont` documentation](https://openframeworks.cc/documentation/graphics/ofTrueTypeFont/).
 
+### Resources
+
+- 📺 [Text Font Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=6pecyHuP75Q&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=10) (5m21s)
+
 ## Debugging openFramework Applications
 
-To be written. :)
+**cout debugging**
+
+The easiest way to quickly debug a sketch is to use `cout` to output the state of your variables to the terminal window that opens along with your sketch.
+
+Downsides: The output can be overwhelming and will slow down your sketch.
+
+**drawString debugging**
+
+This is similar to `cout` debuggging, but instead you use a true type font to draw the state of certain variables to the screen.
+
+Downsides: Variables state output in this way will be overwritten every frame.
+
+**breakdown debugging**
+
+You can add one or more breakpoints by clicking in the breakpoint column to the left of your code. The breakpoints will show as red circles and can be clicked again to be removed.
+
+![A breakpoint set in Visual Studio](breakpoint.png)
+
+The execution of your code will now pause when a breakpoint is reached. You can then step into (F11), step over (F10), and step out (Shift-F11) to walk through your code line by line. There are buttons for these step-types as well:
+
+![Step Debugger UI](step-buttons.png)
+
+The state of local variables is shown below. You can add your own variables to watch as well.
+
+![Adding a Variable to Watch](watch.png)
+
+### Resources
+
+- [First Look at the Visual Studio Debugger](https://docs.microsoft.com/en-us/visualstudio/debugger/debugger-feature-tour)
+- [Learn to debug C++ code using Visual Studio](https://docs.microsoft.com/en-us/visualstudio/debugger/getting-started-with-the-debugger-cpp)
 
 ## oF Add Ons
 
 To be written. :)
+
+### Resources
+
+- 📺 [Project Generator and Addons Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=sgU_r4Kn_rk&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=3) (5m47s)
 
 ## Other Handy Utility Classes
 
@@ -470,7 +560,8 @@ void ofApp::draw(){
 
 ## Further Reading
 
-- [API Documentation @ openframeworks.cc](https://openframeworks.cc/documentation/)
-- [How-Tos and oF Book @ openframeworks.cc](https://openframeworks.cc/learning/)
 - [openFrameworks Forums](https://forum.openframeworks.cc/) - Sign Up ASAP :)
+- [API Documentation @ openframeworks.cc](https://openframeworks.cc/documentation/)
+- [How-Tos @ openframeworks.cc](https://openframeworks.cc/learning/)
+- [The ofBook @ openframeworks.cc](https://openframeworks.cc/ofBook/chapters/foreword.html)
 - [openFramworks Github Repo](https://github.com/openframeworks/)
