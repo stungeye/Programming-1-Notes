@@ -346,7 +346,7 @@ The value of the `button` parameter will be:
 
 ### Resources
 
-- 📗 More details on these callbacks and their touch event equivalents can be seen in the [`ofBaseApp` documentation](https://openframeworks.cc/documentation/application/ofBaseApp/).
+- 📗 Details on these callbacks and their touch event equivalents: [`ofBaseApp` documentation](https://openframeworks.cc/documentation/application/ofBaseApp/).
 - 📺 [Mouse Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=RFr5cM4m5XA&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=15) (5m04s)
 
 ## Keyboard Events
@@ -409,6 +409,9 @@ freakyGoatGhost.draw(100, 100, 50, 90); // Drawn at (100,100) resized to 50 widt
 ### Resources
 
 - 📺 [Image Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=OLLtdyJC_Zs&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=8) (6m04s)
+- 📙 [How to Load and Display an Image](https://openframeworks.cc/learning/02_graphics/how_to_load_and_display_an_image/)
+- 📙 [How to Mask and Image with a Shape](https://openframeworks.cc/learning/02_graphics/how_to_maskanimagewithashape/)
+- 📙 [How To Export Canvas Screenshot as Image](https://openframeworks.cc/learning/01_basics/how_to_save_a_file/)
 
 ## Processing Image Pixels
 
@@ -481,6 +484,12 @@ The easiest way to quickly debug a sketch is to use `cout` to output the state o
 
 Downsides: The output can be overwhelming and will slow down your sketch.
 
+**ofLog debuggin**
+
+The 📗 [`ofLog` class](https://openframeworks.cc/documentation/utils/ofLog/) is slightly more powerful than `cout` debugging as it involves log levels and the possibility of writing the log messages to a file.
+
+Downsides: Same as `cout` debugging.
+
 **drawString debugging**
 
 This is similar to `cout` debuggging, but instead you use a true type font to draw the state of certain variables to the screen.
@@ -503,6 +512,7 @@ The state of local variables is shown below. You can add your own variables to w
 
 ### Resources
 
+- 📙 [How to View the Value of an oF Variable](https://openframeworks.cc/learning/01_basics/how_to_view_value/)
 - 📚 [First Look at the Visual Studio Debugger](https://docs.microsoft.com/en-us/visualstudio/debugger/debugger-feature-tour)
 - 📚 [Learn to debug C++ code using Visual Studio](https://docs.microsoft.com/en-us/visualstudio/debugger/getting-started-with-the-debugger-cpp)
 
@@ -526,7 +536,7 @@ A few of the included addons:
 ### Resources
 
 - 📺 [Project Generator and Addons Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=sgU_r4Kn_rk&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=3) (5m47s)
-- 📚 [Addon HowTo @ openframeworks.cc](https://openframeworks.cc/learning/01_basics/how_to_add_addon_to_project/)
+- 📙 [Addon HowTo @ openframeworks.cc](https://openframeworks.cc/learning/01_basics/how_to_add_addon_to_project/)
 
 ## Other Handy Utility Classes
 
