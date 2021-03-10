@@ -1,6 +1,6 @@
 ---
 title: Other Containers
-parent: Container Structures
+parent: Collections of Data
 nav_order: 4
 ---
 

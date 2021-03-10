@@ -1,10 +1,10 @@
 ---
-title: Container Structures
+title: Collections of Data
 has_children: true
 nav_order: 6
 ---
 
-# Container Structures
+# Collections of Data
 
 C++ provides built-in data structures for storing and processing collections of data.
 

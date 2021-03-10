@@ -120,7 +120,7 @@ At the heart of every openFrameworks application are the `setup`, `update` and `
 - `ofApp::update()` is run once per frame, allowing us to update the state of our application.
 - `ofApp::draw()` is run once per frame (after `update`) and should include all graphical output.
 
-The speed at which oF will attemp to call the `draw` method is controlled by setting the target framework calling `ofSetFrameRate()` in `setup`.
+The speed at which oF will attemp to call the `draw` method is controlled by setting the target framerate by calling `ofSetFrameRate()` in `setup`.
 
 ## The Canvas
 
@@ -128,18 +128,18 @@ The speed at which oF will attemp to call the `draw` method is controlled by set
 
 When working in 2D, the canvas can be consider to be a 2D grid of pixels. This is similar to the x/y cartesian coordinates used in high-school algebra, but with a few changes:
 
-- The origin (x = 0 and y = 0) is in the top left corner of the screen.
+- The origin (where x and y are zero) is in the top left corner of the screen.
 - The y-axis is flipped such that values of y increase as you go down the screen.
 
-The image to the right show a dot at `x = 2` and `y = 3`.
+The image to the right shows a dot at `x = 2` and `y = 3`.
 
 ## Canvas Size
 
-By default the size of the canvas is 1024 (width) by 768 (height). The size of the canvas can be changed by resizing the application window or in the `main.cpp` file:
+By default the size of the canvas is 1024 (width) by 768 (height). The size of the canvas can be changed by resizing the application window, or in the `main.cpp` file:
 
 ```cpp
-ofSetupOpenGL(1024, 768, OF_WINDOW);
-ofSetupOpenGL(1024, 768, OF_FULLSCREEN);
+ofSetupOpenGL(1024, 768, OF_WINDOW); // 1024x768 Windowed
+ofSetupOpenGL(1024, 768, OF_FULLSCREEN); // 1024x768 Full Screen
 ```
 
 The size and position of the canvas can also be changed from within `ofApp:setup()`:
@@ -167,13 +167,7 @@ There are a number of method that allow you to draw 2D shapes to the canvas like
 - [ofDrawRectRounded()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawRectRounded)
 - [ofDrawTriangle()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawTriangle)
 
-Custom shapes can also be drawn using:
-
-- [ofSetPolyMode()](https://openframeworks.cc/documentation/graphics/ofGraphics/#show_ofSetPolyMode)
-- [ofBeginShape()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofBeginShape)
-- [ofEndShape()](https://openframeworks.cc/documentation/graphics/ofGraphics/#show_ofEndShape)
-- [ofVertex()](https://openframeworks.cc/documentation/graphics/ofGraphics/#show_ofVertex)
-- [ofBezierVertex](https://openframeworks.cc/documentation/graphics/ofGraphics/#show_ofBezierVertex)
+Custom shapes can also be drawn using `ofPolyLine` and `ofPath`. [See the ofBook chapter on Advanced Graphics for more details](http://openframeworks.kr/ofBook/chapters/advanced_graphics.html).
 
 ## Shape Colour
 
@@ -184,7 +178,7 @@ ofSetColor(200); // Greyscale color from 0 (black) to 255 (white).
 ofSetColor(255, 0, 0); // R, G, B values from 0 to 255.
 ```
 
-Alpha blending can be enabled to create colours with a 0-255 level of transparency, where 0 is full transparent and 255 is fully opaque.
+Alpha blending can be enabled to create colours with a 0-255 level of transparency, where 0 is fully transparent and 255 is fully opaque.
 
 ```cpp
 ofEnableAlphaBlending(); // With Alpha Blending enable we can make transparent colours.
@@ -193,7 +187,9 @@ ofDrawRectangle(20,20,100,100);
 ofDisableAlphaBlending(); // Disable if you don't need alpha any more.
 ```
 
-There's also an [`ofColor` data type](https://openframeworks.cc///documentation/types/ofColor/) and a bunch of predefined colors:
+## ofColor Class
+
+There's also an [`ofColor` data type](https://openframeworks.cc///documentation/types/ofColor/), which includes a bunch of predefined colors:
 
 ```cpp
 // ofColor object configured using r/g/b properties:
@@ -203,7 +199,7 @@ red.g=0;
 red.b=0;
 ofSetColor(red);
 // ofColor created using a constructor:
-ofColor green(0, 255, 0);
+ofColor green(0, 255, 0, 255);
 ofSetColor(green);
 // Using a pre-defined color by name:
 ofSetColor(ofColor::fuchsia);
@@ -368,21 +364,58 @@ The ofBook contains [a great chapter on computer vision and the sorts of low-lev
 
 ## Text and Fonts
 
-## Handy Classes
+Grab a true type font from your `c:\windows\fonts` folder a put it in the `bin\data` folder. For the sake of example, let's say you grabbed `verdana.ttf`.
+
+In your project's `ofApp.h` file below the method definitions:
+
+```cpp
+private:
+    ofTrueTypeFont	verdanaText;
+```
+
+In the associated `ofApp.cpp` file, with `setup()`:
+
+```cpp
+ofTrueTypeFont::setGlobalDpi(72); // Default is 96, but results in larger than normal pt size.
+verdanaText.load("verdana.ttf", 14, true, true); // filename, point size, antialiased boolean, full char-set boolean
+verdanaText.setLineHeight(18.0); // Default is based on font size.
+verdanaText.setLetterSpacing(1.05); // Default is based on font size.
+```
+
+And then within `draw()`:
+
+```cpp
+verdanatText.drawString("Hello Squirrel", 50, 100); // Output text at x = 50, y = 100
+```
+
+More details in [the official `ofTrueTypeFont` documentation](https://openframeworks.cc/documentation/graphics/ofTrueTypeFont/).
+
+## oF Add Ons
+
+Too be written. :)
+
+## Other Handy Utility Classes
 
 There's so much more to openFrameworks! You can start by exploring these handy classes:
 
 - [`ofRectangle`](https://openframeworks.cc/documentation/types/ofRectangle/) - Super handy for simple collision detection hit boxes.
-- [`ofPolyLine`](https://openframeworks.cc/documentation/graphics/ofPolyline/) -
-- [`ofPath`](https://openframeworks.cc/documentation/graphics/ofPath/)
-- [`ofPixels`](https://openframeworks.cc/documentation/graphics/ofPixels/)
-- [`ofDirectory`](https://openframeworks.cc/documentation/utils/ofDirectory/), [`ofFilePath`](https://openframeworks.cc/documentation/utils/ofFilePath/) and [`ofFile`](https://openframeworks.cc/documentation/utils/ofFile/)
-- [`ofURLFileLoader`](https://openframeworks.cc///documentation/utils/ofURLFileLoader/)
+- [`ofDirectory`](https://openframeworks.cc/documentation/utils/ofDirectory/), [`ofFilePath`](https://openframeworks.cc/documentation/utils/ofFilePath/) and [`ofFile`](https://openframeworks.cc/documentation/utils/ofFile/) - For working with files.
+- [`ofURLFileLoader`](https://openframeworks.cc///documentation/utils/ofURLFileLoader/) - For loading data from URLs.
 - [And many more!](https://openframeworks.cc/documentation/)
+
+## Example Code to Study
+
+You'll find two example programs below, but there are lots of examples out there you can learn from:
+
+- [Official openFrameworks Example](https://github.com/openframeworks/openFrameworks/tree/master/examples) - There are also found in the `examples` folder of the openFrameworks zip file.
+- [Cookbook of Common Tasks from ofAuckland](https://sites.google.com/site/ofauckland/examples)
+- [Example Source from Mastering openFrameworks Book](https://github.com/firmread/ofDemystified)
+- [Lewis Lepton's 76 Video openFrameworks YouTube series](https://www.youtube.com/playlist?list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7) and [the associated github repo](https://github.com/lewislepton/openFrameworksTutorialSeries).
+- Dan Buzzo's [openFrameworks superBasics YouTube series](https://www.youtube.com/playlist?list=PL6QF0yo3Zj7DbN76C5-_6VCDF5CPBIz6l) and [his many other playlists](https://www.youtube.com/c/danbuzzo/featured).
 
 ## Example Sketch One - Mouse Trails
 
-Manually clearing the background with an alpha channel to create some mouse trails.
+Manually clearing the background with an alpha channel to create some mouse trails:
 
 ```cpp
 void ofApp::setup(){
@@ -401,6 +434,8 @@ void ofApp::draw(){
 ```
 
 ## Example Sketch Two - Twisted Squares
+
+Scaling and rotation of a circle controlled by the mouse position:
 
 ```cpp
 void ofApp::setup(){
@@ -429,15 +464,9 @@ void ofApp::draw(){
 }
 ```
 
-## oF Add Ons
-
-Too be written. :)
-
 ## Further Reading
 
 - [API Documentation @ openframeworks.cc](https://openframeworks.cc/documentation/)
 - [How-Tos and oF Book @ openframeworks.cc](https://openframeworks.cc/learning/)
 - [openFrameworks Forums](https://forum.openframeworks.cc/) - Sign Up ASAP :)
 - [openFramworks Github Repo](https://github.com/openframeworks/)
-- [Cookbook of Common Tasks](https://sites.google.com/site/ofauckland/examples)
-- [Example Source from Mastering openFrameworks Book](https://github.com/firmread/ofDemystified)
