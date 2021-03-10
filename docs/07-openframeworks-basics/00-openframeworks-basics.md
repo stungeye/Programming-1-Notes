@@ -390,9 +390,13 @@ verdanatText.drawString("Hello Squirrel", 50, 100); // Output text at x = 50, y 
 
 More details in [the official `ofTrueTypeFont` documentation](https://openframeworks.cc/documentation/graphics/ofTrueTypeFont/).
 
+## Debugging openFramework Applications
+
+To be written. :)
+
 ## oF Add Ons
 
-Too be written. :)
+To be written. :)
 
 ## Other Handy Utility Classes
 
