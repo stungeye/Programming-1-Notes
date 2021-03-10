@@ -1,7 +1,7 @@
 ---
 title: Other Containers
 parent: Collections of Data
-nav_order: 4
+nav_order: 5
 ---
 
 <!--prettier-ignore-start-->
@@ -27,6 +27,8 @@ This module lists some of the most commonly used of these containers and their U
 
 Array of fixed length for storing ordered data of an uniform type.
 
+Course Notes: [Arrays Module](/Programming-1-Notes/docs/06-collections/02-arrays.html)
+
 Reference: [cppreference.com](https://en.cppreference.com/w/cpp/container/array)
 
 Unreal Engine: [TArray](https://docs.unrealengine.com/en-US/ProgrammingAndScripting/ProgrammingWithCPP/UnrealArchitecture/TArrays/index.html)
@@ -35,9 +37,21 @@ Unreal Engine: [TArray](https://docs.unrealengine.com/en-US/ProgrammingAndScript
 
 Array of variable length for storing ordered data of an uniform type.
 
+Course Notes: [Vectors Module](/Programming-1-Notes/docs/06-collections/03-vectors.html)
+
 Reference: [cppreference.com](https://en.cppreference.com/w/cpp/container/vector)
 
 Unreal Engine: [TArray](https://docs.unrealengine.com/en-US/ProgrammingAndScripting/ProgrammingWithCPP/UnrealArchitecture/TArrays/index.html)
+
+## String `std::string`
+
+Collection of characters.
+
+Course Notes: [Strings Module](/Programming-1-Notes/docs/06-collections/04-strings.html)
+
+Reference: [cppreference.com](https://en.cppreference.com/w/cpp/string/basic_string)
+
+Unreal Engine: [FString](https://docs.unrealengine.com/en-US/API/Runtime/Core/Containers/FString/index.html)
 
 ## Map `std::map` & `std::unordered_map`
 
@@ -70,11 +84,3 @@ Collection of two values of different types.
 Reference: [cppreference.com](https://en.cppreference.com/w/cpp/utility/pair)
 
 Unreal Engine: [TPair](https://docs.unrealengine.com/en-US/API/Runtime/Core/Containers/TPair/index.html)
-
-## String `std::string`
-
-Collection of characters.
-
-Reference: [cppreference.com](https://en.cppreference.com/w/cpp/string/basic_string)
-
-Unreal Engine: [FString](https://docs.unrealengine.com/en-US/API/Runtime/Core/Containers/FString/index.html)

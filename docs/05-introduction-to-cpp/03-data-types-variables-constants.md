@@ -134,14 +134,16 @@ To use variables of type `std::string` you must `#include` the `<string>` header
 #include <string>
 
 int main() {
-  std:string simpsonsQuote = "It was the best of times, it was the blurst of times.";
+  std::string simpsonsQuote = "It was the best of times, it was the blurst of times.";
+  int amount = 12;
+  std::string woodChuck = "The woodchuck chucked " + std::toString(amount) + " pieces of wood.";
 }
 ```
 
 ⏳ Wait For It:
 {: .label .label-blue}
 
-We'll learn a lot more about strings in the section on standard collection types.
+We'll learn a lot more about strings [in the standard collection types module](/Programming-1-Notes/docs/06-collections/04-strings.html).
 {: .d-inline-block}
 
 ## Whole Numbers
