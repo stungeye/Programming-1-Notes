@@ -156,6 +156,26 @@ int width = ofGetWidth();
 int height = ofGetHeight();
 ```
 
+## Drawing Lines in 2D
+
+We can draw a line between any two points on the canvas:
+
+```cpp
+ofSetLineWidth(5); // If not set, defaults to a thickness of 1.
+ofDrawLine(0, 0, ofGetWidth(), ofGetHeight()); // Line from top left to bottom right corners.
+```
+
+For anti-aliased lines we need to the following to `setup()`:
+
+```cpp
+ofEnableSmoothing();
+```
+
+### Resources
+
+- 📺 [Smooth Lines Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=pkx9SwXxDXU&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=16) (5m47s)
+- 📘 [Drawing Lines using `ofPolyLine` @ ofBook](https://openframeworks.cc/ofBook/chapters/lines.html)
+
 ## Drawing 2D Shapes
 
 There are a number of methods that allow you to draw 2D shapes to the canvas like:
@@ -167,24 +187,18 @@ There are a number of methods that allow you to draw 2D shapes to the canvas lik
 - [ofDrawRectRounded()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawRectRounded)
 - [ofDrawTriangle()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawTriangle)
 
-Custom shapes can also be drawn using `ofPolyLine` and `ofPath`. [See the ofBook chapter on Advanced Graphics for more details](http://openframeworks.kr/ofBook/chapters/advanced_graphics.html).
+### Resources
+
+- 📘 [Custom shapes with `ofPolyLine` and `ofPath` @ ofBook](http://openframeworks.kr/ofBook/chapters/advanced_graphics.html).
 
 ### Resources
 
 - 📺 [2D Shapes Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=MefIqbEXMFs&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=4) (9m04s)
 - 📺 [3D Shapes Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=ZNH8LvIhbMc&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=5) (6m33s)
 
-## Drawing Lines in 2D
+## Colour
 
-To be written.
-
-### Resources
-
-- 📺 [Smooth Lines Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=pkx9SwXxDXU&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=16) (5m47s)
-
-## Shape Colour
-
-The color of the shapes you draw is set using the [ofSetColor()](https://openframeworks.cc/documentation/graphics/ofGraphics/#show_ofSetColor):
+The color of the lines and shapes you draw is set using [ofSetColor()](https://openframeworks.cc/documentation/graphics/ofGraphics/#show_ofSetColor):
 
 ```cpp
 ofSetColor(200); // Greyscale color from 0 (black) to 255 (white).
@@ -394,7 +408,9 @@ ofColor colorAtXY = freakyGoatGhost.getColor(30, 90); // The colour at x = 30 an
 float brightnessAtXY = colorAtXY.getBrightness();
 ```
 
-The ofBook contains [a great chapter on computer vision and the sorts of low-level things you can do with image pixels](https://openframeworks.cc/ofBook/chapters/image_processing_computer_vision.html).
+### Resources
+
+- 📘 [The ofBook contains a chapter on computer vision and the sorts of low-level things you can do with image pixels](https://openframeworks.cc/ofBook/chapters/image_processing_computer_vision.html).
 
 ## Simple Text
 
