@@ -206,7 +206,7 @@ There are a number of methods that allow you to draw 2D shapes to the canvas lik
 
 ## Colour
 
-The color of the lines and shapes you draw is set using [ofSetColor()](https://openframeworks.cc/documentation/graphics/ofGraphics/#show_ofSetColor):
+The color of the lines and shapes you draw is set using `ofSetColor()`:
 
 ```cpp
 ofSetColor(200); // Greyscale color from 0 (black) to 255 (white).
@@ -224,11 +224,12 @@ ofDisableAlphaBlending(); // Disable if you don't need alpha any more.
 
 ### Resources
 
+- 📗 [See the official `ofSetColor()` docs](https://openframeworks.cc/documentation/graphics/ofGraphics/#show_ofSetColor).
 - 📺 [Color Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=phjAR40MIjQ&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=7) (4m35s)
 
 ## ofColor Class
 
-There's also an [`ofColor` data type](https://openframeworks.cc///documentation/types/ofColor/), which includes a bunch of predefined colors:
+There's also an `ofColor` data type, which includes a bunch of predefined colors:
 
 ```cpp
 // ofColor object configured using r/g/b properties:
@@ -424,7 +425,7 @@ float brightnessAtXY = colorAtXY.getBrightness();
 
 ### Resources
 
-- 📘 [The ofBook contains a chapter on computer vision and the sorts of low-level things you can do with image pixels](https://openframeworks.cc/ofBook/chapters/image_processing_computer_vision.html).
+- 📘 [The ofBook chapter on computer vision and low-level image pixel processing](https://openframeworks.cc/ofBook/chapters/image_processing_computer_vision.html).
 
 ## Simple Text
 
@@ -460,7 +461,7 @@ In the associated `ofApp.cpp` file, with `setup()`:
 
 ```cpp
 ofTrueTypeFont::setGlobalDpi(72); // Default is 96, but results in larger than normal pt size.
-verdanaText.load("verdana.ttf", 14, true, true); // filename, point size, antialiased boolean, full char-set boolean
+verdanaText.load("verdana.ttf", 14, true, true); // filename, point size, antialiased?, full char-set?
 verdanaText.setLineHeight(18.0); // Default is based on font size.
 verdanaText.setLetterSpacing(1.05); // Default is based on font size.
 ```
@@ -482,19 +483,19 @@ verdanatText.drawString("Hello Squirrel", 50, 100); // Output text at x = 50, y 
 
 The easiest way to quickly debug a sketch is to use `cout` to output the state of your variables to the terminal window that opens along with your sketch.
 
-Downsides: The output can be overwhelming and will slow down your sketch.
+_Downsides: The output can be overwhelming and will slow down your sketch._
 
-**ofLog debuggin**
+**ofLog debugging**
 
-The 📗 [`ofLog` class](https://openframeworks.cc/documentation/utils/ofLog/) is slightly more powerful than `cout` debugging as it involves log levels and the possibility of writing the log messages to a file.
+The `ofLog` class is slightly more powerful than `cout` debugging as it allows for log levels and the possibility of writing log messages to a file.
 
-Downsides: Same as `cout` debugging.
+_Downsides: Same as `cout` debugging._
 
 **drawString debugging**
 
 This is similar to `cout` debuggging, but instead you use a true type font to draw the state of certain variables to the screen.
 
-Downsides: Variables state output in this way will be overwritten every frame.
+_Downsides: Variables state output in this way will be overwritten every frame._
 
 **breakdown debugging**
 
@@ -513,6 +514,7 @@ The state of local variables is shown below. You can add your own variables to w
 ### Resources
 
 - 📙 [How to View the Value of an oF Variable](https://openframeworks.cc/learning/01_basics/how_to_view_value/)
+- 📗 [Official `ofLog` Documentation](https://openframeworks.cc/documentation/utils/ofLog/)
 - 📚 [First Look at the Visual Studio Debugger](https://docs.microsoft.com/en-us/visualstudio/debugger/debugger-feature-tour)
 - 📚 [Learn to debug C++ code using Visual Studio](https://docs.microsoft.com/en-us/visualstudio/debugger/getting-started-with-the-debugger-cpp)
 
