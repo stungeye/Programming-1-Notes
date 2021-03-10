@@ -45,6 +45,17 @@ Upon completion of this module, you should be able to:
 - Respond to keyboard and mouse events.
 - Display text to the debugging console and to the canvas.
 
+## Linked Resources
+
+Linked resources will be identified with the following emoji:
+
+- 📺: YouTube Video (Primarily from [Lewis Lepton's openFrameworks series](https://www.youtube.com/watch?v=dwt2NAd1ZYY&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=1).)
+- 📗: Reference page from [the official oF API docs](https://openframeworks.cc/documentation/).
+- 📘: Chapter from [the official ofBook](https://openframeworks.cc/ofBook/chapters/foreword.html).
+- 📙: One of the [official how-to guides](https://openframeworks.cc/learning/)
+- 📚: Any other online tutorial, guide, or blog post.
+- 🗃️: Source code repository.
+
 ## Installing openFrameworks
 
 In this course we'll be using the Windows version of openFrameworks for Microsoft's Visual Studio.
@@ -180,21 +191,18 @@ ofEnableSmoothing();
 
 There are a number of methods that allow you to draw 2D shapes to the canvas like:
 
-- [ofDrawLine()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawLine)
-- [ofDrawCircle()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawCircle) with [ofSetCircleResolution()](https://openframeworks.cc/documentation/graphics/ofGraphics/#show_ofSetCircleResolution)
-- [ofDrawEllipse()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawEllipse)
-- [ofDrawRectangle()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawRectangle) with [ofSetRectMode()](https://openframeworks.cc/documentation/graphics/ofGraphics/#show_ofSetRectMode)
-- [ofDrawRectRounded()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawRectRounded)
-- [ofDrawTriangle()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawTriangle)
-
-### Resources
-
-- 📘 [Custom shapes with `ofPolyLine` and `ofPath` @ ofBook](http://openframeworks.kr/ofBook/chapters/advanced_graphics.html).
+- 📗 [ofDrawLine()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawLine)
+- 📗 [ofDrawCircle()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawCircle) with [ofSetCircleResolution()](https://openframeworks.cc/documentation/graphics/ofGraphics/#show_ofSetCircleResolution)
+- 📗 [ofDrawEllipse()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawEllipse)
+- 📗 [ofDrawRectangle()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawRectangle) with [ofSetRectMode()](https://openframeworks.cc/documentation/graphics/ofGraphics/#show_ofSetRectMode)
+- 📗 [ofDrawRectRounded()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawRectRounded)
+- 📗 [ofDrawTriangle()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawTriangle)
 
 ### Resources
 
 - 📺 [2D Shapes Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=MefIqbEXMFs&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=4) (9m04s)
 - 📺 [3D Shapes Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=ZNH8LvIhbMc&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=5) (6m33s)
+- 📘 [Custom shapes with `ofPolyLine` and `ofPath` @ ofBook](http://openframeworks.kr/ofBook/chapters/advanced_graphics.html).
 
 ## Colour
 
@@ -236,7 +244,11 @@ ofSetColor(green);
 ofSetColor(ofColor::fuchsia);
 ```
 
-There much more to `ofColor` like lerping, inverting colors, or working in the HSB color space. [See the official `ofColor` docs for more details](https://openframeworks.cc/documentation/types/ofColor/).
+There's much more to `ofColor` like lerping, inverting colors, or working in the HSB color space.
+
+### Resources
+
+- 📗 [See the official `ofColor` docs for more details](https://openframeworks.cc/documentation/types/ofColor/).
 
 ## Shape Fill
 
@@ -332,10 +344,9 @@ The value of the `button` parameter will be:
 - `1` if the center button/wheel is pressed.
 - `2` if the right button is pressed.
 
-More details on these callbacks and their touch event equivalents can be seen in the [`ofBaseApp` documentation](https://openframeworks.cc/documentation/application/ofBaseApp/).
-
 ### Resources
 
+- 📗 More details on these callbacks and their touch event equivalents can be seen in the [`ofBaseApp` documentation](https://openframeworks.cc/documentation/application/ofBaseApp/).
 - 📺 [Mouse Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=RFr5cM4m5XA&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=15) (5m04s)
 
 ## Keyboard Events
@@ -439,7 +450,7 @@ In your project's `ofApp.h` file below the method definitions:
 
 ```cpp
 private:
-    ofTrueTypeFont	verdanaText;
+    ofTrueTypeFont verdanaText;
 ```
 
 In the associated `ofApp.cpp` file, with `setup()`:
@@ -457,10 +468,9 @@ And then within `draw()`:
 verdanatText.drawString("Hello Squirrel", 50, 100); // Output text at x = 50, y = 100
 ```
 
-More details in [the official `ofTrueTypeFont` documentation](https://openframeworks.cc/documentation/graphics/ofTrueTypeFont/).
-
 ### Resources
 
+- 📗 [The official `ofTrueTypeFont` documentation](https://openframeworks.cc/documentation/graphics/ofTrueTypeFont/).
 - 📺 [Text Font Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=6pecyHuP75Q&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=10) (5m21s)
 
 ## Debugging openFramework Applications
@@ -493,49 +503,63 @@ The state of local variables is shown below. You can add your own variables to w
 
 ### Resources
 
-- [First Look at the Visual Studio Debugger](https://docs.microsoft.com/en-us/visualstudio/debugger/debugger-feature-tour)
-- [Learn to debug C++ code using Visual Studio](https://docs.microsoft.com/en-us/visualstudio/debugger/getting-started-with-the-debugger-cpp)
+- 📚 [First Look at the Visual Studio Debugger](https://docs.microsoft.com/en-us/visualstudio/debugger/debugger-feature-tour)
+- 📚 [Learn to debug C++ code using Visual Studio](https://docs.microsoft.com/en-us/visualstudio/debugger/getting-started-with-the-debugger-cpp)
 
 ## oF Add Ons
 
-To be written. :)
+openFramworks comes packaged with a number of addons that add extra functionality to the toolkit. A large number of community supported addons are also available through [ofxaddons.com](https://ofxaddons.com).
+
+The included addons can be found in the `addons` folder. Any community addons you wish to use should be added to this folder.
+
+Addons can be added to new or existing projects using the project generator app.
+
+A few of the included addons:
+
+- 📗 [ofxGui](https://openframeworks.cc/documentation/ofxGui/) - Handy parameter tweaking GUI with sliders, checkboxes, and buttons. 🗃️ [Examples](https://github.com/openframeworks/openFrameworks/tree/master/examples/gui).
+- 📗 [ofxBox2d](https://github.com/vanderlin/ofxBox2d) - 2D physics engine that wraps [Box2d](https://box2d.org/). 🗃️ [Examples](https://github.com/vanderlin/ofxBox2d).
+- 📗 [ofxNetwork](https://openframeworks.cc/ja/documentation/ofxNetwork/) and [ofxOSC](https://openframeworks.cc/documentation/ofxOsc/) - TCP, UPC, and OSC networking libraries. 🗃️ [Examples](https://github.com/openframeworks/openFrameworks/tree/master/examples/communication).
+- 📗 [ofxOpenCV](https://openframeworks.cc/documentation/ofxOpenCv/) - Wraps the powerful [OpenCV computer vision library](https://opencv.org/). 🗃️ [Examples](https://github.com/openframeworks/openFrameworks/tree/master/examples/computer_vision).
+- 📗 [ofxSVG](https://openframeworks.cc/documentation/ofxSVG/) - Vector graphics loader for SVG files. 🗃️ [Example](https://github.com/openframeworks/openFrameworks/tree/master/examples/input_output/svgExample).
+- 📗 [ofxXMLSettings](https://openframeworks.cc/documentation/ofxXmlSettings/) - Simple XML loader and saver. 🗃️ [Example](https://github.com/openframeworks/openFrameworks/tree/master/examples/input_output/xmlExamples).
 
 ### Resources
 
 - 📺 [Project Generator and Addons Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=sgU_r4Kn_rk&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=3) (5m47s)
+- 📚 [Addon HowTo @ openframeworks.cc](https://openframeworks.cc/learning/01_basics/how_to_add_addon_to_project/)
 
 ## Other Handy Utility Classes
 
 There's so much more to openFrameworks! You can start by exploring these handy classes:
 
-- [`ofRectangle`](https://openframeworks.cc/documentation/types/ofRectangle/) - Super handy for simple collision detection hit boxes.
-- [`ofDirectory`](https://openframeworks.cc/documentation/utils/ofDirectory/), [`ofFilePath`](https://openframeworks.cc/documentation/utils/ofFilePath/) and [`ofFile`](https://openframeworks.cc/documentation/utils/ofFile/) - For working with files.
-- [`ofURLFileLoader`](https://openframeworks.cc///documentation/utils/ofURLFileLoader/) - For loading data from URLs.
-- [And many more!](https://openframeworks.cc/documentation/)
+- 📗 [`ofRectangle`](https://openframeworks.cc/documentation/types/ofRectangle/) - Super handy for simple collision detection hit boxes.
+- 📗 [`ofDirectory`](https://openframeworks.cc/documentation/utils/ofDirectory/), [`ofFilePath`](https://openframeworks.cc/documentation/utils/ofFilePath/) and [`ofFile`](https://openframeworks.cc/documentation/utils/ofFile/) - For working with files.
+- 📗 [`ofURLFileLoader`](https://openframeworks.cc///documentation/utils/ofURLFileLoader/) - For loading data from URLs.
+- 📗 [And many more!](https://openframeworks.cc/documentation/)
 
 ## Example Code to Study
 
 You'll find two example programs below, but there are lots of examples out there you can learn from:
 
-- [Official openFrameworks Example](https://github.com/openframeworks/openFrameworks/tree/master/examples) - There are also found in the `examples` folder of the openFrameworks zip file.
-- [Cookbook of Common Tasks from ofAuckland](https://sites.google.com/site/ofauckland/examples)
-- [Example Source from Mastering openFrameworks Book](https://github.com/firmread/ofDemystified)
-- [Lewis Lepton's 76 Video openFrameworks YouTube series](https://www.youtube.com/playlist?list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7) and [the associated github repo](https://github.com/lewislepton/openFrameworksTutorialSeries).
-- Dan Buzzo's [openFrameworks superBasics YouTube series](https://www.youtube.com/playlist?list=PL6QF0yo3Zj7DbN76C5-_6VCDF5CPBIz6l) and [his many other playlists](https://www.youtube.com/c/danbuzzo/featured).
+- 🗃️ [Official openFrameworks Examples](https://github.com/openframeworks/openFrameworks/tree/master/examples) - There are also found in the `examples` folder of the openFrameworks zip file.
+- 📚 [Cookbook of Common Tasks from ofAuckland](https://sites.google.com/site/ofauckland/examples)
+- 🗃️ [Example Source from Mastering openFrameworks Book](https://github.com/firmread/ofDemystified)
+- 📺 [Lewis Lepton's 76 Video openFrameworks YouTube series](https://www.youtube.com/playlist?list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7) and 🗃️ [the associated github repo](https://github.com/lewislepton/openFrameworksTutorialSeries).
+- 📺 Dan Buzzo's [openFrameworks superBasics YouTube series](https://www.youtube.com/playlist?list=PL6QF0yo3Zj7DbN76C5-_6VCDF5CPBIz6l) and [his many other playlists](https://www.youtube.com/c/danbuzzo/featured).
 
 ## Example Sketch One - Mouse Trails
 
 Manually clearing the background with an alpha channel to create some mouse trails:
 
 ```cpp
-void ofApp::setup(){
+void ofApp::setup() {
     ofSetBackgroundAuto(false); // Disable automatic background clearing.
     ofEnableAlphaBlending();    // Allow alpha channel transparency.
     ofSetCircleResolution(50);  // Make circles smoother than the default.
     ofSetFrameRate(60);         // Set the framerate to 60 frames per second.
 }
 
-void ofApp::draw(){
+void ofApp::draw() {
     ofSetColor(0, 0, 0, 10); // Set the fill color to black with a low alpha value.
     ofDrawRectangle(0, 0, ofGetWidth(), ofGetHeight()); // Draw a rectangle that covers the canvas.
     ofSetColor(255, 255, 255, 255); // Set the fill color to white with full alpha.
@@ -548,13 +572,13 @@ void ofApp::draw(){
 Scaling and rotation of a circle controlled by the mouse position:
 
 ```cpp
-void ofApp::setup(){
+void ofApp::setup() {
     ofSetFrameRate(60); // Set frame rate to 60 FPS.
     ofSetRectMode(OF_RECTMODE_CENTER); // Rectangle x/y positions specify the shape's center.
     ofNoFill(); // Don't fill shapes.
 }
 
-void ofApp::draw(){
+void ofApp::draw() {
     // Pink and blue circular background gradient.
     ofBackgroundGradient(ofColor::deepPink, ofColor::deepSkyBlue, OF_GRADIENT_CIRCULAR);
 
@@ -576,8 +600,8 @@ void ofApp::draw(){
 
 ## Further Reading
 
-- [openFrameworks Forums](https://forum.openframeworks.cc/) - Sign Up ASAP :)
-- [API Documentation @ openframeworks.cc](https://openframeworks.cc/documentation/)
-- [How-Tos @ openframeworks.cc](https://openframeworks.cc/learning/)
-- [The ofBook @ openframeworks.cc](https://openframeworks.cc/ofBook/chapters/foreword.html)
-- [openFramworks Github Repo](https://github.com/openframeworks/)
+- 🔍 [openFrameworks Forums](https://forum.openframeworks.cc/) - Sign Up ASAP :)
+- 📗 [API Documentation @ openframeworks.cc](https://openframeworks.cc/documentation/)
+- 📘 [The ofBook @ openframeworks.cc](https://openframeworks.cc/ofBook/chapters/foreword.html)
+- 📙 [How-Tos @ openframeworks.cc](https://openframeworks.cc/learning/)
+- 🗃️ [openFramworks Github Repo](https://github.com/openframeworks/)
