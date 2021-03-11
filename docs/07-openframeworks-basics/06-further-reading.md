@@ -54,7 +54,7 @@ There's so much more to openFrameworks! You can start by exploring these handy c
 
 You'll find two example programs below, but there are lots of examples out there you can learn from:
 
-- 🗃️ [Official openFrameworks Examples](https://github.com/openframeworks/openFrameworks/tree/master/examples) - There are also found in the `examples` folder of the openFrameworks zip file.
+- 🗃️ [Official openFrameworks Examples](https://github.com/openframeworks/openFrameworks/tree/master/examples) - These are also found in the `examples` folder of the openFrameworks zip file.
 - 📚 [Cookbook of Common Tasks from ofAuckland](https://sites.google.com/site/ofauckland/examples)
 - 🗃️ [Example Source from Mastering openFrameworks Book](https://github.com/firmread/ofDemystified)
 - 📺 [Lewis Lepton's 76 Video openFrameworks YouTube series](https://www.youtube.com/playlist?list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7) and 🗃️ [the associated github repo](https://github.com/lewislepton/openFrameworksTutorialSeries).
