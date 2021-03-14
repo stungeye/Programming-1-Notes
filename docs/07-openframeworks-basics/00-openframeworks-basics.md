@@ -8,7 +8,7 @@ nav_order: 7
 
 ![openFrameworks Logo](of-logo.png){: .small .inline}
 
-openFrameworks is an open-source C++ toolkit for creative coding.
+[openFrameworks](https://openframeworks.cc) is an open-source C++ toolkit for creative coding.
 
 This module is an introduction to installing and using this powerful toolkit to create computational artwork.
 
@@ -32,8 +32,8 @@ Upon completion of this module, you should be able to:
 Linked resources will be identified with the following emoji:
 
 - 📺: YouTube video (Primarily from [Lewis Lepton's openFrameworks series](https://www.youtube.com/watch?v=dwt2NAd1ZYY&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=1).)
-- 📗: Reference page from [the official oF API docs](https://openframeworks.cc/documentation/).
+- 📜: Reference page from [the official oF API docs](https://openframeworks.cc/documentation/).
 - 📘: Chapter from [the official ofBook](https://openframeworks.cc/ofBook/chapters/foreword.html).
-- 📙: One of the [official how-to guides](https://openframeworks.cc/learning/)
+- 🔰: One of the [official how-to guides](https://openframeworks.cc/learning/)
 - 📚: Any other online tutorial, guide, or blog post.
-- 🗃️: Source code repository.
+- 📦: Source code repository.

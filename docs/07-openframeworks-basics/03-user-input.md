@@ -45,7 +45,7 @@ The value of the `button` parameter will be:
 
 ### Resources
 
-- 📗 Details on these callbacks and their touch event equivalents: [`ofBaseApp` documentation](https://openframeworks.cc/documentation/application/ofBaseApp/).
+- 📜 Details on these callbacks and their touch event equivalents: [`ofBaseApp` documentation](https://openframeworks.cc/documentation/application/ofBaseApp/).
 - 📺 [Mouse Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=RFr5cM4m5XA&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=15) (5m04s)
 
 ## Keyboard Events

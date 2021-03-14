@@ -29,35 +29,35 @@ Addons can be added to new or existing projects using the project generator app.
 
 A few of the included addons:
 
-- 📗 [ofxGui](https://openframeworks.cc/documentation/ofxGui/) - Handy parameter tweaking GUI with sliders, checkboxes, and buttons. 🗃️ [Examples](https://github.com/openframeworks/openFrameworks/tree/master/examples/gui).
-- 📗 [ofxBox2d](https://github.com/vanderlin/ofxBox2d) - 2D physics engine that wraps [Box2d](https://box2d.org/). 🗃️ [Examples](https://github.com/vanderlin/ofxBox2d).
-- 📗 [ofxNetwork](https://openframeworks.cc/ja/documentation/ofxNetwork/) and [ofxOSC](https://openframeworks.cc/documentation/ofxOsc/) - TCP, UPC, and OSC networking libraries. 🗃️ [Examples](https://github.com/openframeworks/openFrameworks/tree/master/examples/communication).
-- 📗 [ofxOpenCV](https://openframeworks.cc/documentation/ofxOpenCv/) - Wraps the powerful [OpenCV computer vision library](https://opencv.org/). 🗃️ [Examples](https://github.com/openframeworks/openFrameworks/tree/master/examples/computer_vision).
-- 📗 [ofxSVG](https://openframeworks.cc/documentation/ofxSVG/) - Vector graphics loader for SVG files. 🗃️ [Example](https://github.com/openframeworks/openFrameworks/tree/master/examples/input_output/svgExample).
-- 📗 [ofxXMLSettings](https://openframeworks.cc/documentation/ofxXmlSettings/) - Simple XML loader and saver. 🗃️ [Example](https://github.com/openframeworks/openFrameworks/tree/master/examples/input_output/xmlExamples).
+- 📜 [ofxGui](https://openframeworks.cc/documentation/ofxGui/) - Handy parameter tweaking GUI with sliders, checkboxes, and buttons. 📦 [Examples](https://github.com/openframeworks/openFrameworks/tree/master/examples/gui).
+- 📜 [ofxBox2d](https://github.com/vanderlin/ofxBox2d) - 2D physics engine that wraps [Box2d](https://box2d.org/). 📦 [Examples](https://github.com/vanderlin/ofxBox2d).
+- 📜 [ofxNetwork](https://openframeworks.cc/ja/documentation/ofxNetwork/) and [ofxOSC](https://openframeworks.cc/documentation/ofxOsc/) - TCP, UPC, and OSC networking libraries. 📦 [Examples](https://github.com/openframeworks/openFrameworks/tree/master/examples/communication).
+- 📜 [ofxOpenCV](https://openframeworks.cc/documentation/ofxOpenCv/) - Wraps the powerful [OpenCV computer vision library](https://opencv.org/). 📦 [Examples](https://github.com/openframeworks/openFrameworks/tree/master/examples/computer_vision).
+- 📜 [ofxSVG](https://openframeworks.cc/documentation/ofxSVG/) - Vector graphics loader for SVG files. 📦 [Example](https://github.com/openframeworks/openFrameworks/tree/master/examples/input_output/svgExample).
+- 📜 [ofxXMLSettings](https://openframeworks.cc/documentation/ofxXmlSettings/) - Simple XML loader and saver. 📦 [Example](https://github.com/openframeworks/openFrameworks/tree/master/examples/input_output/xmlExamples).
 
 ### Resources
 
 - 📺 [Project Generator and Addons Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=sgU_r4Kn_rk&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=3) (5m47s)
-- 📙 [Addon HowTo @ openframeworks.cc](https://openframeworks.cc/learning/01_basics/how_to_add_addon_to_project/)
+- 🔰 [Addon HowTo @ openframeworks.cc](https://openframeworks.cc/learning/01_basics/how_to_add_addon_to_project/)
 
 ## Other Handy Utility Classes
 
 There's so much more to openFrameworks! You can start by exploring these handy classes:
 
-- 📗 [`ofRectangle`](https://openframeworks.cc/documentation/types/ofRectangle/) - Super handy for simple collision detection hit boxes.
-- 📗 [`ofDirectory`](https://openframeworks.cc/documentation/utils/ofDirectory/), [`ofFilePath`](https://openframeworks.cc/documentation/utils/ofFilePath/) and [`ofFile`](https://openframeworks.cc/documentation/utils/ofFile/) - For working with files.
-- 📗 [`ofURLFileLoader`](https://openframeworks.cc///documentation/utils/ofURLFileLoader/) - For loading data from URLs.
-- 📗 [And many more!](https://openframeworks.cc/documentation/)
+- 📜 [`ofRectangle`](https://openframeworks.cc/documentation/types/ofRectangle/) - Super handy for simple collision detection hit boxes.
+- 📜 [`ofDirectory`](https://openframeworks.cc/documentation/utils/ofDirectory/), [`ofFilePath`](https://openframeworks.cc/documentation/utils/ofFilePath/) and [`ofFile`](https://openframeworks.cc/documentation/utils/ofFile/) - For working with files.
+- 📜 [`ofURLFileLoader`](https://openframeworks.cc///documentation/utils/ofURLFileLoader/) - For loading data from URLs.
+- 📜 [And many more!](https://openframeworks.cc/documentation/)
 
 ## Example Code to Study
 
 You'll find two example programs below, but there are lots of examples out there you can learn from:
 
-- 🗃️ [Official openFrameworks Examples](https://github.com/openframeworks/openFrameworks/tree/master/examples) - These are also found in the `examples` folder of the openFrameworks zip file.
+- 📦 [Official openFrameworks Examples](https://github.com/openframeworks/openFrameworks/tree/master/examples) - These are also found in the `examples` folder of the openFrameworks zip file.
 - 📚 [Cookbook of Common Tasks from ofAuckland](https://sites.google.com/site/ofauckland/examples)
-- 🗃️ [Example Source from Mastering openFrameworks Book](https://github.com/firmread/ofDemystified)
-- 📺 [Lewis Lepton's 76 Video openFrameworks YouTube series](https://www.youtube.com/playlist?list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7) and 🗃️ [the associated github repo](https://github.com/lewislepton/openFrameworksTutorialSeries).
+- 📦 [Example Source from Mastering openFrameworks Book](https://github.com/firmread/ofDemystified)
+- 📺 [Lewis Lepton's 76 Video openFrameworks YouTube series](https://www.youtube.com/playlist?list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7) and 📦 [the associated github repo](https://github.com/lewislepton/openFrameworksTutorialSeries).
 - 📺 Dan Buzzo's [openFrameworks superBasics YouTube series](https://www.youtube.com/playlist?list=PL6QF0yo3Zj7DbN76C5-_6VCDF5CPBIz6l) and [his many other playlists](https://www.youtube.com/c/danbuzzo/featured).
 
 ## Example Sketch One - Mouse Trails
@@ -114,7 +114,7 @@ void ofApp::draw() {
 ## Important Links
 
 - 🔍 [openFrameworks Forums](https://forum.openframeworks.cc/) - Sign up today. :)
-- 📗 [API Documentation @ openframeworks.cc](https://openframeworks.cc/documentation/)
+- 📜 [API Documentation @ openframeworks.cc](https://openframeworks.cc/documentation/)
 - 📘 [The ofBook @ openframeworks.cc](https://openframeworks.cc/ofBook/chapters/foreword.html)
-- 📙 [How-Tos @ openframeworks.cc](https://openframeworks.cc/learning/)
-- 🗃️ [openFramworks Github Repo](https://github.com/openframeworks/)
+- 🔰 [How-Tos @ openframeworks.cc](https://openframeworks.cc/learning/)
+- 📦 [openFramworks Github Repo](https://github.com/openframeworks/)

@@ -32,7 +32,7 @@ The image to the right shows a dot at `x = 2` and `y = 3`.
 
 ## Canvas Size
 
-By default the size of the canvas is 1024 (width) by 768 (height). The size of the canvas can be changed by resizing the application window, or in the `main.cpp` file:
+By default, the size of the canvas is 1024 (width) by 768 (height) pixels. The size of the canvas can be changed by resizing the application window, or in the `main.cpp` file:
 
 ```cpp
 ofSetupOpenGL(1024, 768, OF_WINDOW); // 1024x768 Windowed
@@ -77,12 +77,12 @@ ofEnableSmoothing();
 
 There are a number of methods that allow you to draw 2D shapes to the canvas:
 
-- 📗 [ofDrawLine()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawLine)
-- 📗 [ofDrawCircle()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawCircle) with [ofSetCircleResolution()](https://openframeworks.cc/documentation/graphics/ofGraphics/#show_ofSetCircleResolution)
-- 📗 [ofDrawEllipse()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawEllipse)
-- 📗 [ofDrawRectangle()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawRectangle) with [ofSetRectMode()](https://openframeworks.cc/documentation/graphics/ofGraphics/#show_ofSetRectMode)
-- 📗 [ofDrawRectRounded()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawRectRounded)
-- 📗 [ofDrawTriangle()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawTriangle)
+- 📜 [ofDrawLine()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawLine)
+- 📜 [ofDrawCircle()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawCircle) with [ofSetCircleResolution()](https://openframeworks.cc/documentation/graphics/ofGraphics/#show_ofSetCircleResolution)
+- 📜 [ofDrawEllipse()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawEllipse)
+- 📜 [ofDrawRectangle()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawRectangle) with [ofSetRectMode()](https://openframeworks.cc/documentation/graphics/ofGraphics/#show_ofSetRectMode)
+- 📜 [ofDrawRectRounded()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawRectRounded)
+- 📜 [ofDrawTriangle()](https://openframeworks.cc//documentation/graphics/ofGraphics/#!show_ofDrawTriangle)
 
 ### Resources
 
@@ -93,18 +93,18 @@ There are a number of methods that allow you to draw 2D shapes to the canvas:
 
 There are a number of methods that allow you to draw 2D shapes to the canvas:
 
-- 📗 [ofDrawBox()](https://openframeworks.cc/documentation/3d/of3dGraphics/#!show_ofDrawBox)
-- 📗 [ofDrawCone()](https://openframeworks.cc/documentation/3d/of3dGraphics/#!show_ofDrawCone)
-- 📗 [ofDrawCylinder()](https://openframeworks.cc//documentation/3d/of3dGraphics/#!show_ofDrawCylinder)
-- 📗 [ofDrawIcoSphere()](https://openframeworks.cc//documentation/3d/of3dGraphics/#!show_ofDrawIcoSphere)
-- 📗 [ofDrawPlane()](https://openframeworks.cc//documentation/3d/of3dGraphics/#!show_ofDrawPlane)
-- 📗 [ofDrawSphere()](https://openframeworks.cc//documentation/3d/of3dGraphics/#!show_ofDrawSphere)
+- 📜 [ofDrawBox()](https://openframeworks.cc/documentation/3d/of3dGraphics/#!show_ofDrawBox)
+- 📜 [ofDrawCone()](https://openframeworks.cc/documentation/3d/of3dGraphics/#!show_ofDrawCone)
+- 📜 [ofDrawCylinder()](https://openframeworks.cc//documentation/3d/of3dGraphics/#!show_ofDrawCylinder)
+- 📜 [ofDrawIcoSphere()](https://openframeworks.cc//documentation/3d/of3dGraphics/#!show_ofDrawIcoSphere)
+- 📜 [ofDrawPlane()](https://openframeworks.cc//documentation/3d/of3dGraphics/#!show_ofDrawPlane)
+- 📜 [ofDrawSphere()](https://openframeworks.cc//documentation/3d/of3dGraphics/#!show_ofDrawSphere)
 
 ### Resources
 
 - 📺 [3D Shapes Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=ZNH8LvIhbMc&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=5) (6m33s)
 - 📺 [Lighting a 3D Scene - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=Amfr-MY96W8&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=56) (8m54s)
-- 📗 [Set the reolution of the various 3D shapes](https://openframeworks.cc///documentation/3d/of3dGraphics/)
+- 📜 [Set the reolution of the various 3D shapes](https://openframeworks.cc///documentation/3d/of3dGraphics/)
 - 📘 [3D Section of the Advanced Graphics chapter of the ofBook](https://openframeworks.cc/ofBook/chapters/advanced_graphics.html#d)
 
 ## Colour
@@ -127,7 +127,7 @@ ofDisableAlphaBlending(); // Disable if you don't need alpha any more.
 
 ### Resources
 
-- 📗 [See the official `ofSetColor()` docs](https://openframeworks.cc/documentation/graphics/ofGraphics/#show_ofSetColor).
+- 📜 [See the official `ofSetColor()` docs](https://openframeworks.cc/documentation/graphics/ofGraphics/#show_ofSetColor).
 - 📺 [Color Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=phjAR40MIjQ&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=7) (4m35s)
 
 ## ofColor Class
@@ -152,7 +152,7 @@ There's much more to `ofColor` like lerping, inverting colors, or working in the
 
 ### Resources
 
-- 📗 [See the official `ofColor` docs for more details](https://openframeworks.cc/documentation/types/ofColor/).
+- 📜 [See the official `ofColor` docs for more details](https://openframeworks.cc/documentation/types/ofColor/).
 
 ## Shape Fill
 
@@ -174,7 +174,7 @@ The canvas is automatically cleared with a background color once each frame befo
 ofBackground(50); // Greyscale from black (0) to white (255)
 ofBackground(50, 200); // Greyscale with alpha channel
 ofBackground(ofColor::blue); // Using an ofColor
-ofBackrground(50, 90, 200, 255); // R, G, B, A (0-255)
+ofBackground(50, 90, 200, 255); // R, G, B, A (0-255)
 ```
 
 A gradient background can also be set:

@@ -9,7 +9,7 @@ nav_order: 1
 # Getting Started
 {: .no_toc }
 
-openFrameworks is an open source toolkit designed for creative coding originally created by [Zach Lieberman](http://thesystemis.com/), [Theo Watson](https://theowatson.com/), [Arturo Castro](https://arturocastro.net/), and other members of the openFrameworks community.
+[openFrameworks](https://openframeworks.cc) is an open source toolkit designed for creative coding originally created by [Zach Lieberman](http://thesystemis.com/), [Theo Watson](https://theowatson.com/), [Arturo Castro](https://arturocastro.net/), and other members of the openFrameworks community.
 
 openFrameworks is written in C++ and built on top of OpenGL (and [a handful of other libraries](https://openframeworks.cc/about/)). Programs written using openFrameworks run on Microsoft Windows, macOS, Linux, iOS, Android, and Emscripten (Web).
 

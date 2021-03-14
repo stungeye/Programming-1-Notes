@@ -53,7 +53,7 @@ The state of local variables is shown below. You can add your own variables to w
 
 ### Resources
 
-- 📙 [How to View the Value of an oF Variable](https://openframeworks.cc/learning/01_basics/how_to_view_value/)
-- 📗 [Official `ofLog` Documentation](https://openframeworks.cc/documentation/utils/ofLog/)
+- 🔰 [How to View the Value of an oF Variable](https://openframeworks.cc/learning/01_basics/how_to_view_value/)
+- 📜 [Official `ofLog` Documentation](https://openframeworks.cc/documentation/utils/ofLog/)
 - 📚 [First Look at the Visual Studio Debugger](https://docs.microsoft.com/en-us/visualstudio/debugger/debugger-feature-tour)
 - 📚 [Learn to debug C++ code using Visual Studio](https://docs.microsoft.com/en-us/visualstudio/debugger/getting-started-with-the-debugger-cpp)

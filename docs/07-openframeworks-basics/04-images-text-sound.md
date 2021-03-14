@@ -57,9 +57,9 @@ freakyGoatGhost.draw(100, 100, 50, 90); // Drawn at (100,100) resized to 50 widt
 ### Resources
 
 - 📺 [Image Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=OLLtdyJC_Zs&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=8) (6m04s)
-- 📙 [How to Load and Display an Image](https://openframeworks.cc/learning/02_graphics/how_to_load_and_display_an_image/)
-- 📙 [How to Mask and Image with a Shape](https://openframeworks.cc/learning/02_graphics/how_to_maskanimagewithashape/)
-- 📙 [How To Export Canvas Screenshot as Image](https://openframeworks.cc/learning/01_basics/how_to_save_a_file/)
+- 🔰 [How to Load and Display an Image](https://openframeworks.cc/learning/02_graphics/how_to_load_and_display_an_image/)
+- 🔰 [How to Mask and Image with a Shape](https://openframeworks.cc/learning/02_graphics/how_to_maskanimagewithashape/)
+- 🔰 [How To Export Canvas Screenshot as Image](https://openframeworks.cc/learning/01_basics/how_to_save_a_file/)
 
 ## Processing Image Pixels
 
@@ -121,7 +121,7 @@ verdanatText.drawString("Hello Squirrel", 50, 100); // Output text at x = 50, y 
 
 ### Resources
 
-- 📗 [The official `ofTrueTypeFont` documentation](https://openframeworks.cc/documentation/graphics/ofTrueTypeFont/).
+- 📜 [The official `ofTrueTypeFont` documentation](https://openframeworks.cc/documentation/graphics/ofTrueTypeFont/).
 - 📺 [Text Font Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=6pecyHuP75Q&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=10) (5m21s)
 
 ## Playing Sounds
