@@ -219,7 +219,7 @@ ofPopMatrix(); // Restore the original coordinate system.
 ofDrawRectangle(0, 0, 100, 100); // Draw a square in the top left corner.
 ```
 
-This operations work when drawing 3D shapes too.
+These operations work when drawing 3D shapes too.
 
 ### Resources
 

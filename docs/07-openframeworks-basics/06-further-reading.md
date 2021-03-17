@@ -98,12 +98,16 @@ void ofApp::draw() {
     // Translate the coordinate system to the middle of the canvas.
     ofTranslate(ofGetWidth() / 2, ofGetHeight() / 2);
 
+    // Map the mouse x position to a 0 to 20 range.
+    double rotation = ofMap(ofGetMouseX(), 0, ofGetWidth(), 0, 20);
+    // Map the mouse y position to a 1 to 1.2 range.
+    double scaleFactor = ofMap(ofGetMouseY(), 0, ofGetHeight(), 1, 1.2);
+
     // Draw 100 circles of increasing size and rotation.
     for (auto i = 0; i < 100; ++i) {
-        // Use the x position of the mouse to set the rotation.
-        ofRotateZDeg((double)ofGetMouseX() / 50);
-        // Use the y position of the mouse to set the scaling.
-        double scaleFactor = 1 + (double)ofGetMouseY() / (double)ofGetHeight() / 5;
+        // The x position of the mouse mapped 0-20 sets the rotation.
+        ofRotateZDeg(rotation);
+        // The y position of the mouse mapped 1.0-1.2 sets the scaling.
         ofScale(scaleFactor, scaleFactor);
         // Draw the rotated and scaled square.
         ofDrawRectangle(0, 0, 1, 1);

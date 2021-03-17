@@ -38,7 +38,7 @@ private:
     ofImage freakyGoatGhost;
 ```
 
-In the associated `ofApp.cpp` file, with `setup()`:
+In the associated `ofApp.cpp` file, within `setup()`:
 
 ```cpp
 // Place image file in the "bin/data/" folder:
