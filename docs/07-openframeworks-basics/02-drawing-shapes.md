@@ -23,7 +23,7 @@ Drawing 2D and 3D shapes to a window using openFrameworks is a snap.
 
 ![Canvas Coordinates](canvas-coordinates.png){: .medium .inline}
 
-When working in 2D, the canvas can be consider to be a 2D grid of pixels. This is similar to the x/y cartesian coordinates used in high-school algebra, but with a few changes:
+When working in 2D, the canvas can be consider to be a grid of pixels. This is similar to the x/y cartesian coordinates used in high-school algebra, but with a few changes:
 
 - The origin (where x and y are zero) is in the top left corner of the screen.
 - The y-axis is flipped such that values of y increase as you go down the screen.
@@ -199,7 +199,7 @@ ofSetBackgroundAuto(true); // Enable automatic background clearing.
 
 ## Translation, Rotation, and Scaling
 
-We can change the position, scale, and rotation of the coordinate system using a variety of translate and rotate methods. These operations work when drawing 3D shapes too.
+We can change the position, scale, and rotation of the coordinate system using a variety of translate and rotate methods. These operations work when drawing shapes in 2D and 3D.
 
 ```cpp
 ofTranslate(200, 200, 0); // Move the origin to (200, 200)

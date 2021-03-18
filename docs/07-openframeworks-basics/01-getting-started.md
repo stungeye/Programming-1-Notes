@@ -100,3 +100,9 @@ At the heart of every openFrameworks application are the `setup`, `update` and `
 - `ofApp::draw()` is run once per frame (after `update`) and should include all graphical output.
 
 The speed at which oF will attemp to call the `draw` method is controlled by setting the target framerate by calling `ofSetFrameRate()` in `setup`.
+
+### Resources
+
+- 📜 [`ofGetFrameNum()`](https://openframeworks.cc//documentation/application/ofAppRunner/#!show_ofGetFrameNum) - Number of frames displayed since the sketch began.
+- 📜 [`ofGetElapsedTimeMillis()`](https://openframeworks.cc//documentation/utils/ofUtils/#!show_ofGetElapsedTimeMillis) - Number of milliseconds since the sketch began.
+- 📜 [`ofGetLastFrameTime()` Documentation](https://openframeworks.cc//documentation/application/ofAppRunner/#!show_ofGetLastFrameTime) - The delta time since the previous frame in milliseconds.

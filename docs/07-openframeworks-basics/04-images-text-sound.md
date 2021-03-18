@@ -140,8 +140,8 @@ private:
 In the associated `ofApp.cpp` file, within `setup()`:
 
 ```cpp
-    kaChing.load("ka-ching.mp3");
-    kaChing.play(); // You can immediately play from setup if you wish.
+kaChing.load("ka-ching.mp3");
+kaChing.play(); // You can immediately play from setup if you wish.
 ```
 
 To trigger the sound at a later time you could do something like this:
@@ -169,4 +169,6 @@ From the [ofBook Sound chapter](https://openframeworks.cc/ofBook/chapters/sound.
 
 You usually won't notice the latency, unless you try to build something like a drum machine that requires very tight timing. In this case you'll need to look into using [ASIO](https://en.wikipedia.org/wiki/Audio_Stream_Input/Output) drivers for your sound card. You'll also want to use an `ofSoundStream` along with the [ofMaxim](https://github.com/micknoise/Maximilian) addon instead of the `ofSoundPlayer` used above.
 
-See [the sample low-latency drum machine](https://github.com/stungeye/openFrameworks-Drum-Machine) I put together to investigate `ofSoundStream` and ofMaxim.
+### Resources
+
+- 📦 [Sample low-latency drum machine using `ofSoundStream` and ofMaxim](https://github.com/stungeye/openFramewrks-Drum-Machine).

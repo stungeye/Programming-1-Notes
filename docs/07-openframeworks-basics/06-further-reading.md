@@ -43,7 +43,7 @@ A few of the included addons:
 
 ## Other Handy Utility Functions and Classes
 
-There's so much more to openFrameworks! You can start by exploring these handy classes:
+There's so much more to openFrameworks! Start by exploring these handy functions and classes:
 
 - 📜 [`ofClamp()`](https://openframeworks.cc/-/documentation/math/ofMath/#!show_ofClamp) - Clamp a value between a min and a max.
 - 📜 [`ofMap()`](https://openframeworks.cc/documentation/math/ofMath/#show_ofMap) - Given a value and an input range, map the value to an output range.
@@ -57,8 +57,8 @@ There's so much more to openFrameworks! You can start by exploring these handy c
 You'll find two example programs below, but there are lots of examples out there you can learn from:
 
 - 📦 [Official openFrameworks Examples](https://github.com/openframeworks/openFrameworks/tree/master/examples) - These are also found in the `examples` folder of the openFrameworks zip file.
-- 📚 [Cookbook of Common Tasks from ofAuckland](https://sites.google.com/site/ofauckland/examples)
-- 📦 [Example Source from Mastering openFrameworks Book](https://github.com/firmread/ofDemystified)
+- 📚 [Cookbook of Common Tasks from ofAuckland](https://sites.google.com/site/ofauckland/examples).
+- 📦 [Example Source from Mastering openFrameworks Book](https://github.com/firmread/ofDemystified).
 - 📺 [Lewis Lepton's 76 Video openFrameworks YouTube series](https://www.youtube.com/playlist?list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7) and 📦 [the associated github repo](https://github.com/lewislepton/openFrameworksTutorialSeries).
 - 📺 Dan Buzzo's [openFrameworks superBasics YouTube series](https://www.youtube.com/playlist?list=PL6QF0yo3Zj7DbN76C5-_6VCDF5CPBIz6l) and [his many other playlists](https://www.youtube.com/c/danbuzzo/featured).
 
@@ -117,7 +117,18 @@ void ofApp::draw() {
 }
 ```
 
-## Important Links
+## Some Game Built using oF
+
+Although openFrameworks isn't a game engine, it has been used for a some PC and mobile games.
+
+- 📚 [Kings of Space by Block Games](http://www.kingsofspace.com/)
+- 📚 [Earth Analog](https://www.youtube.com/watch?v=TAX0hQ4fhe0) and [Hyper Train](https://www.youtube.com/watch?v=0LJ2vGkERtc) by [Funcraft Games](https://store.steampowered.com/search/?developer=Funcraft%20Games)
+- 📚 [Super Hexagon](https://superhexagon.com) by [Terry Cavanagh](https://terrycavanaghgames.com/) - PC and mobile port of the original Flash Game.
+- 📚 [Ridiculous Fishing](http://ridiculousfishing.com/) - iOS game made with oF and [ofxSpriteSheetRenderer](https://github.com/stfj/ofxSpriteSheetRenderer).
+- 📚 [Adventures of Yddar](https://gamejolt.com/games/adventuresofyddar/489256) - Recent game jam game made with oF.
+- 📘 [ofBook Chapter on Experimental Games](https://openframeworks.cc/ofBook/chapters/game_design.html)
+
+## Other Important Links
 
 - 🔍 [openFrameworks Forums](https://forum.openframeworks.cc/) - Sign up today. :)
 - 📜 [API Documentation @ openframeworks.cc](https://openframeworks.cc/documentation/)

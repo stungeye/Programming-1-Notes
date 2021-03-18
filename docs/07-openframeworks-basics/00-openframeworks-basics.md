@@ -23,9 +23,10 @@ Upon completion of this module, you should be able to:
 - Draw 2D and 3D shapes to the canvas in a variety of colours.
 - Change how the background is cleared before each frame.
 - Translate, rotate, scale, save, and restore the 2D coordinate system.
-- Display images to the canvas.
 - Respond to keyboard and mouse events.
+- Display images to the canvas.
 - Display text to the debugging console and to the canvas.
+- Load and play sound files.
 
 ## Linked Resources
 
