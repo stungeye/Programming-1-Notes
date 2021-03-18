@@ -123,10 +123,10 @@ Although openFrameworks isn't a game engine, it has been used for a some PC and 
 
 - 📚 [Kings of Space by Block Games](http://www.kingsofspace.com/)
 - 📚 [Earth Analog](https://www.youtube.com/watch?v=TAX0hQ4fhe0) and [Hyper Train](https://www.youtube.com/watch?v=0LJ2vGkERtc) by [Funcraft Games](https://store.steampowered.com/search/?developer=Funcraft%20Games)
-- 📚 [Super Hexagon](https://superhexagon.com) by [Terry Cavanagh](https://terrycavanaghgames.com/) - PC and mobile port of the original Flash Game.
+- 📚 [Super Hexagon](https://superhexagon.com) by [Terry Cavanagh](https://terrycavanaghgames.com/) of [VVVVVV](https://store.steampowered.com/app/70300/VVVVVV/) fame - PC and mobile port of the original Flash Game.
 - 📚 [Ridiculous Fishing](http://ridiculousfishing.com/) - iOS game made with oF and [ofxSpriteSheetRenderer](https://github.com/stfj/ofxSpriteSheetRenderer).
 - 📚 [Adventures of Yddar](https://gamejolt.com/games/adventuresofyddar/489256) - Recent game jam game made with oF.
-- 📘 [ofBook Chapter on Experimental Games](https://openframeworks.cc/ofBook/chapters/game_design.html)
+- 📘 [ofBook Chapter on making Experimental Games with oF](https://openframeworks.cc/ofBook/chapters/game_design.html)
 
 ## Other Important Links
 
