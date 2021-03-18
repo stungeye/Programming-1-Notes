@@ -199,7 +199,7 @@ ofSetBackgroundAuto(true); // Enable automatic background clearing.
 
 ## Translation, Rotation, and Scaling
 
-We can change the position, scale, and rotation of the coordinate system using a variety of translate and rotate methods.
+We can change the position, scale, and rotation of the coordinate system using a variety of translate and rotate methods. These operations work when drawing 3D shapes too.
 
 ```cpp
 ofTranslate(200, 200, 0); // Move the origin to (200, 200)
@@ -219,7 +219,11 @@ ofPopMatrix(); // Restore the original coordinate system.
 ofDrawRectangle(0, 0, 100, 100); // Draw a square in the top left corner.
 ```
 
-These operations work when drawing 3D shapes too.
+⚡ Warning:
+{: .label .label-red}
+
+`ofScale()` scales the coordinate system but does not affect shape stroke weight.
+{: .d-inline-block}
 
 ### Resources
 

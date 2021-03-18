@@ -41,10 +41,12 @@ A few of the included addons:
 - 📺 [Project Generator and Addons Tutorial - Lewis Lepton on YouTube](https://www.youtube.com/watch?v=sgU_r4Kn_rk&list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7&index=3) (5m47s)
 - 🔰 [Addon HowTo @ openframeworks.cc](https://openframeworks.cc/learning/01_basics/how_to_add_addon_to_project/)
 
-## Other Handy Utility Classes
+## Other Handy Utility Functions and Classes
 
 There's so much more to openFrameworks! You can start by exploring these handy classes:
 
+- 📜 [`ofClamp()`](https://openframeworks.cc/-/documentation/math/ofMath/#!show_ofClamp) - Clamp a value between a min and a max.
+- 📜 [`ofMap()`](https://openframeworks.cc/documentation/math/ofMath/#show_ofMap) - Given a value and an input range, map the value to an output range.
 - 📜 [`ofRectangle`](https://openframeworks.cc/documentation/types/ofRectangle/) - Super handy for simple collision detection hit boxes.
 - 📜 [`ofDirectory`](https://openframeworks.cc/documentation/utils/ofDirectory/), [`ofFilePath`](https://openframeworks.cc/documentation/utils/ofFilePath/) and [`ofFile`](https://openframeworks.cc/documentation/utils/ofFile/) - For working with files.
 - 📜 [`ofURLFileLoader`](https://openframeworks.cc///documentation/utils/ofURLFileLoader/) - For loading data from URLs.

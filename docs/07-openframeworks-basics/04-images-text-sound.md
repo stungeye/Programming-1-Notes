@@ -104,7 +104,7 @@ private:
     ofTrueTypeFont verdanaText;
 ```
 
-In the associated `ofApp.cpp` file, with `setup()`:
+In the associated `ofApp.cpp` file, within `setup()`:
 
 ```cpp
 ofTrueTypeFont::setGlobalDpi(72); // Default is 96, but results in larger than normal pt size.
@@ -126,4 +126,47 @@ verdanatText.drawString("Hello Squirrel", 50, 100); // Output text at x = 50, y 
 
 ## Playing Sounds
 
-To be written.
+With openFrameworks we can easily load and play .mp3 and .wav sound files. openFrameworks wraps a number of different sound libraries to provide a common interface across different operating systems.
+
+Like with images and fonts, sound files go in the `bin\data` folder, or into a sub-folder within `bin\data`. For this example let's assume we are using an mp3 file named [`ka-ching.mp3`](ka-ching.mp3).
+
+In your project's `ofApp.h` file below the method definitions:
+
+```cpp
+private:
+    ofSoundPlayer kaChing;
+```
+
+In the associated `ofApp.cpp` file, within `setup()`:
+
+```cpp
+    kaChing.load("ka-ching.mp3");
+    kaChing.play(); // You can immediately play from setup if you wish.
+```
+
+To trigger the sound at a later time you could do something like this:
+
+```cpp
+void ofApp::keyPressed(int key){
+    if (key == 'p') {
+        kaChing.play();
+    }
+}
+```
+
+There are additional methods to control the volume, playback speed, left/right pan, or cause the the sound to loop.
+
+### Resources
+
+- 📜 [The official `ofSoundPlayer` documentation](https://openframeworks.cc/documentation/sound/ofSoundPlayer/)
+- 📘 [The ofBook chapter on Sound](https://openframeworks.cc/ofBook/chapters/sound.html).
+
+## Audio Latency
+
+From the [ofBook Sound chapter](https://openframeworks.cc/ofBook/chapters/sound.html#latency):
+
+> "No matter what, sound you produce in your app will arrive at the speakers sometime after the event that triggered the sound. The total time of this round trip, from the event to your app to the speakers is referred to as latency."
+
+You usually won't notice the latency, unless you try to build something like a drum machine that requires very tight timing. In this case you'll need to look into using [ASIO](https://en.wikipedia.org/wiki/Audio_Stream_Input/Output) drivers for your sound card. You'll also want to use an `ofSoundStream` along with the [ofMaxim](https://github.com/micknoise/Maximilian) addon instead of the `ofSoundPlayer` used above.
+
+See [the sample low-latency drum machine](https://github.com/stungeye/openFrameworks-Drum-Machine) I put together to investigate `ofSoundStream` and ofMaxim.
