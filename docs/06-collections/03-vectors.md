@@ -197,6 +197,27 @@ The standard `begin()` and `end()` iterators (and variants) are all available.
 These affordances will make more sense once we study pointers and iterators.
 {: .d-inline-block}
 
+## Comparing Vectors
+
+Two vectors can be compared using the `==` operator. The operator will first check the vector lengths. If they are of equal length, each pair of elements will be compared using `==`.
+
+```cpp
+  std::vector vectorOne = { 3, 1, 4, 1, 5, 9};
+  std::vector vectorTwo = { 9, 5, 1, 4, 1, 3};
+
+  if (vectorOne == vectorTwo) {
+    std::cout << "We should never see this message as the vector elements are not equal.";
+  }
+```
+
+⚡ Warning:
+{: .label .label-red}
+
+Vector comparisons depends on the order of the elements.
+{: .d-inline-block}
+
+The above vectors are not equal even though they included the same numbers! If order doesn't matter you could first sort the vectors, or use something like an `unordered_set` instead.
+
 ## Further Reading
 
 - [Standard Vector @ cpprefernce.com](https://en.cppreference.com/w/cpp/container/vector)
