@@ -188,7 +188,7 @@ C-style strings cannot be assigned values with an assignment statement.
 
 When working in Unreal Engine there are three different lightweight string types we can use `FText`, `FString`, and `FName`.
 
-`FName` is the most lightweight, is case-insensitive, and mainly used for internal IDs and names.
+`FName` is the most lightweight, is case-insensitive, and mainly used for internal IDs, tags, and names.
 
 `FText` is used for any text that might be shown to the user and forms the basis for UI translation/localization.
 

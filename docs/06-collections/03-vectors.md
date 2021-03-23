@@ -46,6 +46,12 @@ If we provide an initializer list, the type becomes optional as it can be inferr
 std::vector evenNumbers{ 2, 4, 6, 8, 10, 12}; // Vector of int
 ```
 
+⏳ Wait For It:
+{: .label .label-blue}
+
+The `<>` braces used to specify the element type indicates that vectors are template classes.
+{: .d-inline-block}
+
 ## Get and Set Vector Elements
 
 Vectors elements can be retrieved and set using square braces:

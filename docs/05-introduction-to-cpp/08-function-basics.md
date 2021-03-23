@@ -240,7 +240,7 @@ void main() {
 
 ## In-Out Parameters
 
-Keeping the above best practice in mind, the performance hit of copying large variables into a function can be avoided using **in-out-parameters**.
+Keeping the above best practice in mind, the performance hit of copying large variables into and then out of a function can be avoided using **in-out-parameters**.
 
 Non-`const` reference parameters allow expensive to copy variables to be modified by a function:
 

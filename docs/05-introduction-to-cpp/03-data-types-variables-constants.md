@@ -335,6 +335,30 @@ References allow us to avoid the performance cost associated with copying data:
 - [Using references when passing arrays to functions](/Programming-1-Notes/docs/06-container-structures/02-arrays.html#passing-arrays-by-reference).
 - [Using references when passing vectors to functions](/Programming-1-Notes/docs/06-container-structures/03-vectors.html#passing-vectors-to-functions).
 
+## Type Conversion
+
+In many cases, the C++ compiler will implicitly convert one primitive type to another in a process called _coercion_.
+
+```cpp
+  float myFloat{ 1.12f };
+  double myDouble{ myFloat }; // The float value will be promoted to a double.
+  functionWithOneArgumentOfTypeDouble(myFloat); // Again the float will be promoted.
+```
+
+Sometimes conversions like this can lead to the possible loss of data:
+
+```cpp
+  float myFloat{ 1.12f };
+  int myInt{ myFloat }; // Error! Float cannot be narrowed to int.
+```
+
+If you are fine with the loss of data, you can force the issue with a `static_cast<>`:
+
+```cpp
+  float myFloat{ 1.12f };
+  int myInt{ static_cast<int>myFloat }; // The float will be truncated to 1
+```
+
 ## Sizes Can Be Different
 
 As mentioned a few times above, the size and allowed range for certain types can be architecture or implementation dependent.
