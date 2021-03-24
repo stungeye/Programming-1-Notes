@@ -266,3 +266,61 @@ void calculateMovement(int time, int& xPosition, int& yPosition) {
 
 It's better to return a composite data type like a `struct`, `tuple`, `pair`, etc.
 {: .d-inline-block}
+
+## Function Overloading
+
+We can create different versions of the same named function that:
+
+- Have different data types for the arguments.
+- Have different numbers of arguments.
+
+Imagine a debugging function called `debugFormat()` defined in a few different ways:
+
+```cpp
+void debugFormat() {
+  std::cout << "DEBUG\n";
+}
+
+void debugFormat(int number) {
+  std::cout << "DEBUG (int): " << number << "\n";
+}
+
+void debugFormat(double number) {
+  std::cout << "DEBUG (double): " << number << "\n";
+}
+
+void debugFormat(std::string label, double number) {
+  std::cout <<  label << " (double): " << number << "\n";
+}
+
+debugFormat(); // Outputs: DEBUG
+debugFormat(42); // Outputs: DEBUG (int): 42
+debugFormat(3.14); // Outputs: DEBUG (double): 3.14
+debugFormat("WARNING", 3.14); // Outputs: WARNING (double): 3.14
+```
+
+## Returning Different Types
+
+There may also be instances when you overload a function with a different number/type of parameters and also change the return type.
+
+```cpp
+int add(int num1, int num2) {
+  return num1 + num2;
+}
+
+double add(double num1, int num2) {
+  return num1 + num2;
+}
+```
+
+🎵 Note:
+{: .label .label-yellow}
+
+Overloaded functions with different return types need not have identical function bodies.
+{: .d-inline-block}
+
+⚡ Warning:
+{: .label .label-red}
+
+We cannot overload a function based only on a change in return type.
+{: .d-inline-block}
