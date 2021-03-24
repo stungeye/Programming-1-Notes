@@ -55,6 +55,12 @@ struct Point {
 };
 ```
 
+⚡ Warning:
+{: .label .label-red}
+
+Don't forget the semicolon after the close curly brace.
+{: .d-inline-block}
+
 ## Using Structures and their Members
 
 Let's define a variable using the point `struct` defined above. Notice that we can initialize the structure's members using an initializer list, and that the members can be publicly accessed and modified.
@@ -83,10 +89,10 @@ We can add constructors, destructors, and other methods to `struct`s, at which p
 
 The truth is that there is little difference between a `struct` and a `class`. The difference is that if you don't specify the visibility of members (public, private, protected) they will default to public in a `struct` and default to private in a `class`.
 
-⏳ Wait For It:
-{: .label .label-blue}
+💡 Best Practice:
+{: .label .label-green }
 
-We'll leave the discussion of methods and member visibility to our section on classes.
+Use `struct` for data-only structures and `class` for objects with data and behaviours.
 {: .d-inline-block}
 
 ## Further Reading
