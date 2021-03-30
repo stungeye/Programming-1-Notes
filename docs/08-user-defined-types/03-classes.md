@@ -281,8 +281,79 @@ A better name for this technique is Scope-Bound Resource Management (SBRM), but 
 
 Members and functions can be made to belong to the class (rather to an instance of the class) using the `static` keyword.
 
-## Header Class Definition and CPP Class Implementations
-
-## Basic Inheritance
+<iframe height="700px" width="100%" src="https://replit.com/@stungeye/Static-Class-Members?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 ## This Pointer
+
+Like other object oriented languages, C++ objects have a hidden `this` variable to provide an internal self-reference to the object.
+
+You will rarely (if ever) need to make use of `this` directly, although you might see legacy code using `this` to disambiguate class member variables from method parameters of the same name:
+
+```cpp
+class Widget {
+public:
+  Widget(int id) {
+    this->id = id; // this->id is the member, while id is the parameter.
+  }
+private:
+  int id;
+}
+```
+
+🎵 Note:
+{: .label .label-yellow}
+
+The `->` operator is used to reference members via `this`.
+{: .d-inline-block}
+
+## Header Class Definition and CPP Class Implementations
+
+Up to this point we've been defining the class and its implementation within the `main.cpp` but it's more common to define a class within a `.h` header file, with its implementation defined in a separate `.cpp` file.
+
+When defining methods in the `.cpp` file we must prefix the method name with `Classname::` where `Classname` is the actual name of the class.
+
+<iframe height="600px" width="100%" src="https://replit.com/@stungeye/Separate-Cpp-and-Header-Files?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+🎵 Note:
+{: .label .label-yellow}
+
+Use the 📄 file icon above to toggle the file explorer to see `date.h` and `data.cpp`.
+{: .d-inline-block}
+
+## Object Oriented Inheritance
+
+In object-oriented programming, we can create classes that _inherit_ members from existing classes. In C++ we say that the _derived_ class inherits from a _base_ class. In other programming languages we might say that a child class (or sub class) inherits from a parent class (or super class).
+
+Imagine a `Character` class which is the _base_ class of two _derived_ classes, `PlayerCharacter` and `AICharacter`.
+
+```cpp
+  PlayerCharacter hero{"Daisy Glutton"};
+  AICharacter helper{"Wally Glutton"};
+```
+
+Inheritance describes an _is-a_ relationship:
+
+- The `hero` object _is-a_ `PlayerCharacter` and it also _is-a_ `Character`.
+- The `helper` object _is-a_ `AICharacter` and it also _is-a_ `Character`.
+
+Through this relationship, the _derived_ class inherits access to the `public` and `protected` members of the _base_ class.
+
+## Simple Inheritance
+
+Let's to a quick overview of the basics of C++ inheritance with an example of a `Student` class derived from a `Person` class.
+
+<iframe height="800px" width="100%" src="https://replit.com/@stungeye/Basic-Inheritance?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+💡 Best Practice:
+{: .label .label-yellow}
+
+[A version of this code with classes defined and implemented in `.h` and `.cpp` files](https://replit.com/@stungeye/Basic-Inheritance-Separate-Files).
+{: .d-inline-block}
+
+## Polymorphism To Be Continued
+
+⏳ Wait For It:
+{: .label .label-yellow}
+
+We'll be covering polymorphism and other advanced OO concepts in a later section.
+{: .d-inline-block}
