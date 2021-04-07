@@ -1,7 +1,7 @@
 ---
 title: Classes
 parent: User Defined Types
-nav_order: 1
+nav_order: 3
 ---
 
 <!-- prettier-ignore-start -->
@@ -234,7 +234,7 @@ public:
   }
 
   void debugPrint() {
-    std::cout << "Y:" << year << " M:" << month << " D:" << day << "\n";
+    std::cout << "Y:" << mYear << " M:" << mMonth << " D:" << mDay << "\n";
   }
 };
 
@@ -282,6 +282,26 @@ A better name for this technique is Scope-Bound Resource Management (SBRM), but 
 Members and functions can be made to belong to the class (rather to an instance of the class) using the `static` keyword.
 
 <iframe height="700px" width="100%" src="https://replit.com/@stungeye/Static-Class-Members?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+## Const Objects
+
+[Recall](/docs/05-introduction-to-cpp/03-data-types-variables-constants.html#constants) that we can mark variables as `const` to have the compiler ensure they are never modified once initialized.
+
+Objects can also be made `const`, which will ensure that none of their member variables can change. Let's return to our example `Date` class:
+
+<iframe height="700px" width="100%" src="https://replit.com/@stungeye/Const-and-Classes?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+🎵 Note:
+{: .label .label-yellow}
+
+Public member variables of a `const` object also cannot be changed.
+{: .d-inline-block}
+
+## Const Member Functions
+
+Class member functions that do not change the state of any member variables can also be marked as `const`. When marking a function as `const` the keyword comes after the function signature.
+
+If you look at the `Date` code in the previous section you'll see that two of the member functions are marked as `const`. When an object is marked as `const`, we can only call `const` member functions on that object. Try removing the `const` from the `debugPrint` function and you'll see that the compiler will prevent you from calling this function on the `immutableDate` object.
 
 ## This Pointer
 
@@ -345,7 +365,7 @@ Let's to a quick overview of the basics of C++ inheritance with an example of a 
 <iframe height="800px" width="100%" src="https://replit.com/@stungeye/Basic-Inheritance?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 💡 Best Practice:
-{: .label .label-yellow}
+{: .label .label-green}
 
 [A version of this code with classes defined and implemented in `.h` and `.cpp` files](https://replit.com/@stungeye/Basic-Inheritance-Separate-Files).
 {: .d-inline-block}
@@ -353,7 +373,7 @@ Let's to a quick overview of the basics of C++ inheritance with an example of a 
 ## Polymorphism To Be Continued
 
 ⏳ Wait For It:
-{: .label .label-yellow}
+{: .label .label-blue}
 
 We'll be covering polymorphism and other advanced OO concepts in a later section.
 {: .d-inline-block}

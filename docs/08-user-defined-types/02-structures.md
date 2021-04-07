@@ -1,7 +1,7 @@
 ---
 title: Structures
 parent: User Defined Types
-nav_order: 1
+nav_order: 2
 ---
 
 <!-- prettier-ignore-start -->
