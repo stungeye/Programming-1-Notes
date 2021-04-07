@@ -377,3 +377,7 @@ Let's to a quick overview of the basics of C++ inheritance with an example of a 
 
 We'll be covering polymorphism and other advanced OO concepts in a later section.
 {: .d-inline-block}
+
+## Further Reading
+
+TBW
