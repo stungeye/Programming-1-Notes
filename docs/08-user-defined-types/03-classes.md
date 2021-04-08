@@ -380,4 +380,9 @@ We'll be covering polymorphism and other advanced OO concepts in a later section
 
 ## Further Reading
 
-TBW
+- [Chapter 11 @ learncpp.com covers basic object-oriented programming with classes](https://www.learncpp.com/)
+- Related isocpp.org FAQs:
+  - [Classes and Objects FAQ](https://isocpp.org/wiki/faq/classes-and-objects)
+  - [Constructors FAQ](https://isocpp.org/wiki/faq/ctors)
+  - [Destructors FAQ](https://isocpp.org/wiki/faq/dtors)
+  - [Inheritance Basics FAQ](https://isocpp.org/wiki/faq/basics-of-inheritance)

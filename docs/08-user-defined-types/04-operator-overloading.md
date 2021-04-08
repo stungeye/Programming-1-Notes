@@ -9,7 +9,7 @@ nav_order: 4
 # Operator Overloading 
 {: .no_toc }
 
-TBW
+C++ includes a powerful system for overloading existing operators to support custom behaviour for user defined types.
 
 ## Table of Contents
 {: .no_toc }
@@ -55,7 +55,33 @@ Some limitations of operator overloading:
 
 ## Friend Functions
 
-TBW.
+Before we dive into overloading let's quickly look at a new concept: Friend Functions
+
+A friend function is a function that is granted access to the private members of a class. Functions are declared friends of a class by listing the function signature within the class along with the `friend` keyword.
+
+Functions can be friends to multiple classes and you can even define an entire class as a friend.
+
+A toy example:
+
+```cpp
+class Value {
+private:
+    int mValue;
+public:
+    Value(int value)
+      : mValue{value}
+    { }
+
+    // isEqual() is a friend of this class.
+    friend bool isEqual(const Value &value1, const Value &value2);
+};
+
+// The implementation of isEqual could also go inside of the Value class.
+bool isEqual(const Value &value1, const Value &value2) {
+    // Accessing the private members of both parameters.
+    return value1.mValue == value2.mValue;
+}
+```
 
 ## Classy Cash
 
@@ -73,6 +99,28 @@ Next imagine you'd like to do the following:
 A possible implementation:
 
 <iframe height="800px" width="100%" src="https://replit.com/@stungeye/Operator-Overloading-Money?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+## Overloading I/O Operators
+
+Make note of the second third overloaded operator in the previous example. By overloading the `<<` operator and returning a reference an `std::ostream` parameter we can easily use `Money` objects within `std::cout` chains:
+
+```cpp
+friend std::ostream& operator<<(std::ostream &out, const Money& money) {
+  std::string padding{money.mCents < 10 ? "0" : ""};
+  out << "$" << money.mDollars << "." << padding << money.mCents;
+  return out;
+}
+
+// Later in the program:
+Money pocketChange{5, 98};
+std::cout << "I've got " << pocketChange << " in my pocket.\n";
+```
+
+⏳ Wait For It:
+{: .label .label-blue}
+
+We'll learn more about i/o stream operator overloading in a later module.
+{: .d-inline-block}
 
 ## Date Math
 
@@ -117,16 +165,8 @@ public:
 };
 ```
 
-🎵 Note:
-{: .label .label-yellow}
-
-Overloaded operator functions only need to be marked as `friend` if the function requires access to the private members.
-{: .d-inline-block}
-
-## Overloading the OStream `<<` Operator
-
-TBW
-
 ## Further Reading
 
-TBW
+- [Friend Functions and Classes @ learncpp.com](https://www.learncpp.com/cpp-tutorial/friend-functions-and-classes/)
+- [Friend FAQ @ isocpp.org](https://isocpp.org/wiki/faq/friends)
+- [The `friend` Keyword @ docs.microsoft.com](https://docs.microsoft.com/en-us/cpp/cpp/friend-cpp?view=msvc-160)

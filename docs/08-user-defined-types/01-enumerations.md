@@ -79,7 +79,7 @@ Behind the scenes each of the enum choices is assigned an integer value starting
 💡 Best Practice:
 {: .label .label-green }
 
-Avoid C-Style enums as they aren't well scoped and can lead to naming collisions.
+Avoid C-Style enums as they aren't well-scoped and can lead to naming collisions.
 {: .d-inline-block }
 
 ## Further Reading
