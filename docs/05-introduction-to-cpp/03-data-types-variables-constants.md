@@ -206,9 +206,9 @@ We use floating point numbers to store values that include fractional components
 
 There are three floating point types in C++:
 
-- `float` ±3.4 x 10⁻³⁸ to ±3.4 x 10³⁸ (4 bytes)
-- `double` ±1.7 x 10⁻³⁰⁸ to ±1.7 x 10³⁰⁸ (8 bytes)
-- `long double` ±1.7 x 10⁻³⁰⁸ to ±1.7 x 10³⁰⁸ (8 to 16 bytes)
+- `float` ±1.17 x 10⁻³⁸ to ±3.40 x 10³⁸ (4 bytes)
+- `double` ±2.22 x 10⁻³⁰⁸ to ±1.79 x 10³⁰⁸ (8 bytes)
+- `long double` ±2.22 x 10⁻³⁰⁸ to ±1.79 x 10³⁰⁸ (4 to 8 bytes)
 
 ⚡ Warning:
 {: .label .label-red}
