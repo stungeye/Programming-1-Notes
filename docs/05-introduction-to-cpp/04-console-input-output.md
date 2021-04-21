@@ -80,7 +80,7 @@ All built-in types have predefined ways to be output to a stream.
 ⏳ Wait For It:
 {: .label .label-blue}
 
-In later sections we'll define I/O stream operations for our own user-defined types.
+In [a later section](/Programming-1-Notes/docs/08-user-defined-types/04-operator-overloading.html) we'll define I/O stream operations for our own user-defined types.
 {: .d-inline-block }
 
 ## Reading User Keyboard Input
@@ -122,7 +122,7 @@ std::cout << answer;  // Outputs: Hello World
 ⏳ Wait For It:
 {: .label .label-blue}
 
-In later sections we learn how to stream to/from RAM and to/from the file system.
+In later sections, we learn [how to stream to/from the file system](/Programming-1-Notes/docs/09-file-io/00-file-io.html) and [how to stream to/from RAM](/Programming-1-Notes/docs/06-collections/04-strings.html#more-string-concatenation).
 {: .d-inline-block}
 
 Streaming to data in and out of memory as a string is possible using the `<sstream>` header.

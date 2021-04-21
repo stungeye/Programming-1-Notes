@@ -100,7 +100,7 @@ A possible implementation:
 
 <iframe height="800px" width="100%" src="https://replit.com/@stungeye/Operator-Overloading-Money?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
-## Overloading I/O Operators
+## Overloading I/O Operators - Output Stream
 
 Make note of the second third overloaded operator in the previous example. By overloading the `<<` operator and returning a reference an `std::ostream` parameter we can easily use `Money` objects within `std::cout` chains:
 
@@ -114,6 +114,47 @@ friend std::ostream& operator<<(std::ostream &out, const Money& money) {
 // Later in the program:
 Money pocketChange{5, 98};
 std::cout << "I've got " << pocketChange << " in my pocket.\n";
+```
+
+## Overloading I/O Operators - Input Stream
+
+The above example also includes an overloaded `>>` to allow an `istream` to be parsed to a the custom `Money` type.
+
+```cpp
+friend std::istream& operator>>(std::istream &in, Money& money) {
+  int dollars, cents;
+  char dollarSign, dot;
+
+  // Parses input in the form: $m.n (where m and n are integers)
+  in >> dollarSign >> dollars >> dot >> cents;
+
+  if ((dollarSign != '$') || (dot != '.')) {
+    in.clear(std::ios_base::failbit); // Mark input as failed.
+  } else {
+    money = Money{dollars, cents};
+  }
+
+  return in;
+}
+```
+
+Which is then used like this:
+
+```cpp
+Money userInput; // Requires a non-arg constructor.
+
+do {
+  std::cout << "Enter monetary amount using the format $#.##: ";
+
+  if (std::cin >> userInput) { // Use the istream overload.
+    break; // Successful read of Money value.
+  }
+
+  // No number found so clear the cin error flag:
+  std::cin.clear();
+  // Ignore remaining user input to reset stream for the next try.
+  std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+} while (true);
 ```
 
 ⏳ Wait For It:

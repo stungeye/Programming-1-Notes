@@ -90,7 +90,7 @@ std::string townCrier{"It's " + std::to_string(time) + " o'clock and all is well
 // It's 4 o'clock and all is well!
 ```
 
-## More String Concatenation
+## Output Stream String Concatenation
 
 If you like how strings and primitives can be compared using `std::cout` you can build strings in a similar way using an `std::ostringstream` from the `<sstream>` header:
 
@@ -102,6 +102,26 @@ std::ostringstream groceryList;
 groceryList << "Trade " << numberOfAxes << " axes for " << numberOfRubies << " rubies.";
 
 std::string list = groceryList.str();
+```
+
+## Input Stream String Parsing
+
+String streams can also be used to do simple string parsing:
+
+```cpp
+void parseSentence(std::string sentence) {
+  std::istringstream iss{sentence};
+  std::string animal, adjective;
+  int number;
+
+  iss >> number >> animal >> adjective;
+
+  std::cout << "There were " << number << " " << adjective << " " << animal << ".\n";
+}
+
+// Later used like this:
+parseSentence("25 elephants chill"); // There were 25 chill elephants.
+parseSentence("14 gazel angry");     // There were 14 angry gazel.
 ```
 
 ## Comparing Strings

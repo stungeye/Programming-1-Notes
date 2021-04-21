@@ -21,3 +21,4 @@ Upon completion of this module, you should be able to:
 - Define classes that can be used to create `const` objects.
 - Separate class definitions from their implementations using header files.
 - Implement simple object-oriented inheritance with base and derived classes.
+- Create overloaded operators for your custom classes.
