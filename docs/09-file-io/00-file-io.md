@@ -149,7 +149,25 @@ Reading delimited data is simplified with a space character delimiter, as the in
 
 ## Reading Structured Text Data
 
-Recall in [our section on operator overloading](/Programming-1-Notes/docs/08-user-defined-types/04-operator-overloading.html#overloading-io-operators---input-stream) we created a `Money` class with custom i/o stream operators. Here's a version of that class being used to read in a file of dollar amounts, one per line, in the `$m.n` format (where m and n are integers):
+Recall in [our section on operator overloading](/Programming-1-Notes/docs/08-user-defined-types/04-operator-overloading.html#overloading-io-operators---input-stream) we created a `Money` class with custom i/o stream operators.
+
+With an overloaded `<<` operator for input streams we can easily read well-formatted files into vectors:
+
+```cpp
+// Open input stream:
+std::ifstream inputFile{"input-file.txt"};
+// Read all Money entries from the file into a vector:
+std::vector<Money> bank{ // We can constructor vector an iterator:
+  std::istream_iterator<Money>{inputFile},
+  {} // Short form for the end of the iterator.
+};
+// Loop through the received Money entries:
+for(Money money : bank) {
+  std::cout << money << "\n";
+}
+```
+
+Here's a version of the `Money` class used to read in a file of dollar amounts, one per line, in the `$m.n` format (where m and n are integers):
 
 <iframe height="750px" width="100%" src="https://replit.com/@stungeye/Structure-File-Reading-Money?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
@@ -163,9 +181,21 @@ For simplicity sake we're halting all file parsing if we encounter a badly forma
 
 So far we've been reading and writing our data in text format. We can conserve space and potentially save time by writing in a binary format.
 
-Let's start by writing strings to a binary file. However, note that if we were _only_ saving strings to a file we might as well do that in a text format.
+Let's start by writing strings to a binary file.
 
 <iframe height="750px" width="100%" src="https://replit.com/@stungeye/Writing-a-Binary-File-of-Strings?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+🎵 Note:
+{: .label .label-yellow}
+
+If we were actually just saving strings to a file we may as well be using a text file.
+{: .d-inline-block}
+
+⏳ Wait For It:
+{: .label .label-blue}
+
+Note the use of pointers, which we'll cover in more detail in future sections.
+{: .d-inline-block}
 
 ## Streaming Binary Structures
 
@@ -178,6 +208,18 @@ We can also write POD structs to a binary file, as in structs that only contain 
 
 For more on PODs [see this StackOverflow response](https://stackoverflow.com/a/146589).
 {: .d-inline-block}
+
+## Vector Iterator Trick with Binary Data
+
+Earlier we used an iterator to quickly fill a vector with input stream text data (parsed by an overloaded `<<`). We can use a similar trick to read in all a file full of binary data, if all we want are the raw bytes.
+
+```cpp
+std::ifstream inputFile("input.bin", std::ios::binary);
+std::vector<std::byte> data{
+  std::istreambuf_iterator<std::byte>(inputFile), // istreambuf iterator for binary data.
+  {}
+};
+```
 
 ## Random File Access
 
