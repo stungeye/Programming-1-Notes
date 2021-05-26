@@ -14,12 +14,10 @@ nav_order: 100
 ## Week 2
 
 - [Introduction to C++](/Programming-1-Notes/docs/05-introduction-to-cpp/00-introduction-to-cpp.html)
-- Intro to Test Driven Development using [Catch2](https://github.com/catchorg/Catch2)
 
 ## Week 3
 
 - [Collections of Data](/Programming-1-Notes/docs/06-collections/00-container-structures.html)
-- Linting and Formatting
 
 ## Week 4
 
@@ -44,11 +42,11 @@ nav_order: 100
 
 ## Week 9
 
-- [Advanced Functions](/Programming-1-Notes/docs/10-advanced-functions/00-advanced-functions.html)
+- First Course Project
 
 ## Week 10
 
-- [Advanced Classes](/Programming-1-Notes/docs/11-advanced-classes/00-advanced-classes.html)
+- [Lambdas](/Programming-1-Notes/docs/10-lambdas/00-lambdas.html)
 
 ## Week 11
 
@@ -56,6 +54,7 @@ nav_order: 100
 
 ## Week 12
 
+- TDD with Cache 2
 - Package Management
 
 ## Week 13
