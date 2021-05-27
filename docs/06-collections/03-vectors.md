@@ -191,25 +191,13 @@ Because resize operations on vectors are expensive, a vector will sometimes prea
 
 <iframe height="800px" width="100%" src="https://repl.it/@stungeye/Length-vs-Capacity?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
-## Pointers and Iterators
-
-We can use `data()` for direct access to the underlying array using a pointer.
-
-The standard `begin()` and `end()` iterators (and variants) are all available.
-
-⏳ Wait For It:
-{: .label .label-blue}
-
-These affordances will make more sense once we study pointers and iterators.
-{: .d-inline-block}
-
 ## Comparing Vectors
 
 Two vectors can be compared using the `==` operator. The operator will first check the vector lengths. If they are of equal length, each pair of elements will be compared using `==`.
 
 ```cpp
-  std::vector vectorOne = { 3, 1, 4, 1, 5, 9};
-  std::vector vectorTwo = { 9, 5, 1, 4, 1, 3};
+  std::vector vectorOne{ 3, 1, 4, 1, 5, 9};
+  std::vector vectorTwo{ 9, 5, 1, 4, 1, 3};
 
   if (vectorOne == vectorTwo) {
     std::cout << "We should never see this message as the vector elements are not equal.";
@@ -224,91 +212,31 @@ Vector comparisons depends on the order of the elements.
 
 The above vectors are not equal even though they included the same numbers! If order doesn't matter you could first sort the vectors, or use something like an `unordered_set` instead.
 
-## Vector Iterators
+## Copying Vectors
 
-Another way to traverse a vector is to use **iterators**, which are special objects that allow us to step through a container.
-
-All standard containers come with a function that returns an iterator that points to the start of the collection:
+The easier way to copy a vector is to use the vector _copy constructor_:
 
 ```cpp
-  std::vector bagOfHolding{"sword", "shield", "potion"};
-  auto iterator{bagOfHolding.begin()}; // Iterator that points to the first element.
+  std::vector vectorOne{ 3, 1, 4, 1, 5, 9};
+  std::vector vectorTwo{ vectorOne }; // Copy vectorOne into VectorTwo.
 ```
 
-With iterators we can:
+⏳ Wait For It:
+{: .label .label-blue}
 
-- Use the `*` operator to access the element the iterator points to.
-- Use addition or subtraction to advance or rewind the iterator.
-
-```cpp
-  std::cout << *iterator << "\n"; // Use * to access the element. Outputs: sword
-  iterator++; // Advance the iterator
-  std::cout << *iterator << "\n"; // Outputs: shield
-  iterator++; // Advance the iterator
-  std::cout << *iterator << "\n"; // Outputs: potion
-  iterator--; // Rewinds the iterator
-  std::cout << *iterator << "\n"; // Outputs: shield
-```
-
-## Iterator Safety
-
-Nothing stops us from advancing an iterator beyond the end of a collection. This can cause our programs to crash:
-
-```cpp
-  std::vector twoWords{"ghostly", "grinner"};
-  auto iterator{twoWords.begin()}; // Iterator that points to the first element.
-
-  std::cout << *iterator << "\n"; // Use * to access the element. Outputs: ghostly
-  iterator++; // Advance the iterator
-  std::cout << *iterator << "\n"; // Outputs: grinner
-  iterator++; // Oh no! We've advanced the iterator beyond the end of the collection!
-  std::cout << *iterator << "\n"; // Segmentation fault!
-```
-
-To guard against this problem we can use the `.end()` iterator:
-
-```cpp
-  std::vector sentence{"you", "eat", "bugs"};
-
-  for (auto i{ sentence.begin() }; i != sentence.end(); ++i) {
-    std::cout << *i << ' '; // Indirection to get value of current element
-  }
-```
-
-🎵 Note:
-{: .label .label-yellow}
-
-The end iterator points to one position _past_ the last element of the collection.
+With [iterators](/Programming-1-Notes/docs/06-collections/05-iterators.html) & [lambdas](/Programming-1-Notes/docs/10-lambdas/00-lambdas.html) you can use [`copy_if()`](http://www.cplusplus.com/reference/algorithm/copy_if/) to conditionally copy certain elements.
 {: .d-inline-block}
 
-## Reverse Iterators
+## Pointers and Iterators
 
-There are also iterators that let us walk through a collection in reverse:
+We can use `data()` for direct access to the underlying array using a pointer.
 
-```cpp
-  std::vector sentence{"you", "eat", "bugs"};
+The standard `begin()` and `end()` iterators (and variants) are all available.
 
-  for (auto i{ sentence.rbegin() }; i != sentence.rend(); ++i) {
-    std::cout << *i << ' '; // Indirection to get value of current element
-  }
-```
+⏳ Wait For It:
+{: .label .label-blue}
 
-## Next and Prev Iterators
-
-The `<iterator>` header provides `std::next()` and `std::prev()` functions that return the next or previous iterator:
-
-```cpp
-  std::vector sentence{"you", "eat", "bugs"};
-  auto secondElement{ std::next(sentence.begin()) };
-  auto lastElement{ std::prev(sentence.end()) };
-  // These function also take a second argument for number of position to advance or rewind:
-  auto alsoLastElement{std::next(sentence.begin(), 2) };
-```
-
-⚡ Warning:
-{: .label .label-red}
-
-These functions may return iterators pointing outside of our collection!
+These affordances will make more sense once we study pointers and iterators.
 {: .d-inline-block}
 
 ## Further Reading

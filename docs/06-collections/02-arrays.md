@@ -202,6 +202,15 @@ The two simplest ways to loop over standard arrays:
 The loop variable `i` will be of type `std:size_t`. [More on this type](https://en.cppreference.com/w/cpp/types/size_t).
 {: .d-inline-block}
 
+## Copying Arrays
+
+The easier way to copy an array is to use the array _copy constructor_:
+
+```cpp
+  std::array arrayOne{ 3, 1, 4, 1, 5, 9};
+  std::array arrayTwo{ arrayOne }; // Copy arrayOne into arrayTwo.
+```
+
 ## Standard Arrays as Function Arguments
 
 Standard Arrays can be received by function parameters.
