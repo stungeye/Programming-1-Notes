@@ -150,7 +150,7 @@ auto longWordCount = std::count_if(words.begin(), words.end(),
 
 ## Capturing By Reference
 
-There are times that you may wish to capture a variable by reference, rather than the default by value. I'm of the opinion that this should be done for performance reasons (large capture objects), as mutating variables from the outer scope could easily be a source of bugs.
+There are times that you may wish to capture a variable by reference, rather than default to by value. I'm of the opinion that this should primarily be done for performance reasons (large capture objects), as mutating variables from the outer scope can easily be a source of bugs.
 
 That said, here's an example of a reference capture that does mutate the outer variable as a way of tracking how many comparisons are required when sorting an array:
 
@@ -202,7 +202,7 @@ auto exploreWorld = [&]() { // Capture all outer variables mentioned by referenc
 
 ## Mix and Match Capture Types
 
-We can mix and match value, reference, and default captures within a single capture clause. Here are some example, where I've kept the lambda body empty for simplicity:
+We can mix and match value, reference, and default captures within a single capture clause. Here are some examples, where I've kept the lambda body empty for simplicity:
 
 ```cpp
 int sum = 12;
@@ -222,9 +222,9 @@ float weightOnMars = 12.134;
 
 ## Further Reading
 
-- [Lambda Expressions in C++ @ doc.microsoft.com](https://docs.microsoft.com/en-us/cpp/cpp/lambda-expressions-in-cpp?view=msvc-160)
 - [Introduction to Lambdas @ LearnCpp.com](https://www.learncpp.com/cpp-tutorial/introduction-to-lambdas-anonymous-functions/)
 - [Lambda Captures @ LearnCpp.com](https://www.learncpp.com/cpp-tutorial/lambda-captures/)
+- [Lambda Expressions in C++ @ doc.microsoft.com](https://docs.microsoft.com/en-us/cpp/cpp/lambda-expressions-in-cpp?view=msvc-160)
 - [The World Map of C++ STL Algorithms](https://www.fluentcpp.com/getthemap/)
 - [105 STL Algorithms in Less Than an Hour](https://www.youtube.com/watch?v=2olsGf6JIkU) (1 hour video)
 - [Algorithm Intuition by Conor Hoekstra](https://www.youtube.com/watch?v=48gV1SNm3WA) (1.5 hour video)
