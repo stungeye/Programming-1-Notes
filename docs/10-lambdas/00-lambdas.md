@@ -215,8 +215,8 @@ float weightOnMars = 12.134;
 [&, sum](){}; // Capture all mentioned outer variables by reference, but sum by value.
 
 // Some invalid captures:
-[&, &ghosts](){}; // Compile Error: The ghosts variable is already captured by reference through the & default.
-[=, sum](){}; // Compile Error: The sum variable is already captured by value through the = default.
+[&, &ghosts](){}; // Compile Error: The ghosts variable is already captured by reference through the &.
+[=, sum](){}; // Compile Error: The sum variable is already captured by value through the =.
 [sum, &](){}; // Compile Error: Default captures must be the first element in the capture clause.
 ```
 
