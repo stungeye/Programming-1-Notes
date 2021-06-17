@@ -15,13 +15,13 @@ By the end of this course, using the C++ programming language, the student shoul
 
 - Write and compile procedural and object-oriented programs.
 - Design programs that make use of:
+  - User defined functions and lambda expressions.
+  - User defined types.
   - Standard library container classes.
   - I/O Streams and text formatting.
-  - User defined types.
-  - Functions and lambda expressions.
-  - Custom object hierarchies using classes, inheritance and polymorphism.
 - Debug complex error situations involving logical, compile-time, link-time, and run-time errors.
 - Make use of 3rd party object-oriented graphics and sound libraries to solve game development problems.
+- Verbally explain to their instructor, and peers, the algorithms and design decisions used in the software they have written.
 
 ## Course Notes
 
