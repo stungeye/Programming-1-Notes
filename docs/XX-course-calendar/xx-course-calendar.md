@@ -5,66 +5,45 @@ nav_order: 100
 
 # Course Calendar
 
-## Week 1
+## Module 1
 
 - [Conventions and RTFM](/Programming-1-Notes/docs/02-conventions-and-reference/00-conventions-and-reference.html)
 - [History of C++](/Programming-1-Notes/docs/03-history-of-cpp/00-history-of-cpp.html)
 - [Tour of C++ and Visual Studio](/Programming-1-Notes/docs/04-cpp-and-visual-studio-tour/00-cpp-and-visual-studio-tour.html)
 
-## Week 2
+## Module 2
 
 - [Introduction to C++](/Programming-1-Notes/docs/05-introduction-to-cpp/00-introduction-to-cpp.html)
 
-## Week 3
+## Module 3
 
 - [Collections of Data](/Programming-1-Notes/docs/06-collections/00-container-structures.html)
 
-## Week 4
+## Module 4
 
 - [openFramworks Basics](/Programming-1-Notes/docs/07-openframeworks-basics/00-openframeworks-basics.html)
 
-## Week 5
+## Module 5
 
 - [User Defined Types](/Programming-1-Notes/docs/08-user-defined-types/04-operator-overloading.html)
 
-## Week 6
+## Project Time
+
+- First Course Project
+
+## Module 6
 
 - [File I/O](/Programming-1-Notes/docs/09-file-io/00-file-io.html)
 - File Formats
 
-## Week 7
-
-- First Course Project
-
-## Week 8
-
-- First Course Project
-
-## Week 9
-
-- First Course Project
-
-## Week 10
+## Module 7
 
 - [Lambdas](/Programming-1-Notes/docs/10-lambdas/00-lambdas.html)
 
-## Week 11
+## Module 8
 
 - [Pointer Basics](/Programming-1-Notes/docs/12-pointer-basics/00-pointer-basics.html)
 
-## Week 12
+## Project Time
 
-- TDD with Cache 2
-- Package Management
-
-## Week 13
-
-- Final Course Project
-
-## Week 14
-
-- Final Course Project
-
-## Week 15
-
-- Final Course Project
+- Second Course Project
