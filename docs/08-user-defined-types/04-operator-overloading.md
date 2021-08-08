@@ -116,6 +116,12 @@ Money pocketChange{5, 98};
 std::cout << "I've got " << pocketChange << " in my pocket.\n";
 ```
 
+🎵 Note:
+{: .label .label-yellow}
+
+The `friend` keyword isn't required when overloading i/o operators for `struct`s.
+{: .d-inline-block}
+
 ## Overloading I/O Operators - Input Stream
 
 The above example also includes an overloaded `>>` to allow an `istream` to be parsed to a the custom `Money` type.
@@ -156,12 +162,6 @@ do {
   std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
 } while (true);
 ```
-
-⏳ Wait For It:
-{: .label .label-blue}
-
-We'll learn more about i/o stream operator overloading in a later module.
-{: .d-inline-block}
 
 ## Date Math
 
