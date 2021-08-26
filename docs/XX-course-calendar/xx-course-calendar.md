@@ -40,10 +40,6 @@ nav_order: 100
 
 - [Lambdas](/Programming-1-Notes/docs/10-lambdas/00-lambdas.html)
 
-## Module 8
-
-- [Pointer Basics](/Programming-1-Notes/docs/12-pointer-basics/00-pointer-basics.html)
-
 ## Project Time
 
 - Second Course Project
