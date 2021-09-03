@@ -122,7 +122,7 @@ Run your code by hitting `CTRL-F5` or by click the green play button.
 
 The Console App project uses [the MSBuild system](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild?view=vs-2019) to compile and link your programs into executables. Projects created in this way are meant to be edited and built using Visual Studio.
 
-The CMake Project isn't reliant on the MSBuild system, instead these projects are configured to be built using [the cross-platform CMake build system](https://cmake.org). Visual Studio has support for building projects using CMake, but projects created in this manner can also be edited and built without Visual Studio using the CMake directly on Windows, Mac and Linux.
+The CMake Project isn't reliant on the MSBuild system, instead these projects are configured to be built using [the cross-platform CMake build system](https://cmake.org). Visual Studio has support for building projects using CMake, but projects created in this manner can also be edited and built without Visual Studio using CMake directly on Windows, Mac and Linux.
 
 ### Further Reading
 
