@@ -113,7 +113,7 @@ std::cout << answer; // Outputs: Hello
 The `getline` function can be used to get an entire line of input, up to the newline character:
 
 ```cpp
-getline(std::cin, answer); // User inputs: Hello World
+std::getline(std::cin, answer); // User inputs: Hello World
 std::cout << answer;  // Outputs: Hello World
 ```
 
