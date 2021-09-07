@@ -300,6 +300,9 @@ temperature = 1.2; // Error. Cannot redefine a constant.
 💡 Best Practice:
 {: .label .label-green }
 
+An important best practice when writing C++ code is [const correctness](https://isocpp.org/wiki/faq/const-correctness).
+{: .d-inline-block}
+
 ## Reference Variables
 
 A reference is a type of variable that acts as an alias to another variable.
