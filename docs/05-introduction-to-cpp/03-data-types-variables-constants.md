@@ -283,7 +283,7 @@ There's also the AAAA camp: Almost Always Avoid Auto 🤣 [Further Reading](http
 
 You can make your code more error proof by marking variables that shouldn't be modified as constants with `const` and `constexpr`.
 
-We use `constexpr` for things whose value is know at compile time:
+We use `constexpr` for things whose value is known at compile time:
 
 ```cpp
 constexpr double pi{3.1415926};
