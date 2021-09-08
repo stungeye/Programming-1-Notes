@@ -44,7 +44,7 @@ Standard C-style for loops are also available. These loops are best used for cou
 
 ```cpp
 for (int apples{10}; apples <= 20; apples++) {
-  std::cout << apples << ": How to you like them apples?\n";
+  std::cout << apples << ": How do you like them apples?\n";
 }
 ```
 
