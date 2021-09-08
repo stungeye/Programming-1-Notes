@@ -121,7 +121,7 @@ int fetchInteger(std::string);
 
 It's common to forward declare functions defined in separate `.cpp` source files using `.h` header files.
 
-First the function is forward declared in an header with with [include guards](s/docs/05-introduction-to-cpp/02-the-build-process.html#preprocessor-directive---include-guards):
+First the function is forward declared in a header with [include guards](s/docs/05-introduction-to-cpp/02-the-build-process.html#preprocessor-directive---include-guards):
 
 ```cpp
 #ifndef USERINPUT_H
@@ -152,7 +152,7 @@ Non-zero status codes are used to indicate program failure.
 
 If no `return` is present it's equivalent to returning `0`, meaning success.
 
-The `<cstdlib>` header defines two status code you can use when returning from `main()`:
+The `<cstdlib>` header defines two status codes you can use when returning from `main()`:
 
 - `EXIT_SUCCESS`
 - `EXIT_FAILURE`
@@ -215,7 +215,7 @@ void logMonster(const Monster& m) {
 
 ## Pass by Reference
 
-Changes made to non-`const` reference parameter affect the variable passed into the function.
+Changes made to non-`const` reference parameters affect the variable passed into the function.
 
 ```cpp
 int mutator(int& number) {
