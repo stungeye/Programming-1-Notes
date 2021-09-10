@@ -72,7 +72,7 @@ Functions can optionally return a value to the caller.
 
 ```cpp
 std::string pizzaMessage(int piecesLeft, int hungryPeople) {
-  if (piecesLeft < people) {
+  if (piecesLeft < hungryPeople) {
     return "Sorry we don't have enough pizza.";
   } else {
     return "Let's share! Any leftovers go to the dog.";
