@@ -8,7 +8,7 @@ nav_order: 6
 # Booleans and Decisions
 {: .no_toc }
 
-Boolean expressions and flow control statements are how we instructor computers to make decisions.
+Boolean expressions and flow control statements are how we instruct computers to make decisions.
 
 ### Table of Contents
 {: .no_toc }
@@ -22,7 +22,7 @@ Boolean expressions and flow control statements are how we instructor computers 
 
 A boolean expression is a mathematical expression that results in either `true` or `false`.
 
-Boolean expressions in Javascript can contain the following operators (and more):
+Boolean expressions in C++ can contain the following operators (and more):
 
 |      Symbol      |        Meaning        |
 | :--------------: | :-------------------: |
@@ -33,7 +33,7 @@ Boolean expressions in Javascript can contain the following operators (and more)
 |        >=        | greater than or equal |
 |        <=        |  less than or equal   |
 |        &&        |     Boolean 'and'     |
-| &brvbar;&brvbar; |     Boolean 'or'      |
+|        ||        |     Boolean 'or'      |
 
 ## Decision Statements
 
@@ -106,7 +106,7 @@ The `value` variable in the re-written example won't be available after the `if`
 
 ## Short Circuit Evaluation
 
-When evaluating `&&` and `||` C++ programs will sometimes optimized away the second operand:
+When evaluating `&&` and `||` C++ programs will sometimes optimize away the second operand:
 
 ```cpp
 // Anything ANDed with false is false.
