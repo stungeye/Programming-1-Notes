@@ -49,7 +49,7 @@ class Date {
 ⚡ Warning:
 {: .label .label-red}
 
-Don't forget the semicolon after the close curly brace.
+Don't forget the semicolon after the closing curly brace.
 {: .d-inline-block}
 
 ## Initializing Class Members
@@ -271,7 +271,7 @@ Here's a class with a constructor and destructor that announce their own executi
 
 Constructors and destructors allow for the popular resource management technique [RAII](https://en.cppreference.com/w/cpp/language/raii), where the life-cycles of resources (like memory, network sockets, open files, etc) are bound to the lifetime of specific objects.
 
-Said another way, with RAII resources are obtained within class constructors and released in class destructors. This way, resource cleanup is automatically handed when objects go out of scope.
+Said another way, with RAII resources are obtained within class constructors and released in class destructors. This way, resource cleanup is automatically handled when objects go out of scope.
 
 A better name for this technique is Scope-Bound Resource Management (SBRM), but RAII is the term everyone seems to use.
 
@@ -279,7 +279,7 @@ A better name for this technique is Scope-Bound Resource Management (SBRM), but 
 
 ## Static Members Variables and Functions
 
-Members and functions can be made to belong to the class (rather to an instance of the class) using the `static` keyword.
+Members and functions can be made to belong to the class (rather than to an instance of the class) using the `static` keyword.
 
 <iframe height="700px" width="100%" src="https://replit.com/@stungeye/Static-Class-Members?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
@@ -360,14 +360,14 @@ Through this relationship, the _derived_ class inherits access to the `public` a
 
 ## Simple Inheritance
 
-Let's to a quick overview of the basics of C++ inheritance with an example of a `Student` class derived from a `Person` class.
+Let's do a quick overview of the basics of C++ inheritance with an example of a `Student` class derived from a `Person` class.
 
 <iframe height="800px" width="100%" src="https://replit.com/@stungeye/Basic-Inheritance?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 💡 Best Practice:
 {: .label .label-green}
 
-[A version of this code with classes defined and implemented in `.h` and `.cpp` files](https://replit.com/@stungeye/Basic-Inheritance-Separate-Files).
+See [a version of this code with classes defined and implemented in `.h` and `.cpp` files](https://replit.com/@stungeye/Basic-Inheritance-Separate-Files).
 {: .d-inline-block}
 
 ## Polymorphism To Be Continued
