@@ -167,7 +167,7 @@ Integers have undefined behaviour for values outside these ranges. See [Basic Ma
 
 ## Unsigned Whole Numbers
 
-It is possible to use the whole number types in the last section in as _unsigned numbers_.
+It is possible to use the whole number types in the last section as _unsigned numbers_.
 
 Unsigned numbers can only store positive values, but the range of numbers is doubled.
 
