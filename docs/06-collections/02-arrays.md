@@ -10,7 +10,7 @@ nav_order: 2
 
 Arrays are the simplest C++ container for storing ordered data of an uniform type. 
 
-Two types of array are available:
+Two types of arrays are available:
 
 * Basic arrays as defined in the C programming language. 
 * The enhanced `std::array` from the C++ Standard Library.
@@ -218,12 +218,12 @@ Standard Arrays can be received by function parameters.
 Unlike C-Style Arrays, Standard Arrays don't lose their length information once inside the function.
 
 ```cpp
-void calculateAverage(std::array<double, 5> data) {
+double calculateAverage(std::array<double, 5> data) {
   double sum{0.0};
-  for (number : data) {
+  for (auto number : data) {
     sum += data;
   }
-  return data / data.size();
+  return sum / data.size();
 }
 ```
 
@@ -241,7 +241,7 @@ We can switch to _pass-by-reference_ with the `&` operator. Passing a reference 
 
 ```cpp
 // Array passed as a reference for performance and as a const for safety:
-void calculateAverage(const std::array<double, 5>& data) {
+double calculateAverage(const std::array<double, 5>& data) {
   // Identical function body as above.
 }
 ```
