@@ -176,7 +176,7 @@ Introduced in C++17, a `std::string_view` gives us a view into an existing strin
 
 ## C-Style Strings
 
-You will occasionally run across code that uses old school C-style strings. C-style strings are array's of characters with the end of the string denoted by a _null terminator_ (ascii code 0). This is why they are sometimes referred to as null-terminated strings.
+You will occasionally run across code that uses old school C-style strings. C-style strings are arrays of characters with the end of the string denoted by a _null terminator_ (ascii code 0). This is why they are sometimes referred to as null-terminated strings.
 
 Defining a C-style string:
 
@@ -212,7 +212,7 @@ When working in Unreal Engine there are three different lightweight string types
 
 `FText` is used for any text that might be shown to the user and forms the basis for UI translation/localization.
 
-`FString` is similar to `FText` but includes all sorts of handy helper functions at the cost using more memory.
+`FString` is similar to `FText` but includes all sorts of handy helper functions at the cost of using more memory.
 
 ## Further Reading
 
