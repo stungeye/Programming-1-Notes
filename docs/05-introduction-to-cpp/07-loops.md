@@ -97,7 +97,7 @@ Loops can go inside of loops inside of other loops.
 ⏳ Wait For It:
 {: .label .label-blue}
 
-There are special loops for traversing collections. See ranged for section.
+There are special loops for traversing collections. See the [ranged-base for notes in the vector module](/Programming-1-Notes/docs/06-collections/03-vectors.html#looping-over-vectors).
 {: .d-inline-block }
 
 ## Further Reading
