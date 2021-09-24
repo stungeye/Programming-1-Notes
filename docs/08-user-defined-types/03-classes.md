@@ -140,7 +140,7 @@ This can be fixed by requesting a default constructor:
 
 ```cpp
 class Date {
-  int year;
+  int year; // Uninitialized properties are set to 0.
   int month;
   int day;
 
@@ -153,7 +153,7 @@ public:
 };
 
 // Later in the program:
-Date birthday{}; // Works again!
+Date birthday{}; // Works again! But all properties default to zero if uninitialized.
 ```
 
 ## Overloaded Constructors
@@ -162,9 +162,10 @@ Date birthday{}; // Works again!
 
 ```cpp
 class Date {
-  int year;
-  int month;
-  int day;
+  // Let's put back in the defaults through initialization.
+  int year{1};
+  int month{1};
+  int day{1};
 
 public:
   Date(int y, int m, int d) // Three argument constructor.
@@ -179,8 +180,9 @@ public:
 };
 
 // Later in the program:
-Date specificDate{}
+Date defaultDate{}; // Internally: year = 1, month = 1, day = 1
 Date JanFirstInTheFuture{3000}; // Internally: year = 3000, month = 1, day = 1
+Date SeptSecondInTheFuture{300, 9, 2}; // Internally: year = 3000, month = 9, day = 2
 ```
 
 ## Defining Member Functions
@@ -191,9 +193,9 @@ Here's the `Date` class again, but simplified to have only one constructor. A `p
 
 ```cpp
 class Date {
-  int year;
-  int month;
-  int day;
+  int year{1};
+  int month{1};
+  int day{1};
 
 public:
   Date(int y, int m, int d)
@@ -216,9 +218,9 @@ If you need to break [encapsulation](https://www.learncpp.com/cpp-tutorial/acces
 
 ```cpp
 class Date {
-  int mYear;
-  int mMonth;
-  int mDay;
+  int mYear{1};
+  int mMonth{1};
+  int mDay{1};
 
 public:
   Date(int y, int m, int d)
