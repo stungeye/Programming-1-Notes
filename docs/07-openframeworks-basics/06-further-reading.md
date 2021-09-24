@@ -105,7 +105,7 @@ void ofApp::draw() {
     // Map the mouse y position to a 1 to 1.2 range.
     double scaleFactor = ofMap(ofGetMouseY(), 0, ofGetHeight(), 1, 1.2);
 
-    // Draw 100 circles of increasing size and rotation.
+    // Draw 100 squares of increasing size and rotation.
     for (auto i = 0; i < 100; ++i) {
         // The x position of the mouse mapped 0-20 sets the rotation.
         ofRotateZDeg(rotation);
