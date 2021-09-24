@@ -375,7 +375,7 @@ See [a version of this code with classes defined and implemented in `.h` and `.c
 ⏳ Wait For It:
 {: .label .label-blue}
 
-We'll be covering polymorphism and other advanced OO concepts in a later section.
+We'll be covering polymorphism and other advanced OO concepts at a later time.
 {: .d-inline-block}
 
 ## Further Reading
