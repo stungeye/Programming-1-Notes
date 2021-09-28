@@ -9,7 +9,7 @@ nav_order: 1
 # Enumerations 
 {: .no_toc }
 
-The most basic user-defined type is an *enumeration*. Enumerations allow use to create variables whose values are restricted to a set of options called *enumerators*.
+The most basic user-defined type is an *enumeration*. Enumerations allow us to create variables whose values are restricted to a set of options called *enumerators*.
 
 ## Table of Contents
 {: .no_toc }
@@ -25,7 +25,7 @@ Enumerations help us remove [magic numbers](<https://en.wikipedia.org/wiki/Magic
 
 They also help us avoid using old school `#define` constants, which don't follow scope and type rules.
 
-In general they lead to more readable and more intension revealing code.
+In general they lead to more readable and more intention revealing code.
 
 ## Defining and Using Enums
 
