@@ -108,7 +108,7 @@ In the associated `ofApp.cpp` file, within `setup()`:
 
 ```cpp
 ofTrueTypeFont::setGlobalDpi(72); // Default is 96, but results in larger than normal pt size.
-verdanaText.load("verdana.ttf", 14, true, true); // filename, point size, antialiased?, full char-set?
+verdanaText.load(ofToDataPath("verdana.ttf"), 14, true, true); // filename via ofToDataPath, point size, antialiased?, full char-set?
 verdanaText.setLineHeight(18.0); // Default is based on font size.
 verdanaText.setLetterSpacing(1.05); // Default is based on font size.
 ```
