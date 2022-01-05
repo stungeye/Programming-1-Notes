@@ -26,20 +26,3 @@ nav_order: 100
 ## Module 5
 
 - [User Defined Types](/Programming-1-Notes/docs/08-user-defined-types/04-operator-overloading.html)
-
-## Project Time
-
-- First Course Project
-
-## Module 6
-
-- [File I/O](/Programming-1-Notes/docs/09-file-io/00-file-io.html)
-- File Formats
-
-## Module 7
-
-- [Lambdas](/Programming-1-Notes/docs/10-lambdas/00-lambdas.html)
-
-## Project Time
-
-- Second Course Project
