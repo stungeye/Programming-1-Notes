@@ -8,9 +8,9 @@ nav_order: 2
 # Arrays
 {: .no_toc }
 
-Arrays are the simplest C++ container for storing ordered data of an uniform type. 
+Arrays are the simplest C++ container for storing ordered data of a uniform type. 
 
-Two types of arrays are available:
+Two types of array are available:
 
 * Basic arrays as defined in the C programming language. 
 * The enhanced `std::array` from the C++ Standard Library.
@@ -133,7 +133,7 @@ Standard Array includes the following enhancements over C-Style Arrays:
 💡 Best Practice:
 {: .label .label-green}
 
-Always prefer `std::array` over a C-Style arrays. Lots to gain, little to lose.
+Always prefer `std::array` over C-Style arrays. Lots to gain, little to lose.
 {: .d-inline-block}
 
 ## Defining Standard Arrays
@@ -178,7 +178,7 @@ Here's a program that demonstrates some of the differences between `std::array` 
 
 <iframe height="700px" width="100%" src="https://repl.it/@stungeye/C-Style-Array-Copy?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
-## Out of Bounds Behaviour
+## Out-of-Bounds Behaviour
 
 Both C-Style and Standard Arrays are missing array boundary checking. Historically this has been (and continues to be) a major source of bugs and security exploits.
 
@@ -187,7 +187,7 @@ Both C-Style and Standard Arrays are missing array boundary checking. Historical
 💡 Best Practice:
 {: .label .label-green }
 
-Manually include guards in your code to prevent out of bounds reads or writes.
+Manually include guards in your code to prevent out-of-bounds reads or writes.
 {: .d-inline-block }
 
 ## Looping Over Standard Arrays
@@ -204,7 +204,7 @@ The loop variable `i` will be of type `std:size_t`. [More on this type](https://
 
 ## Copying Arrays
 
-The easier way to copy an array is to use the array _copy constructor_:
+An easier way to copy arrays is to use the array _copy constructor_:
 
 ```cpp
   std::array arrayOne{ 3, 1, 4, 1, 5, 9};
