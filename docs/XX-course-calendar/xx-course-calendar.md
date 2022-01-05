@@ -1,5 +1,5 @@
 ---
-title: Course Calendar
+title: Calendar Programming 1
 nav_order: 100
 ---
 
