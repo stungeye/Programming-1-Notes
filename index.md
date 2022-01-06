@@ -48,9 +48,9 @@ By the end of this course, using the C++ programming language, learners should b
   - Data files and the file system.
   - Lambda functions.
 - Correctly and efficiently handle resource management within their programs.
-- Write stable and debug-friendly OO programs using logging and error handling mechanism.
+- Write stable and debug-friendly OO programs using logging and error handling mechanisms.
 - Use the language of study for scripting within a game engine.
-- Verbally explain to their instructor, and peers, the algorithms and design decisions used in the software they have written.
+- Verbally explain to their instructor and peers the algorithms and design decisions used in the software they have written.
 
 # News, Challenges, Assignment, and Projects
 
