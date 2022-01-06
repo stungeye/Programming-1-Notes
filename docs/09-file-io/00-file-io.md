@@ -8,7 +8,7 @@ nav_order: 9
 # File I/O
 {: .no_toc }
 
-Most sufficiently complex application need to persist data. While databases are often used to persist complex hierarchical data, less complex data can be written to a text or binary file. In this module we'll explore the use of file streams for reading and writing files.
+Most sufficiently complex applications need to persist data. While databases are often used to persist complex hierarchical data, less complex data can be written to a text or binary file. In this module we'll explore the use of file streams for reading and writing files.
 
 ## Table of Contents
 {: .no_toc }
@@ -37,11 +37,11 @@ Questions you'll want to ask when reading and writing data to a file:
 - If you're storing binary data in text form, what encoding format will you use? (Ex. [Base64](https://en.wikipedia.org/wiki/Base64))
 - If you're storing binary data, do you need to read data written by machines with different [binary endianness](https://en.wikipedia.org/wiki/Endianness)?
 
-In the examples below we've explore simple text and binary storage without using established formats or worrying about endianness.
+In the examples below we'll explore simple text and binary storage without using established formats or worrying about endianness.
 
 ## File Streams
 
-File I/O is based on the stream-base I/O we learned about [the console I/O section](/Programming-1-Notes/docs/05-introduction-to-cpp/04-console-input-output.html).
+File I/O is based on the stream-base I/O we learned about in [the console I/O section](/Programming-1-Notes/docs/05-introduction-to-cpp/04-console-input-output.html).
 
 Let's start by reviewing the stream hierarchy:
 
@@ -111,7 +111,7 @@ To write to a file we use the insertion operator: `<<`
 
 ## Reading From a Text File
 
-To read from a file we can use the extraction operator `>>` along with the fact that the stream itself will return `0` if we've reached the end of the file (EOF):
+To read from a file we can use the extraction operator `>>` along with the fact that the stream itself will return `0` (which evaluates to false in C++) if we've reached the end of the file (EOF). 
 
 <iframe height="625px" width="100%" src="https://replit.com/@stungeye/Reading-From-a-File?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
@@ -157,7 +157,7 @@ With an overloaded `<<` operator for input streams we can easily read well-forma
 // Open input stream:
 std::ifstream inputFile{"input-file.txt"};
 // Read all Money entries from the file into a vector:
-std::vector<Money> bank{ // We can constructor vector an iterator:
+std::vector<Money> bank{ // Constructor the vector using an iterator:
   std::istream_iterator<Money>{inputFile},
   {} // Short form for the end of the iterator.
 };
@@ -181,7 +181,7 @@ For simplicity sake we're halting all file parsing if we encounter a badly forma
 
 So far we've been reading and writing our data in text format. We can conserve space and potentially save time by writing in a binary format.
 
-Let's start by writing strings to a binary file.
+Let's start by writing strings to a binary file. We will also need to store the length of each stored string so that they can be read back in separately.
 
 <iframe height="750px" width="100%" src="https://replit.com/@stungeye/Writing-a-Binary-File-of-Strings?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
@@ -199,7 +199,7 @@ Note the use of pointers, which we'll cover in more detail in future sections.
 
 ## Streaming Binary Structures
 
-We can also write POD structs to a binary file, as in structs that only contain primitives or other POD structs. This process is often called serialization or marshalling
+We can also write POD (Plain Old Data) structs to a binary file, as in structs that only contain primitives or other POD structs. This process is often called serialization or marshalling.
 
 <iframe height="750px" width="100%" src="https://replit.com/@stungeye/Writing-a-Binary-File-of-Structs?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
@@ -232,7 +232,7 @@ Movement performed with these functions is done relative to:
 
 - The beginning of the file: `std::ios::beg`
 - The current location within the file: `std::ios::cur`
-- The eng of the file: `std::ios::end`
+- The end of the file: `std::ios::end`
 
 Assuming an `ifstream` named `if`:
 
@@ -246,7 +246,7 @@ inf.seekg(50, std::ios::cur); // Move forward 50 bytes from the current position
 🎵 Note:
 {: .label .label-yellow}
 
-The `g` stands for "get" and the `p` stands for "put".
+The `g` in `seekg` stands for "get" and the `p` in `seekp` stands for "put".
 {: .d-inline-block}
 
 ## Random Access Example
