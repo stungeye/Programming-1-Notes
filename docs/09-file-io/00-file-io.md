@@ -61,9 +61,9 @@ Unlike `cout` and `cin` which are available for streaming by default, we need to
 #include <fstream>
 
 int main() {
-  std::fstream  inOutFile{"in-out-filename.txt"};  // Default Mode: iso_base::in | iso_base::out
-  std::ofstream outputFile{"output-filename.txt"}; // Default Mode: ios_base::out | iso_base::trunc
-  std::ofstream appendFile{"append-filename.txt", std::iso_base::app}; // Append output, don't truncate file.
+  std::fstream  inOutFile{"in-out-filename.txt"};  // Default Mode: ios_base::in | ios_base::out
+  std::ofstream outputFile{"output-filename.txt"}; // Default Mode: ios_base::out | ios_base::trunc
+  std::ofstream appendFile{"append-filename.txt", std::ios_base::app}; // Append output, don't truncate file.
   std::ifstream inputFile{"input-filename.txt"};   // Default Mode: ios_base::in
 }
 ```
