@@ -237,10 +237,10 @@ Movement performed with these functions is done relative to:
 Assuming an `ifstream` named `if`:
 
 ```cpp
-inf.seekg(0, std::ios::end); // move to end of file
-inf.seekg(0, std::ios::beg); // move to beginning of file
-inf.seekg(50, std::ios::beg); // Move to the 50th byte in the file.
-inf.seekg(50, std::ios::cur); // Move forward 50 bytes from the current position to the 100th byte.
+if.seekg(0, std::ios::end); // move to end of file
+if.seekg(0, std::ios::beg); // move to beginning of file
+if.seekg(50, std::ios::beg); // Move to the 50th byte in the file.
+if.seekg(50, std::ios::cur); // Move forward 50 bytes from the current position to the 100th byte.
 ```
 
 🎵 Note:
