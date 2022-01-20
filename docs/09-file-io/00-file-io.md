@@ -234,7 +234,7 @@ Movement performed with these functions is done relative to:
 - The current location within the file: `std::ios::cur`
 - The end of the file: `std::ios::end`
 
-Assuming an `ifstream` named `if`:
+Assuming an `ifstream` named `inf`:
 
 ```cpp
 inf.seekg(0, std::ios::end); // move to end of file
