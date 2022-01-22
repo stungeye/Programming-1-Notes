@@ -270,7 +270,7 @@ The TL;DR is that C and C++ compilers follow certain rules which add extra paddi
  
 From [a Stack Overflow thread](https://stackoverflow.com/questions/4306186/structure-padding-and-packing): 
  
-"On 64 bit systems, `int` should start at addresses divisible by 4, and `long` by 8, `short` by 2. For struct, other than the alignment need for each individual member, the size of whole struct itself will be aligned to a size divisible by size of largest individual member, by padding at end." 
+> "On 64 bit systems, `int` should start at addresses divisible by 4, and `long` by 8, `short` by 2. For struct, other than the alignment need for each individual member, the size of whole struct itself will be aligned to a size divisible by size of largest individual member, by padding at end." 
  
 This is why our 6 byte struct was padded to 8 bytes. The largest struct member of PlainOldMoney is an int, so the overall struct size is padded such that the size becomes divisible by 4.
 
