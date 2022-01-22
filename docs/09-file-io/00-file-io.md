@@ -253,6 +253,32 @@ The `g` in `seekg` stands for "get" and the `p` in `seekp` stands for "put".
 
 <iframe height="800px" width="100%" src="https://replit.com/@stungeye/Random-Binary-File-Access?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
+## Struct Padding and Binary Files
+
+Let's say that we wanted to save some file space when writing our `PlainOldMoney` structs to a binary file. We might try to decrease the size of the struct by changing the datatype of the `cents` member from an `int` (4 bytes) to a `short` (2 bytes).
+
+```
+struct PlainOldMoney {
+  int dollars; // int: 4 bytes
+  short cents; // short: 2 bytes
+}
+```
+
+Naively we might assume the size of our struct has gone down from 8 bytes down to 6 bytes, but if we open up the associated binary file in [a hex editor](https://hexed.it) we'll notice something odd: Each structure is taking up more memory than we might expect, they are still 8 bytes rather than 6!
+
+The TL;DR is that C and C++ compilers follow certain rules which add extra padding into structs. This is because modern CPUs read and write memory most efficiently when [the data is "naturally aligned"](https://en.wikipedia.org/wiki/Data_structure_alignment).
+ 
+From [a Stack Overflow thread](https://stackoverflow.com/questions/4306186/structure-padding-and-packing): 
+ 
+"On 64 bit systems, `int` should start at addresses divisible by 4, and `long` by 8, `short` by 2. For struct, other than the alignment need for each individual member, the size of whole struct itself will be aligned to a size divisible by size of largest individual member, by padding at end." 
+ 
+This is why our 6 byte struct was padded to 8 bytes. The largest struct member of PlainOldMoney is an int, so the overall struct size is padded such that the size becomes divisible by 4.
+
+Read the following for more details:
+
+* [Why isn't sizeof for a struct equal to the sum of sizeof of each member?](https://stackoverflow.com/questions/119123/why-isnt-sizeof-for-a-struct-equal-to-the-sum-of-sizeof-of-each-member) (Stack Overflow)
+* [Structure Padding and Binary Files](https://cheungkevinviola909.medium.com/structure-padding-and-binary-files-65a4a741900a)
+
 ## Filesystem Library
 
 Navigating the file system in an OS-agnostic manor is often required to:
