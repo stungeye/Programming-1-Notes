@@ -39,12 +39,6 @@ In this example we're counting how many strings in a vector have 8 or more chara
 
 <iframe height="730px" width="100%" src="https://repl.it/@stungeye/Callback-Functions-with-stdfindif?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
-⏳ Wait For It:
-{: .label .label-blue}
-
-We'll learn more about functions as parameters in the [Pointer Basics module](/Programming-1-Notes/docs/12-pointer-basics/00-pointer-basics.html).
-{: .d-inline-block}
-
 ## Lambda Expressions
 
 Lambda expressions were added to C++ in C++11 as a way to define a single-use nameless functions.
@@ -219,6 +213,22 @@ float weightOnMars = 12.134;
 [=, sum](){}; // Compile Error: The sum variable is already captured by value through the =.
 [sum, &](){}; // Compile Error: Default captures must be the first element in the capture clause.
 ```
+
+## Saving Lambdas to Variables
+
+The `std::function` type from the `<functional>` header allows us to assign a function to a variable if the return type and arguments match:
+
+```cpp
+std::function<returnType(list, of, arg, types)> variableName;
+```
+
+<iframe height="800px" width="100%" src="https://replit.com/@stungeye/Saving-Lambdas-to-Variables?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+## Lambdas as Function Arguments
+
+We can create our own functions that accept lambdas by using `std::function` for argument types.
+
+<iframe height="800px" width="100%" src="https://replit.com/@stungeye/Functions-That-Accept-Lambdas-as-Arguments?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 ## Further Reading
 
