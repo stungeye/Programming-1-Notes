@@ -21,7 +21,7 @@ baseurl: "/Programming-1-Notes" # the subpath of your site, e.g. /blog
 
 # Build settings
 markdown: kramdown
-remote_theme: pmarsceill/just-the-docs
+remote_theme: just-the-docs/just-the-docs
 
 kramdown:
   toc_levels: 1..2
