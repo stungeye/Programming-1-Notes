@@ -1,7 +1,7 @@
 ---
-title: Pointer Next
+title: Pointers and Objects
 parent: Pointers
-nav_order: 2
+nav_order: 3
 ---
 
 <!-- prettier-ignore-start -->
@@ -19,27 +19,11 @@ TBW
 
 <!-- prettier-ignore-end -->
 
-## Pointers and Functions
-
-Pointers can be passed to and returned from functions.
-
-In Unreal Engine C++ code, for example, the following is common:
-
-- Passing around game objects using function parameters that are pointers.
-- Built-in functions that return pointers to objects managed by the engine.
-- Binding callback functions to events or timers using function pointers.
-
-We'll look at function pointers next.
-
-## Pointers and Function Arguments
-
-## std::function and "lambdas as adaptors" Tour of C++ Page 180
+## Stack vs Heap Memory Allocation?
 
 ## Dynamic Memory Allocation with New and Delete
 
 https://www.learncpp.com/cpp-tutorial/dynamic-memory-allocation-with-new-and-delete/
-
-## Stack vs Heap Memory Allocation?
 
 ## Pointers and Objects
 
