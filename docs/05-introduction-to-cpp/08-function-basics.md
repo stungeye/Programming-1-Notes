@@ -174,6 +174,21 @@ int main() {
 }
 ```
 
+## Static Local Variables
+
+We can extend the scope of a local variable in a function, such that it persists between function calls, by using the `static` keyword.
+
+```cpp
+int countingCrow() {
+  static int count{ 0 };
+  return ++count;
+}
+
+std::cout << countingCrow() << "\n"; // Prints: 1
+std::cout << countingCrow() << "\n"; // Prints: 2
+std::cout << countingCrow() << "\n"; // Prints: 3
+```
+
 ## Pass by Value
 
 C++ functions are _pass-by-value_ by default, meaning copies are made of the arguments passed to a function.

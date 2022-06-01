@@ -226,9 +226,15 @@ std::function<returnType(list, of, arg, types)> variableName;
 
 ## Lambdas as Function Arguments
 
-We can create our own functions that accept lambdas by using `std::function` for argument types.
+We can create our own functions that accept lambdas as arguments by using `std::function` for parameter types.
 
 <iframe height="800px" width="100%" src="https://replit.com/@stungeye/Functions-That-Accept-Lambdas-as-Arguments?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+
+🎵 Note:
+{: .label .label-yellow}
+
+Functions that accept lambdas can also accept regular functions by name is well.
+{: .d-inline-block}
 
 ## Further Reading
 

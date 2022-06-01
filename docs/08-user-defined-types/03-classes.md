@@ -279,6 +279,12 @@ A better name for this technique is Scope-Bound Resource Management (SBRM), but 
 
 ![RAII Cartoon Source: https://medium.com/swlh/what-is-raii-e016d00269f9](RAII.jpeg)
 
+⏳ Wait For It:
+{: .label .label-blue}
+
+We'll see RAII in action when we get to [the pointers and objects module](/Programming-1-Notes/docs/11-pointers/04-pointers-and-objects.html).
+{: .d-inline-block}
+
 ## Static Members Variables and Functions
 
 Members and functions can be made to belong to the class (rather than to an instance of the class) using the `static` keyword.

@@ -9,7 +9,7 @@ nav_order: 1
 # Pointer Basics 
 {: .no_toc }
 
-TBW
+Program variables are each stored at a difference address within our computer's memory. *Pointers* can be used to access the contents of variables stored at specific memory addresses.
 
 ## Table of Contents
 {: .no_toc }
@@ -200,6 +200,23 @@ In legacy code you will often see the number `0` or the preprocessor macro `NULL
 {: .label .label-green }
 
 Always use `nullptr` when using C++ 11 or greater, even when updating legacy code.
+{: .d-inline-block}
+
+## Pointers vs References
+
+At this point you might be wondering why C++ includes both pointers and references when they appear to offer nearly identical functionality.
+
+The short answer: C++ inherited pointers from C and references were added later.
+
+References should be preferred over pointers because:
+
+- Reference syntax is cleaner and pointer syntax. (No need for the indirection and address-of operators.)
+- References are safer than pointers as they must always refer to a valid variable. (Unlike pointers there is no such thing as an uninitialized or null reference.)
+
+🎵 Note:
+{: .label .label-yellow}
+
+In legacy code (or in Unreal Engine C++) pointers are everywhere and cannot be avoided.
 {: .d-inline-block}
 
 ## Further Reading
