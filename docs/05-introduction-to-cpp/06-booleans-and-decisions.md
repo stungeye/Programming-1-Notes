@@ -33,7 +33,7 @@ Boolean expressions in C++ can contain the following operators (and more):
 |        >=        | greater than or equal |
 |        <=        |  less than or equal   |
 |        &&        |     Boolean 'and'     |
-|        ||        |     Boolean 'or'      |
+|        \|\|        |     Boolean 'or'      |
 
 ## Decision Statements
 
