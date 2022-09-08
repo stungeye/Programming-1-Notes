@@ -101,7 +101,7 @@ Functions need to be declared before they can be used.
 
 Try to compile/run this program:
 
-<iframe height="700px" width="100%" src="https://repl.it/@stungeye/Forward-Declaration?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="700px" width="100%" src="https://repl.it/@stungeye/Forward-Declaration?embed=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 Instead of moving the `fetchInteger` function above the `main` function, we can _forward declare_ `fetchInteger`. Uncomment the forward declaration to fix the above code.ss
 
