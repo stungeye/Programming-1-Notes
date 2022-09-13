@@ -166,7 +166,7 @@ We can loop over vectors with standard and range-based `for` loops.
 
 This demo code shows both styles of loops and also includes the use of `push_back()` and `resize()`:
 
-<iframe height="800px" width="100%" src="https://repl.it/@stungeye/Looping-Over-Vector?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="800px" width="100%" src="https://repl.it/@stungeye/Looping-Over-Vector?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 ## Passing Vectors to Functions
 
@@ -189,7 +189,7 @@ C++ functions are _pass-by-value_ by default, meaning copies are made of the arg
 
 Because resize operations on vectors are expensive, a vector will sometimes preallocate capacity for future elements without changing its length:
 
-<iframe height="800px" width="100%" src="https://repl.it/@stungeye/Length-vs-Capacity?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="800px" width="100%" src="https://repl.it/@stungeye/Length-vs-Capacity?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 ## Comparing Vectors
 
