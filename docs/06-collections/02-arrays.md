@@ -176,13 +176,13 @@ int length = evenNumbers.size();
 
 Here's a program that demonstrates some of the differences between `std::array` and C-Style Arrays.
 
-<iframe height="700px" width="100%" src="https://repl.it/@stungeye/C-Style-Array-Copy?embed=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="700px" width="100%" src="https://repl.it/@stungeye/C-Style-Array-Copy?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 ## Out-of-Bounds Behaviour
 
 Both C-Style and Standard Arrays are missing array boundary checking. Historically this has been (and continues to be) a major source of bugs and security exploits.
 
-<iframe height="600px" width="100%" src="https://repl.it/@stungeye/Array-Out-of-Bounds?embed=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="600px" width="100%" src="https://repl.it/@stungeye/Array-Out-of-Bounds?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 💡 Best Practice:
 {: .label .label-green }
@@ -194,7 +194,7 @@ Manually include guards in your code to prevent out-of-bounds reads or writes.
 
 The two simplest ways to loop over standard arrays:
 
-<iframe height="715px" width="100%" src="https://repl.it/@stungeye/Standard-Array-Loops?embed=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="715px" width="100%" src="https://repl.it/@stungeye/Standard-Array-Loops?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 🎵 Note:
 {: .label .label-yellow}
