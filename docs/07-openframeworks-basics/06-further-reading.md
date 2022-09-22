@@ -57,7 +57,7 @@ There's so much more to openFrameworks! Start by exploring these handy functions
 You'll find two example programs below, but there are lots of examples out there you can learn from:
 
 - 📦 [Official openFrameworks Examples](https://github.com/openframeworks/openFrameworks/tree/master/examples) - These are also found in the `examples` folder of the openFrameworks zip file.
-- 📚 [Cookbook of Common Tasks from ofAuckland](https://sites.google.com/site/ofauckland/examples).
+- 📚 [Cookbook of Common Tasks from ofAuckland]([https://sites.google.com/site/ofauckland/examples](https://web.archive.org/web/20201023130505/https://sites.google.com/site/ofauckland/examples#TOC-Bouncing-Balls)).
 - 📦 [Example Source from Mastering openFrameworks Book](https://github.com/firmread/ofDemystified).
 - 📺 [Lewis Lepton's 76 Video openFrameworks YouTube series](https://www.youtube.com/playlist?list=PL4neAtv21WOlqpDzGqbGM_WN2hc5ZaVv7) and 📦 [the associated github repo](https://github.com/lewislepton/openFrameworksTutorialSeries).
 - 📺 Dan Buzzo's [openFrameworks superBasics YouTube series](https://www.youtube.com/playlist?list=PL6QF0yo3Zj7DbN76C5-_6VCDF5CPBIz6l) and [his many other playlists](https://www.youtube.com/c/danbuzzo/featured).
