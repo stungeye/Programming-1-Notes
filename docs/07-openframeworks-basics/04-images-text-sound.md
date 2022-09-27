@@ -171,4 +171,4 @@ You usually won't notice the latency, unless you try to build something like a d
 
 ### Resources
 
-- 📦 [Sample low-latency drum machine using `ofSoundStream` and ofMaxim](https://github.com/stungeye/openFramewrks-Drum-Machine).
+- 📦 [Sample low-latency drum machine using `ofSoundStream` and ofMaxim](https://github.com/stungeye/openFrameworks-Drum-Machine).
