@@ -67,6 +67,17 @@ We can access particular characters within a string using square braces `[]` or 
 The `.at()` does bounds checking but `[]` access does not. Use `[]` with caution.
 {: .d-inline-block}
 
+## Looping Over the Chars of a String
+
+We can visit every character of a string using a for loop combined with character indexing using square braces or the `at()` method.
+
+```cpp
+  // Print out each character in the string on separate lines:
+  for(audo i{0}; i < hacker.length(); i++) {
+    std::cout << hacker[i] << "\n"; // We could also have used: hacker.at(i)
+  }
+```
+
 ## String Concatenation
 
 Multiple strings can be combined using the `+` concatenation operator. The `+` operator can also concatenate chars to strings.
