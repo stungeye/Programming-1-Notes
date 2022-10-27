@@ -111,7 +111,7 @@ int main() {
 
 You should get in the habit of creating your own namespaces when making your own internal libraries.
 
-Here's the code [the function headers example](http://localhost:4000/Programming-1-Notes/docs/05-introduction-to-cpp/08-function-basics.html#functions-and-header-files) re-implemented with a namespace.
+Here's the code [the function headers example](/Programming-1-Notes/docs/05-introduction-to-cpp/08-function-basics.html#functions-and-header-files) re-implemented with a namespace.
 
 Navigate through the example files using the left pane “Files” explore:
 
