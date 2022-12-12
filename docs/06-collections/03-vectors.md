@@ -221,6 +221,15 @@ The easier way to copy a vector is to use the vector _copy constructor_:
   std::vector vectorTwo{ vectorOne }; // Copy vectorOne into VectorTwo.
 ```
 
+Copying can also be performed using the equals operator:
+
+```cpp
+  std::vector vectorOne{ 3, 1, 4, 1, 5, 9};
+  std::vector vectorTwo;
+  
+  vectorTwo = vectorOne; // Copy vectorOne into VectorTwo.
+```
+
 ⏳ Wait For It:
 {: .label .label-blue}
 
