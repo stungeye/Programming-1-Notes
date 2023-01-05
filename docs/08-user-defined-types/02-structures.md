@@ -65,7 +65,7 @@ Don't forget the semicolon after the close curly brace.
 
 Let's define a variable using the point `struct` defined above. Notice that we can initialize the structure's members using an initializer list, and that the members can be publicly accessed and modified.
 
-<iframe height="800px" width="100%" src="https://replit.com/@stungeye/Using-Structs?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="800px" width="100%" src="https://replit.com/@stungeye/Using-Structs?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 🎵 Note:
 {: .label .label-yellow}
