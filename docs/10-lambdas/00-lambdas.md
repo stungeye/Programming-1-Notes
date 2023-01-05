@@ -97,7 +97,7 @@ helloSquirrel("Daisy");
 
 Starting with C++14, the parameters of a lambda expression can be of type `auto` and they will be inferred from how the lambda is used.
 
-<iframe height="800px" width="100%" src="https://repl.it/@stungeye/Generic-Lambda??embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="800px" width="100%" src="https://repl.it/@stungeye/Generic-Lambda?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 ## The Wonderful World of STL Algorithms
 
