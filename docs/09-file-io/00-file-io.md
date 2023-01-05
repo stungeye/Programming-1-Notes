@@ -107,13 +107,13 @@ int main() {
 
 To write to a file we use the insertion operator: `<<`
 
-<iframe height="720px" width="100%" src="https://replit.com/@stungeye/Writing-to-a-File?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="720px" width="100%" src="https://replit.com/@stungeye/Writing-to-a-File?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 ## Reading From a Text File
 
 To read from a file we can use the extraction operator `>>` along with the fact that the stream itself will return `0` (which evaluates to false in C++) if we've reached the end of the file (EOF). 
 
-<iframe height="625px" width="100%" src="https://replit.com/@stungeye/Reading-From-a-File?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="625px" width="100%" src="https://replit.com/@stungeye/Reading-From-a-File?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 🎵 Note:
 {: .label .label-yellow}
@@ -125,7 +125,7 @@ The `>>` uses the space and end-of-line characters as delimiters.
 
 We can use `std::getline()` to read one line at a time from an input stream. The newline character is not included in the read data.
 
-<iframe height="625px" width="100%" src="https://replit.com/@stungeye/Reading-a-Line-at-a-Time-From-a-File?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="625px" width="100%" src="https://replit.com/@stungeye/Reading-a-Line-at-a-Time-From-a-File?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 ## Reading Basic Delimited Text Data
 
@@ -133,7 +133,7 @@ When storing numbers to a file we need some way to keep numbers from getting com
 
 Imagine a simplified version of the CSV format that is simply comma-delimited integers:
 
-<iframe height="750px" width="100%" src="https://replit.com/@stungeye/Reading-Simple-Delimited-Data?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="750px" width="100%" src="https://replit.com/@stungeye/Reading-Simple-Delimited-Data?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 🎵 Note:
 {: .label .label-yellow}
@@ -145,7 +145,7 @@ Using a C++17 "if initializer" on line 13.
 
 Reading delimited data is simplified with a space character delimiter, as the input stream will automatically consume the spaces.
 
-<iframe height="625px" width="100%" src="https://replit.com/@stungeye/Reading-Space-Delimited-Data?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="625px" width="100%" src="https://replit.com/@stungeye/Reading-Space-Delimited-Data?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 ## Reading Structured Text Data
 
@@ -169,7 +169,7 @@ for(Money money : bank) {
 
 Here's a version of the `Money` class used to read in a file of dollar amounts, one per line, in the `$m.n` format (where m and n are integers):
 
-<iframe height="750px" width="100%" src="https://replit.com/@stungeye/Structure-File-Reading-Money?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="750px" width="100%" src="https://replit.com/@stungeye/Structure-File-Reading-Money?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 🎵 Note:
 {: .label .label-yellow}
@@ -183,7 +183,7 @@ So far we've been reading and writing our data in text format. We can conserve s
 
 Let's start by writing strings to a binary file. We will also need to store the length of each stored string so that they can be read back in separately.
 
-<iframe height="750px" width="100%" src="https://replit.com/@stungeye/Writing-a-Binary-File-of-Strings?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="750px" width="100%" src="https://replit.com/@stungeye/Writing-a-Binary-File-of-Strings?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 🎵 Note:
 {: .label .label-yellow}
@@ -201,7 +201,7 @@ Note the use of pointers, which we'll cover in more detail in future sections.
 
 We can also write POD (Plain Old Data) structs to a binary file, as in structs that only contain primitives or other POD structs. This process is often called serialization or marshalling.
 
-<iframe height="750px" width="100%" src="https://replit.com/@stungeye/Writing-a-Binary-File-of-Structs?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="750px" width="100%" src="https://replit.com/@stungeye/Writing-a-Binary-File-of-Structs?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 🎵 Note:
 {: .label .label-yellow}
@@ -251,7 +251,7 @@ The `g` in `seekg` stands for "get" and the `p` in `seekp` stands for "put".
 
 ## Random Access Example
 
-<iframe height="800px" width="100%" src="https://replit.com/@stungeye/Random-Binary-File-Access?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="800px" width="100%" src="https://replit.com/@stungeye/Random-Binary-File-Access?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 ## Struct Padding and Binary Files
 
