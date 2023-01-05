@@ -37,7 +37,7 @@ It is sometimes handy to pass a function as an argument to another function. Tak
 
 In this example we're counting how many strings in a vector have 8 or more characters:
 
-<iframe height="730px" width="100%" src="https://repl.it/@stungeye/Callback-Functions-with-stdfindif?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="730px" width="100%" src="https://repl.it/@stungeye/Callback-Functions-with-stdfindif?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 ## Lambda Expressions
 
@@ -97,7 +97,7 @@ helloSquirrel("Daisy");
 
 Starting with C++14, the parameters of a lambda expression can be of type `auto` and they will be inferred from how the lambda is used.
 
-<iframe height="800px" width="100%" src="https://repl.it/@stungeye/Generic-Lambda?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="800px" width="100%" src="https://repl.it/@stungeye/Generic-Lambda??embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 ## The Wonderful World of STL Algorithms
 
@@ -127,7 +127,7 @@ Notice that a "long word" is hardcoded to be 8 characters or more. But what if w
 
 ## Lambda Captures to the Rescue
 
-<iframe height="730px" width="100%" src="https://repl.it/@stungeye/Lambda-With-Capture?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="730px" width="100%" src="https://repl.it/@stungeye/Lambda-With-Capture?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 ## Captures Default to Const Value
 
@@ -148,7 +148,7 @@ There are times that you may wish to capture a variable by reference, rather tha
 
 That said, here's an example of a reference capture that does mutate the outer variable as a way of tracking how many comparisons are required when sorting an array:
 
-<iframe height="800px" width="100%" src="https://repl.it/@stungeye/Lambda-With-Reference-Capture?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="800px" width="100%" src="https://repl.it/@stungeye/Lambda-With-Reference-Capture?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 🎵 Note:
 {: .label .label-yellow}
@@ -222,13 +222,13 @@ The `std::function` type from the `<functional>` header allows us to assign a fu
 std::function<returnType(list, of, arg, types)> variableName;
 ```
 
-<iframe height="800px" width="100%" src="https://replit.com/@stungeye/Saving-Lambdas-to-Variables?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="800px" width="100%" src="https://replit.com/@stungeye/Saving-Lambdas-to-Variables?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 ## Lambdas as Function Arguments
 
 We can create our own functions that accept lambdas as arguments by using `std::function` for parameter types.
 
-<iframe height="800px" width="100%" src="https://replit.com/@stungeye/Functions-That-Accept-Lambdas-as-Arguments?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+<iframe height="800px" width="100%" src="https://replit.com/@stungeye/Functions-That-Accept-Lambdas-as-Arguments?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 🎵 Note:
 {: .label .label-yellow}
