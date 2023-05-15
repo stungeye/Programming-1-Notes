@@ -20,7 +20,7 @@ nav_order: 101
 
 ## Module 4
 
-- Object Oriented Hierachies and Polymorphism
+- Object Oriented Hierarchies and Polymorphism
 
 ## Module 5
 
