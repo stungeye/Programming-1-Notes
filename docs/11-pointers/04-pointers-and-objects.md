@@ -131,7 +131,9 @@ Although we can implement RAII ourselves (as seen above), in modern C++ it's rec
 
 There are three different kinds of smart pointers in the Standard Library (Unique, Shared, and Weak Pointers). We're only going to look at the most common of the three, Unique Pointers.
 
-A unique pointer is simply an object that wraps a pointer. When a unique pointer goes out of scope it will automatically release its pointer's memory. RAII!
+## Unique Pointers
+
+A unique pointer is simply an object that wraps a pointer. When a unique pointer object goes out of scope it will automatically release its member pointer's memory. RAII!
 
 Unique pointers are part of the `<memory>` header and have a type of `std::unique_ptr`. They can be constructed using the `make_unique<>()` helper function.
 
@@ -161,7 +163,7 @@ Here's the same scenario using a `std::unique_ptr`:
 void printTheAnswerToLifeTheUniverseAndEverything() {
     std::unique_ptr<Answer> answerPtr = std::make_unique<Answer>("Meaning of it all.");
     std::cout << *answerPtr;
-} // When answerPtr goes out of scope it's heap memory will be auto-deleted.
+} // answerPtr goes out of scope when function ends. Its heap memory will be auto-deleted.
 
 // Later in the code:
 while (1) {
@@ -178,17 +180,17 @@ Unique pointers get their name because the do not allow assignment. There can on
     std::unique_ptr<Answer> sneakyPtr; // Starts as nullptr.
     std::unique_ptr<Answer> answerPtr = std::make_unique<Answer>("Meaning of it all.");
 
-    sneakPtr = answerPtr; // Compile Error! Assignment is not allowed!
+    sneakyPtr = answerPtr; // Compile Error! Assignment is not allowed!
 ```
 
 We can, however, move the ownership from one variable to another:
 
 ```cpp
-    std::unique_ptr<Answer> sneakyPtr; // Starts as nullptr.
+    std::unique_ptr<Answer> newOwnerPtr; // Starts as nullptr.
     std::unique_ptr<Answer> answerPtr = std::make_unique<Answer>("Meaning of it all.");
 
-    sneakPtr = std::move(answerPtr);
-    // sneakyPtr now pointers to the Answer object.
+    newOwnerPtr = std::move(answerPtr);
+    // newOwnerPtr now pointers to the Answer object.
     // answerPtr is now a nullptr.
 ```
 
