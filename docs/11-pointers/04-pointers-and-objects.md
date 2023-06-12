@@ -9,7 +9,7 @@ nav_order: 4
 # Pointer and Objects
 {: .no_toc }
 
-TBW
+Before C++ had references, pointers to objects were commonplace. There are still situations (such as polymorphism) where pointers to objects are needed in C++. The standard library also includes special "smart pointer" classes that help you avoid memory leaks in your code. 
 
 ## Table of Contents
 {: .no_toc }
@@ -112,7 +112,7 @@ class Car {
 public:
     Car() {
         // Imagine that this factor returns a pointer to an Engine.
-        // The engine's memory is the resource that we are acquiring
+        // The returned memory is the resource that we are acquiring
         // during initialization.
         engine = EngineFactor.create();
     }
@@ -127,11 +127,78 @@ public:
 
 ## Smart Pointers
 
-Although we can implement RAII ourselves as seen above, in modern C++ it's recommended that we prefer the use of smart pointers over raw pointers.
+Although we can implement RAII ourselves (as seen above), in modern C++ it's recommended that we prefer the use of smart pointers over raw pointers.
 
-A smart pointer is simply an object that wraps a pointer. When smart pointers go out of scope they will automatically release the pointer's memory. RAII!
+There are three different kinds of smart pointers in the Standard Library (Unique, Shared, and Weak Pointers). We're only going to look at the most common of the three, Unique Pointers.
 
-## Move Semantics and Smart Pointers
+A unique pointer is simply an object that wraps a pointer. When a unique pointer goes out of scope it will automatically release its pointer's memory. RAII!
 
-https://www.learncpp.com/cpp-tutorial/intro-to-smart-pointers-move-semantics/
-Shared Pointer vs Unique Pointer
+Unique pointers are part of the `<memory>` header and have a type of `std::unique_ptr`. They can be constructed using the `make_unique<>()` helper function.
+
+## Unique Pointers Usage
+
+Here's a contrived example of a memory leak. You will need to assume the presence of an `Answer` class.
+
+```cpp
+void printTheAnswerToLifeTheUniverseAndEverything() {
+    Answer *answerPtr{new Answer("Meaning of it all.")};
+    std::cout << *answerPtr;
+    // Oops! Memory Leak! We forgot to delete the answerPtr.
+}
+
+// Later in the code:
+while (1) {
+    // This function will crash once the heap is exhausted.
+    printTheAnswerToLifeTheUniverseAndEverything();
+}
+```
+
+Here's the same scenario using a `std::unique_ptr`:
+
+```cpp
+#include <memory>
+
+void printTheAnswerToLifeTheUniverseAndEverything() {
+    std::unique_ptr<Answer> answerPtr = std::make_unique<Answer>("Meaning of it all.");
+    std::cout << *answerPtr;
+} // When answerPtr goes out of scope it's heap memory will be auto-deleted.
+
+// Later in the code:
+while (1) {
+    // This is fine. No more memory leak:
+    printTheAnswerToLifeTheUniverseAndEverything();
+}
+```
+
+## Moving Unique Pointers
+
+Unique pointers get their name because the do not allow assignment. There can only be one _unique_ variable that has ownership over a unique pointer.
+
+```cpp
+    std::unique_ptr<Answer> sneakyPtr; // Starts as nullptr.
+    std::unique_ptr<Answer> answerPtr = std::make_unique<Answer>("Meaning of it all.");
+
+    sneakPtr = answerPtr; // Compile Error! Assignment is not allowed!
+```
+
+We can, however, move the ownership from one variable to another:
+
+```cpp
+    std::unique_ptr<Answer> sneakyPtr; // Starts as nullptr.
+    std::unique_ptr<Answer> answerPtr = std::make_unique<Answer>("Meaning of it all.");
+
+    sneakPtr = std::move(answerPtr);
+    // sneakyPtr now pointers to the Answer object.
+    // answerPtr is now a nullptr.
+```
+
+## Further Reading
+
+- [std::unique_ptr @ learncpp.com](https://www.learncpp.com/cpp-tutorial/stdunique_ptr/)
+- [std::shared_ptr @ learncpp.com](https://www.learncpp.com/cpp-tutorial/stdshared_ptr/)
+
+There's a lot more complexity behind `std::move` and what are call _move semantics_ in C++. If you want to travel down that rabbit hole, I recommend these three videos:
+
+- [l-values and r-values in C++ @ The Cherno on YouTube](https://www.youtube.com/watch?v=fbYknr-HPYE)
+- [Move Semantics in C++ @ The Cherno on YouTube](https://www.youtube.com/watch?v=ehMg6zvXuMY)
+- [std::move and the Move Assignment Operator in C++](https://www.youtube.com/watch?v=OWNeCTd7yQE)

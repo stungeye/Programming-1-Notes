@@ -70,7 +70,7 @@ Here's a rewritten version of the [the example from the lambdas module](/Program
 
 <iframe height="800px" width="100%" src="https://replit.com/@stungeye/Functions-as-Arguments-with-Function-Pointers?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
-## Creating Aliases std::function and Function Pointers
+## Creating Aliases for std::function and Function Pointers
 
 As a human it can be hard to parse complex `std::function` or function pointer types. For that reason it's nice to use the `using` keyword to create aliases for these complex types.
 
