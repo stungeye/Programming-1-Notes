@@ -89,7 +89,7 @@ int main() {
 }
 ```
 
-Or will be embedded using a [repl.it](https://repl.it) or [Compiler Explorer] interactive C++ environment:
+Or will be embedded using a [repl.it](https://repl.it) or [Compiler Explorer](https://godbolt.org/) interactive C++ environment:
 
 ### Repl It
 
