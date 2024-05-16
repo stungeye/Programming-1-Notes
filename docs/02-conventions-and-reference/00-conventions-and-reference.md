@@ -75,18 +75,7 @@ Source code in the notes will be syntax highlighted like so:
 
 ```cpp
 #include <iostream>
-/* Testing special chars:
-©opywrong
-\u00E9 (é)
-\u0100 (Ā)
-\u0394 (Δ)
-\u0416 (Ж)
-\u05D0 (א)
-\u0627 (ا)
-\u0939 (ह)
-\u3042 (あ)
-\u4E2D (中)
-*/
+
 int main() {
   int ghostQuota = 37;
   int ghostsCaught = 12;
@@ -102,4 +91,8 @@ int main() {
 
 ## Run Code Samples in Your Browser
 
-For code blocks that include an `int main()` entry point there will be a link to run the code in your browser using [Compiler Explorer](https://godbolt.org/). Try clicking the "🚀 Run on Compiler Explorer" link above.
+Code blocks that include an `int main()` entry point include a link to run the code in your browser using [Compiler Explorer](https://godbolt.org/).
+
+Try clicking the "🚀 Run on Compiler Explorer" link at the bottom of the above code block.
+
+If you don't see a link, let Kyle know by [submitting an issue](https://github.com/stungeye/Programming-1-Notes/issues).
