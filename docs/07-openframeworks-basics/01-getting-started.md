@@ -28,7 +28,7 @@ openFrameworks is used by computational artists worldwide to create and inspire.
 
 In this course we'll be using the Windows version of openFrameworks for Microsoft's Visual Studio.
 
-To begin you should [download the visual studio (2017) version of the framework here](https://openframeworks.cc/download/), and unzip it to folder on your machine.
+To begin you should [download the visual studio version of the framework here](https://openframeworks.cc/download/), and unzip it to folder on your machine.
 
 You will also need to have the [Community Edition of Visual Studio](https://visualstudio.microsoft.com/vs/community/) installed, with the following "workloads" configured:
 
@@ -40,11 +40,11 @@ You will also need to have the [Community Edition of Visual Studio](https://visu
 
 ![Project Generator](project-generator.png){: .medium .inline}
 
-openFrameworks includes a project generator in the `projectGenerator-vs` folder. This is a stand-alone application that will build your initial Visual Studio project for you.
+openFrameworks includes a project generator in the `projectGenerator` folder. This is a stand-alone application that will build your initial Visual Studio project for you.
 
 When you first run the project generator, click the gear icon and specific the folder where openFrameworks has been unzipped. This will ensure the `Project Path` is set properly.
 
-For example, if the oF path is `D:\repos\of_v0.11.0_vs2017` then the `Project Path` will start with `D:\repos\of_v0.11.0_vs2017\apps\myApps`.
+For example, if the oF path is `D:\repos\of_v0.12.0_vs_release` then the `Project Path` will start with `D:\repos\of_v0.12.0_vs_release\apps\myApps`.
 
 The project generator can also add additional "Addon" libraries to your project.
 
