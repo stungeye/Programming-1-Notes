@@ -30,7 +30,7 @@ Strings are part of the `std` namespace and can be used in your code by includin
 The easiest way to define and initialize a string is with a string literal:
 
 ```cpp
-std::string description{"It was a dark and stormy night!"};
+std::string description{ "It was a dark and stormy night!" };
 ```
 
 ## String Length
@@ -38,17 +38,18 @@ std::string description{"It was a dark and stormy night!"};
 The length of a string can be retrieved using the `length()` method.
 
 ```cpp
-std::string numerals{"123456789"};
+std::string numerals{ "123456789" };
 std::cout << "The length of the string '" << numerals << "' is " << numerals.length() << ".";
 ```
 
 ## Copying Strings
 
-Strings are easily copied to other variables using the assignment operator.
+Strings are easily copied to other variables using initializer lists and the assignment operator.
 
 ```cpp
-std::string original{"I am truly a unique and valued string."};
-std::string copycat = original; // Both strings now contain the same characters.
+std::string original{ "I am truly a unique and valued string." };
+std::string copycat1{ original }; // Both strings now contain the same characters.
+std::string copycat2 = original; // All three strings now contain the same characters.
 ```
 
 ## Accessing Chars Within Strings
@@ -56,7 +57,7 @@ std::string copycat = original; // Both strings now contain the same characters.
 We can access particular characters within a string using square braces `[]` or with the `at()` method. Like arrays and vectors, access to characters in a string is zero-based.
 
 ```cpp
-  std::string hacker{"Acid Burn"};
+  std::string hacker{ "Acid Burn" };
   char space = hacker[4]; // The space character.
   char capitalB = hacker.at(5); // The capital letter B.
 ```
@@ -83,9 +84,9 @@ We can visit every character of a string using a for loop combined with characte
 Multiple strings can be combined using the `+` concatenation operator. The `+` operator can also concatenate chars to strings.
 
 ```cpp
-std::string hack{"Hack"};
-std::string the{"The"};
-std::string planet{"Planet"};
+std::string hack{ "Hack" };
+std::string the{ "The" };
+std::string planet{ "Planet" };
 char space = ' ';
 
 std::string sentence = hack + space + the + space + planet;
@@ -97,7 +98,7 @@ Although the `+` operator can be used to glue strings and characters together, i
 
 ```cpp
 int time = 4;
-std::string townCrier{"It's " + std::to_string(time) + " o'clock and all is well!"};
+std::string townCrier{ "It's " + std::to_string(time) + " o'clock and all is well!" };
 // It's 4 o'clock and all is well!
 ```
 
@@ -106,8 +107,8 @@ std::string townCrier{"It's " + std::to_string(time) + " o'clock and all is well
 If you like how strings and primitives can be compared using `std::cout` you can build strings in a similar way using an `std::ostringstream` from the `<sstream>` header:
 
 ```cpp
-int numberOfAxes = 4;
-int numberOfRubies = 2;
+int numberOfAxes{ 4 };
+int numberOfRubies{ 2 };
 
 std::ostringstream groceryList;
 groceryList << "Trade " << numberOfAxes << " axes for " << numberOfRubies << " rubies.";
@@ -121,7 +122,7 @@ String streams can also be used to do simple string parsing:
 
 ```cpp
 void parseSentence(std::string sentence) {
-  std::istringstream iss{sentence};
+  std::istringstream iss{ sentence };
   std::string animal, adjective;
   int number;
 
@@ -139,7 +140,23 @@ parseSentence("14 gazel angry");     // There were 14 angry gazel.
 
 Two strings can be easily compared using the equality operator.
 
-<iframe height="650px" width="100%" src="https://replit.com/@stungeye/Comparison?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>
+#include <string>
+
+int main() {
+  std::string adminUser{ "administrator" };
+  std::string userPrompt{};
+  std::cout << "Username: ";
+  std::cin >> userPrompt;
+
+  if (userPrompt == adminUser) {
+    std::cout << "Your wish is my command.\n";
+  } else {
+    std::cout << "Sorry, access denied!\n";
+  }
+}
+```
 
 ## Sub-Strings
 
@@ -151,7 +168,7 @@ We can use the `.substr()` method to extract sub-strings from `std::string`.
 The second argument is optional. Sub-string will go to the end of the string if only the first argument is provided.
 
 ```cpp
-std::string maryPoppins{"supercalifragilisticexpialidocious"};
+std::string maryPoppins{ "supercalifragilisticexpialidocious" };
 std::string super{maryPoppins.substr(0, 5)}; // super
 std::string docious{maryPoppins.substr(27)}; // docious
 ```
@@ -161,7 +178,7 @@ std::string docious{maryPoppins.substr(27)}; // docious
 We can use the `.replace()` method to replace a portion of a string with another string:
 
 ```cpp
-std::string phrase{"Today is a good day to dine!"};
+std::string phrase{ "Today is a good day to dine!" };
 phrase.replace(11, 4, "great"); // Replace character 11 through 14 "good" with "great".
 ```
 
@@ -175,7 +192,28 @@ There are many other forms of the `replace()` method. [Details](http://www.cplus
 
 We can search for characters or sub-strings in a string using `find()`. The method returns the start position (`std::string::size_type`) of the found character/sub-string. If not found, the method returns `std::string::npos`.
 
-<iframe height="700px" width="100%" src="https://replit.com/@stungeye/Searching-Strings?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>
+#include <string>
+
+int main() {
+  std::string haystack{ "I still haven't found what I'm looking for." };
+
+  std::string::size_type position;
+  
+  position = haystack.find("found"); // Search from start.
+
+  if (position != std::string::npos) {
+    std::cout << "'Found' position: " << position << "\n";
+  }
+
+  position = haystack.find('I', 1); // Search starting at positon 1.
+
+  if (position != std::string::npos) {
+    std::cout << "Second 'I' position: " << position << "\n";
+  }
+}
+```
 
 ## Passing Strings to Functions
 
@@ -183,7 +221,24 @@ Passing large strings to functions can be expensive. Although we can mitigate th
 
 Introduced in C++17, a `std::string_view` gives us a view into an existing string. String views are very cheap to copy and have a similar API to regular standard strings.
 
-<iframe height="650px" width="100%" src="https://replit.com/@stungeye/String-Views?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>
+#include <string_view>
+
+void doesStringInclude(std::string_view str, std::string substr) {
+  if (str.find(substr) != std::string::npos) {
+    std::cout << "'" << str << "' DOES contain '" << substr << "'.\n";
+  } else {
+    std::cout << "'" << str << "' DOES NOT contain '" << substr << "'.\n";
+  }
+}
+
+int main() {
+  std::string sentence{"A needle in a haystack"};
+  doesStringInclude(sentence, "needle");
+  doesStringInclude(sentence, "ghost");
+}
+```
 
 ## C-Style Strings
 
