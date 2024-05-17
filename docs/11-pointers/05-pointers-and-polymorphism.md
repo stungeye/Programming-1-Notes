@@ -66,8 +66,8 @@ void printPawnId(const Pawn* p) {
 }
 
 // Elsewhere in the code:
-Player wally{90.0};
-Enemy  daisy{100.0};
+Player wally{ 90.0 };
+Enemy  daisy{ 100.0 };
 
 printPawnId(wally);  // Prints: REF - Player here!
 printPawnId(daisy);  // Prints: REF - Enemy here!
@@ -79,7 +79,72 @@ printPawnId(&daisy); // Prints: PTR - Enemy here!
 
 Here's a naive and broken implementation of polymorphism for the `Pawn`, `Player` and `Enemy` class. Notice that when we try to polymorphically call a `Player`'s or `Enemy`'s `identify()` method, the `Pawn` implementation is used instead.
 
-<iframe height="800px" width="100%" src="https://replit.com/@stungeye/Naive-Incorrect-Polymorphism?lite=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>
+#include <string>
+
+class Pawn {
+  double health;
+public:
+  Pawn(double health) : health{health} {
+    std::cout << "Pawn Constructor\n";
+  }
+  
+  std::string identify() const {
+      return "Pawn here!";
+  }
+};
+
+class Player : public Pawn {
+public:
+  Player(double health) : Pawn(health) {
+    std::cout << "Player Constructor\n";
+  };
+
+  std::string identify() const {
+    return "Player here!";
+  }
+};
+
+class Enemy : public Pawn {
+public:
+  Enemy(double health) : Pawn(health) {
+    std::cout << "Enemy Constructor\n";
+  };
+
+  std::string identify() const {
+    return "Enemy here!";
+  }
+};
+
+// Polymorphically call identify() on references to Pawn
+// objects. Can also be passed Player or Enemy objects.
+void printPawnId(const Pawn& p) {
+  std::cout << p.identify() << "\n";  
+}
+
+// Polymorphically call identify() via pointers to Pawn
+// objects. Can also be passed Player or Enemy pointers.
+void printPawnId(const Pawn* p) {
+  std::cout << p->identify() << "\n";  
+}
+
+
+int main() {
+  std::cout << "Constructing a Player: \n";
+  Player wally{ 90.0 };
+  std::cout << "\nConstructing an Enemy: \n";
+  Enemy  daisy{ 100.0 };
+
+  std::cout << "\nPrinting Pawn Ids by Reference: \n";
+  printPawnId(wally); // Oh No! Prints: Pawn here!
+  printPawnId(daisy); // Oh No! Prints: Pawn here!
+  
+  std::cout << "\nPrinting Pawn Ids by Pointer: \n";
+  printPawnId(&wally); // Oh No! Prints: Pawn here!
+  printPawnId(&daisy); // Oh No! Prints: Pawn here!
+}
+```
 
 ## Virtual Functions to the Rescue
 
@@ -97,7 +162,75 @@ Make base class destructors virtual so that derived destructors can be used.
 
 ## Working Implementation of Polymorphism
 
-<iframe height="800px" width="100%" src="https://replit.com/@stungeye/Polymorphism?lite=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>
+#include <string>
+
+// Abstract Base Class Pawn
+class Pawn {
+  double health;
+public:
+  Pawn(double health) : health{health} {
+    std::cout << "Pawn Constructor\n";
+  }
+  // Virtual destructor in case we ever want derived destructors.
+  virtual ~Pawn() = default;
+
+  // Pure virtual identify() with no function body.
+  virtual std::string identify() const = 0;
+};
+
+// Derived Class Player
+class Player : public Pawn {
+public:
+  Player(double health) : Pawn(health) {
+    std::cout << "Player Constructor\n";
+  };
+
+  std::string identify() const override {
+    return "Player here!";    
+  }
+};
+
+// Derived Class Pawn
+class Enemy : public Pawn {
+
+public:
+  Enemy(double health) : Pawn(health) {
+    std::cout << "Enemy Constructor\n";
+  };
+
+  std::string identify() const override {
+    return "Enemy here!";    
+  }
+};
+
+// Polymorphically call identify() on references to Pawn objects.
+void printPawnId(const Pawn& p) {
+  std::cout << p.identify() << "\n";  
+}
+
+// Polymorphically call identify() via pointers to Pawn objects.
+void printPawnId(const Pawn* p) {
+  std::cout << p->identify() << "\n";  
+}
+
+int main() {
+  std::cout << "Constructing a Player: \n";
+  Player wally{ 90.0 };
+  std::cout << "\nConstructing an Enemy: \n";
+  Enemy  daisy{ 100.0 };
+
+
+  std::cout << "\nPrinting Pawn Ids by Reference: \n";
+  printPawnId(wally);
+  printPawnId(daisy);
+  
+  std::cout << "\nPrinting Pawn Ids by Pointer: \n";
+  printPawnId(&wally);
+  printPawnId(&daisy); 
+}
+```
 
 ## Polymorphism and Containers
 
@@ -105,4 +238,76 @@ Although polymorphism can be implemented using references or pointers, if we als
 
 Here's an example of polymorphism using a vector along with unique pointers:
 
-<iframe height="800px" width="100%" src="https://replit.com/@stungeye/Containers-and-Polymorphism?lite=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+#include <memory>
+#include <ctime>
+
+// Abstract Base Class Pawn
+class Pawn {
+  double health;
+public:
+  Pawn(double health) : health{health} {
+  }
+  // Virtual destructor in case we ever want derived destructors.
+  virtual ~Pawn() = default;
+
+  // Pure virtual identify() with no function body.
+  virtual std::string identify() const = 0;
+
+  std::string healthReport() const {
+    return "Health: " + std::to_string(health);
+  }
+};
+
+// Derived Class Player
+class Player : public Pawn {
+public:
+  Player(double health) : Pawn(health) {
+  };
+
+  std::string identify() const override {
+    return "Player here! " + healthReport();    
+  }
+};
+
+// Derived Class Pawn
+class Enemy : public Pawn {
+public:
+  Enemy(double health) : Pawn(health) {
+  };
+
+  std::string identify() const override {
+    return "Enemy here!  " + healthReport();    
+  }
+};
+
+// Polymorphically call identify() on references to unique Pawn pointers.
+// Reference must be used as we can't copy unique pointers.
+void printPawnId(const std::unique_ptr<Pawn>& p) {
+  std::cout << p->identify() << "\n";  
+}
+
+int main() {
+  srand(time(nullptr));
+
+  // Vector of unique pointers to the base Pawn class.
+  std::vector<std::unique_ptr<Pawn>> pawns;
+
+  // Randomly add pointers to new Player or Enemy objects.
+  for(int i = 0; i < 10; ++i) {
+   if (rand() > (RAND_MAX / 2)) {
+     pawns.emplace_back(std::make_unique<Player>(50 + rand() % 50));
+   } else {
+     pawns.emplace_back(std::make_unique<Enemy>(50 + rand() % 50));
+   }
+  }
+
+  // Ranged-for must use a reference since we can't copy unique pointers.
+  for(const auto& pawn : pawns) {
+    printPawnId(pawn);
+  }
+}
+```
