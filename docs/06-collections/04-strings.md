@@ -234,7 +234,7 @@ void doesStringInclude(std::string_view str, std::string substr) {
 }
 
 int main() {
-  std::string sentence{"A needle in a haystack"};
+  std::string sentence{ "A needle in a haystack" };
   doesStringInclude(sentence, "needle");
   doesStringInclude(sentence, "ghost");
 }
@@ -247,20 +247,20 @@ You will occasionally run across code that uses old school C-style strings. C-st
 Defining a C-style string:
 
 ```cpp
-char username[]{"GhostlyGrinner"}; // C++ automatically adds the null terminator.
+char username[]{ "GhostlyGrinner" }; // C++ automatically adds the null terminator.
 ```
 
 If you need to use a function that requires a C-style string parameter:
 
 ```cpp
-std::string modernString{"I'm so fancy and modern!"};
+std::string modernString{ "I'm so fancy and modern!" };
 someOldSchoolFunction(modernString.c_str());
 ```
 
 Converting a C-style string into `std::string` is easy:
 
 ```cpp
-char oldSkool[]{"I'm totally 31337!"};
+char oldSkool[]{ "I'm totally 31337!" };
 std::string newSchool{oldSkool};
 ```
 
