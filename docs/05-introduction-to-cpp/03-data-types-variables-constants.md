@@ -312,14 +312,18 @@ A reference is a type of variable that acts as an alias to another variable.
 References are declared using an ampersand `&` after the name of the type:
 
 ```cpp
-int theAnswer = 42;
-int& referenceToTheAnswer{ theAnswer };
+#include <iostream>
 
-std::cout << theAnswer << "\n"; // 42
-std::cout << referenceToTheAnswer << "\n"; // 42
-
-referenceToTheAnswer = 0; // Change the value of the referenced variable.
-std::cout << theAnswer << "\n"; // 0
+int main() {
+  int theAnswer = 42;
+  int& referenceToTheAnswer{ theAnswer };
+  
+  std::cout << theAnswer << "\n"; // 42
+  std::cout << referenceToTheAnswer << "\n"; // 42
+  
+  referenceToTheAnswer = 0; // Change the value of the referenced variable.
+  std::cout << theAnswer << "\n"; // 0
+}
 ```
 
 References can also be declared as `const` which prevents the referenced variable from being changed by way of the reference:
