@@ -89,10 +89,12 @@ The length of an array can be retrieve using `std::size()` from the `<iterator>`
 
 ```cpp
 #include <iterator>
+#include <iostream>
 
 int main() {
   int fibonacci[7]{ 1, 1, 2, 3, 5, 8, 13 };
   int length = std::size(fibonacci);
+  std::cout << "I have the first " << length << " Fibonacci numbers.";
 }
 ```
 
