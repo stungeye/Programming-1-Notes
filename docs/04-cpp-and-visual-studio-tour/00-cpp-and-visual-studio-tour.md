@@ -29,7 +29,7 @@ Without further ado, here's our first look at a C++ program. Try running and edi
 // The main function is the entry point of our program.
 int main() {
   std::cout << "Hello World!\n";
-  std::string adjective {"wonderful"};
+  std::string adjective{ "wonderful" };
   std::cout << "Welcome to the " << adjective << " world of C++." << "\n";
   return 0;
 }
@@ -70,7 +70,7 @@ std::cout << "Hello World!\n";
 The `cout` function is how we write to the console's standard output. `cout` is defined in the `std` namespace in the `iostream` library. We use the `::` scope resolution operator to access the function within the namespace. The `<<` insertion operator is how we stream data to i/o streams. Note that this and all the other statements in the `main` function are terminated with a semicolon.
 
 ```cpp
-std::string adjective {"wonderful"};
+std::string adjective{ "wonderful" };
 ```
 
 Here we are declaring a variable of type `string` with an initial value of `"wonderful"`. The `string` data type is also defined within the `std` namespace. We could also have assigned the string its value with the `=` operator like this: `std::string adjective = "wonderful";`
@@ -82,7 +82,7 @@ std::cout << "Welcome to the " << adjective << " world of C++." << "\n";
 Another call to `cout`. Note that we can chain multiple `<<` insertion operators with a single call to `cout` and that we can mix hard-coded string literals with variables in these chains.
 
 ```cpp
-return 0
+return 0;
 ```
 
 The main entry point can return an optional integer value to the operating system that is executing the program. If we don't specify a return for `main` then `0` will be returned by default. Returning zero means the program ran successfully. Non-zero return values indicate errors.
