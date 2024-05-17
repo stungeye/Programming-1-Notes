@@ -47,7 +47,7 @@ An optional initial value can be provided using an `=`, parenthesis, or curly br
 ```cpp
 int userAge = 24;        // Copy Initialization
 int grinsPerMinute(43);  // Direct Initialization
-int numberOfApples {6};  // List Initialization
+int numberOfApples{ 6 };  // List Initialization
 ```
 
 💡 Best Practice:
@@ -63,11 +63,11 @@ Scope defines where in a program a variable is accessible.
 In C++, variables are scoped to the `{}` blocks in which they are defined.
 
 ```cpp
-int existingGemCount = 3;
-int requestedGems = askUser('How many gems did you find?');
+int existingGemCount{ 3 };
+int requestedGems = askUser("How many gems did you find?");
 
 if (requestedGems > 0) { // block starts here
-  int releasedGems = gemOracle(requestedGems); // releasedGems is only scoped to this block.
+  int releasedGems{ gemOracle(requestedGems) }; // releasedGems is only scoped to this block.
 } // block ends here
 
 existingGemCount += releasedGems // Error: "releasedGems" variable is out of scope.
@@ -132,11 +132,13 @@ To use variables of type `std::string` you must `#include` the `<string>` header
 
 ```cpp
 #include <string>
+#include <iostream>
 
 int main() {
-  std::string simpsonsQuote = "It was the best of times, it was the blurst of times.";
-  int amount = 12;
-  std::string woodChuck = "The woodchuck chucked " + std::toString(amount) + " pieces of wood.";
+  std::string simpsonsQuote{ "It was the best of times, it was the blurst of times." };
+  int amount{ 12 };
+  std::string woodChuck{ "The woodchuck chucked " + std::to_string(amount) + " pieces of wood." };
+  std::cout << simpsonsQuote << "\n" << woodChuck;
 }
 ```
 
@@ -187,17 +189,17 @@ Using unsigned numbers is not recommends. What's the unsigned answer to `8 - 10`
 We can use different prefixes to write integers in different numeral base systems:
 
 ```cpp
-int d{990};  // Base 10 Decimal 990. No prefix.
-int o{0520}; // Base 8 Octal 520. Prefixed with: 0
-int h{0x2A}; // Base 16 Hex 2A. Prefixed with: 0x
-int b{0b10}; // Base 2 Binary 10. Prefixed with: 0b
+int d{ 990 };  // Base 10 Decimal 990. No prefix.
+int o{ 0520 }; // Base 8 Octal 520. Prefixed with: 0
+int h{ 0x2A }; // Base 16 Hex 2A. Prefixed with: 0x
+int b{ 0b10 }; // Base 2 Binary 10. Prefixed with: 0b
 ```
 
 We can use the `l` and `ll` suffixes to denotes numbers that are `long` or `long long`. Big numbers can be made easier to read by using single quote characters in the thousands positions:
 
 ```cpp
-long grainsOfSand{2'000'555'000l};
-long long maxLongLong{9'223'372'036'854'775'807ll};
+long grainsOfSand{ 2'000'555'000l };
+long long maxLongLong{ 9'223'372'036'854'775'807ll };
 ```
 
 ## Floating Point Numbers
@@ -221,15 +223,15 @@ Depending on the architecture, `long double` may be equivalent to `double`.
 C++ will automatically type a numeric literal as a double if it includes a decimal point. We can a `f` or a `l` suffix to write `float` or `long double` literals. In most cases the suffixes are not required, but they can help clarify your code.
 
 ```cpp
-float energyLevel{0.2f};
-double height{4.3}; // No suffix defaults to double.
-long double funFactor{123456789l}; // Literal long double.
+float energyLevel{ 0.2f };
+double height{ 4.3 }; // No suffix defaults to double.
+long double funFactor{ 123456789l }; // Literal long double.
 ```
 
 Really large floating point values can be defined using scientific notation.
 
 ```cpp
-float avogadrosNumber{6.02214179e23f}; // Scientific notation:6.02214179 x 10²³
+float avogadrosNumber{ 6.02214179e23f }; // Scientific notation:6.02214179 x 10²³
 ```
 
 ⏳ Wait For It:
@@ -264,10 +266,10 @@ char newline() {
 }
 
 int main() {
-  auto answer{42}; // Type int due to integer literal.
-  auto temperature{12.23}; // Type double due to double literal.
-  auto combo{answer + temperature}; // Type double due to expression.
-  auto enter{newline()}; // Type char due to return type.
+  auto answer{ 42 }; // Type int due to integer literal.
+  auto temperature{ 12.23 }; // Type double due to double literal.
+  auto combo{ answer + temperature }; // Type double due to expression.
+  auto enter{ newline() }; // Type char due to return type.
 }
 ```
 
@@ -286,14 +288,14 @@ You can make your code more error proof by marking variables that shouldn't be m
 We use `constexpr` for things whose value is known at compile time:
 
 ```cpp
-constexpr double pi{3.1415926};
+constexpr double pi{ 3.1415926 };
 pi = 3; // Error. Cannot redefine a constant.
 ```
 
 We use `const` to mark variables as immutable even if their value isn't known at compile time;
 
 ```cpp
-const double temperature{someTemperatureFunction()};
+const double temperature{ someTemperatureFunction() };
 temperature = 1.2; // Error. Cannot redefine a constant.
 ```
 
@@ -311,7 +313,7 @@ References are declared using an ampersand `&` after the name of the type:
 
 ```cpp
 int theAnswer = 42;
-int& referenceToTheAnswer{theAnswer};
+int& referenceToTheAnswer{ theAnswer };
 
 std::cout << theAnswer << "\n"; // 42
 std::cout << referenceToTheAnswer << "\n"; // 42
@@ -324,7 +326,7 @@ References can also be declared as `const` which prevents the referenced variabl
 
 ```cpp
 int theAnswer = 42;
-const int& immutableAnswer{theAnswer};
+const int& immutableAnswer{ theAnswer };
 
 immutableAnswer = 0; // Compiler Error: Cannot assign to const-qualified reference.
 ```
@@ -368,7 +370,36 @@ As mentioned a few times above, the size and allowed range for certain types can
 
 Try running this program in the embedded environment and then in Visual Studio on 64bit Windows 10:
 
-<iframe height="650px" width="100%" src="https://repl.it/@stungeye/Size-of-Primitives?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+include <iostream>
+
+int main()
+{
+    std::cout << "bool:\t\t" << sizeof(bool) << " bytes\n";
+    std::cout << "char:\t\t" << sizeof(char) << " bytes\n";
+    std::cout << "short:\t\t" << sizeof(short) << " bytes\n";
+    std::cout << "int:\t\t" << sizeof(int) << " bytes\n";
+    std::cout << "long:\t\t" << sizeof(long) << " bytes\n";
+    std::cout << "long long:\t" << sizeof(long long) << " bytes\n";
+    std::cout << "float:\t\t" << sizeof(float) << " bytes\n";
+    std::cout << "double:\t\t" << sizeof(double) << " bytes\n";
+    std::cout << "long double:" << sizeof(long double) << " bytes\n";
+}
+
+/* 
+Windows 10 64bit Output:
+
+bool:           1 bytes
+char:           1 bytes
+short:          2 bytes
+int:            4 bytes
+long:           4 bytes
+long long:      8 bytes
+float:          4 bytes
+double:         8 bytes
+long double:    8 bytes
+*/
+```
 
 ## Further Reading
 
