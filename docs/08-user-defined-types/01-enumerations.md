@@ -66,14 +66,14 @@ std::cout << static_cast<int>(Direction::west); // Outputs: 3
 Sometimes called "plain" enums, you might encounter these older style enums defined like this:
 
 ```cpp
-  enum directions {NORTH, SOUTH, EAST, WEST}; // Was convention to use ALL_CAPS.
+  enum directions{ NORTH, SOUTH, EAST, WEST }; // Was convention to use ALL_CAPS.
   enum playerDirection = NORTH; // Notice the option isn't scoped to the enum!
 ```
 
 Behind the scenes each of the enum choices is assigned an integer value starting at 0. Although those values can also be explicitly set:
 
 ```cpp
-  enum directions {NORTH = 5, SOUTH = 10, EAST = 15, WEST = 20};
+  enum directions{ NORTH = 5, SOUTH = 10, EAST = 15, WEST = 20 };
 ```
 
 💡 Best Practice:
