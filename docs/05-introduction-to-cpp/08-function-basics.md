@@ -161,7 +161,7 @@ int fetchInteger(std::string prompt);
 
 The function can now be implemented in a `.cpp` file separate from where `main()` is defined. Both `.cpp` files must then `#include` the associated `.h` header file:
 
-[Explore this example on Compiler Explorer](https://godbolt.org/z/zYfWqE9en)!
+[🚀 Run this example on Compiler Explorer](https://godbolt.org/z/zYfWqE9en)!
 
 ## What to Return from Main
 
