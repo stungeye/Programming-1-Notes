@@ -140,6 +140,8 @@ I found it helpful to start the parent filename with `00` and then name each chi
 
 A few CSS tweaks and utility classes were added to the theme using the `_sass/custom/custom.scss` stylesheet.
 
+Javascript code exists in `assets/js/mycode.js` to automatically find C++ code examples that include main() methods. A link will be injected below each of these code blocks allowing the user to run the code in [Compiler Explorer](https://godbolt.org). Programs that include the `fstream` header will not get this treatment as Compiler Explorer does not support file i/o.
+
 A Javascript lightbox was also added to allow thumbnail images in the notes to be viewed at a high-resolution. See the `_includes/head_custom.html` file and the `assets/js/mycode.js` file to see how [glightbox](https://biati-digital.github.io/glightbox/) was added.
 
 Images are resized to thumbnails using CSS, so large images should be pre-scaled to reasonable sizes. I'd say try to keep images less than 900px wide.
