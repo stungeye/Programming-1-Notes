@@ -192,23 +192,23 @@ Imagine a simplified version of the CSV format that is simply comma-delimited in
 #include <iostream>
 
 int main() {
-	std::ifstream inputFile{"delimited-input.txt"};
-	int number;
+  std::ifstream inputFile{"delimited-input.txt"};
+  int number;
 
-	while (!inputFile.eof()) {
-		if (inputFile >> number) {
-			std::cout << number << "\n";
-		} else {
-			// If reading a number failed, we've hit a delimiter.
-			inputFile.clear(); // Clear the fail bit.
-			// Read in the delimiter character and ensure it's a comma.
-			if (char delim; inputFile >> delim) {
-				if (delim != ',') {
-					std::cerr << "Whoops, bad character: " << delim << "\n";
-				}
-			}
-		}
-	}
+  while (!inputFile.eof()) {
+    if (inputFile >> number) {
+      std::cout << number << "\n";
+    } else {
+      // If reading a number failed, we've hit a delimiter.
+      inputFile.clear(); // Clear the fail bit.
+      // Read in the delimiter character and ensure it's a comma.
+      if (char delim; inputFile >> delim) {
+        if (delim != ',') {
+          std::cerr << "Whoops, bad character: " << delim << "\n";
+        }
+      }
+    }
+  }
 }
 ```
 
@@ -280,81 +280,81 @@ Here's a version of the `Money` class used to read in a file of dollar amounts, 
 #include <vector>
 
 class Money {
-	static constexpr int centsPerDollar{100};
-	int mDollars{0};
-	int mCents{0};
+  static constexpr int centsPerDollar{ 100 };
+  int mDollars{ 0 };
+  int mCents{ 0 };
 
-	// Ensure that we never have more than 99 cents.
-	void rollCentsIntoDollars() {
-		int additionalDollars = mCents / Money::centsPerDollar;
-		mDollars += additionalDollars;
-		mCents %= Money::centsPerDollar;
-	}
+  // Ensure that we never have more than 99 cents.
+  void rollCentsIntoDollars() {
+    int additionalDollars{ mCents / Money::centsPerDollar };
+    mDollars += additionalDollars;
+    mCents %= Money::centsPerDollar;
+  }
 
 public:
-	Money(int dollars, int cents) : mDollars{dollars}, mCents{cents} {
-		rollCentsIntoDollars();
-	}
+  Money(int dollars, int cents) : mDollars{dollars}, mCents{cents} {
+    rollCentsIntoDollars();
+  }
 
-	Money() = default; // Required for line 59 (no-arg initialization).
+  Money() = default; // Required for line 59 (no-arg initialization).
 
-	// Overloaded stream output (friend)
-	friend std::ostream &operator<<(std::ostream &out, const Money &money) {
-		std::string padding{money.mCents < 10 ? "0" : ""};
-		out << "$" << money.mDollars << "." << padding << money.mCents;
-		return out;
-	}
+  // Overloaded stream output (friend)
+  friend std::ostream &operator<<(std::ostream &out, const Money &money) {
+    std::string padding{money.mCents < 10 ? "0" : ""};
+    out << "$" << money.mDollars << "." << padding << money.mCents;
+    return out;
+  }
 
-	// Overloaded stream input (friend). Note the out vars.
-	friend std::istream &operator>>(std::istream &in, Money &money) {
-		int dollars, cents;
-		char dollarSign, dot;
+  // Overloaded stream input (friend). Note the out vars.
+  friend std::istream &operator>>(std::istream &in, Money &money) {
+    int dollars, cents;
+    char dollarSign, dot;
 
-		// Parses input in the form: $m.n (where m and n are integers)
-		in >> dollarSign >> dollars >> dot >> cents;
+    // Parses input in the form: $m.n (where m and n are integers)
+    in >> dollarSign >> dollars >> dot >> cents;
 
-		if ((dollarSign != '$') || (dot != '.')) {
-			in.setstate(std::ios_base::failbit); // Mark input as failed.
-		} else {
-			money = Money{dollars, cents};
-		}
+    if ((dollarSign != '$') || (dot != '.')) {
+      in.setstate(std::ios_base::failbit); // Mark input as failed.
+    } else {
+      money = Money{dollars, cents};
+    }
 
-		return in;
-	}
+    return in;
+  }
 };
 
 int main() {
-	// In this example we'll read this file in two ways.
-	// Money values in this file can be space *and* new-line delimited.
-	std::ifstream inputFile{"money-input.txt"};
+  // In this example we'll read this file in two ways.
+  // Money values in this file can be space *and* new-line delimited.
+  std::ifstream inputFile{"money-input.txt"};
 
-	// Read Method 1: Manually "babysit" the import:
-	std::cout << "Manually reading entry by entry: \n";
-	while (!inputFile.eof()) {
-		Money money;
-		inputFile >> money;
+  // Read Method 1: Manually "babysit" the import:
+  std::cout << "Manually reading entry by entry: \n";
+  while (!inputFile.eof()) {
+    Money money;
+    inputFile >> money;
 
-		if (inputFile.fail()) { // Test for the fail bit.
-			std::cerr << "Read bad money value.\n\n";
-			break;
-		} else {
-			std::cout << money << "\n";
-		}
-	}
+    if (inputFile.fail()) { // Test for the fail bit.
+      std::cerr << "Read bad money value.\n\n";
+      break;
+    } else {
+      std::cout << money << "\n";
+    }
+  }
 
-	// Some "house cleaning" between read examples:
-	// Clear the fail bit if above import read bad value.
-	inputFile.clear();
-	// Reset the file read pointer to the beginning of file.
-	inputFile.seekg(0, std::ios::beg);
+  // Some "house cleaning" between read examples:
+  // Clear the fail bit if above import read bad value.
+  inputFile.clear();
+  // Reset the file read pointer to the beginning of file.
+  inputFile.seekg(0, std::ios::beg);
 
-	// Read Method 2: Read all money at once using iterator:
-	std::cout << "Bulk reading using an interator: \n";
-	std::vector<Money> bank{std::istream_iterator<Money>{inputFile}, {}};
+  // Read Method 2: Read all money at once using iterator:
+  std::cout << "Bulk reading using an interator: \n";
+  std::vector<Money> bank{std::istream_iterator<Money>{inputFile}, {}};
 
-	for (Money money : bank) {
-		std::cout << money << "\n";
-	}
+  for (Money money : bank) {
+    std::cout << money << "\n";
+  }
 }
 ```
 
@@ -458,11 +458,9 @@ struct PlainOldMoney {
 void writeVectorOfMoney(std::vector<PlainOldMoney> bank, std::ofstream& out) {
   size_t lengthOfVector{bank.size()};
   // First write the lenght of the vector:
-  out.write(reinterpret_cast<char*>(&lengthOfVector),
-            sizeof(lengthOfVector));
+  out.write(reinterpret_cast<char*>(&lengthOfVector), sizeof(lengthOfVector));
   // Then write the entire vector in one go:
-  out.write(reinterpret_cast<char*>(&bank[0]),
-            sizeof(PlainOldMoney) * lengthOfVector);
+  out.write(reinterpret_cast<char*>(&bank[0]), sizeof(PlainOldMoney) * lengthOfVector);
 }
 
 std::vector<PlainOldMoney> readVectorOfMoney(std::ifstream& in) {
@@ -472,8 +470,7 @@ std::vector<PlainOldMoney> readVectorOfMoney(std::ifstream& in) {
   // Create a vector<PlainOldMoney> of the correct length:
   std::vector<PlainOldMoney> inputVector(lengthOfVector);
   // And then read back the vector of PlainOldMoney:
-  in.read(reinterpret_cast<char *>(&inputVector[0]), 
-          lengthOfVector * sizeof(PlainOldMoney));
+  in.read(reinterpret_cast<char *>(&inputVector[0]), lengthOfVector * sizeof(PlainOldMoney));
 
   return inputVector;
 }
