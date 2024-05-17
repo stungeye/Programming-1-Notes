@@ -26,6 +26,9 @@ Pointers can point to any type of variable. This includes structs and objects.
 Let's create a pointer to an object of a simple custom class:
 
 ```cpp
+#include <iostream>
+#include <string>
+
 class Location {
   // Private Members:
   int x, y;
@@ -33,7 +36,7 @@ public:
   // Public Member Variable:
   std::string name;
   // Public Constructor:
-  Location(int x, int y, std::string name) : x{x}, y{y}, name{n} {
+  Location(int x, int y, std::string name) : x{x}, y{y}, name{name} {
   };
   // Public Member Function (Method):
   void print() {
@@ -41,11 +44,13 @@ public:
   }
 };
 
-// Elsewhere in the code:
-Location* locationPointer{new Location{50, 45, "Winnipeg"}};
-// We can use the dereferencing operator to access public members and methods:
-std::cout << (*locationPointer).name;
-(*locationPointer).print();
+int main() {
+    Location* locationPointer{ new Location{ 50, 45, "Winnipeg" } };
+
+    // We can use the dereferencing operator to access public members and methods:
+    std::cout << (*locationPointer).name << "\n";
+    (*locationPointer).print();
+}
 ```
 
 ## Member Access Through a Pointer
@@ -70,7 +75,41 @@ Always use the arrow operator to access object members through pointers.
 
 Here's a full program that uses this `Location` class and demonstrates the two ways of accessing object members from a pointer:
 
-<iframe height="800px" width="100%" src="https://replit.com/@stungeye/Calling-Functions-on-Object-from-Pointers?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>
+
+class Location {
+  int x, y;
+
+public:
+  std::string name;
+  Location(int x, int y, std::string name) : x{x}, y{y}, name{name} { 
+  };
+
+  void print() {
+    std::cout << "Location X: " << x << " Y: " << y << "\n";
+  }
+};
+
+int main() {
+  for(int i = 0; i < 10; ++i) {
+    int x{ rand() % 100 };
+    int y{ rand() % 100 };
+    Location* locationPointer{ new Location{ x, y, "Winnipeg" } };
+
+    // Member and method access using deref operator:
+    (*locationPointer).print(); 
+    std::cout << (*locationPointer).name << " ";
+    
+    // Member and method access using arrow operator:
+    locationPointer->print();  
+    std::cout << locationPointer->name << "\n\n";
+  
+    delete locationPointer;    // Delete memory to avoid memory leak.
+    locationPointer = nullptr; // Not required, but for best-practice.
+  }
+}
+```
 
 🎵 Note:
 {: .label .label-yellow}
@@ -107,21 +146,21 @@ Imagine a class with a has-a relationship to a member object that is expensive (
 
 ```cpp
 class Car {
-    Engine* engine;
+  Engine* engine;
 
 public:
-    Car() {
-        // Imagine that this factor returns a pointer to an Engine.
-        // The returned memory is the resource that we are acquiring
-        // during initialization.
-        engine = EngineFactor.create();
-    }
+  Car() {
+      // Imagine that this factor returns a pointer to an Engine.
+      // The returned memory is the resource that we are acquiring
+      // during initialization.
+      engine = EngineFactor.create();
+  }
 
-    ~Car() {
-        // Automatically release engine's memory back to the heap
-        // when this object goes out of scope.
-        delete engine;
-    }
+  ~Car() {
+      // Automatically release engine's memory back to the heap
+      // when this object goes out of scope.
+      delete engine;
+  }
 }
 ```
 
@@ -143,15 +182,15 @@ Here's a contrived example of a memory leak. You will need to assume the presenc
 
 ```cpp
 void printTheAnswerToLifeTheUniverseAndEverything() {
-    Answer *answerPtr{new Answer("Meaning of it all.")};
-    std::cout << *answerPtr;
-    // Oops! Memory Leak! We forgot to delete the answerPtr.
+  Answer *answerPtr{new Answer("Meaning of it all.")};
+  std::cout << *answerPtr;
+  // Oops! Memory Leak! We forgot to delete the answerPtr.
 }
 
 // Later in the code:
 while (1) {
-    // This function will crash once the heap is exhausted.
-    printTheAnswerToLifeTheUniverseAndEverything();
+  // This function will crash once the heap is exhausted.
+  printTheAnswerToLifeTheUniverseAndEverything();
 }
 ```
 
@@ -161,14 +200,14 @@ Here's the same scenario using a `std::unique_ptr`:
 #include <memory>
 
 void printTheAnswerToLifeTheUniverseAndEverything() {
-    std::unique_ptr<Answer> answerPtr = std::make_unique<Answer>("Meaning of it all.");
-    std::cout << *answerPtr;
+  std::unique_ptr<Answer> answerPtr = std::make_unique<Answer>("Meaning of it all.");
+  std::cout << *answerPtr;
 } // answerPtr goes out of scope when function ends. Its heap memory will be auto-deleted.
 
 // Later in the code:
 while (1) {
-    // This is fine. No more memory leak:
-    printTheAnswerToLifeTheUniverseAndEverything();
+  // This is fine. No more memory leak:
+  printTheAnswerToLifeTheUniverseAndEverything();
 }
 ```
 
@@ -177,21 +216,21 @@ while (1) {
 Unique pointers get their name because the do not allow assignment. There can only be one _unique_ variable that has ownership over a unique pointer.
 
 ```cpp
-    std::unique_ptr<Answer> sneakyPtr; // Starts as nullptr.
-    std::unique_ptr<Answer> answerPtr = std::make_unique<Answer>("Meaning of it all.");
+std::unique_ptr<Answer> sneakyPtr; // Starts as nullptr.
+std::unique_ptr<Answer> answerPtr = std::make_unique<Answer>("Meaning of it all.");
 
-    sneakyPtr = answerPtr; // Compile Error! Assignment is not allowed!
+sneakyPtr = answerPtr; // Compile Error! Assignment is not allowed!
 ```
 
 We can, however, move the ownership from one variable to another:
 
 ```cpp
-    std::unique_ptr<Answer> newOwnerPtr; // Starts as nullptr.
-    std::unique_ptr<Answer> answerPtr = std::make_unique<Answer>("Meaning of it all.");
+std::unique_ptr<Answer> newOwnerPtr; // Starts as nullptr.
+std::unique_ptr<Answer> answerPtr = std::make_unique<Answer>("Meaning of it all.");
 
-    newOwnerPtr = std::move(answerPtr);
-    // newOwnerPtr now pointers to the Answer object.
-    // answerPtr is now a nullptr.
+newOwnerPtr = std::move(answerPtr);
+// newOwnerPtr now pointers to the Answer object.
+// answerPtr is now a nullptr.
 ```
 
 ## Further Reading
