@@ -120,6 +120,8 @@ int main() {
 }
 ```
 
+If you wish to try this program on Compiler Explore, you will need to find and click the "Execution stdin" button found in the right-hand output tab. That will enable a place to type input. 
+
 ⚡ Warning:
 {: .label .label-red }
 
