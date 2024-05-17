@@ -20,9 +20,20 @@ This section begins with a line-by-line walkthrough of a short C++ program. Afte
 
 ## Hello C++
 
-Without further ado, here's our first look at a C++ program. Try editing and running the program.
+Without further ado, here's our first look at a C++ program. Try running and editing the program on Compiler Explorer.
 
-<iframe height="510px" width="100%" src="https://repl.it/@stungeye/Hello-World?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>
+#include <string>
+
+// The main function is the entry point of our program.
+int main() {
+  std::cout << "Hello World!\n";
+  std::string adjective {"wonderful"};
+  std::cout << "Welcome to the " << adjective << " world of C++." << "\n";
+  return 0;
+}
+```
 
 ## Line-By-Line Code Walk-Through
 
@@ -46,7 +57,7 @@ The `string` data type is not built into the core language. Strings are defined 
 
 Single line comments in C++ begin with a double forward slash. C++ also includes multiline comments that start with `/*` and end with `*/`.
 
-```cpp
+```
 int main() {
 ```
 
@@ -128,7 +139,7 @@ The CMake Project isn't reliant on the MSBuild system, instead these projects ar
 
 - [Learn C++ in Y minutes](https://learnxinyminutes.com/docs/c++/) - Part of the "Learn X in Y Minutes" series.
 - C++ Online References: [cppreference.com](https://en.cppreference.com/w/) and [cplusplus.com](http://www.cplusplus.com/)
-- [About Visual Studio Project and Solutions](https://docs.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio?view=vs-2019)
+- [About Visual Studio Project and Solutions](https://learn.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio)
 - [A General Overview of What Happens Before main()](https://embeddedartistry.com/blog/2019/04/08/a-general-overview-of-what-happens-before-main/)
-- [Official Visual Studio "Create A Console Calculator" Tutorial](https://docs.microsoft.com/en-us/cpp/get-started/tutorial-console-cpp?view=msvc-160&viewFallbackFrom=vs-2019)
-- [Using Visual Studio for Cross-Platform C++ Development Targeting Windows and Linux](https://devblogs.microsoft.com/cppblog/using-visual-studio-for-cross-platform-c-development-targeting-windows-and-linux/) - This tutorial uses the awesome [Bullet Physics](bulletphysics.org) collision detection and physics simulation library.
+- [Official Visual Studio "Create A Console Calculator" Tutorial](https://learn.microsoft.com/en-us/cpp/get-started/tutorial-console-cpp)
+- [Using Visual Studio for Cross-Platform C++ Development Targeting Windows and Linux](https://learn.microsoft.com/en-us/cpp/build/get-started-linux-cmake) - This tutorial uses the awesome [Bullet Physics](bulletphysics.org) collision detection and physics simulation library.
