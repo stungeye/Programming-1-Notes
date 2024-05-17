@@ -153,25 +153,15 @@ First the function is forward declared in a header with [include guards](s/docs/
 `userInput.h`:
 
 ```cpp
-#ifndef USERINPUT_H
-#define USERINPUT_H
+#pragma once
 
+// Forward declaration with no implementation.
 int fetchInteger(std::string prompt);
-
-#endif
 ```
 
-The function can now be implemented in a `.cpp` file separate from where `main()` is defined. Both `.cpp` files must then `#include` the associated `.h` header file.
+The function can now be implemented in a `.cpp` file separate from where `main()` is defined. Both `.cpp` files must then `#include` the associated `.h` header file:
 
-```cpp
-include <iostream>
-#include "userInput.h"
-
-int main() {
-  int number = fetchInteger("Favourite number? ");
-  std::cout << number << "\n";
-}
-```
+[Explore this example on Compiler Explorer](https://godbolt.org/z/zYfWqE9en)!
 
 ## What to Return from Main
 
