@@ -101,7 +101,34 @@ Functions need to be declared before they can be used.
 
 Try to compile/run this program:
 
-<iframe height="700px" width="100%" src="https://repl.it/@stungeye/Forward-Declaration?embed=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream> // for std::cout & std::cin
+#include <limits>   // for std::numeric_limits
+#include <string>   // for std::string
+
+// Uncomment this line to "forward declare" the fetchInteger function:
+// int fetchInteger(std::string prompt);
+
+int main() {
+  // Won't compile because fetchInteger hasn't been declared yet.
+  int number = fetchInteger("What's your favourite number? ");
+  std::cout << number << "\n";
+}
+
+int fetchInteger(std::string prompt) {
+  do {
+    int number;
+    std::cout << prompt;
+
+    if (std::cin >> number) {
+      return number; 
+    }
+    
+    std::cin.clear(); 
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+  } while (true);
+}
+```
 
 Instead of moving the `fetchInteger` function above the `main` function, we can _forward declare_ `fetchInteger`. Uncomment the forward declaration to fix the above code.ss
 
@@ -123,18 +150,28 @@ It's common to forward declare functions defined in separate `.cpp` source files
 
 First the function is forward declared in a header with [include guards](s/docs/05-introduction-to-cpp/02-the-build-process.html#preprocessor-directive---include-guards):
 
+`userInput.h`:
+
 ```cpp
 #ifndef USERINPUT_H
 #define USERINPUT_H
+
 int fetchInteger(std::string prompt);
+
 #endif
 ```
 
 The function can now be implemented in a `.cpp` file separate from where `main()` is defined. Both `.cpp` files must then `#include` the associated `.h` header file.
 
-Navigate through the example files using the left pane "Files" explore:
+```cpp
+include <iostream>
+#include "userInput.h"
 
-<iframe height="600px" width="100%" src="https://repl.it/@stungeye/Function-and-Headers?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+int main() {
+  int number = fetchInteger("Favourite number? ");
+  std::cout << number << "\n";
+}
+```
 
 ## What to Return from Main
 
@@ -142,7 +179,7 @@ The `main()` function is the only function with a non-`void` type where we don't
 
 ```cpp
 int main() {
-  int goatCount = 12;
+  int goatCount{ 12 };
 }
 ```
 
@@ -200,8 +237,8 @@ int increment(int number) {
 }
 
 void main() {
-  int a = 5;
-  int b = increment(a); // The value of "a" is copied to the "number" parameter.
+  int a{ 5 };
+  int b{ increment(a) }; // The value of "a" is copied to the "number" parameter.
 
   std::cout << a << "\n"; // Remained 5
   std::cout << b << "\n"; // 6
@@ -239,8 +276,8 @@ int mutator(int& number) {
 }
 
 void main() {
-  int a = 5;
-  int b = mutator(a); // "a" and "b" become 6.
+  int a{ 5 };
+  int b{ mutator(a) }; // "a" and "b" become 6.
 
   std::cout << a << "\n"; // 6
   std::cout << b << "\n"; // 6
@@ -319,12 +356,12 @@ debugFormat("WARNING", 3.14); // Outputs: WARNING (double): 3.14
 There may also be instances when you overload a function with a different number/type of parameters and also change the return type.
 
 ```cpp
-int add(int num1, int num2) {
-  return num1 + num2;
+int max(int a, int b) {
+ return (a > b) ? a : b;
 }
 
-double add(double num1, double num2) {
-  return num1 + num2;
+double max(double a, double b) {
+ return (a > b) ? a : b;
 }
 ```
 
@@ -339,3 +376,39 @@ Overloaded functions with different return types need not have identical functio
 
 We cannot overload a function based only on a change in return type.
 {: .d-inline-block}
+
+## Templates
+
+Templates in C++ allow you to write generic functions that can work with any data type, making your code more flexible and reusable. While templates can be complex, we'll start with a simple example to demonstrate their basic concept without exploring the more advanced features.
+
+In the previous section we defined a `max` function that returns the larger of two variable values. To support both ints and doubles we had to write two separate implementations. Doesn't seem very [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself).
+
+What if we could define a generic version of the function that would work for all data types that support comparisons with the `>` operator?
+
+```cpp
+#include <iostream>
+#include <string>
+
+// A templated max function where T can be any one type.
+template <typename T>
+T max(T a, T b) {
+    return (a > b) ? a : b;
+}
+
+int main() {
+    int int1 = 3, int2 = 5;
+    double double1 = 7.5, double2 = 2.3;
+    std::string str1 = "apple", str2 = "orange";
+
+    std::cout << "Max of " << int1 << " and " << int2 << " is: " << max(int1, int2) << std::endl;
+    std::cout << "Max of " << double1 << " and " << double2 << " is: " << max(double1, double2) << std::endl;
+    std::cout << "Max of \"" << str1 << "\" and \"" << str2 << "\" is: \"" << max(str1, str2) << "\"" << std::endl;
+
+    return 0;
+}
+```
+
+## Resources
+
+* [Learn more about templates in section 11.6 to 11.9 of LearnCpp.com](https://www.learncpp.com/cpp-tutorial/function-templates/)
+* [C++ Templates on learn.microsoft.com](https://learn.microsoft.com/en-us/cpp/cpp/templates-cpp)
