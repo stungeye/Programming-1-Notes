@@ -372,7 +372,7 @@ If you are fine with the loss of data, you can force the issue with a `static_ca
 
 As mentioned a few times above, the size and allowed range for certain types can be architecture or implementation dependent.
 
-Try running this program in the embedded environment and then in Visual Studio on 64bit Windows 10:
+Note the difference when running this program in Compiler Explore and then in Visual Studio on 64bit Windows:
 
 ```cpp
 #include <iostream>
