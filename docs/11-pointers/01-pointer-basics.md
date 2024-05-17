@@ -25,15 +25,45 @@ When we store data in a variable, that data gets stored in our computer's Random
 
 We can access the memory address of any variable using the address-of operator `&`:
 
-<iframe height="600px" width="100%" src="https://repl.it/@stungeye/Address-Of-Operator?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream> // std::cout
+#include <string>   // std::string
 
+int main() {
+  int wholeNumber{ 42 };
+  float decimalNumber{ 3.14159 };
+  std::string name{ "Wally Glutton" };
+
+  std::cout << "The number " << wholeNumber 
+            << " is stored at memory address " 
+            << &wholeNumber << ".\n";
+
+  std::cout << "The number " << decimalNumber 
+            << " is stored at memory address " 
+            << &decimalNumber << ".\n";
+
+  std::cout << "The string " << name 
+            << " is stored at memory address " 
+            << &name << ".\n";
+}
+```
 ## The Indirection Operator
 
 What can we do with the memory address of a variable? Not much without the indirection operator `*`.
 
 Using this operator, we can access the data stored at a particular memory address. This is sometimes called _dereferencing_.
 
-<iframe height="500px" width="100%" src="https://repl.it/@stungeye/Indirection-Address?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>
+
+int main() {
+  int wholeNumber{ 42 };
+
+  std::cout << "wholeNumber: " << wholeNumber << "\n";
+  std::cout << "&wholeNumber: " << &wholeNumber << "\n";
+  std::cout << "*(&wholeNumber): " << *(&wholeNumber) << "\n";
+}
+```
 
 ## What are Pointers?
 
@@ -54,16 +84,20 @@ The address-of operator `&` returns a pointer, not a raw number for the memory a
 We declare pointers by placing an asterisk after the data type in the declaration.
 
 ```cpp
-  // Create an integer variable:
-  int wholeNumber{ 42 };
-  // Create a pointer to the integer variable:
-  int* numberPointer{ &wholeNumber };
-  // Access the value 42 by way of the variable:
-  std::cout << " wholeNumber: " << wholeNumber << "\n";
-  // Access the value 42 by dereferencing the pointer:
-  std::cout << " *numberPointer: " << *numberPointer << "\n";
-  // Change the value of wholeNumber using the pointer:
-  (*numberPointer)++; // wholeNumber is now 43
+// Create an integer variable:
+int wholeNumber{ 42 };
+
+// Create a pointer to the integer variable:
+int* numberPointer{ &wholeNumber };
+
+// Access the value 42 by way of the variable:
+std::cout << " wholeNumber: " << wholeNumber << "\n";
+
+// Access the value 42 by dereferencing the pointer:
+std::cout << " *numberPointer: " << *numberPointer << "\n";
+
+// Change the value of wholeNumber using the pointer:
+(*numberPointer)++; // wholeNumber is now 43
 ```
 
 ⚡ Warning:
@@ -76,7 +110,25 @@ The pointer definition use of an asterisk is different from the indirection oper
 
 After a pointer has been defined and initialized we can also change what it points to.
 
-<iframe height="700px" width="100%" src="https://repl.it/@stungeye/Defining-and-Initializing-Pointers?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>
+#include <string>
+
+int main() {
+  std::string sillyString{ "The rain in Spain falls mainly due to pain." };
+  std::string* stringPointer{ &sillyString }; // Pointer to sillyString
+
+  std::cout << " stringPointer: " << stringPointer << "\n";
+  std::cout << "*stringPointer: " << *stringPointer << "\n\n";
+
+  // Change what stringPointer points to:
+  std::string secondString{ "WOWZA COWZA!" };
+  stringPointer = &secondString;
+  std::cout << "After changing what stringPointer points to:\n";
+  std::cout << " stringPointer: " << stringPointer << "\n";
+  std::cout << "*stringPointer: " << *stringPointer << "\n";
+}
+```
 
 ## Example: C-Array Pointer Navigation
 
@@ -84,7 +136,26 @@ Many collections in C++ are implemented using pointers. Look back over [our modu
 
 C-style arrays are also implemented using pointers and we can use what is call _pointer arithmetic_ to access elements within an array.
 
-<iframe height="800px" width="100%" src="https://repl.it/@stungeye/C-Style-Arrays-and-Pointers?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>
+
+int main() {
+  int primes[4]{ 2, 3, 5, 7 };
+  int arrayLength{ std::size(primes) };
+
+  // The primes variable is a pointer to the first element in the array: 
+  std::cout << "First element: " << *primes << "\n";
+
+  // Other pointers can also point to the first element:
+  int* arrayPointer{ primes };
+  std::cout << "First element: " << *arrayPointer << "\n";
+
+  // We can even use a pointer to traverse the array like an iterator:
+  for(int* pointer{ primes }; pointer < (primes + arrayLength); ++pointer) {
+    std::cout << *pointer << "\n";
+  }
+}
+```
 
 ⚡ Warning:
 {: .label .label-red}
@@ -99,28 +170,27 @@ The concept of `const` can be applied to pointers in a few different ways:
 - Regular pointers cannot point to `const` variables:
 
 ```cpp
-  const int answer{42};
-  int* answerPointer{&answer}; // COMPILE ERROR: Regular pointers can't point to const variables.
+const int answer{ 42 };
+int* answerPointer{ &answer }; // COMPILE ERROR: Regular pointers can't point to const variables.
 ```
 
 - Pointers can be made to point to `const` variables, but the pointer can be reassigned:
 
 ```cpp
-  const int answer1{42};
-  const int answer2{999};
-  const int* answerPointer{&answer1}; // Okay! Note: const comes first.
-  answerPointer = &answer2;           // Weird, but also fine!
-  (*answerPointer) = 12;              // COMPILE ERROR: Cannot change a const value.
+const int answer1{ 42 };
+const int answer2{ 999 };
+const int* answerPointer{ &answer1 }; // Okay! Note: const comes first.
+answerPointer = &answer2;           // Weird, but also fine!
+(*answerPointer) = 12;              // COMPILE ERROR: Cannot change a const value.
 ```
 
 - Pointers can also be made `const`, meaning they cannot be changed after initialization:
 
 ```cpp
-  int answer1{42};
-  int answer2{999};
-  int* const answerPointer{&answer1}; // Note: const comes after type.
-  answerPointer = &answer2;           // COMPILE ERROR: Const pointers cannot be reassigned.
-
+int answer1{ 42 };
+int answer2{ 999 };
+int* const answerPointer{ &answer1 }; // Note: const comes after type.
+answerPointer = &answer2;           // COMPILE ERROR: Const pointers cannot be reassigned.
 ```
 
 ## Uninitialized Pointers
@@ -128,9 +198,9 @@ The concept of `const` can be applied to pointers in a few different ways:
 Unassigned pointers, sometimes called _wild pointers_ contain what is known as a _garbage address_.
 
 ```cpp
-  double e{2.71828};
-  double* validPointer{&e}; // Points to the memory address of the 'e' variable.
-  double* garbagePointer; // Uninitialized. Contains a garbage address.
+double e{ 2.71828 };
+double* validPointer{ &e }; // Points to the memory address of the 'e' variable.
+double* garbagePointer; // Uninitialized. Contains a garbage address.
 ```
 
 💡 Best Practice:
@@ -144,16 +214,16 @@ Dereferencing a wild pointer is undefined behaviour and should be avoided.
 There is a special literal value `nullptr` we can assign to pointers to indicate that they are uninitialized.
 
 ```cpp
-  int* nullPointer1{nullptr}; // Manually made null using the nullptr literal.
-  int* nullPointer2{};        // An empty initializer will also create null pointers.
+int* nullPointer1{ nullptr }; // Manually made null using the nullptr literal.
+int* nullPointer2{};          // An empty initializer will also create null pointers.
 ```
 
 Previously assigned pointers can also be made null.
 
 ```cpp
-  double e{2.71828};
-  double* validPointer{&e}; // Points to the memory address of the 'e' variable.
-  validPointer = nullptr;   // Previously valid pointers can be made null.
+double e{ 2.71828 };
+double* validPointer{ &e }; // Points to the memory address of the 'e' variable.
+validPointer = nullptr;     // Previously valid pointers can be made null.
 ```
 
 💡 Best Practice:
@@ -167,23 +237,24 @@ Uninitialized pointers should always be explicitly made into _null pointers_.
 Dereferencing a null pointer is undefined behaviour.
 
 ```cpp
-    int* pointer{}; // Creates a null pointer
-    std::cout << *pointer; // UNDEFINED BEHAVIOUR!
+int* pointer{}; // Creates a null pointer
+std::cout << *pointer; // UNDEFINED BEHAVIOUR!
 ```
 
 As such, we should _always_ guard pointer access with a boolean test.
 
 ```cpp
-    // METHOD #1:
-    if (pointer != nullptr) {
-      // pointer isn't null, so we can access it:
-      std::cout << *pointer;
-    }
-    // METHOD #2:
-    if (pointer) { // Non-null pointers are "truthy" while nullptr is "falsey".
-      // pointer isn't null, so we can access it:
-      std::cout << *pointer;
-    }
+// METHOD #1:
+if (pointer != nullptr) {
+  // pointer isn't null, so we can access it:
+  std::cout << *pointer;
+}
+
+// METHOD #2:
+if (pointer) { // Non-null pointers are "truthy" while nullptr is "falsey".
+  // pointer isn't null, so we can access it:
+  std::cout << *pointer;
+}
 ```
 
 ⚡ Warning:
