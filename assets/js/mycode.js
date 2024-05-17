@@ -19,7 +19,7 @@ cppBlocks.forEach(block => {
         });
 
         // Check if the code contains "int main("
-        if (!rawCode.includes("int main(")) {
+        if (!rawCode.includes("int main(") || rawCode.includes("#include <fstream>")) {
             return;
         }
 
