@@ -36,7 +36,29 @@ do {
 
 An intentionally infinite `do while` loop can be helpful when validating user input:
 
-<iframe height="860px" width="100%" src="https://repl.it/@stungeye/TEster?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream> // std::cout, std::cin
+#include <limits>   // std::numeric_limits
+
+int main() {
+  double number;
+  
+  do {
+    std::cout << "Enter a number: ";
+    
+    if (std::cin >> number) { // Only true if cin streams in a number.
+      break; // Leave the loop if we read a number from the stream.
+    }
+    
+    // No number found so clear the cin error flag:
+    std::cin.clear(); 
+    // Ignore remaining user input to reset stream for the next try.
+    std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+  } while (true); // Infinite loop until break (line 11).
+
+  std::cout << "Your number was: " << number << "\n";
+}
+```
 
 ## For Statements
 
@@ -84,7 +106,22 @@ for (auto apples{10}; apples <= 20; apples++) {
 
 Loops can go inside of loops inside of other loops.
 
-<iframe height="650px" width="100%" src="https://repl.it/@stungeye/Nested-Loops?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>
+
+int main() {
+  int number;
+  
+  do {
+    std::cout << "\nEnter a number (0 to end): ";
+    std::cin >> number;
+
+    for(int i{0}; i < number; i++) {
+      std::cout << (i + 1) << "\n";
+    }
+  } while (number != 0);
+}
+```
 
 ⚡ Warning:
 {: .label .label-red}
