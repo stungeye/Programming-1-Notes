@@ -103,7 +103,9 @@ supercali::scanPerimeter();
 
 You should get in the habit of creating your own namespaces when making your own internal libraries.
 
-I've re-implemented [the function headers example](/Programming-1-Notes/docs/05-introduction-to-cpp/08-function-basics.html#functions-and-header-files) with a namespace: [Explore the example code on Compiler Explorer](https://godbolt.org/z/6ffsb6Eh1)!
+I've re-implemented [the function headers example](/Programming-1-Notes/docs/05-introduction-to-cpp/08-function-basics.html#functions-and-header-files) with a namespace: 
+
+[Explore the example code on Compiler Explorer](https://godbolt.org/z/6ffsb6Eh1)!
 
 
 🎵 Note:
