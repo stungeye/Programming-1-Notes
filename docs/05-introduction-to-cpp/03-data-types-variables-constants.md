@@ -387,11 +387,11 @@ int main()
     std::cout << "long long:\t" << sizeof(long long) << " bytes\n";
     std::cout << "float:\t\t" << sizeof(float) << " bytes\n";
     std::cout << "double:\t\t" << sizeof(double) << " bytes\n";
-    std::cout << "long double:" << sizeof(long double) << " bytes\n";
+    std::cout << "long double:\t" << sizeof(long double) << " bytes\n";
 }
 
 /* 
-Windows 10 64bit Output:
+Windows 11 64bit Output:
 
 bool:           1 bytes
 char:           1 bytes
