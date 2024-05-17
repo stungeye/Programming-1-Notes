@@ -166,7 +166,30 @@ We can loop over vectors with standard and range-based `for` loops.
 
 This demo code shows both styles of loops and also includes the use of `push_back()` and `resize()`:
 
-<iframe height="800px" width="100%" src="https://repl.it/@stungeye/Looping-Over-Vector?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+include <iostream>
+#include <vector>
+#include <string>
+
+int main() {
+  std::vector poem{"Mares eat oats", "Goats eat oats"};
+  poem.push_back("Little lambs eat ivy");
+
+  for(auto i = 0; i < poem.size(); ++i) {
+    std::cout << "Regular For: " << poem[i] << "\n";
+  }
+
+  for(auto line : poem) {
+    std::cout << "Range For: " << line << "\n";
+  }
+
+  poem.resize(20, "");
+
+  for(auto line : poem) {
+    std::cout << "With Blanks: " << line << "\n";
+  }
+}
+```
 
 ## Passing Vectors to Functions
 
@@ -189,7 +212,29 @@ C++ functions are _pass-by-value_ by default, meaning copies are made of the arg
 
 Because resize operations on vectors are expensive, a vector will sometimes preallocate capacity for future elements without changing its length:
 
-<iframe height="800px" width="100%" src="https://repl.it/@stungeye/Length-vs-Capacity?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>
+#include <string>
+#include <vector>
+
+int main() {
+  std::vector<int> oddNumbers{1, 3, 5, 7}; // Length is 4. Capacity is 4.
+  std::cout << "Size: " << oddNumbers.size()
+            << " Capacity: " << oddNumbers.capacity() << "\n";
+
+  oddNumbers.push_back(9); // Length is 5. Capacity is compiler dependent.
+  std::cout << "Size: " << oddNumbers.size()
+            << " Capacity: " << oddNumbers.capacity() << "\n";
+
+  oddNumbers.push_back(11); // Length is 6. Capacity is compiler dependent.
+  std::cout << "Size: " << oddNumbers.size()
+            << " Capacity: " << oddNumbers.capacity() << "\n";
+
+  oddNumbers.pop_back(); // Length is 5. Capacity is compiler dependent.
+  std::cout << "Size: " << oddNumbers.size()
+            << " Capacity: " << oddNumbers.capacity() << "\n";
+}
+```
 
 ## Comparing Vectors
 
