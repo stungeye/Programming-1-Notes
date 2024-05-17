@@ -113,7 +113,7 @@ double copy[4]{ 1, 2, 3, 4 };
 double pasta[4];
 
 // This will not make a copy:
-pasta = copy; // Compiler Error: Array type is not assignable.
+pasta = copy; // COMPILER ERROR: Array type is not assignable.
 ```
 
 Instead we need to use `std::copy` from the `<algorithm>` header:
@@ -189,7 +189,7 @@ int main() {
   double duplicate[4];
 
   // This doesn't work for a copy:
-  duplicate = original; 
+  duplicate = original; // COMPILER ERROR!
 
   // Instead we must manually copy from original to duplicate array:
   std::copy(std::begin(original), 
