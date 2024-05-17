@@ -37,7 +37,24 @@ It is sometimes handy to pass a function as an argument to another function. Tak
 
 In this example we're counting how many strings in a vector have 8 or more characters:
 
-<iframe height="730px" width="100%" src="https://repl.it/@stungeye/Callback-Functions-with-stdfindif?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>  // std::cout
+#include <vector>    // std::vector
+#include <string>    // std::string
+#include <algorithm> // std::count_if
+
+bool isLong(std::string word) {
+  return word.length() >= 8;
+}
+
+int main() {
+  std::vector<std::string> words{ "the", "origin", "of", "consciousness", "in", "the", "breakdown", "of", "the", "bicameral", "mind" };
+
+  auto longWordCount = std::count_if(words.begin(), words.end(), isLong);
+
+  std::cout << "There are " << longWordCount << " long words.\n";
+}
+```
 
 ## Lambda Expressions
 
@@ -46,10 +63,12 @@ Lambda expressions were added to C++ in C++11 as a way to define a single-use na
 Here's our example from above with the `wordIsLong()` function replaced by an inline lambda:
 
 ```cpp
-const std::vector<std::string> words{"long", "selection", "longest", "consciousness"};
+const std::vector<std::string> words{ "long", "selection", "longest", "consciousness" };
+
 const auto longWordCount = std::count_if(words.begin(), words.end(), [](const std::string word) {
   return word.length() >= 8;
 });
+
 std::cout << "There are " << longWordCount << " long words.\n";
 ```
 
@@ -97,7 +116,27 @@ helloSquirrel("Daisy");
 
 Starting with C++14, the parameters of a lambda expression can be of type `auto` and they will be inferred from how the lambda is used.
 
-<iframe height="800px" width="100%" src="https://repl.it/@stungeye/Generic-Lambda?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <array>     // std::array 
+#include <algorithm> // std::adjacent_find
+#include <iostream>  // std::cout
+ 
+int main() {
+  std::array months{ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" };
+ 
+  // Find the first two consecutive months that start with the same letter.
+  auto sameLetter{ 
+    std::adjacent_find(months.begin(), months.end(), 
+      [](const auto& a, const auto& b) { return (a[0] == b[0]); })
+  };
+ 
+  // If no pair is found, sameLetter will point to .end()
+  if (sameLetter != months.end()) { 
+    std::cout << *sameLetter << " and " << *std::next(sameLetter)
+              << " start with the same letter.\n";
+  }
+}
+```
 
 ## The Wonderful World of STL Algorithms
 
@@ -127,7 +166,29 @@ Notice that a "long word" is hardcoded to be 8 characters or more. But what if w
 
 ## Lambda Captures to the Rescue
 
-<iframe height="730px" width="100%" src="https://repl.it/@stungeye/Lambda-With-Capture?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>  // std::cout, std::cin
+#include <vector>    // std::vector
+#include <string>    // std::string
+#include <algorithm> // std::count_if
+
+int main() {
+  std::vector<std::string> words{"the", "origin", "of", "consciousness"};
+
+  int longWordLength;
+
+  std::cout << "Long Word Length: ";
+  std::cin >> longWordLength;
+
+  auto longWordCount = std::count_if(words.begin(), words.end(),  
+    [longWordLength](const std::string word) {
+      return word.length() > longWordLength;
+  });
+
+  std::cout << "There are " << longWordCount << " words longer than "
+            << longWordLength << " characters.\n";
+}
+```
 
 ## Captures Default to Const Value
 
@@ -135,6 +196,7 @@ By default, variables are capture by `const` value. This means they are copied t
 
 ```cpp
 int longWordLength = 8;
+
 auto longWordCount = std::count_if(words.begin(), words.end(),
   [longWordLength](const std::string word) {
     longWordLength++; // ERROR: The capture variable is immutable.
@@ -148,7 +210,29 @@ There are times that you may wish to capture a variable by reference, rather tha
 
 That said, here's an example of a reference capture that does mutate the outer variable as a way of tracking how many comparisons are required when sorting an array:
 
-<iframe height="800px" width="100%" src="https://repl.it/@stungeye/Lambda-With-Reference-Capture?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>  // std::cout
+#include <array>     // std::array
+#include <algorithm> // std::sort
+
+int main() {
+  std::array numbers{ 9, 99, 4, 44, 300, 3, 12, 2, 200 };
+  int numberOfComparisons{ 0 };
+
+  std::sort(numbers.begin(), numbers.end(),
+    // Capture comparisons by reference.
+    [&numberOfComparisons](const auto& a, const auto& b) {
+      ++numberOfComparisons; // Mutate the outer variable.
+      return (a < b); // Change to > for descending sort.
+  });
+
+  std::cout << numberOfComparisons << " comparisons required.\n";
+
+  for(auto number : numbers) {
+    std::cout << number << " ";
+  }
+}
+```
 
 🎵 Note:
 {: .label .label-yellow}
@@ -161,8 +245,8 @@ The only way to make a reference capture `const` is to make the outer variable `
 We can capture multiple variables using a comma-delimited list of variable names as the capture clause:
 
 ```cpp
-int goldCoins = 12;
-float manaRemaining = 45.2;
+int goldCoins{ 12 };
+float manaRemaining{ 45.2 };
 
 auto exploreWorld = [goldCoins, manaRemaining]() {
   std::cout << "Setting out to explore the world with " << goldCoins
@@ -173,8 +257,8 @@ auto exploreWorld = [goldCoins, manaRemaining]() {
 The compiler can also infer the captures based on the outer variables we mention in our lambda:
 
 ```cpp
-int goldCoins = 12;
-float manaRemaining = 45.2;
+int goldCoins{ 12 };
+float manaRemaining{ 45.2 };
 
 auto exploreWorld = [=]() { // The = sign means the lambda will capture all outer variables mentioned:
   std::cout << "Setting out to explore the world with " << goldCoins
@@ -185,8 +269,8 @@ auto exploreWorld = [=]() { // The = sign means the lambda will capture all oute
 We can also default to capturing all mentioned variables by reference:
 
 ```cpp
-int goldCoins = 12;
-float manaRemaining = 45.2;
+int goldCoins{ 12 };
+float manaRemaining{ 45.2 };
 
 auto exploreWorld = [&]() { // Capture all outer variables mentioned by reference:
   std::cout << "Setting out to explore the world with " << goldCoins
@@ -200,7 +284,7 @@ We can mix and match value, reference, and default captures within a single capt
 
 ```cpp
 int sum = 12;
-std::vector ghosts{"pinky", "blinky", "inky", "clyde"};
+std::vector ghosts{ "pinky", "blinky", "inky", "clyde" };
 float weightOnMars = 12.134;
 
 // Some valid captures:
@@ -222,13 +306,65 @@ The `std::function` type from the `<functional>` header allows us to assign a fu
 std::function<returnType(list, of, arg, types)> variableName;
 ```
 
-<iframe height="800px" width="100%" src="https://replit.com/@stungeye/Saving-Lambdas-to-Variables?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+Usage example:
+
+```cpp
+#include <iostream>   // std::cout
+#include <string>     // std::string
+#include <functional> // std::function
+
+int main() {
+  // Void function that takes a single integer argument:
+  std::function<void(int)> lambda{ [](int num){ std::cout << num; } };
+  
+  lambda(10);
+
+  // Bool function that takes a string and an integer as arguments:
+  std::function<bool(std::string, int)> longerThan;
+  longerThan = [](std::string s, int n)->bool{ return s.length() > n; };
+
+  if(longerThan("supercalifragilisticexpialidocious", 20)) {
+    std::cout << "\nSuper-dee-duper!\n";
+  }
+}
+```
 
 ## Lambdas as Function Arguments
 
 We can create our own functions that accept lambdas as arguments by using `std::function` for parameter types.
 
-<iframe height="800px" width="100%" src="https://replit.com/@stungeye/Functions-That-Accept-Lambdas-as-Arguments?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>
+#include <vector>
+#include <functional>
+
+void filterPrint(const std::vector<int>& vector, 
+                 const std::function<bool(int)>& predicate) {
+  for(auto element : vector) {
+    if (predicate(element)) {
+      std::cout << element << "\n";
+    }
+  }  
+};
+
+bool isEven(int num) {
+  return num % 2 == 0;
+}
+
+int main() {
+  std::vector<int> numbers{ 2, 34, 1, 679, 50, 12, 34, 31, 3, 107 };
+
+  std::cout << "All the numbers greater than 40 in our vector:\n";
+  filterPrint(numbers, [](int num)->bool{ return num > 40;});
+
+  std::cout << "\nAll the even numbers in our vector:\n";
+  filterPrint(numbers, [](int num)->bool{ return num % 2 == 0;});
+
+  // Note that regular functions can be passed as well:
+  std::cout << "\nAll the even numbers in our vector:\n";
+  filterPrint(numbers, isEven);
+}
+```
 
 🎵 Note:
 {: .label .label-yellow}
@@ -240,7 +376,7 @@ Functions that accept lambdas can also accept regular functions by name is well.
 
 - [Introduction to Lambdas @ LearnCpp.com](https://www.learncpp.com/cpp-tutorial/introduction-to-lambdas-anonymous-functions/)
 - [Lambda Captures @ LearnCpp.com](https://www.learncpp.com/cpp-tutorial/lambda-captures/)
-- [Lambda Expressions in C++ @ doc.microsoft.com](https://docs.microsoft.com/en-us/cpp/cpp/lambda-expressions-in-cpp?view=msvc-160)
+- [Lambda Expressions in C++ @ doc.microsoft.com](https://learn.microsoft.com/en-us/cpp/cpp/lambda-expressions-in-cpp)
 - [The World Map of C++ STL Algorithms](https://www.fluentcpp.com/getthemap/)
 - [105 STL Algorithms in Less Than an Hour](https://www.youtube.com/watch?v=2olsGf6JIkU) (1 hour video)
 - [Algorithm Intuition by Conor Hoekstra](https://www.youtube.com/watch?v=48gV1SNm3WA) (1.5 hour video)
