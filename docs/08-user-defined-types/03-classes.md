@@ -441,12 +441,55 @@ Up to this point we've been defining the class and its implementation within the
 
 When defining methods in the `.cpp` file we must prefix the method name with `Classname::` where `Classname` is the actual name of the class.
 
-<iframe height="600px" width="100%" src="https://replit.com/@stungeye/Separate-Cpp-and-Header-Files?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+`date.h`:
+
+```cpp
+class Date {
+  int year;
+  int month;
+  int day;
+
+public:
+  Date(int y, int m, int d);
+  void debugPrint();
+};
+```
+
+`date.cpp`:
+
+```cpp
+#include <iostream>
+#include "date.h"
+
+// The implementation of the Date class methods:
+
+Date::Date(int y, int m, int d)
+    : year{y}, month{m}, day{d}
+{ }
+
+void Date::debugPrint() {
+  std::cout << "Y:" << year << " M:" << month << " D:" << day << "\n";
+}
+```
+
+`main.cpp`:
+
+```cpp
+#include <iostream>
+#include "date.h"
+
+int main() {
+  Date halloween{2021, 10, 31};
+  halloween.debugPrint();
+}
+```
+
+[🚀 Run and modify this Date class example on Compiler Explorer](https://godbolt.org/z/56GjbYnY6)!
 
 🎵 Note:
 {: .label .label-yellow}
 
-Use the 📄 file icon above to toggle the file explorer to see `date.h` and `data.cpp`.
+Some folks like to use `.hpp` for C++ header files to distinguish them from C's `.h` files.
 {: .d-inline-block}
 
 ## Object Oriented Inheritance
