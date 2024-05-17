@@ -60,7 +60,22 @@ So, for example, `15 % 4` has a modulus of 3, because 4 goes into 15 three times
 
 Modulus is commonly used to determine if a number is even or odd:
 
-<iframe height="680px" width="100%" src="https://repl.it/@stungeye/Basic-Math-Modulus?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>
+
+int main() {
+  int number;
+  std::cout << "Please enter a whole number: ";
+  std::cin >> number;
+  
+  std::cout << "The number " << number << " is ";
+  if (number % 2 == 0) {
+    std::cout << "even.\n";
+  } else {
+    std::cout << "odd.\n";
+  }
+}
+```
 
 ## Exponents
 
@@ -96,7 +111,7 @@ The `<cmath>` library provides ways to:
 We can pair the equals operator with other math operators to modify and assign the result back to a variable.
 
 ```cpp
-int dreams = 4;
+int dreams{ 4 };
 dreams += 3; // Same as: dreams = dreams + 3
 dreams -= 1; // Same as: dreams = dreams - 1
 dreams /= 2; // Same as: dreams = dreams / 2
@@ -109,7 +124,7 @@ dreams %= 2; // Same as: dreams = dreams % 2
 Like other C-influenced languages we have increment (`++`) and decrement (`--`) operators.
 
 ```cpp
-let milesFromHome = 14333; // Miles away from everything you hold dear.
+let milesFromHome{ 14333 }; // Miles away from everything you hold dear.
 milesFromHome++; // Up to 14334. Sames as: milesFromHome += 1
 milesFromHome--; // Back to 14333. Same as: milesFromHome -= 1
 milesFromHome--; // Down to 14332
@@ -143,19 +158,59 @@ C++ floating point numbers should always be considered approximations.
 
 The approximations in floating point math make some code error prone:
 
-<iframe height="925px" width="100%" src="https://repl.it/@stungeye/Floating-Point-Errors?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>
+#include <iomanip> // For std::setprecision()
+
+int main() {
+  // Floating point comparisons are hard:
+  if (0.1 + 0.2 == 0.3) {
+    std::cout << "This will never print!\n";
+  }
+
+  // Increasing the display precision to see why:
+  std::cout << std::setprecision(17) << 0.1 + 0.2 << "\n";
+
+  // For this reason, looping with floats is bug-prone:
+  for(double value = -1.0; value <= 1.0; value += 0.2) {
+    std::cout << value << std::endl;
+
+    if (value == 0) {
+      std::cout << "This will also never print!\n";
+    }
+  }
+}
+```
 
 ## Integer Overflow
 
 Integer math can be problematic too. C++ will not stop you from accidentally assigning an out-of-range a value for a particular type.
 
 ```cpp
-short secondsInDay = 60 * 60 * 24; // 86,400 is larger than the maximum short!
+short secondsInDay{ 60 * 60 * 24 }; // 86,400 is larger than the maximum short!
 ```
 
 You also need to watch for variables that could increment or decrement past range limits:
 
-<iframe height="780px" width="100%" src="https://repl.it/@stungeye/Integer-Overflow?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>
+
+int main() {
+  short overflowShort = 32767; // Maximum short.
+  unsigned int overflowInt= 0; // Minimum unsigned int.
+  
+  std::cout << "Before Overflow:\n";
+  std::cout << overflowShort << "\n"; // 32767
+  std::cout << overflowInt << "\n";   // 0
+
+  overflowShort++; // One greater than max short.
+  overflowInt--;   // One less than min unsigned int.
+
+  std::cout << "After Overflow:\n";
+  std::cout << overflowShort << "\n"; // -32768
+  std::cout << overflowInt << "\n";   // 4294967295
+}
+```
 
 ⚡ Warning:
 {: .label .label-red}
