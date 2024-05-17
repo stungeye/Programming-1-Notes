@@ -75,7 +75,19 @@ Using `\n` for newlines is said to be more performant that `std::endl`.
 
 All built-in types have predefined ways to be output to a stream.
 
-<iframe height="550px" width="100%" src="https://repl.it/@stungeye/IOStream-Cout-With-Variables?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>
+
+int main() {
+  const double pi{ 3.1415926 };
+  int answer{ 42 };
+  long double hugeNumber{ 1.5e300 };
+
+  std::cout << pi << "\n";
+  std::cout << hugeNumber << "\n";
+  std::cout << "The answer is " << answer << ".\n";
+}
+```
 
 ⏳ Wait For It:
 {: .label .label-blue}
@@ -89,7 +101,24 @@ The keyboard is an input stream that we can access using `cin` and the "get from
 
 The stream will process the submitted data once the user presses enter. The newline character is automatically discarded.
 
-<iframe height="700px" width="100%" src="https://repl.it/@stungeye/IOStream-Cin?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>
+#include <cmath>
+
+int main() {
+  // Reading in an integer. 
+  int ducks;
+  std::cout << "How many ducks do you see: ";
+  std::cin >> ducks;
+  std::cout << "There are " << ducks << " ducks.\n";
+
+  // Reading in a double.
+  double temperature;
+  std::cout << "What is the temperature: ";
+  std::cin >> temperature;
+  std::cout << "The temperature is " << temperature << ".\n";
+}
+```
 
 ⚡ Warning:
 {: .label .label-red }
