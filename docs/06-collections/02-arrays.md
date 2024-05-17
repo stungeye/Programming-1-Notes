@@ -58,7 +58,7 @@ int primes[4]{}; // An array of four ints.
 Arrays can be initialized when declared:
 
 ```cpp
-int primes[4]{2, 3, 5, 7};
+int primes[4]{ 2, 3, 5, 7 };
 ```
 
 🎵 Note:
@@ -91,7 +91,7 @@ The length of an array can be retrieve using `std::size()` from the `<iterator>`
 #include <iterator>
 
 int main() {
-  int fibonacci[7]{1, 1, 2, 3, 5, 8, 13};
+  int fibonacci[7]{ 1, 1, 2, 3, 5, 8, 13 };
   int length = std::size(fibonacci);
 }
 ```
@@ -107,7 +107,7 @@ The `std::size()` function won't work on arrays passed as arguments to functions
 C-Style arrays are not copied by using the assignment operator:
 
 ```cpp
-double copy[4]{1,2,3,4};
+double copy[4]{ 1, 2, 3, 4 };
 double pasta[4];
 
 // This will not make a copy:
@@ -154,7 +154,7 @@ std::array<int, 5> evenNumbers;
 The type and size can be inferred if an initializer list is provided:
 
 ```cpp
-std::array evenNumbers{2, 4, 6, 8, 10};
+std::array evenNumbers{ 2, 4, 6, 8, 10 };
 ```
 
 🎵 Note:
@@ -168,7 +168,7 @@ Uninitialized array positions default to a value of zero.
 A standard array can be queried for its own length using the `size()` method.
 
 ```cpp
-std::array evenNumbers{2, 4, 6, 8, 10};
+std::array evenNumbers{ 2, 4, 6, 8, 10 };
 int length = evenNumbers.size();
 ```
 
@@ -176,13 +176,71 @@ int length = evenNumbers.size();
 
 Here's a program that demonstrates some of the differences between `std::array` and C-Style Arrays.
 
-<iframe height="700px" width="100%" src="https://repl.it/@stungeye/C-Style-Array-Copy?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>  // For std::cout
+#include <algorithm> // For std::copy
+#include <array>     // For std::array
+
+int main() {
+  // Two C-Style Arrays (Length: 4, Type: int) 
+  double original[4]{ 2, 4, 6, 8 };
+  double duplicate[4];
+
+  // This doesn't work for a copy:
+  duplicate = original; 
+
+  // Instead we must manually copy from original to duplicate array:
+  std::copy(std::begin(original), 
+            std::end(original), 
+            std::begin(duplicate));
+
+  // Must use a separate function to get array length:
+  std::cout << "Length of array: " << std::size(duplicate) << "\n";
+
+  // Change position three of the original:
+  original[3] = 99;
+
+  // Nice! The copy still has 8 in position 3:
+  std::cout << "Still 8: " << duplicate[3] << "\n";
+
+  // Two enhanced Standard Arrays (Length:4, Type: int)
+  std::array stdOriginal{ 2, 4, 6, 8 };  // Type and length inferred.
+  std::array<int,4> stdDuplicate;   // Type and length specified.
+
+  // Copy by assignment. Easy!
+  stdDuplicate = stdOriginal; 
+
+  // Standard arrays can be queries for their length:
+  std::cout << "Length of array: " << stdDuplicate.size() << "\n";
+
+  // Original and copy are separate instances:
+  stdOriginal[3] = 99;
+  std::cout << "Still 8: " << stdDuplicate[3] << "\n";
+}
+```
 
 ## Out-of-Bounds Behaviour
 
 Both C-Style and Standard Arrays are missing array boundary checking. Historically this has been (and continues to be) a major source of bugs and security exploits.
 
-<iframe height="600px" width="100%" src="https://repl.it/@stungeye/Array-Out-of-Bounds?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>
+#include <array>
+
+int main() {
+  std::array numbers{ 1, 2, 3, 4, 5 }; 
+  
+  // Will this work?
+  std::cout << "numbers[99] is " << numbers[99] << "\n";
+  numbers[99] = 42;
+  std::cout << "numbers[99] is " << numbers[99] << "\n";
+
+  // How about if we go further outside the bounds?
+  std::cout << "numbers[9999] is " << numbers[9999] << "\n";
+  numbers[999] = 42;
+  std::cout << "numbers[9999] is " << numbers[9999] << "\n";
+}
+```
 
 💡 Best Practice:
 {: .label .label-green }
@@ -194,7 +252,24 @@ Manually include guards in your code to prevent out-of-bounds reads or writes.
 
 The two simplest ways to loop over standard arrays:
 
-<iframe height="715px" width="100%" src="https://repl.it/@stungeye/Standard-Array-Loops?embed=true#main.cpp" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream> // For std::cout
+#include <array>    // For std::array
+
+int main() {
+  std::array fibonacci{ 1, 1, 2, 3, 5, 8, 13 };
+  
+  // Regular indexed for loop:
+  for (auto i = 0; i < fibonacci.size(); ++i) {
+    std::cout << fibonacci[i] << "\n";
+  }
+
+  // Range based for loop:
+  for (auto number : fibonacci) {
+    std::cout << number << "\n";
+  }
+}
+```
 
 🎵 Note:
 {: .label .label-yellow}
@@ -268,5 +343,5 @@ Unless your collection length is fixed, prefer `std::vector` over `std::array`.
 
 ## Further Reading
 
-- [std::array vs C-Style Array @ Coders Corner](https://coders-corner.net/2018/06/16/stdarray-vs-c-style-array/)
+- [std::array vs C-Style Array @ Coders Corner](https://web.archive.org/web/20240105201112/https://coders-corner.net/2018/06/16/stdarray-vs-c-style-array/)
 - [Prefer using STL vector by default @ C++ Core Guidelines](http://isocpp.github.io/CppCoreGuidelines/CppCoreGuidelines#Rsl-vector)
