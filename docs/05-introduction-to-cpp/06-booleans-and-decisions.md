@@ -40,7 +40,7 @@ Boolean expressions in C++ can contain the following operators (and more):
 The `if` and `else` keywords allow us to control the flow of execution in our programs.
 
 ```cpp
-int grinStrength = 45;
+int grinStrength{ 45 };
 
 if (grinStrength > 30) {
   std::cout << "You defeat the evil wizard with a grin.\n";
@@ -64,7 +64,7 @@ You will sometimes see numeric values used in place of booleans in legacy C++ co
 Non-zero values evaluate as true. Zero evaluates as false.
 
 ```cpp
-int applesFound = 0;
+int applesFound{ 0 };
 if (!applesFound) {
   std::cout << "We have no apples.\n";
 }
@@ -171,13 +171,56 @@ if (applesFound == 1) {
 
 Rewritten with a `switch` statement:
 
-<iframe height="800px" width="100%" src="https://repl.it/@stungeye/Switch-Statement?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>
+
+int main() {
+  int applesFound{ 0 };
+
+  std::cout << "Number of apples found near the UFO: ";
+  std::cin >> applesFound;
+  
+  switch (applesFound) {
+    case 1:
+      std::cout << "One apple was found!\n";
+      break; // Try removing one or more of these breaks!
+    case 2:
+      std::cout << "Two apples recovered!\n";
+      break;
+    default:
+      std::cout << applesFound << " apples were present!\n";
+  }
+}
+```
 
 ## Switch Statement Breaks
 
 Without a `break` statement, cases will "fall through" and continue executing later cases.
 
-<iframe height="950px" width="100%" src="https://repl.it/@stungeye/Switch-Statement-Break?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>
+
+int main() {
+  int applesFound{ 0 };
+
+  std::cout << "Number of apples found near the UFO: ";
+  std::cin >> applesFound;
+  
+  switch (applesFound) {
+    case 1:
+      std::cout << "One apple was found!\n";
+      break; // Try removing one or more of these breaks!
+    case 2: // falling
+    case 3: // falling
+    case 4: // falling
+    case 5: // through
+      std::cout << "2-5 apples recovered!\n";
+      break;
+    default:
+      std::cout << applesFound << " apples were present!\n";
+  }
+}
+```
 
 ## Init-Statements and Switch
 
