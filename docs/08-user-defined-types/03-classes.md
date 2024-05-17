@@ -57,16 +57,16 @@ Don't forget the semicolon after the closing curly brace.
 Because the member variables are private we cannot (yet) use an initializer list to create an object of type `Date`:
 
 ```cpp
-Date birthday{1977, 9, 27}; // Error! No matching constructor.
+Date birthday{ 1977, 9, 27 }; // Error! No matching constructor.
 ```
 
 We can, however, give the members default values:
 
 ```cpp
 class Date {
-  int year{1};
-  int month{1};
-  int day{1};
+  int year{ 1 };
+  int month{ 1 };
+  int day{ 1 };
 };
 
 // Later in the program:
@@ -87,9 +87,9 @@ Constructors are named after the class and have no return type:
 
 ```cpp
 class Date {
-  int year{1};
-  int month{1};
-  int day{1};
+  int year{ 1 };
+  int month{ 1 };
+  int day{ 1 };
 
 public:
   Date(int y, int m, int d)
@@ -125,7 +125,7 @@ public:
 };
 
 // Later in the program:
-Date birthday{1977, 9, 27}; // Works now!
+Date birthday{ 1977, 9, 27 }; // Works now!
 ```
 
 ## Default Constructors
@@ -163,9 +163,9 @@ Date birthday{}; // Works again! But all properties default to zero if uninitial
 ```cpp
 class Date {
   // Let's put back in the defaults through initialization.
-  int year{1};
-  int month{1};
-  int day{1};
+  int year{ 1 };
+  int month{ 1 };
+  int day{ 1 };
 
 public:
   Date(int y, int m, int d) // Three argument constructor.
@@ -181,8 +181,8 @@ public:
 
 // Later in the program:
 Date defaultDate{}; // Internally: year = 1, month = 1, day = 1
-Date JanFirstInTheFuture{3000}; // Internally: year = 3000, month = 1, day = 1
-Date SeptSecondInTheFuture{300, 9, 2}; // Internally: year = 3000, month = 9, day = 2
+Date JanFirstInTheFuture{ 3000 }; // Internally: year = 3000, month = 1, day = 1
+Date SeptSecondInTheFuture{ 300, 9, 2 }; // Internally: year = 3000, month = 9, day = 2
 ```
 
 ## Defining Member Functions
@@ -193,9 +193,9 @@ Here's the `Date` class again, but simplified to have only one constructor. A `p
 
 ```cpp
 class Date {
-  int year{1};
-  int month{1};
-  int day{1};
+  int year{ 1 };
+  int month{ 1 };
+  int day{ 1 };
 
 public:
   Date(int y, int m, int d)
@@ -208,7 +208,7 @@ public:
 };
 
 // Later in the program:
- Date birthday{1977, 9, 27};
+ Date birthday{ 1977, 9, 27 };
  birthday.debugPrint(); // Outputs: Y:1977 M:9 D:27
 ```
 
@@ -241,7 +241,7 @@ public:
 };
 
 // Later in the code:
- Date birthday{1, 9, 1977};
+ Date birthday{ 1, 9, 1977 };
  std::cout << birthday.year() << "\n"; // Outputs: 1
  birthday.year(1977);
  birthday.debugPrint(); // Outputs: Y:1977 M:9 D:27
@@ -267,7 +267,38 @@ Class destructors are called when an object is destroyed. This usually happens w
 
 Here's a class with a constructor and destructor that announce their own execution:
 
-<iframe height="600px" width="100%" src="https://replit.com/@stungeye/Constructors-and-Destructors?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>
+#include <string>
+
+class LoudMouth {
+  public:
+  LoudMouth(std::string n)
+    : name{n} {
+    std::cout << "  📣  Constructor: " << name << "\n";
+  }
+
+  ~LoudMouth() {
+    std::cout << "  📣  Destructor: " << name << "\n";
+  }
+
+  private:
+  std::string name;
+};
+
+int main() {
+  std::cout << "Program main() begins.\n";
+  LoudMouth wally{ "Wally" };
+
+  if (1 == 1) { // Useless test to create a nested scope.
+    std::cout << "  If scope begins.\n  ";
+    LoudMouth daisy{ "Daisy" };
+    std::cout << "  If scope ends.\n  ";
+  }
+
+  std::cout << "Program main() ends.\n";
+}
+```
 
 ## RAII - Resource Acquisition is Initialization
 
@@ -289,7 +320,40 @@ We'll see RAII in action when we get to [the pointers and objects module](/Progr
 
 Members and functions can be made to belong to the class (rather than to an instance of the class) using the `static` keyword.
 
-<iframe height="700px" width="100%" src="https://replit.com/@stungeye/Static-Class-Members?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>
+
+class Widget {
+  public:
+    Widget() {
+      mId = ++sWidgetsMade;
+    }
+
+    static int numberOfWidgetsMade() {
+      return sWidgetsMade;
+    }
+
+    int id() {
+      return mId;
+    }
+
+  private:
+  static int sWidgetsMade;
+  int mId;
+};
+
+// Non-const static members must be initialized outside the class.
+int Widget::sWidgetsMade{ 0 }; 
+
+int main() {
+  std::cout << "Current number of Widgets: " << Widget::numberOfWidgetsMade() << "\n";
+  Widget A;
+  Widget B;
+  std::cout << "Current number of Widgets: " << Widget::numberOfWidgetsMade() << "\n";
+  std::cout << "The id of widget A: " << A.id() << "\n";
+  std::cout << "The id of widget B: " << B.id() << "\n";
+}
+```
 
 ## Const Objects
 
@@ -297,7 +361,44 @@ Members and functions can be made to belong to the class (rather than to an inst
 
 Objects can also be made `const`, which will ensure that none of their member variables can change. Let's return to our example `Date` class:
 
-<iframe height="700px" width="100%" src="https://replit.com/@stungeye/Const-and-Classes?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>
+
+class Date {
+  int mYear;
+  int mMonth;
+  int mDay;
+
+public:
+  Date(int y, int m, int d)
+    : mYear{y}, mMonth{m}, mDay{d}
+  {  }
+
+  int year() const { // Trivial Getter. Function marked as const.
+    return mYear;
+  }
+
+  void year(int y) { // Trivial Setter.
+    mYear = y;
+  }
+
+  void debugPrint() const { // Function marked as const.
+    std::cout << "Y:" << mYear << " M:" << mMonth << " D:" << mDay << "\n";
+  }
+};
+
+int main() {
+  Date mutableDate{ 2021, 01, 01 };
+  const Date immutableDate{ 2021, 12, 31 };
+
+  mutableDate.debugPrint();
+  immutableDate.debugPrint();
+
+  // Attempt to change member variables via setter:
+  mutableDate.year(400); // Okay.
+  immutableDate.year(400); // Compiler error.
+}
+```
 
 🎵 Note:
 {: .label .label-yellow}
@@ -370,7 +471,77 @@ Through this relationship, the _derived_ class inherits access to the `public` a
 
 Let's do a quick overview of the basics of C++ inheritance with an example of a `Student` class derived from a `Person` class.
 
-<iframe height="800px" width="100%" src="https://replit.com/@stungeye/Basic-Inheritance?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <iostream>
+#include <string>
+
+class Person {
+public: 
+  Person(std::string name, int age) // Person constructor
+        : mName{name}, mAge{age}    // Member variable initializers
+  { }
+
+  // Defined in the base class only but available to derived class.
+  void greetings() { 
+    std::cout << "Hello, my name is " + mName + ".\n";
+  }
+
+  // Defined in both the base class and the derived class.
+  std::string debugMessage() { 
+    return "name: " + mName + " age: " + std::to_string(mAge);
+  }
+
+protected: // Protected members will be accessible to the derived class.
+  std::string mName;
+
+private: // Private members will not be accessible to the derived class.
+  int mAge;
+};
+
+class Student : public Person { // Student inherits from Person
+public:
+  Student(std::string name, int age, double gpa) // Student constructor
+         : Person{name, age}, // Base class constructor call
+           mGpa{gpa}          // Member initializer
+  { }
+
+  // Redefined function which uses base class version of function.
+  std::string debugMessage() { 
+    return Person::debugMessage() + " GPA: " + std::to_string(mGpa);
+  }
+
+  void writeCode() { // Defined only in the derived class.
+    std::cout << mName << " sez: All this coding is making me thirsty!\n";
+  }
+
+private: // Derived class private members.
+  double mGpa;
+};
+
+int main() {
+  Person coda{ "Coda Forth", 25 };
+  Student timbre{ "Timbre Dalfoor", 43, 3.9 };
+
+  // The coda object is-a Person, so we can call Person::greetings().
+  coda.greetings();
+
+  // timber is-a Student *and* a Person, so Person::greetings() works too.
+  timbre.greetings();
+
+  // The timber oject is-a Student, so we can call Student::writeCode().
+  timbre.writeCode();
+ 
+  // We cannot call Student::writeCode() on coda:
+  // coda.writeCode(); // Compiler Error: No member named 'writeCode`.
+
+  // Calling .debugMessage() on coda runs Person::debugMessage().
+  std::cout << coda.debugMessage() << "\n";
+
+  // Calling .debugMessage() on coda runs Student::debugMessage().
+  std::cout << timbre.debugMessage() << "\n";
+
+}
+```
 
 💡 Best Practice:
 {: .label .label-green}
