@@ -138,7 +138,7 @@ myStandardFunction myFunction1;
 myFunctionPointer myFunction2;
 ```
 
-Here's the `filterPrint` function from the above embedded example rewritten with an alias:
+Here's the `filterPrint` function from the above example rewritten with an alias:
 
 ```cpp
 using predicateFunction = bool(*)(int);
