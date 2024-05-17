@@ -210,8 +210,8 @@ The short answer: C++ inherited pointers from C and references were added later.
 
 References should be preferred over pointers because:
 
-- Reference syntax is cleaner and pointer syntax. (No need for the indirection and address-of operators.)
-- References are safer than pointers as they must always refer to a valid variable. (Unlike pointers there is no such thing as an uninitialized or null reference.)
+- Reference syntax is cleaner than pointer syntax. (No need for the indirection and address-of operators.)
+- References are safer than pointers as they must always refer to a valid variable. (Unlike with pointers, there is no such thing as an uninitialized reference or a null reference.)
 
 🎵 Note:
 {: .label .label-yellow}
