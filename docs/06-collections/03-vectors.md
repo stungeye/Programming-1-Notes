@@ -37,13 +37,13 @@ Part of the `std` namespace, they are defined with a type and an optional length
 ```cpp
 std::vector<double> myVector; // vector of floats with length 0.
 std::vector<float> iceCreamFloats(3); // vector of floats of length 3.
-std::vector<int> evenNumbers{ 2, 4, 6, 8, 10, 12}; // vector of int of length 6.
+std::vector<int> evenNumbers{ 2, 4, 6, 8, 10, 12 }; // vector of int of length 6.
 ```
 
 If we provide an initializer list, the type becomes optional as it can be inferred by the compiler.
 
 ```cpp
-std::vector evenNumbers{ 2, 4, 6, 8, 10, 12}; // Vector of int
+std::vector evenNumbers{ 2, 4, 6, 8, 10, 12 }; // Vector of int
 ```
 
 ⏳ Wait For It:
@@ -105,7 +105,7 @@ A vector's length can be modified using the `resize()` method. The first argumen
 
 ```cpp
 // Assumes: #include <string> and #include <vector>
-std::vector poem{"Mares eat oats", "Goats eat oats", "Little lambs eat ivy"};
+std::vector poem{ "Mares eat oats", "Goats eat oats", "Little lambs eat ivy" };
 poem.resize(2); // Shrink the vector: No more little lambs.
 poem.resize(10, ""); // Resize to length 10 and fill with empty strings.
 ```
@@ -122,7 +122,7 @@ Instead of using `.resize(0)` to truncate a vector you can use the `.clear()` me
 We can also test if an vector is empty using the `.empty()` predicate method.
 
 ```cpp
-std::vector bagOfHolding{"sword", "shield", "potion"};
+std::vector bagOfHolding{ "sword", "shield", "potion" };
 bagOfHolding.clear();
 if (bagOfHolding.empty()) {
   std::cout << "You have no inventory!\n";
@@ -134,7 +134,7 @@ if (bagOfHolding.empty()) {
 We can use `push_back()` to increase a vector's length by one while adding a new element to the end of the vector:
 
 ```cpp
-std::vector poem{"Mares eat oats", "Goats eat oats", "Little lambs eat ivy"};
+std::vector poem{ "Mares eat oats", "Goats eat oats", "Little lambs eat ivy" };
 poem.push_back("A kiddley divey too, wouldn't you?");
 ```
 
@@ -145,7 +145,7 @@ There's also `emplace_back()` which constructs new objects to be put at the end,
 We can use a vector as a LIFO (Last in First Out) stack using `push_back()` to add to elements the end of the vector, `back()` to retrieve elements from the end of the vector, and `pop_back()` to remove elements from the end of the vector.
 
 ```cpp
-std::vector oddNumbers{1, 3, 5, 7}; // Length is 4.
+std::vector oddNumbers{ 1, 3, 5, 7 }; // Length is 4.
 oddNumbers.push_back(9); // Length is 5.
 oddNumbers.push_back(11); // Length is 6.
 
@@ -172,7 +172,7 @@ include <iostream>
 #include <string>
 
 int main() {
-  std::vector poem{"Mares eat oats", "Goats eat oats"};
+  std::vector poem{ "Mares eat oats", "Goats eat oats" };
   poem.push_back("Little lambs eat ivy");
 
   for(auto i = 0; i < poem.size(); ++i) {
@@ -198,7 +198,7 @@ Vectors can be passed to and from functions. Vector function parameters are ofte
 ```cpp
 // Array passed as a reference for performance and as a const for safety:
 void calculateAverage(const std::vector<double>& data) {
-  double sum{0.0};
+  double sum{ 0.0 };
   for (number : data) {
     sum += data;
   }
@@ -218,7 +218,7 @@ Because resize operations on vectors are expensive, a vector will sometimes prea
 #include <vector>
 
 int main() {
-  std::vector<int> oddNumbers{1, 3, 5, 7}; // Length is 4. Capacity is 4.
+  std::vector<int> oddNumbers{ 1, 3, 5, 7 }; // Length is 4. Capacity is 4.
   std::cout << "Size: " << oddNumbers.size()
             << " Capacity: " << oddNumbers.capacity() << "\n";
 
@@ -241,8 +241,8 @@ int main() {
 Two vectors can be compared using the `==` operator. The operator will first check the vector lengths. If they are of equal length, each pair of elements will be compared using `==`.
 
 ```cpp
-  std::vector vectorOne{ 3, 1, 4, 1, 5, 9};
-  std::vector vectorTwo{ 9, 5, 1, 4, 1, 3};
+  std::vector vectorOne{ 3, 1, 4, 1, 5, 9 };
+  std::vector vectorTwo{ 9, 5, 1, 4, 1, 3 };
 
   if (vectorOne == vectorTwo) {
     std::cout << "We should never see this message as the vector elements are not equal.";
@@ -262,14 +262,14 @@ The above vectors are not equal even though they included the same numbers! If o
 The easier way to copy a vector is to use the vector _copy constructor_:
 
 ```cpp
-  std::vector vectorOne{ 3, 1, 4, 1, 5, 9};
+  std::vector vectorOne{ 3, 1, 4, 1, 5, 9 };
   std::vector vectorTwo{ vectorOne }; // Copy vectorOne into VectorTwo.
 ```
 
 Copying can also be performed using the equals operator:
 
 ```cpp
-  std::vector vectorOne{ 3, 1, 4, 1, 5, 9};
+  std::vector vectorOne{ 3, 1, 4, 1, 5, 9 };
   std::vector vectorTwo;
   
   vectorTwo = vectorOne; // Copy vectorOne into VectorTwo.
