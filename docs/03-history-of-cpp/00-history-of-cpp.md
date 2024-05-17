@@ -58,6 +58,6 @@ Here are some of the reasons why C++ remains such a popular language:
 
 ## Further Reading
 
-- [Foundations of C++ by Bjarne Stroustrup](https://www.stroustrup.com/ETAPS12-corrected)
-- [C++ on Wikipedia](https://en.wikipedia.org/wiki/C%2B%2Bs)
+- [Foundations of C++ by Bjarne Stroustrup](https://www.stroustrup.com/ETAPS-corrected-draft.pdf)
+- [C++ on Wikipedia](https://en.wikipedia.org/wiki/C%2B%2B)
 - [History of C++: 1979 to 1991 by Bjarne Stroustrup](https://www.stroustrup.com/hopl2.pdf)
