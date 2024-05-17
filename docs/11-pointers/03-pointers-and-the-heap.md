@@ -31,7 +31,7 @@ Here's an example of a function with two parameters and a local variable. The me
 
 ```cpp
 void repeatDouble(double num, int times) {
-    for (int i = 0; i < times; ++i) {
+    for (int i{ 0 }; i < times; ++i) {
         std::cout << num << "\n";
     }
 }
@@ -45,7 +45,7 @@ Here's a program designed to purposefully generate a stack overflow. Can you fig
 
 ```cpp
 void myCupRunnethOver() {
-    int 42;
+    int answer{ 42 };
     myCupRunnethOver(); // Recursive call to self.
 }
 
@@ -57,8 +57,8 @@ myCupRunnethOver(); // This will eventually trigger a stack overflow!
 Another way to allocate memory is by using the `new` keyword along with a pointer. The `new` keyword is used to request a certain amount of memory which the pointer can then point to.
 
 ```cpp
-int number{42}; // Stack allocated
-int *numberPtr{new int}; // Requesting enough memory to store an int from the heap.
+int number{ 42 }; // Stack allocated
+int *numberPtr{ new int }; // Requesting enough memory to store an int from the heap.
 *numberPtr = 23; // Storing the number 23 to the heap allocated memory.
 
 std::cout << number << "\n"; // Printing out the stack allocated variable.
@@ -68,7 +68,7 @@ std::cout << *numberPointer << "\n"; // Printing out the heap allocated variable
 Variable that are heap allocated can also be assigned values immediately:
 
 ```cpp
-int *numberPtr{new int{23}};
+int *numberPtr{ new int{ 23 } };
 std::cout << *numberPtr; // Prints out 23.
 ```
 
@@ -90,7 +90,7 @@ Unlike with the stack, heap allocated memory does not get automatically reclaime
 
 ```cpp
 void printTheAnswerToLifeTheUniverseAndEverything() {
-    int *answerPtr{new int{42}};
+    int *answerPtr{ new int{ 42 } };
     std::cout << *answerPtr;
 }
 ```
@@ -120,7 +120,7 @@ Here's our silly memory leak from above fixed with a `delete`:
 
 ```cpp
 void printTheAnswerToLifeTheUniverseAndEverything() {
-    int *answerPtr{new int{42}};
+    int *answerPtr{ new int{ 42 } };
     std::cout << *answerPtr;
     delete answerPtr; // return an int's worth of memory to the heap.
 }
@@ -137,7 +137,7 @@ We'll look into an alternative to manually freeing memory in the next section.
 Back in our [pointers basics module](/Programming-1-Notes/docs/11-pointers/01-pointer-basics.html) we learned that it's undefined in C++ what will happen if we try to access the memory of an uninitialized pointer. The same is true for deleted pointers. Attempting to access the memory of a deleted pointer is called use-after-free access or UAF for short.
 
 ```cpp
-int *answerPtr{new int{42}};
+int *answerPtr{ new int{ 42 } };
 delete answerPtr; // Release the pointed to memory back to the OS.
 std::cout << *answerPtr; // Undefined! Program could crash.
 delete answerPtr; // Also Undefined! Double deletes can crash our programs.
@@ -154,7 +154,7 @@ UAFs are one of the largest causes of high-severity security bugs in software.
 We can mark pointers as unused with the `nullptr` literal.
 
 ```cpp
-int *answerPtr{new int{42}};
+int *answerPtr{ new int{ 42 } };
 delete answerPtr;
 answerPtr = nullptr; // Best to mark as null, unless immediately going out of scope.
 ```
