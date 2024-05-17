@@ -26,8 +26,8 @@ Another way to traverse a collection is to use **iterators**, which are special 
 All standard containers come with a function that returns an iterator that points to the start of the collection:
 
 ```cpp
-  std::vector bagOfHolding{"sword", "shield", "potion"};
-  auto iterator{bagOfHolding.begin()}; // Iterator that points to the first element.
+  std::vector bagOfHolding{ "sword", "shield", "potion" };
+  auto iterator{ bagOfHolding.begin() }; // Iterator that points to the first element.
 ```
 
 With iterators we can:
@@ -50,8 +50,8 @@ With iterators we can:
 Nothing stops us from advancing an iterator beyond the end of a collection. This can cause our programs to crash:
 
 ```cpp
-  std::vector twoWords{"ghostly", "grinner"};
-  auto iterator{twoWords.begin()}; // Iterator that points to the first element.
+  std::vector twoWords{ "ghostly", "grinner" };
+  auto iterator{ twoWords.begin() }; // Iterator that points to the first element.
 
   std::cout << *iterator << "\n"; // Use * to access the element. Outputs: ghostly
   iterator++; // Advance the iterator
@@ -63,7 +63,7 @@ Nothing stops us from advancing an iterator beyond the end of a collection. This
 To guard against this problem we can use the `.end()` iterator:
 
 ```cpp
-  std::vector sentence{"you", "eat", "bugs"};
+  std::vector sentence{ "you", "eat", "bugs" };
 
   for (auto i{ sentence.begin() }; i != sentence.end(); ++i) {
     std::cout << *i << ' '; // Indirection to get value of current element
@@ -81,7 +81,7 @@ The end iterator points to one position _past_ the last element of the collectio
 The above examples have used vectors, but iterators work for all C++ standard containers:
 
 ```cpp
-  std::string sentence{"You eat bugs!"};
+  std::string sentence{ "You eat bugs!" };
   for (auto i{ sentence.begin() }; i != sentence.end(); ++i) {
     std::cout << *i << "\n";
   }
@@ -92,11 +92,11 @@ The above examples have used vectors, but iterators work for all C++ standard co
 The `<iterator>` header provides `std::next()` and `std::prev()` functions that return the next or previous iterator:
 
 ```cpp
-  std::vector sentence{"you", "eat", "bugs"};
+  std::vector sentence{ "you", "eat", "bugs" };
   auto secondElement{ std::next(sentence.begin()) };
   auto lastElement{ std::prev(sentence.end()) };
   // These function also take a second argument for number of position to advance or rewind:
-  auto alsoLastElement{std::next(sentence.begin(), 2) };
+  auto alsoLastElement{ std::next(sentence.begin(), 2) };
 ```
 
 ⚡ Warning:
@@ -110,7 +110,7 @@ These functions may return iterators pointing outside of our collection!
 There are iterators that let us walk through a collection in reverse:
 
 ```cpp
-  std::vector sentence{"you", "eat", "bugs"};
+  std::vector sentence{ "you", "eat", "bugs" };
 
   for (auto i{ sentence.rbegin() }; i != sentence.rend(); ++i) {
     std::cout << *i << ' '; // Indirection to get value of current element
@@ -122,7 +122,7 @@ There are iterators that let us walk through a collection in reverse:
 In many cases when we are using an iterator we aren't modifying the container contents, in those cases we should be using the `const` iterators:
 
 ```cpp
-  std::vector sentence{"you", "eat", "bugs"};
+  std::vector sentence{ "you", "eat", "bugs" };
 
   for (auto i{ sentence.cbegin() }; i != sentence.cend(); ++i) {
     std::cout << *i << ' '; // Indirection to get value of current element
@@ -141,7 +141,35 @@ There are many standard functions that operate on a range of container elements 
 
 Some examples of functions from the `<algorithm>` header:
 
-<iframe height="900px" width="100%" src="https://repl.it/@stungeye/Iterators?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
+```cpp
+#include <algorithm> // std::max_element, std::sort, std::reverse, std::find
+#include <iostream>  // std::cout
+#include <vector>    // std::vector
+
+int main() {
+  std::vector temperatures{ 7, -3, 6, 2, -5, 0, 4 };
+
+  std::cout << "The highest temperature is " 
+            << *std::max_element(temperatures.begin(), temperatures.end()) 
+            << ".\n";
+  
+  // Sort the vector in ascending order.
+  std::sort(temperatures.begin(), temperatures.end()); 
+  // Reverse the order of the vector.
+  std::reverse(temperatures.begin(), temperatures.end()); 
+  // Find an iterator to the number 0. 
+  auto it{std::find(temperatures.begin(), temperatures.end(), 0)};
+  // it will be .end() if zero wasn't found.
+  if (it != temperatures.end()) {
+    // Insert 1 right before 0.
+    temperatures.insert(it, 1); 
+  }
+  
+  for(auto temperature : temperatures) {
+    std::cout << temperature << " ";
+  }
+}
+```
 
 ## Further Reading
 
