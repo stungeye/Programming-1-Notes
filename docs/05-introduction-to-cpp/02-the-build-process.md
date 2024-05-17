@@ -37,7 +37,7 @@ These directives allow you to do things like create replacement macros or to con
 ⚡ Warning:
 {: .label .label-red}
 
-Preprocessor directives are not statements, so they should not be terminated by semicolons.
+Directives are not statements, so they should not be terminated by semicolons.
 {: .d-inline-block}
 
 ## Preprocessor Directives - Header Includes
@@ -192,13 +192,13 @@ For a simple application, say one `.cpp` and one `.h` file, you could build your
 
 There are many different choices for C++ compilers and build systems. Different build systems can also be combined with different compilers.
 
-The three most popular compilers in 2020 were:
+The three most popular compilers in 2023 were:
 
-- [GCC - The GNU Compiler Collection](The GNU Compiler Collection)
+- [GCC - The GNU Compiler Collection](https://gcc.gnu.org/)
 - [Clang - The LLVM Compiler](https://clang.llvm.org/)
 - [MSVC - The Microsoft Visual C++ Compiler](https://en.wikipedia.org/wiki/Microsoft_Visual_C%2B%2B)
 
-The three most popular build systems in 2020 were:
+The three most popular build systems in 2023 were:
 
 - [CMake - Open-Source, Cross-Platform Build System](https://cmake.org/)
 - [Visual Studio MSBuild](https://docs.microsoft.com/en-us/visualstudio/msbuild/msbuild?view=vs-2019)
@@ -208,7 +208,7 @@ In this course we'll be using MSVC with MSBuild to build our openFrameworks proj
 
 ## Further Reading
 
-- [Other Preprocessor Directives Not Covered Here](https://en.cppreference.com/w/cpp/preprocessor)
+- [More Preprocessor Directives Covered Here](https://en.cppreference.com/w/cpp/preprocessor)
 - [More Information on Static and Dynamic Libraries](https://www.geeksforgeeks.org/static-vs-dynamic-libraries/)
 - [2020 C++ Development Ecosystem Survey Results](https://www.jetbrains.com/lp/devecosystem-2020/cpp/)
 - [Alternate Compiler and Build Setups for openFramworks for Mac, Linux, and Windows](https://openframeworks.cc/download/)
