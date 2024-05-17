@@ -84,38 +84,27 @@ If you feel tempted to use a `using` directive because of a namespace with a ver
 For example, let's say you're using a library with a `library.h` header file that includes a namespace called `supercalifragilisticexpialidocious`:
 
 ```cpp
-#include "library.h"
-
-int main() {
-  supercalifragilisticexpialidocious::prepareBattleStations();
-  supercalifragilisticexpialidocious::fireCannons();
-  supercalifragilisticexpialidocious::scanPerimeter();
-}
+supercalifragilisticexpialidocious::prepareBattleStations();
+supercalifragilisticexpialidocious::fireCannons();
+supercalifragilisticexpialidocious::scanPerimeter();
 ```
 
 You can write the following instead;
 
 ```cpp
-#include "library.h"
+namespace supercali = supercalifragilisticexpialidocious;
 
-int main() {
-  namespace supercali = supercalifragilisticexpialidocious;
-
-  supercali::prepareBattleStations();
-  supercali::fireCannons();
-  supercali::scanPerimeter();
-}
+supercali::prepareBattleStations();
+supercali::fireCannons();
+supercali::scanPerimeter();
 ```
 
 ## User Defined Namespaces
 
 You should get in the habit of creating your own namespaces when making your own internal libraries.
 
-Here's the code [the function headers example](/Programming-1-Notes/docs/05-introduction-to-cpp/08-function-basics.html#functions-and-header-files) re-implemented with a namespace.
+I've re-implemented [the function headers example](/Programming-1-Notes/docs/05-introduction-to-cpp/08-function-basics.html#functions-and-header-files) with a namespace: [Explore the example code on Compiler Explorer](https://godbolt.org/z/6ffsb6Eh1)!
 
-Navigate through the example files using the left pane “Files” explore:
-
-<iframe height="600px" width="100%" src="https://repl.it/@stungeye/Function-and-Headers-With-Namespace?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>
 
 🎵 Note:
 {: .label .label-yellow}
