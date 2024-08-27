@@ -194,7 +194,7 @@ int main() {
 
 ## Overloading I/O Operators - Output Stream
 
-Make note of the second third overloaded operator in the previous example. By overloading the `<<` operator and returning a reference an `std::ostream` parameter we can easily use `Money` objects within `std::cout` chains:
+Make note of the third overloaded operator in the previous example. By overloading the `<<` operator and returning a reference an `std::ostream` parameter we can easily use `Money` objects within `std::cout` chains:
 
 ```cpp
 friend std::ostream& operator<<(std::ostream &out, const Money& money) {
@@ -280,7 +280,9 @@ The overloaded `-` operator must be marked as a `friend` method so that when imp
 
 The overloaded `+` operator can be a member function as there isn't need to access the private members of a second object.
 
-Make note of the `dataInMonth` array and the `isLeapYear()` function that also need to be implemented to allow the overloaded operators to properly cross month boundaries.
+Make note of the `daysInMonth` array and the `isLeapYear()` function that also need to be implemented to allow the overloaded operators to properly cross month boundaries.
+
+Actually implementing this class is left as an exercise for the reader. :)
 
 ```cpp
 class Date {
