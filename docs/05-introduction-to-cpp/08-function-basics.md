@@ -381,7 +381,7 @@ What if we could define a generic version of the function that would work for al
 
 // A templated max function where T can be any one type.
 template <typename T>
-T max(T a, T b) {
+T myMax(T a, T b) {
     return (a > b) ? a : b;
 }
 
@@ -390,9 +390,9 @@ int main() {
     double double1 = 7.5, double2 = 2.3;
     std::string str1 = "apple", str2 = "orange";
 
-    std::cout << "Max of " << int1 << " and " << int2 << " is: " << max(int1, int2) << std::endl;
-    std::cout << "Max of " << double1 << " and " << double2 << " is: " << max(double1, double2) << std::endl;
-    std::cout << "Max of \"" << str1 << "\" and \"" << str2 << "\" is: \"" << max(str1, str2) << "\"" << std::endl;
+    std::cout << "Max of " << int1 << " and " << int2 << " is: " << myMax(int1, int2) << std::endl;
+    std::cout << "Max of " << double1 << " and " << double2 << " is: " << myMax(double1, double2) << std::endl;
+    std::cout << "Max of \"" << str1 << "\" and \"" << str2 << "\" is: \"" << myMax(str1, str2) << "\"" << std::endl;
 
     return 0;
 }
