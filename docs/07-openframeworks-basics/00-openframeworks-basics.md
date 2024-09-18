@@ -16,7 +16,7 @@ This module is an introduction to installing and using this powerful toolkit to 
 
 Upon completion of this module, you should be able to:
 
-- Install openFrameworks for use with Visual Studio 2019.
+- Install openFrameworks for use with Visual Studio.
 - Create new oF projects using the Project Generator.
 - Describe the purpose of the setup, update, and draw methods.
 - Resize the drawing canvas and query for the canvas height/width.
