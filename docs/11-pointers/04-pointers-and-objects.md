@@ -9,7 +9,7 @@ nav_order: 4
 # Pointers and Objects
 {: .no_toc }
 
-Before C++ had references, pointers to objects were commonplace. There are still situations (such as polymorphism) where pointers to objects are needed in C++. The standard library also includes special "smart pointer" classes that help you avoid memory leaks in your code. 
+Pointers to objects are a core feature of C++, allowing for dynamic memory management and polymorphism. While modern C++ programmers often favors safer alternatives like references, pointers are still useful in many scenarios. Smart pointers, provided by the standard library, wrap "raw pointers" helping to prevent issues like memory leaks and dangling pointers.
 
 ## Table of Contents
 {: .no_toc }
@@ -217,7 +217,7 @@ while (1) {
 
 ## Moving Unique Pointers
 
-Unique pointers get their name because the do not allow assignment. There can only be one _unique_ variable that has ownership over a unique pointer.
+Unique pointers get their name because they do not allow assignment. There can only be one _unique_ variable that has ownership over a unique pointer.
 
 ```cpp
 std::unique_ptr<Answer> sneakyPtr; // Starts as nullptr.
