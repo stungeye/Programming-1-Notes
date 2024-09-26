@@ -9,7 +9,7 @@ nav_order: 5
 # Pointers and Polymorphism
 {: .no_toc }
 
-Back when we first learned about inheritance, I promised we'd eventually learn about polymorphism in C++. We had to wait until now because of the need for pointers.
+Polymorphism in C++ lets objects of different derived types be accessed through a common base class. While references can be used for polymorphism, pointers are essential when working with collections. Without pointers, polymorphic collections are subject to "object slicing" where only the base part of an object is stored, with the derived behavior "sliced" off.
 
 ## Table of Contents
 {: .no_toc }
@@ -150,7 +150,7 @@ int main() {
 
 A virtual function is a special kind of class member function that, when called, executes the _most-derived_ version of that function. For our example code above to work, we will need to make `identify()` a virtual function in the base `Pawn` class. Although not required, we will mark the `identify()` implementations in the derived classes as overrides using the `override` keyword.
 
-If it doesn't make sense to implement a virtual function in the base class, we can mark it as a "pure virtual function" by replacing the implementation block with `= 0`. Classes with one or more pure virtual functions are said to be "abstract" and therefore cannot be constructed.
+If it doesn't make sense to implement a virtual function in the base class, we can mark it as a "pure virtual function". A pure virtual function is a function declared in a base class with `= 0`, meaning it has no implementation. Any class with at least one pure virtual function is considered 'abstract' and cannot be instantiated. Abstract classes are used to define common interfaces that derived classes must implement.
 
 We'll make the `Pawn` class abstract in this way.
 
@@ -192,7 +192,7 @@ public:
   }
 };
 
-// Derived Class Pawn
+// Derived Class Enemy
 class Enemy : public Pawn {
 
 public:
@@ -232,11 +232,23 @@ int main() {
 }
 ```
 
+## Virtual Destructors
+
+When dealing with polymorphism, making the base class destructor virtual ensures that the destructor of the derived class is called when deleting an object through a base class pointer. 
+
+Failing to make your base class destructors virutal can lead to memory leaks or undefined behavior.
+
 ## Polymorphism and Containers
 
-Although polymorphism can be implemented using references or pointers, if we also wish to involve containers we need to use pointers. There's no such thing in C++ as a container of references.
+Although polymorphism can be implemented using references, if we also wish to involve containers we need to use pointers. 
 
-Here's an example of polymorphism using a vector along with unique pointers:
+In C++, containers can't hold references directly because references do not have an assignable address. Therefore, when we want to store polymorphic objects in containers, we need to use pointers. This allows us to store and manage objects of varying types derived from a common base class.
+
+Using pointers for polymorphism in containers allows us to store objects of different derived types without worrying about object slicing (which would happen if we stored objects by value). The dynamic memory allocation ensures that the full object, including its derived type-specific data and behavior, is preserved.
+
+## Example of a Polymorphic Container
+
+Here's an example of polymorphism using a vector of unique pointers:
 
 ```cpp
 #include <iostream>
