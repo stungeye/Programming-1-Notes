@@ -6,7 +6,7 @@ nav_order: 4
 
 <!-- prettier-ignore-start -->
 
-# Pointer and Objects
+# Pointers and Objects
 {: .no_toc }
 
 Before C++ had references, pointers to objects were commonplace. There are still situations (such as polymorphism) where pointers to objects are needed in C++. The standard library also includes special "smart pointer" classes that help you avoid memory leaks in your code. 
@@ -58,6 +58,8 @@ int main() {
 Because pointers to objects are so common, a special _member selection from pointer_ operator `->` was added to the language to simplify member access through a pointer.
 
 This operator is a replacement for the dot `.` and removes the need for dereferencing. It's sometimes called the _arrow operator_ or the _stabby operator_.
+
+The arrow operator -> is useful because, when you're working with pointers to objects, dereferencing the pointer using `(*pointer).member` can be cumbersome. The arrow operator simplifies this by combining dereferencing and member access in one step.
 
 ```cpp
 Location* locationPointer{new Location{50, 45, "Winnipeg"}};
@@ -130,10 +132,12 @@ Somewhat outdated reasons for pointers that you might see in legacy code:
 - You want to an object to be optional (by way of `nullptr`). (In modern C++ we have `std::optional`.)
 - You are writing a class that has objects as members and you want to delay the creation of those members until your class constructor is run. (In modern c++ we could use initializer lists to initialize the members at the correct time. [See this example code](https://gist.github.com/stungeye/e8d5ea1f428f513edd1e159fc80b445d).)
 
+Stack-based objects are particularly efficient for small and short-lived objects, as they have automatic lifetime management and minimal overhead compared to heap-allocated objects.
+
 💡 Best Practice:
 {: .label .label-green }
 
-Prefer stack-based variables over pointers, if you can.
+Prefer stack-based variables over pointers, if you can. 
 {: .d-inline-block}
 
 ## RAII - Resource Acquisition is Initialization
@@ -150,10 +154,10 @@ class Car {
 
 public:
   Car() {
-      // Imagine that this factor returns a pointer to an Engine.
+      // Imagine that this factory returns a pointer to an Engine.
       // The returned memory is the resource that we are acquiring
       // during initialization.
-      engine = EngineFactor.create();
+      engine = EngineFactory.create();
   }
 
   ~Car() {
@@ -166,7 +170,7 @@ public:
 
 ## Smart Pointers
 
-Although we can implement RAII ourselves (as seen above), in modern C++ it's recommended that we prefer the use of smart pointers over raw pointers.
+Although you can implement RAII with raw pointers as shown above, in modern C++ it is recommended to use smart pointers like `std::unique_ptr` instead. Raw pointers are more error-prone and can easily lead to memory leaks or undefined behavior.
 
 There are three different kinds of smart pointers in the Standard Library (Unique, Shared, and Weak Pointers). We're only going to look at the most common of the three, Unique Pointers.
 
@@ -232,6 +236,8 @@ newOwnerPtr = std::move(answerPtr);
 // newOwnerPtr now pointers to the Answer object.
 // answerPtr is now a nullptr.
 ```
+
+Here `std::move` is used to transfer ownership of a `unique_ptr` from one variable to another. Since `unique_ptr` does not allow copying, we use `std::move` to explicitly indicate that ownership of the resource is being transferred.
 
 ## Further Reading
 
