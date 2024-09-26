@@ -27,7 +27,7 @@ The heap (sometimes referred to as the _free store_) is the pool of RAM dedicate
 
 ## Stack Allocation
 
-Here's an example of a function with two parameters and a local variable. The memory required for the `num` and `time` parameters as well as the local variable `i` will be allocated on the stack, and reclaimed after the function is executed.
+Here's an example of a function with two parameters and a local variable. The memory required for the `num` and `time` parameters as well as the local variable `i` will be allocated on the stack, and automatically reclaimed after the function has executed.This is in contrast to heap memory, which requires the programmer to manually manage and free memory.
 
 ```cpp
 void repeatDouble(double num, int times) {
@@ -54,7 +54,9 @@ myCupRunnethOver(); // This will eventually trigger a stack overflow!
 
 ## Dynamic Memory Allocation with New
 
-Another way to allocate memory is by using the `new` keyword along with a pointer. The `new` keyword is used to request a certain amount of memory which the pointer can then point to.
+Another way to allocate memory is by using the `new` keyword along with a pointer. The `new` keyword is used to request a certain amount of *heap* memory which the pointer can then point to.
+
+Unlike the stack, the heap is not limited to a fixed size and can grow as needed, constrained only by the available system memory.
 
 ```cpp
 int number{ 42 }; // Stack allocated
@@ -62,7 +64,7 @@ int *numberPtr{ new int }; // Requesting enough memory to store an int from the 
 *numberPtr = 23; // Storing the number 23 to the heap allocated memory.
 
 std::cout << number << "\n"; // Printing out the stack allocated variable.
-std::cout << *numberPointer << "\n"; // Printing out the heap allocated variable.
+std::cout << *numberPtr << "\n"; // Printing out the heap allocated variable.
 ```
 
 Variable that are heap allocated can also be assigned values immediately:
@@ -75,7 +77,7 @@ std::cout << *numberPtr; // Prints out 23.
 ⚡ Warning:
 {: .label .label-red}
 
-Using `new` in modern C++ is not recommended, but it's still important to understand.
+Using `new` in modern C++ for plain-old-data like this is not recommended, but it's still important to understand.
 {: .d-inline-block}
 
 ⏳ Wait For It:
@@ -95,7 +97,7 @@ void printTheAnswerToLifeTheUniverseAndEverything() {
 }
 ```
 
-If this function each time this function was called an `int`s worth of memory would be allocated from the heap and would remain inaccessible until the program terminated.
+Each time the function is called, an `int`s worth of memory is allocated on the heap but never freed because delete isn't used. The program will crash when the heap is exhausted.
 
 ```cpp
 while (1) {
@@ -129,12 +131,12 @@ void printTheAnswerToLifeTheUniverseAndEverything() {
 ⏳ Wait For It:
 {: .label .label-blue}
 
-We'll look into an alternative to manually freeing memory in the next section.
+In modern C++, smart pointers such as std::unique_ptr and std::shared_ptr handle dynamic memory for you. We'll explore them in the next section!
 {: .d-inline-block}
 
 ## Dangling Pointers
 
-Back in our [pointers basics module](/Programming-1-Notes/docs/11-pointers/01-pointer-basics.html) we learned that it's undefined in C++ what will happen if we try to access the memory of an uninitialized pointer. The same is true for deleted pointers. Attempting to access the memory of a deleted pointer is called use-after-free access or UAF for short.
+Back in our [pointers basics module](/Programming-1-Notes/docs/11-pointers/01-pointer-basics.html) we learned that it's undefined in C++ what will happen if we try to access the memory of an uninitialized pointer. The same is true for deleted pointers. Attempting to access the memory of a deleted pointer is called use-after-free access or UAF for short. UAF can result in a crash, incorrect results, or unpredictable program behaviour.
 
 ```cpp
 int *answerPtr{ new int{ 42 } };
@@ -151,7 +153,7 @@ UAFs are one of the largest causes of high-severity security bugs in software.
 
 ## Marking Dangling Pointers as Null
 
-We can mark pointers as unused with the `nullptr` literal.
+We can mark pointers as unused with the `nullptr` literal. 
 
 ```cpp
 int *answerPtr{ new int{ 42 } };
@@ -167,6 +169,8 @@ if (answerPtr) { // Any memory address will evaluate as true, nullptr evals as f
     delete answerPtr;
 }
 ```
+
+While marking pointers as nullptr is a good practice, it’s still a manual process and prone to errors. Smart pointers, which we'll discuss later, automate this task and help avoid these mistakes.
 
 💡 Best Practice:
 {: .label .label-green }
