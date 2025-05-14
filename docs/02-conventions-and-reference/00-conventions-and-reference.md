@@ -54,19 +54,19 @@ Through the notes you will see the following three types of labels.
 
 Notes add important information you don't want to miss.
 {: .d-inline-block }
-
+  
 ⚡ Warning:
 {: .label .label-red}
 
 Warnings are provided to prepare you for common bugs and "gotchas".
 {: .d-inline-block }
-
+  
 💡 Best Practice:
 {: .label .label-green }
 
 Best practices used in industry will also be highlighted
 {: .d-inline-block }
-
+  
 ⏳ Wait For It:
 {: .label .label-blue}
 
