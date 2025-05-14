@@ -42,7 +42,7 @@ These secondary sources should also be considered manuals you should consult bef
 You can help improve these notes in three ways:
 
 1. If there are topics you feel are missing from these notes please inform your instructor.
-2. Anytime you come here looking for an answer that you then cannot find, email <a href="mailto:kgeske@rrc.ca">kgeske@rrc.ca</a>.
+2. Anytime you come here looking for an answer that you then cannot find, email <a href="mailto:kgeske@rrc.ca">kgeske@rrc.ca</a> or [submit an issue on GitHub](https://github.com/stungeye/Programming-1-Notes/issues).
 3. You can submit a pull request to fix typos, debug code samples, and update explanations using the "Edit this page on Github" link at the bottom of every page.
 
 ## Documentation Conventions
@@ -99,4 +99,4 @@ Code blocks that include an `int main()` entry point include a link to run the c
 
 Try clicking the "🚀 Run on Compiler Explorer" link at the bottom of the above code block.
 
-If you don't see a link, let Kyle know by [submitting an issue](https://github.com/stungeye/Programming-1-Notes/issues).
+If you don't see a link, let Kyle know by [submitting an issue on GitHub](https://github.com/stungeye/Programming-1-Notes/issues).
