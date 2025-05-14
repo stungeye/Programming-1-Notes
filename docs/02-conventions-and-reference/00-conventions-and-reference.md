@@ -52,26 +52,22 @@ Through the notes you will see the following three types of labels.
 🎵 Note:
 {: .label .label-yellow}
 
-Notes add important information you don't want to miss.
-{: .d-inline-block }
+> Notes add important information you don't want to miss.
   
 ⚡ Warning:
 {: .label .label-red}
 
-Warnings are provided to prepare you for common bugs and "gotchas".
-{: .d-inline-block }
+> Warnings are provided to prepare you for common bugs and "gotchas".
   
 💡 Best Practice:
 {: .label .label-green }
 
-Best practices used in industry will also be highlighted
-{: .d-inline-block }
+> Best practices used in industry will also be highlighted
   
 ⏳ Wait For It:
 {: .label .label-blue}
 
-Sometimes you need to wait until later to learn more. :)
-{: .d-inline-block }
+> Sometimes you need to wait until later to learn more. :)
 
 ## Code Conventions
 
