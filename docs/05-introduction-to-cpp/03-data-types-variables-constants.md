@@ -341,8 +341,7 @@ immutableAnswer = 0; // Compiler Error: Cannot assign to const-qualified referen
 References allow us to avoid the performance cost associated with copying data:
 {: .d-inline-block}
 
-- [Using references when passing arrays to functions](/Programming-1-Notes/docs/06-container-structures/02-arrays.html#passing-arrays-by-reference).
-- [Using references when passing vectors to functions](/Programming-1-Notes/docs/06-container-structures/03-vectors.html#passing-vectors-to-functions).
+- [Using references when passing vectors to functions](/Programming-1-Notes/docs/06-collections/03-vectors.html#passing-vectors-to-functions).
 
 ## Type Conversion
 
