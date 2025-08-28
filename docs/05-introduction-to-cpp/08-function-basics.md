@@ -196,6 +196,8 @@ int main() {
   int number = fetchInteger("Favourite number? ");
   std::cout << "User favourite number is "<< number << ".\n";
 }
+
+// ⚠️ Compiler Explorer link below will not work as this is a multi-file example. ⚠️ 
 ```
 
 ## What to Return from Main
