@@ -146,11 +146,11 @@ int fetchInteger(std::string);
 
 ## Functions and Header Files
 
-It's common to forward declare functions defined in separate `.cpp` source files using `.h` header files.
+It's common to forward declare functions defined in separate `.cpp` source files using `.hpp` header files.
 
 First the function is forward declared in a header with [include guards](s/docs/05-introduction-to-cpp/02-the-build-process.html#preprocessor-directive---include-guards):
 
-`userInput.h`:
+`userInput.hpp`:
 
 ```cpp
 #pragma once
@@ -159,9 +159,44 @@ First the function is forward declared in a header with [include guards](s/docs/
 int fetchInteger(std::string prompt);
 ```
 
-The function can now be implemented in a `.cpp` file separate from where `main()` is defined. Both `.cpp` files must then `#include` the associated `.h` header file:
+The function can now be implemented in a `.cpp` file separate from where `main()` is defined. Both `.cpp` files must then `#include` the associated `.hpp` header file. In practice this might look like the following:
 
-[🚀 Run this example on Compiler Explorer](https://godbolt.org/z/zYfWqE9en)!
+`userInput.cpp`:
+
+```cpp
+#include <iostream> // for std::cout & std::cin
+#include <limits>   // for std::numeric_limits
+#include <string>   // for std::string
+
+// To ensure our forward declaration matches implementation:
+#include "userInput.hpp"
+
+int fetchInteger(std::string prompt) {
+    do {
+        int number;
+        std::cout << prompt;
+
+        if (std::cin >> number) {
+            return number;
+        }
+
+        std::cin.clear();
+        std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+    } while (true);
+}
+```
+
+`main.cpp`:
+
+```cpp
+#include <iostream>
+#include "userInput.hpp" // Include our forward declaration of the fetchInteger function.
+
+int main() {
+  int number = fetchInteger("Favourite number? ");
+  std::cout << "User favourite number is "<< number << ".\n";
+}
+```
 
 ## What to Return from Main
 
