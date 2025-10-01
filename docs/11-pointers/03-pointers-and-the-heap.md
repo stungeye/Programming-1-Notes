@@ -210,7 +210,9 @@ Here is a highly simplified comparison of stack vs heap memory use.
 **Pros:** Flexible lifetimes. Sizes decided at runtime. Good for shared/polymorphic objects.  
 **Cons:** Slower allocations. Ownership bugs (leaks/dangling). Potential for poor locality leading to cache misses.
 
-**Note:** Cache here refers to the very fast memory that sits between the CPU and RAM that holds recently used data. Caches transfer data in fixed-size chunks called cache lines (often 64 bytes), so reading one value typically brings along its neighbours too! Stack-allocated locals are laid out contiguously (neighbours tend to share a line), while heap allocations are often scattered, so pointer-chasing is more likely to miss the cache.
+**Note:** Cache here refers to the very fast memory that sits between the CPU and RAM that holds recently used data. Caches transfer data in fixed-size chunks called cache lines (often 64 bytes), so reading one value typically brings along its neighbours too!
+
+Stack-allocated locals are laid out contiguously (neighbours tend to share a line), while heap allocations are often scattered, so pointer-chasing is more likely to miss the cache.
 
 ## Further Reading
 
