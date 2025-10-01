@@ -9,7 +9,7 @@ nav_order: 1
 # Pointer Basics 
 {: .no_toc }
 
-Program variables are each stored at a difference address within our computer's memory. *Pointers* can be used to access the contents of variables stored at specific memory addresses.
+Program variables are each stored at a different address within our computer's memory. *Pointers* can be used to access the contents of variables stored at specific memory addresses.
 
 ## Table of Contents
 {: .no_toc }
@@ -67,7 +67,7 @@ int main() {
 
 ## What are Pointers?
 
-The address-of and indirection operators aren't too exciting on their own, but they are crucial for understand the concept of _pointers_.
+The address-of and indirection operators aren't too exciting on their own, but they are crucial for understanding the concept of _pointers_.
 
 A pointer is a type of variable used to store the memory address of another variable. In this way, a pointer "_points to_" another variable.
 
@@ -98,17 +98,22 @@ std::cout << " *numberPointer: " << *numberPointer << "\n";
 
 // Change the value of wholeNumber using the pointer:
 (*numberPointer)++; // wholeNumber is now 43
+
+// Careful!
+*numberPointer++ // This will increment the pointer, not the deferenced variable!
 ```
 
 ⚡ Warning:
 {: .label .label-red}
 
-The pointer definition use of an asterisk is different from the indirection operator.
+The pointer-definition use of an asterisk is different from the indirection operator.
 {: .d-inline-block}
 
-## Redefining a Pointer
+## Reassigning a Pointer
 
-After a pointer has been defined and initialized we can also change what it points to.
+After a pointer has been defined and initialized, we can reassign it to point to a different variable.
+
+This is called pointer reassignment, also known as *reseating* the pointer.
 
 ```cpp
 #include <iostream>
@@ -134,16 +139,17 @@ int main() {
 
 Many collections in C++ are implemented using pointers. Look back over [our module on iterators](/Programming-1-Notes/docs/06-collections/05-iterators.html) and you'll see how similar pointers are to iterators.
 
-C-style arrays are also implemented using pointers and we can use what is call _pointer arithmetic_ to access elements within an array.
+C-style arrays are contiguous blocks of elements; pointers can be used to traverse them because array expressions "decay" to pointers.
 
 ```cpp
 #include <iostream>
+#include <iterator> // std::size()
 
 int main() {
   int primes[4]{ 2, 3, 5, 7 };
-  int arrayLength{ std::size(primes) };
+  size_t arrayLength{ std::size(primes) };
 
-  // The primes variable is a pointer to the first element in the array: 
+  // Here, primes decays to an int* pointing to the first element of the array:
   std::cout << "First element: " << *primes << "\n";
 
   // Other pointers can also point to the first element:
@@ -171,7 +177,7 @@ The concept of `const` can be applied to pointers in a few different ways:
 
 ```cpp
 const int answer{ 42 };
-int* answerPointer{ &answer }; // COMPILE ERROR: Regular pointers can't point to const variables.
+int* answerPointer{ &answer }; // COMPILE ERROR: A non-const pointer can't point to const variables.
 ```
 
 - Pointers can be made to point to `const` variables, but the pointer can be reassigned:
@@ -179,9 +185,9 @@ int* answerPointer{ &answer }; // COMPILE ERROR: Regular pointers can't point to
 ```cpp
 const int answer1{ 42 };
 const int answer2{ 999 };
-const int* answerPointer{ &answer1 }; // Okay! Note: const comes first.
-answerPointer = &answer2;           // Weird, but also fine!
-(*answerPointer) = 12;              // COMPILE ERROR: Cannot change a const value.
+const int* answerPointer{ &answer1 }; // Pointer to const int. Note: const comes before type.
+answerPointer = &answer2;             // Weird, but also fine!
+(*answerPointer) = 12;                // COMPILE ERROR: Cannot change a const value.
 ```
 
 - Pointers can also be made `const`, meaning they cannot be changed after initialization:
@@ -189,13 +195,20 @@ answerPointer = &answer2;           // Weird, but also fine!
 ```cpp
 int answer1{ 42 };
 int answer2{ 999 };
-int* const answerPointer{ &answer1 }; // Note: const comes after type.
-answerPointer = &answer2;           // COMPILE ERROR: Const pointers cannot be reassigned.
+int* const answerPointer{ &answer1 }; // Const pointer. Note: const comes after type.
+answerPointer = &answer2;             // COMPILE ERROR: Const pointers cannot be reassigned.
+```
+
+- We can even have const pointers to const variables:
+
+```cpp
+const int answer1{ 42 };
+const int* const answerPointer{ &answer1 }; // Double const!
 ```
 
 ## Uninitialized Pointers
 
-Unassigned pointers, sometimes called _wild pointers_ contain what is known as a _garbage address_.
+Unitialized pointers, sometimes called _wild pointers_ contain what is known as a _garbage address_.
 
 ```cpp
 double e{ 2.71828 };
@@ -211,7 +224,7 @@ Dereferencing a wild pointer is undefined behaviour and should be avoided.
 
 ## Null Pointers
 
-There is a special literal value `nullptr` we can assign to pointers to indicate that they are uninitialized.
+There is a special literal value `nullptr` we can assign to pointers to indicate that they don't point to anything.
 
 ```cpp
 int* nullPointer1{ nullptr }; // Manually made null using the nullptr literal.
@@ -251,7 +264,7 @@ if (pointer != nullptr) {
 }
 
 // METHOD #2:
-if (pointer) { // Non-null pointers are "truthy" while nullptr is "falsey".
+if (pointer) { // Non-null pointers are "truthy" while nullptr is "falsy".
   // pointer isn't null, so we can access it:
   std::cout << *pointer;
 }
@@ -260,7 +273,7 @@ if (pointer) { // Non-null pointers are "truthy" while nullptr is "falsey".
 ⚡ Warning:
 {: .label .label-red}
 
-Pointers that evaluates as true aren't guaranteed to point to a valid memory location.
+Pointers that evaluate as true aren't guaranteed to point to a valid memory location.
 {: .d-inline-block}
 
 ## NULL and 0 for Null Pointers
@@ -283,6 +296,7 @@ References should be preferred over pointers because:
 
 - Reference syntax is cleaner than pointer syntax. (No need for the indirection and address-of operators.)
 - References are safer than pointers as they must always refer to a valid variable. (Unlike with pointers, there is no such thing as an uninitialized reference or a null reference.)
+- That said, we can still get "dangling" references if the reference outlives the reffered object!
 
 🎵 Note:
 {: .label .label-yellow}
@@ -292,7 +306,7 @@ In legacy code (or in Unreal Engine C++) pointers are everywhere and cannot be a
 
 ## Further Reading
 
-The [learncpp.com](https://www.learncpp.com/) website goes into great detail on all thing pointer related, specifically their sections:
+The [learncpp.com](https://www.learncpp.com/) website goes into great detail on all things pointer related, specifically their sections:
 
 - [9.6 Introduction to Pointers](https://www.learncpp.com/cpp-tutorial/introduction-to-pointers/)
 - [9.7 Null Pointers](https://www.learncpp.com/cpp-tutorial/null-pointers/)
