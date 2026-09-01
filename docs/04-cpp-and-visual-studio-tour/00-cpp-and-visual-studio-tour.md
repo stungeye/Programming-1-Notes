@@ -37,7 +37,7 @@ int main() {
 
 ## Line-By-Line Code Walk-Through
 
-These explantions are purposefully over-simplified. We'll get into more details later.
+These explanations are purposefully over-simplified. We'll get into more details later.
 
 ```cpp
 #include <iostream>
@@ -61,7 +61,7 @@ Single line comments in C++ begin with a double forward slash. C++ also includes
 int main() {
 ```
 
-Every C++ program needs an entry point. The entry point is the function that is executed when we run a compiled version of the program. The default name for the entry point is `main`. The `int` denotes that this main function will return a whole number (integer) value to the OS. The curly braces denotes the start of the main function.
+Every C++ program needs an entry point. The entry point is the function that is executed when we run a compiled version of the program. The default name for the entry point is `main`. The `int` denotes that this main function will return a whole number (integer) value to the OS. The curly braces denote the start of the main function.
 
 ```cpp
 std::cout << "Hello World!\n";
@@ -97,7 +97,7 @@ The final curly brace denotes the end of the `main` function.
 
 Let's create two "Hello World" programs using Visual Studio:
 
-1. A standard Visual Studio console application targetting Windows.
+1. A standard Visual Studio console application targeting Windows.
 2. A cross-platform console application using the CMake build system.
 
 ## Start By Launching Visual Studio
@@ -115,7 +115,7 @@ Click on the thumbnail Visual Studio screenshots to see larger versions.
 Try creating two new projects:
 
 - Create a "Console App" with the project and solution name of: `Hello Console`
-- Create a CMake Project" with the project name of: `Hello Cmake`
+- Create a "CMake Project" with the project name of: `Hello Cmake`
 
 Save these projects to a folder dedicated to programs for this course.
 
@@ -127,7 +127,7 @@ Note that Visual Studio makes a distinction between what it calls Projects and w
 
 Try editing the `main` function in these projects to match the `main` function shown in these notes.
 
-Run your code by hitting `CTRL-F5` or by click the green play button.
+Run your code by hitting `CTRL-F5` or by clicking the green play button.
 
 ## Console App vs CMake Project
 
@@ -142,4 +142,4 @@ The CMake Project isn't reliant on the MSBuild system, instead these projects ar
 - [About Visual Studio Project and Solutions](https://learn.microsoft.com/en-us/visualstudio/ide/solutions-and-projects-in-visual-studio)
 - [A General Overview of What Happens Before main()](https://embeddedartistry.com/blog/2019/04/08/a-general-overview-of-what-happens-before-main/)
 - [Official Visual Studio "Create A Console Calculator" Tutorial](https://learn.microsoft.com/en-us/cpp/get-started/tutorial-console-cpp)
-- [Using Visual Studio for Cross-Platform C++ Development Targeting Windows and Linux](https://learn.microsoft.com/en-us/cpp/build/get-started-linux-cmake) - This tutorial uses the awesome [Bullet Physics](bulletphysics.org) collision detection and physics simulation library.
+- [Using Visual Studio for Cross-Platform C++ Development Targeting Windows and Linux](https://learn.microsoft.com/en-us/cpp/build/get-started-linux-cmake) - This tutorial uses the awesome [Bullet Physics](https://bulletphysics.org) collision detection and physics simulation library.
