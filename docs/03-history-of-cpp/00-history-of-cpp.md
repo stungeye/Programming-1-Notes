@@ -8,7 +8,7 @@ nav_order: 3
 # Brief History of the C++ Language
 {: .no_toc }
 
-This section provides a brief history of the C++ programming language from the 1970s until today. We'll also explore what "Modern C++" means and review why this 40-year-old technology remains relevant today.
+This section provides a brief history of the C++ programming language from the 1970s until today. We'll also explore what "Modern C++" means and review why this decades-old technology remains relevant today.
 
 ### Table of Contents
 {: .no_toc }  
@@ -34,9 +34,9 @@ In the late 70s [Bjarne Stroustrup](https://en.wikipedia.org/wiki/Bjarne_Stroust
 
 ![The C++ Logo by Jeremy Kratz](cpp_logo.png){:class="small inline"}
 
-The first book on C++ was written by Stroustrup in 1985 but the language wasn't fully formalized until 1998 when in became an [ISO](https://en.wikipedia.org/wiki/International_Organization_for_Standardization) standard. Since this standardization, changes to C++ are managed by [the C++ Standards Committee](https://isocpp.org/std/the-committee). Since 2011 the committee has been releasing a new version of C++ every three years. The major versions being C++98 (1998), C++03 (2003), C++11 (2011), C++14 (2014), C++17 (2017), C++20 (2020), C++23 (2023), and C++26 (2026).
+The first book on C++ was written by Stroustrup in 1985 but the language wasn't fully formalized until 1998 when it became an [ISO](https://en.wikipedia.org/wiki/International_Organization_for_Standardization) standard. Since this standardization, changes to C++ are managed by [the C++ Standards Committee](https://isocpp.org/std/the-committee). Since 2011 the committee has been releasing a new version of C++ every three years. The major versions being C++98 (1998), C++03 (2003), C++11 (2011), C++14 (2014), C++17 (2017), C++20 (2020), C++23 (2023), and C++26 (2026).
 
-With each new version of the language come new language features and standard library improvements. You'll often hear language featured referred to as specific to a version of the language, as in "Oh, that's a C++14 feature."
+With each new version of the language come new language features and standard library improvements. You'll often hear language features referred to as specific to a version of the language, as in "Oh, that's a C++14 feature."
 
 ## Modern C++
 
