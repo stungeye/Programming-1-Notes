@@ -28,14 +28,11 @@ These notes are to be considered the manual for this course. Reference these not
 
 ## Secondary Sources
 
-These secondary sources should also be considered manuals you should consult before Goolging:
+These secondary sources should also be considered manuals you should consult before Googling:
 
 - [CppReference.com](https://en.cppreference.com/w/) - Great reference for all things C++. Editable by the community as a wiki.
 - [CPlusPlus.com](https://www.cplusplus.com/reference/) - Check here if you need a "second opinion" from ☝️.
 - [LearnCpp.com](https://www.learncpp.com/) - Giant detailed tutorial for learning all of C++.
-- [openFrameworks Reference](https://openframeworks.cc/documentation/) - Official API documentation for core classes and functions.
-- [openFrameworks Learning](https://openframeworks.cc/learning/) - Official tutorials and the openFrameworks ebook.
-- [openFrameworks Forum](https://forum.openframeworks.cc/) - Friendly place to ask questions or search for know problems.
 
 ## Help Improve These Notes
 
@@ -47,7 +44,7 @@ You can help improve these notes in three ways:
 
 ## Documentation Conventions
 
-Through the notes you will see the following three types of labels.
+Through the notes you will see the following four types of labels.
 
 🎵 Note:
 {: .label .label-yellow}
@@ -69,7 +66,7 @@ Through the notes you will see the following three types of labels.
 
 > Sometimes you need to wait until later to learn more. :)
 
-## Code Conventions
+## Syntax Highlighting
 
 Source code in the notes will be syntax highlighted like so:
 
