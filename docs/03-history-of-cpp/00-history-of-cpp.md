@@ -51,7 +51,7 @@ In this course we'll study C++ from both a "Modern C++" and a "Legacy C++" persp
 Here are some of the reasons why C++ remains such a popular language:
 
 - **Flexible:** It supports different coding styles including imperative, object-oriented, generic, and functional programming.
-- **Safe:** The language is statically-typed, meaning the compiler can catch a wide range of type-related bugs.
+- **Statically-Typed:** Meaning the compiler can catch a wide range of type-related bugs.
 - **Performant:** With data types that map directly to machine hardware the compiler can produce highly optimized native code.
 - **Cross-Platform:** Carefully written C++ can be compiled to run on different CPU architectures and for different operating systems.
 - **"Batteries-Included":** C++ ships with an excellent standard library that includes high-quality implementation of commonly needed data-structures and algorithms.
