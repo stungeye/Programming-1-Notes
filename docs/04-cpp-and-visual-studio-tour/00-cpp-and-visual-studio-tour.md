@@ -67,7 +67,7 @@ Every C++ program needs an entry point. The entry point is the function that is 
 std::cout << "Hello World!\n";
 ```
 
-The `cout` function is how we write to the console's standard output. `cout` is defined in the `std` namespace in the `iostream` library. We use the `::` scope resolution operator to access the function within the namespace. The `<<` insertion operator is how we stream data to i/o streams. Note that this and all the other statements in the `main` function are terminated with a semicolon.
+The `cout` stream object is how we write to the console's standard output. `cout` is defined in the `std` namespace in the `iostream` library. We use the `::` scope resolution operator to access this object within the namespace. The `<<` insertion operator is how we stream data to i/o streams. Note that this and all the other statements in the `main` function are terminated with a semicolon.
 
 ```cpp
 std::string adjective{ "wonderful" };
@@ -115,7 +115,7 @@ Click on the thumbnail Visual Studio screenshots to see larger versions.
 Try creating two new projects:
 
 - Create a "Console App" with the project and solution name of: `Hello Console`
-- Create a CMake Project" with the project and solution name of: `Hello Cmake`
+- Create a CMake Project" with the project name of: `Hello Cmake`
 
 Save these projects to a folder dedicated to programs for this course.
 
