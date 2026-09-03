@@ -24,7 +24,7 @@ _"Learning to program is an iterative, systematic process of eliminating magic."
 
 And how does one eliminate magic? By learning to **R**ead **T**he **F**riendly **M**anual.
 
-These notes are to be considered the manual for this course. Reference these notes first before turning to Google or Stack Overflow.
+These notes are to be considered the manual for this course. Reference these notes first before turning to Google, Stack Overflow, or AI.
 
 ## Secondary Sources
 
