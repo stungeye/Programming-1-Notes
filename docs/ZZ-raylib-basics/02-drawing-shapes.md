@@ -132,6 +132,8 @@ DrawCircle(randomX, randomY, static_cast<float>(randomRadius), GOLD);
 
 This program combines elapsed time, vectors, transparency, thick lines, and rotated rectangles:
 
+`std::sin()` and `std::cos()` take angles in radians, while `DrawRectanglePro()` takes a rotation in degrees. We use separate speeds for the satellite's orbit and the rectangle's rotation, with each speed's units noted below.
+
 ```cpp
 #include "raylib.h"
 
@@ -141,16 +143,20 @@ int main() {
     constexpr int screenWidth{900};
     constexpr int screenHeight{520};
     constexpr float orbitRadius{150.0F};
+    constexpr float orbitSpeed{1.0F};    // Radians per second.
+    constexpr float rotationSpeed{70.0F}; // Degrees per second.
 
     InitWindow(screenWidth, screenHeight, "Raylib - Orbiting Shapes");
     SetTargetFPS(60);
 
     while (!WindowShouldClose()) {
-        const float angle{static_cast<float>(GetTime())};
+        const float elapsedTime{static_cast<float>(GetTime())};
+        const float orbitAngle{elapsedTime * orbitSpeed}; // Radians.
+        const float rotationAngle{elapsedTime * rotationSpeed}; // Degrees.
         const Vector2 centre{screenWidth / 2.0F, screenHeight / 2.0F};
         const Vector2 satellite{
-            centre.x + std::cos(angle) * orbitRadius,
-            centre.y + std::sin(angle) * orbitRadius
+            centre.x + std::cos(orbitAngle) * orbitRadius,
+            centre.y + std::sin(orbitAngle) * orbitRadius
         };
 
         BeginDrawing();
@@ -164,7 +170,7 @@ int main() {
         DrawCircleV(satellite, 22.0F, PINK);
 
         Rectangle panel{satellite.x, satellite.y, 78.0F, 24.0F};
-        DrawRectanglePro(panel, Vector2{39.0F, 12.0F}, angle * 70.0F, VIOLET);
+        DrawRectanglePro(panel, Vector2{39.0F, 12.0F}, rotationAngle, VIOLET);
 
         DrawText("Orbiting Shapes", 24, 22, 28, RAYWHITE);
         DrawFPS(screenWidth - 100, 20);
@@ -177,7 +183,7 @@ int main() {
 }
 ```
 
-Try changing the orbit radius, rotation speed, colours, or shape sizes. Then add a second satellite that uses `-angle`.
+Try changing the orbit radius, orbit speed, rotation speed, colours, or shape sizes. Then add a second satellite that uses `-orbitAngle` in both trigonometric functions to orbit in the opposite direction.
 
 ### Resources
 

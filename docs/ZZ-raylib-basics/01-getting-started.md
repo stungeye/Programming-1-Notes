@@ -108,7 +108,7 @@ const double elapsedTime{GetTime()};   // Seconds since InitWindow().
 `GetTime()` is useful for repeating animation such as a pulsing radius:
 
 ```cpp
-#include <cmath>
+#include <cmath> // Place this with the other includes, above main().
 
 const float radius{30.0F + 8.0F * static_cast<float>(std::sin(GetTime() * 3.0))};
 DrawCircle(GetScreenWidth() / 2, GetScreenHeight() / 2, radius, SKYBLUE);

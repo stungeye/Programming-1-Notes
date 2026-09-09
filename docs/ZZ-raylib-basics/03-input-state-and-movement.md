@@ -155,6 +155,7 @@ int main() {
             if (IsKeyDown(KEY_W) || IsKeyDown(KEY_UP)) verticalDirection -= 1.0F;
             if (IsKeyDown(KEY_S) || IsKeyDown(KEY_DOWN)) verticalDirection += 1.0F;
 
+            // Moving on both axes makes diagonal movement about 41% faster.
             player.x += horizontalDirection * playerSpeed * deltaTime;
             player.y += verticalDirection * playerSpeed * deltaTime;
 
