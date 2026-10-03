@@ -43,4 +43,5 @@ gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into t
 # to override the default setting.
 exclude:
   - lecture-notes/
+  - docs/ZZ-openframeworks
 #   - vendor/ruby/

@@ -51,12 +51,12 @@ Use `std::string` and normal C++ string-building tools when text must be stored 
 
 ## Custom Fonts
 
-The examples use [`assets/DotGothic16-Regular.ttf`](assets/DotGothic16-Regular.ttf). Copy the module's `assets` folder into the location expected by your course project.
+The examples use [`assets/JOKERMAN.TTF`](assets/JOKERMAN.TTF). Copy the module's `assets` folder into the location expected by your course project.
 
 Load a custom font after `InitWindow()`, draw it with `DrawTextEx()`, and unload it before `CloseWindow()`:
 
 ```cpp
-Font headingFont{LoadFontEx("assets/DotGothic16-Regular.ttf",
+Font headingFont{LoadFontEx("assets/JOKERMAN.TTF",
                             48, nullptr, 0)};
 
 if (!IsFontValid(headingFont)) {
@@ -197,5 +197,5 @@ int main() {
 - 📜 [Official custom font example](https://www.raylib.com/examples/text/loader.html?name=text_font_loading)
 - 📜 [Official sound loading and playing example](https://www.raylib.com/examples/audio/loader.html?name=audio_sound_loading)
 - 📜 [Official examples browser](https://www.raylib.com/examples.html) — filter by `text` or `audio`.
-
-`coin.wav` was created by Raylib author Ramon Santamaria using rFXGen and released under [CC0](https://creativecommons.org/publicdomain/zero/1.0/). DotGothic16 was created by the DotGothic16 Project Authors and is included under the [SIL Open Font License](assets/DotGothic16-Regular-OFL.txt).
+- `coin.wav` was created by Raylib author Ramon Santamaria using rFXGen and released under [CC0](https://creativecommons.org/publicdomain/zero/1.0/).
+- `kammerin-hunt-drum-loop.mp3` by [Kammerin Hunt on Pixabay](https://pixabay.com/users/kamhunt-27612606/).

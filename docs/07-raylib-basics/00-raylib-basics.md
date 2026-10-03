@@ -1,7 +1,7 @@
 ---
 title: Raylib Basics
 has_children: true
-nav_order: 70
+nav_order: 7
 ---
 
 # Raylib Basics
@@ -39,4 +39,3 @@ Linked resources will be identified with the following emoji:
 - 📦: Source code repository.
 
 Raylib's header file is its most precise API reference. The searchable [official cheatsheet](https://www.raylib.com/cheatsheet/cheatsheet.html) and [official examples](https://www.raylib.com/examples.html) make that reference easier to explore.
-
