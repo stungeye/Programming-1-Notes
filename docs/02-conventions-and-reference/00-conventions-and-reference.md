@@ -24,18 +24,15 @@ _"Learning to program is an iterative, systematic process of eliminating magic."
 
 And how does one eliminate magic? By learning to **R**ead **T**he **F**riendly **M**anual.
 
-These notes are to be considered the manual for this course. Reference these notes first before turning to Google or Stack Overflow.
+These notes are to be considered the manual for this course. Reference these notes first before turning to Google, Stack Overflow, or AI.
 
 ## Secondary Sources
 
-These secondary sources should also be considered manuals you should consult before Goolging:
+These secondary sources should also be considered manuals you should consult before Googling:
 
 - [CppReference.com](https://en.cppreference.com/w/) - Great reference for all things C++. Editable by the community as a wiki.
 - [CPlusPlus.com](https://www.cplusplus.com/reference/) - Check here if you need a "second opinion" from ☝️.
 - [LearnCpp.com](https://www.learncpp.com/) - Giant detailed tutorial for learning all of C++.
-- [openFrameworks Reference](https://openframeworks.cc/documentation/) - Official API documentation for core classes and functions.
-- [openFrameworks Learning](https://openframeworks.cc/learning/) - Official tutorials and the openFrameworks ebook.
-- [openFrameworks Forum](https://forum.openframeworks.cc/) - Friendly place to ask questions or search for know problems.
 
 ## Help Improve These Notes
 
@@ -47,7 +44,7 @@ You can help improve these notes in three ways:
 
 ## Documentation Conventions
 
-Through the notes you will see the following three types of labels.
+Through the notes you will see the following four types of labels.
 
 🎵 Note:
 {: .label .label-yellow}
@@ -69,7 +66,7 @@ Through the notes you will see the following three types of labels.
 
 > Sometimes you need to wait until later to learn more. :)
 
-## Code Conventions
+## Syntax Highlighting
 
 Source code in the notes will be syntax highlighted like so:
 
@@ -80,7 +77,7 @@ int main() {
   int ghostQuota = 37;
   int ghostsCaught = 12;
 
-  if (ghostsCaught > ghostQuota) {
+  if (ghostsCaught >= ghostQuota) {
     std::cout << "You are done for the day.\n";
   } else {
     auto ghostsRequired = ghostQuota - ghostsCaught;
