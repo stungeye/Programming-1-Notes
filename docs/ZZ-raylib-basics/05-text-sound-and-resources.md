@@ -116,81 +116,68 @@ const bool playing{IsSoundPlaying(coin)};
 
 ## Complete Example: Sound and Type
 
-This program uses the included [coin sound](assets/coin.wav) and custom font:
+This program uses the included [drum loop](assets/kammerin-hunt-drum-loop.mp3) and [custom font](assets/JOKERMAN.TTF):
 
 ```cpp
 #include "raylib.h"
-
 #include <algorithm>
 
 int main() {
-    constexpr int screenWidth{840};
-    constexpr int screenHeight{460};
-
-    InitWindow(screenWidth, screenHeight, "Raylib - Sound and Type");
+    InitWindow(450, 180, "Raylib - Sound and Type");
     InitAudioDevice();
-    SetTargetFPS(60);
 
-    Font font{LoadFontEx("assets/DotGothic16-Regular.ttf",
-                         48, nullptr, 0)};
+    bool assetsLoaded{ true };
+    float volume{ 1.0F };
+
+    Font font{ LoadFontEx("assets/JOKERMAN.TTF", 48, nullptr, 0) };
     if (!IsFontValid(font)) {
         TraceLog(LOG_ERROR, "Could not load the custom font");
-        CloseAudioDevice();
-        CloseWindow();
-        return 1;
+        assetsLoaded = false;
     }
 
-    Sound coin{LoadSound("assets/coin.wav")};
-    if (!IsSoundValid(coin)) {
-        TraceLog(LOG_ERROR, "Could not load the coin sound");
-        UnloadFont(font);
-        CloseAudioDevice();
-        CloseWindow();
-        return 1;
+    Sound loop{ LoadSound("assets/kammerin-hunt-drum-loop.mp3") };
+    if (!IsSoundValid(loop)) {
+        TraceLog(LOG_ERROR, "Could not load the drum loop");
+        assetsLoaded = false;
     }
 
-    float volume{0.7F};
-    SetSoundVolume(coin, volume);
-
-    while (!WindowShouldClose()) {
-        if (IsKeyPressed(KEY_P)) PlaySound(coin);
-        if (IsKeyPressed(KEY_S)) StopSound(coin);
+    while (!WindowShouldClose() && assetsLoaded) {
+        if (IsKeyPressed(KEY_P)) PlaySound(loop);
+        if (IsKeyPressed(KEY_S)) StopSound(loop);
         if (IsKeyPressed(KEY_SPACE)) {
-            if (IsSoundPlaying(coin)) {
-                PauseSound(coin);
-            } else {
-                ResumeSound(coin);
+            if (IsSoundPlaying(loop)) {
+                PauseSound(loop);
+            }
+            else {
+                ResumeSound(loop);
             }
         }
 
         if (IsKeyPressed(KEY_UP)) volume += 0.1F;
         if (IsKeyPressed(KEY_DOWN)) volume -= 0.1F;
         volume = std::clamp(volume, 0.0F, 1.0F);
-        SetSoundVolume(coin, volume);
+        SetSoundVolume(loop, volume);
 
-        const float pulse{IsSoundPlaying(coin) ? 1.12F : 1.0F};
+		const Color background{ IsSoundPlaying(loop) ? DARKGREEN : SKYBLUE };
 
         BeginDrawing();
-        ClearBackground(Color{16, 18, 34, 255});
+        ClearBackground(background);
 
-        DrawCircleGradient(Vector2{screenWidth / 2.0F, 230.0F},
-                           120.0F * pulse, MAGENTA, Fade(BLUE, 0.1F));
-        DrawTextEx(font, "SOUND + TYPE", Vector2{210.0F, 80.0F},
-                   52.0F, 2.0F, RAYWHITE);
+        DrawTextEx(font, "SOUND + TYPE", Vector2{ 20.0F, 20.0F },
+            52.0F, 2.0F, RAYWHITE);
         DrawText("P: play   Space: pause/resume   S: stop",
-                 220, 340, 20, LIGHTGRAY);
+            20, 90, 20, RAYWHITE);
         DrawText(TextFormat("Volume: %i%%  (up/down)",
-                            static_cast<int>(volume * 100.0F)),
-                 275, 378, 20, SKYBLUE);
+            static_cast<int>(volume * 100.0F)),
+            20, 130, 20, RAYWHITE);
 
         EndDrawing();
     }
 
-    UnloadSound(coin);
+    UnloadSound(loop);
     UnloadFont(font);
     CloseAudioDevice();
     CloseWindow();
-    return 0;
 }
 ```
 

@@ -9,7 +9,7 @@ nav_order: 8
 # Examples and Resources
 {: .no_toc }
 
-The following complete programs combine the module's ideas into small projects. Type them, run them, and then make one deliberate change at a time.
+The following complete program combine the module's ideas into a small project. 
 
 ## Table of Contents
 {: .no_toc }
@@ -19,127 +19,7 @@ The following complete programs combine the module's ideas into small projects. 
 
 <!-- prettier-ignore-end -->
 
-## Example One: Orb Collector
-
-This 30-second game combines persistent state, frame-rate-independent movement, collision, random placement, text, and sound. Copy [`assets/coin.wav`](assets/coin.wav) into the `assets` folder expected by your project.
-
-```cpp
-#include "raylib.h"
-
-#include <algorithm>
-#include <array>
-
-int main() {
-    constexpr int screenWidth{900};
-    constexpr int screenHeight{520};
-    constexpr float playerSize{44.0F};
-    constexpr float playerSpeed{300.0F};
-    constexpr float orbRadius{17.0F};
-    constexpr double roundLength{30.0};
-    constexpr int backgroundStarCount{70};
-
-    InitWindow(screenWidth, screenHeight, "Raylib - Orb Collector");
-    InitAudioDevice();
-    SetTargetFPS(60);
-
-    Sound coin{LoadSound("assets/coin.wav")};
-    if (!IsSoundValid(coin)) {
-        TraceLog(LOG_ERROR, "Could not load assets/coin.wav");
-        CloseAudioDevice();
-        CloseWindow();
-        return 1;
-    }
-
-    std::array<Vector2, backgroundStarCount> backgroundStars{};
-    for (Vector2& star : backgroundStars) {
-        star = Vector2{
-            static_cast<float>(GetRandomValue(0, screenWidth)),
-            static_cast<float>(GetRandomValue(0, screenHeight))
-        };
-    }
-
-    Rectangle player{80.0F, screenHeight / 2.0F, playerSize, playerSize};
-    Vector2 orb{700.0F, screenHeight / 2.0F};
-    int score{0};
-    double roundStart{GetTime()};
-
-    while (!WindowShouldClose()) {
-        const float deltaTime{GetFrameTime()};
-        const double elapsed{GetTime() - roundStart};
-        const double timeRemaining{roundLength - elapsed};
-        const bool roundOver{timeRemaining <= 0.0};
-
-        if (!roundOver) {
-            float horizontal{0.0F};
-            float vertical{0.0F};
-
-            if (IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT)) horizontal -= 1.0F;
-            if (IsKeyDown(KEY_D) || IsKeyDown(KEY_RIGHT)) horizontal += 1.0F;
-            if (IsKeyDown(KEY_W) || IsKeyDown(KEY_UP)) vertical -= 1.0F;
-            if (IsKeyDown(KEY_S) || IsKeyDown(KEY_DOWN)) vertical += 1.0F;
-
-            player.x += horizontal * playerSpeed * deltaTime;
-            player.y += vertical * playerSpeed * deltaTime;
-            player.x = std::clamp(player.x, 0.0F, screenWidth - player.width);
-            player.y = std::clamp(player.y, 64.0F, screenHeight - player.height);
-
-            if (CheckCollisionCircleRec(orb, orbRadius, player)) {
-                ++score;
-                PlaySound(coin);
-                orb = Vector2{
-                    static_cast<float>(GetRandomValue(40, screenWidth - 40)),
-                    static_cast<float>(GetRandomValue(90, screenHeight - 40))
-                };
-            }
-        } else if (IsKeyPressed(KEY_R)) {
-            score = 0;
-            player.x = 80.0F;
-            player.y = screenHeight / 2.0F;
-            roundStart = GetTime();
-        }
-
-        BeginDrawing();
-        ClearBackground(Color{8, 12, 30, 255});
-
-        for (const Vector2& backgroundStar : backgroundStars) {
-            DrawCircleV(backgroundStar, 1.5F, Fade(RAYWHITE, 0.55F));
-        }
-
-        DrawCircleGradient(orb, orbRadius * 2.3F,
-                           Fade(GOLD, 0.28F), BLANK);
-        DrawCircleV(orb, orbRadius, GOLD);
-        DrawCircleV(Vector2{orb.x - 5.0F, orb.y - 5.0F}, 4.0F, RAYWHITE);
-
-        DrawRectangleRounded(player, 0.35F, 6, SKYBLUE);
-        DrawRectangleLinesEx(player, 3.0F, BLUE);
-
-        DrawRectangle(0, 0, screenWidth, 64, Fade(BLACK, 0.55F));
-        DrawText(TextFormat("Score: %i", score), 18, 17, 28, RAYWHITE);
-        DrawText(TextFormat("Time: %02i",
-                            static_cast<int>(timeRemaining > 0.0 ? timeRemaining : 0.0)),
-                 screenWidth - 145, 17, 28, RAYWHITE);
-
-        if (roundOver) {
-            DrawRectangle(0, 0, screenWidth, screenHeight, Fade(BLACK, 0.72F));
-            const char* result{TextFormat("You collected %i orbs!", score)};
-            const int resultWidth{MeasureText(result, 38)};
-            DrawText(result, (screenWidth - resultWidth) / 2, 205, 38, GOLD);
-            DrawText("Press R to play again", 327, 260, 24, RAYWHITE);
-        }
-
-        EndDrawing();
-    }
-
-    UnloadSound(coin);
-    CloseAudioDevice();
-    CloseWindow();
-    return 0;
-}
-```
-
-Try normalizing diagonal movement, adding hazards, or increasing the player's speed as the score rises.
-
-## Example Two: Persistent Neon Paint
+## Example Program: Persistent Neon Paint
 
 Clearing the window every frame is correct for animation, but a painting program needs its marks to persist. A `RenderTexture2D` is an off-screen GPU drawing surface. This program draws marks into that texture, then displays the saved texture every frame.
 

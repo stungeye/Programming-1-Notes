@@ -116,89 +116,83 @@ const bool circlesOverlap{CheckCollisionCircles(
 
 These functions answer whether shapes overlap. Your program decides what the collision means: stop movement, increase a score, play a sound, or change colour.
 
-## Complete Example: Catch the Target
+## Complete Example: WASD RACER
 
-Move with WASD or the arrow keys. Touch the target to score, or click it with the mouse.
+Move with WASD. How many targets can you hit before time runs out?
 
 ```cpp
 #include "raylib.h"
-
-#include <algorithm>
+#include <algorithm> // std::min, std::clamp
+#include <cmath>     // std::ceil
 
 int main() {
-    constexpr int screenWidth{800};
-    constexpr int screenHeight{450};
-    constexpr float playerSize{42.0F};
-    constexpr float playerSpeed{260.0F};
+    constexpr float playerSpeed{ 260.0F };
+    constexpr float targetMoveInterval{ 3.0F };
+    constexpr float gameDuration{ 30.0F };
 
-    InitWindow(screenWidth, screenHeight, "Raylib - Catch the Target");
+    InitWindow(800, 450, "WASD RACER");
     SetTargetFPS(60);
 
-    Rectangle player{80.0F, 200.0F, playerSize, playerSize};
-    Rectangle target{600.0F, 180.0F, 34.0F, 34.0F};
-    int score{0};
-    bool paused{false};
+    Rectangle player{ 80.0F, 200.0F, 42.0F, 42.0F };
+    Rectangle target{ 600.0F, 200.0F, 34.0F, 34.0F };
+    int score{ 0 };
+    float moveRemaining{ targetMoveInterval };
+    float gameRemaining{ gameDuration };
+    bool started{ false };
 
     while (!WindowShouldClose()) {
-        const float deltaTime{GetFrameTime()};
-
-        if (IsKeyPressed(KEY_P)) {
-            paused = !paused;
+        if (IsKeyPressed(KEY_R)) {
+            player = { 80.0F, 200.0F, 42.0F, 42.0F };
+            target = { 600.0F, 180.0F, 34.0F, 34.0F };
+            score = 0;
+            moveRemaining = targetMoveInterval;
+            gameRemaining = gameDuration;
+            started = false;
         }
 
-        if (!paused) {
-            float horizontalDirection{0.0F};
-            float verticalDirection{0.0F};
+        const int horizontal{ IsKeyDown(KEY_D) - IsKeyDown(KEY_A) };
+        const int vertical{ IsKeyDown(KEY_S) - IsKeyDown(KEY_W) };
+        if (horizontal || vertical) started = true;
 
-            if (IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT)) horizontalDirection -= 1.0F;
-            if (IsKeyDown(KEY_D) || IsKeyDown(KEY_RIGHT)) horizontalDirection += 1.0F;
-            if (IsKeyDown(KEY_W) || IsKeyDown(KEY_UP)) verticalDirection -= 1.0F;
-            if (IsKeyDown(KEY_S) || IsKeyDown(KEY_DOWN)) verticalDirection += 1.0F;
+        if (started && gameRemaining > 0.0F) {
+            const float deltaTime{ std::min(GetFrameTime(), gameRemaining) };
+            gameRemaining -= deltaTime;
+            moveRemaining -= deltaTime;
 
-            // Moving on both axes makes diagonal movement about 41% faster.
-            player.x += horizontalDirection * playerSpeed * deltaTime;
-            player.y += verticalDirection * playerSpeed * deltaTime;
+            // WARNING: Diagonal movement is faster than it should be!
+            player.x += horizontal * playerSpeed * deltaTime;
+            player.y += vertical * playerSpeed * deltaTime;
+            player.x = std::clamp(player.x, 0.0F, GetScreenWidth() - player.width);
+            player.y = std::clamp(player.y, 0.0F, GetScreenHeight() - player.height);
 
-            player.x = std::clamp(player.x, 0.0F, screenWidth - player.width);
-            player.y = std::clamp(player.y, 0.0F, screenHeight - player.height);
-
-            const bool touched{CheckCollisionRecs(player, target)};
-            const bool clicked{
-                IsMouseButtonPressed(MOUSE_BUTTON_LEFT) &&
-                CheckCollisionPointRec(GetMousePosition(), target)
-            };
-
-            if (touched || clicked) {
-                ++score;
-                target.x = static_cast<float>(GetRandomValue(40, screenWidth - 74));
-                target.y = static_cast<float>(GetRandomValue(70, screenHeight - 74));
+            const bool caught{ CheckCollisionRecs(player, target) };
+            if (caught || moveRemaining <= 0.0F) {
+                if (caught) ++score;
+                moveRemaining = targetMoveInterval;
+                target.x = static_cast<float>(GetRandomValue(target.width, GetScreenWidth() - target.width));
+                target.y = static_cast<float>(GetRandomValue(target.height, GetScreenHeight() - target.height));
             }
         }
 
         BeginDrawing();
-        ClearBackground(Color{245, 246, 250, 255});
-
+        ClearBackground(LIGHTGRAY);
         DrawRectangleRec(target, ORANGE);
         DrawRectangleLinesEx(target, 3.0F, MAROON);
-        DrawRectangleRec(player, paused ? GRAY : BLUE);
+        DrawRectangleRec(player, BLUE);
 
-        DrawText(TextFormat("Score: %i", score), 20, 18, 26, DARKGRAY);
-        DrawText("Move: WASD/arrows   Pause: P   Or click the target",
-                 20, screenHeight - 34, 18, GRAY);
-
-        if (paused) {
-            const char* message{"PAUSED"};
-            const int fontSize{44};
-            const int textWidth{MeasureText(message, fontSize)};
-            DrawText(message, (screenWidth - textWidth) / 2,
-                     screenHeight / 2 - fontSize / 2, fontSize, DARKGRAY);
-        }
-
+        const char* countdown{ TextFormat("%i", static_cast<int>(std::ceil(moveRemaining))) };
+        DrawText(countdown,
+            static_cast<int>(target.x + (target.width - MeasureText(countdown, 18)) / 2),
+            static_cast<int>(target.y + (target.height - 18) / 2), 18, MAROON);
+        DrawText(TextFormat("Score: %i | Time: %.2f%s", score,
+            gameRemaining,
+            gameRemaining <= 0.0F ? " | Game over!" : ""), 20, 18, 26, DARKGRAY);
+        DrawText(started ? "Move: WASD/arrows | Restart: R" : "Move to start: WASD/arrows",
+            20, GetScreenHeight() - 34, 18, GRAY);
         EndDrawing();
     }
 
     CloseWindow();
-    return 0;
 }
 ```
 

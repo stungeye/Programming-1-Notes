@@ -137,92 +137,65 @@ This complete program animates Scarfy and lets you move left and right:
 
 ```cpp
 #include "raylib.h"
-
-#include <algorithm>
+#include <algorithm> // std::clamp
 
 int main() {
-    constexpr int screenWidth{900};
-    constexpr int screenHeight{500};
-    constexpr int frameCount{6};
-    constexpr float frameDuration{0.10F};
-    constexpr float movementSpeed{220.0F};
-    constexpr float drawingScale{2.0F};
+    constexpr int frameCount{ 6 };
+    constexpr float frameDuration{ 0.10F };
+    constexpr float movementSpeed{ 220.0F };
 
-    InitWindow(screenWidth, screenHeight, "Raylib - Sprite Animation");
+    InitWindow(900, 300, "Raylib - Sprite Animation");
     SetTargetFPS(60);
 
-    Texture2D sprite{LoadTexture("assets/scarfy.png")};
+    Texture2D sprite{ LoadTexture("assets/scarfy.png") };
     if (!IsTextureValid(sprite)) {
         TraceLog(LOG_ERROR, "Could not load assets/scarfy.png");
         CloseWindow();
         return 1;
     }
 
-    const float frameWidth{static_cast<float>(sprite.width) / frameCount};
-    const float frameHeight{static_cast<float>(sprite.height)};
-    Vector2 position{screenWidth / 2.0F, screenHeight - 85.0F};
-    int currentFrame{0};
-    float animationTimer{0.0F};
-    bool facingRight{true};
+    const float frameWidth{ static_cast<float>(sprite.width) / frameCount };
+    const float halfDrawnWidth{ frameWidth / 2.0F };
+    float positionX{ GetScreenWidth() / 2.0F };
+    int currentFrame{ 0 };
+    float animationTimer{ 0.0F };
+    bool facingRight{ true };
 
     while (!WindowShouldClose()) {
-        const float deltaTime{GetFrameTime()};
-        float direction{0.0F};
+        const float deltaTime{ GetFrameTime() };
+        const int direction{ IsKeyDown(KEY_D) - IsKeyDown(KEY_A) };
 
-        if (IsKeyDown(KEY_A) || IsKeyDown(KEY_LEFT)) direction -= 1.0F;
-        if (IsKeyDown(KEY_D) || IsKeyDown(KEY_RIGHT)) direction += 1.0F;
-
-        if (direction != 0.0F) {
-            position.x += direction * movementSpeed * deltaTime;
-            facingRight = direction > 0.0F;
-
+        if (direction) {
+            positionX += direction * movementSpeed * deltaTime;
+            facingRight = direction > 0;
             animationTimer += deltaTime;
             while (animationTimer >= frameDuration) {
                 animationTimer -= frameDuration;
                 currentFrame = (currentFrame + 1) % frameCount;
             }
-        } else {
+        }
+        else {
             currentFrame = 0;
             animationTimer = 0.0F;
         }
+        positionX = std::clamp(positionX, halfDrawnWidth, GetScreenWidth() - halfDrawnWidth);
 
-        const float halfDrawnWidth{frameWidth * drawingScale / 2.0F};
-        position.x = std::clamp(position.x, halfDrawnWidth,
-                                screenWidth - halfDrawnWidth);
-
-        Rectangle source{
-            currentFrame * frameWidth,
-            0.0F,
-            facingRight ? frameWidth : -frameWidth,
-            frameHeight
-        };
-        Rectangle destination{
-            position.x,
-            position.y,
-            frameWidth * drawingScale,
-            frameHeight * drawingScale
-        };
-        Vector2 origin{destination.width / 2.0F, destination.height};
+        Rectangle source{ currentFrame * frameWidth, 0.0F,
+            facingRight ? frameWidth : -frameWidth, static_cast<float>(sprite.height) };
+        Rectangle destination{ positionX, GetScreenHeight() - 85.0F, frameWidth, sprite.height };
 
         BeginDrawing();
-        ClearBackground(Color{28, 32, 52, 255});
-
-        DrawCircleGradient(Vector2{screenWidth / 2.0F, screenHeight - 20.0F},
-                           360.0F, Fade(PURPLE, 0.20F), BLANK);
-        DrawRectangle(0, screenHeight - 85, screenWidth, 85,
-                      Color{45, 52, 70, 255});
-        DrawTexturePro(sprite, source, destination, origin, 0.0F, WHITE);
-
-        DrawText("Move with A/D or the arrow keys", 24, 22, 24, RAYWHITE);
-        DrawText(TextFormat("Frame %i of %i", currentFrame + 1, frameCount),
-                 24, 54, 18, LIGHTGRAY);
-
+        ClearBackground(Color{ 28, 32, 52, 255 });
+        DrawRectangle(0, GetScreenHeight() - 85, GetScreenWidth(), 85, Color{ 45, 52, 70, 255 });
+        DrawTexturePro(sprite, source, destination,
+            { destination.width / 2.0F, destination.height }, 0.0F, WHITE);
+        DrawText("Move with A and D", 24, 22, 24, RAYWHITE);
+        DrawText(TextFormat("Frame %i of %i", currentFrame + 1, frameCount), 24, 54, 18, LIGHTGRAY);
         EndDrawing();
     }
 
     UnloadTexture(sprite);
     CloseWindow();
-    return 0;
 }
 ```
 
