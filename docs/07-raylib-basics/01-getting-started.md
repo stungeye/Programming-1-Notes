@@ -21,9 +21,14 @@ A Raylib program owns its main loop. This explicit structure makes it easy to se
 
 ## Your Course Project
 
-For this module, assume you have been given a working Visual Studio C++ project in which Raylib is already installed, linked, and ready to use. Course-specific project setup instructions will be provided separately.
+Use the [Raylib quick start project](https://github.com/raylib-extras/raylib-quickstart) to set up your game:
 
-Package installation, project creation, and linker configuration are intentionally outside the scope of these notes. You should be able to edit the project's main `.cpp` file, build it, and run it.
+1. Clone the repository.
+2. Rename the cloned folder to your game name.
+3. Rename `src\main.c` to `src\main.cpp`
+4. Run `build-VisualStudio2026.bat` in that folder.
+5. Double-click the generated `.slnx` file to open the project in Visual Studio.
+6. Starting developing your project by editing the main `.cpp` file, building it, and running it.
 
 ## A Minimal Raylib Program
 
