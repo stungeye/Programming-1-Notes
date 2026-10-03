@@ -41,11 +41,6 @@ gh_edit_view_mode: "tree" # "tree" or "edit" if you want the user to jump into t
 # Exclude from processing.
 # The following items will not be processed, by default. Create a custom list
 # to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
+exclude:
+  - lecture-notes/
 #   - vendor/ruby/
