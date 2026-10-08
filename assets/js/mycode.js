@@ -18,8 +18,9 @@ cppBlocks.forEach(block => {
             }
         });
 
-        // Check if the code contains "int main("
-        if (!rawCode.includes("int main(") || rawCode.includes("#include <fstream>")) {
+        // Check if the code contains "int main(" 
+        // Don't proceed if the code includes fstream or raylib.h
+        if (!rawCode.includes("int main(") || rawCode.includes("#include <fstream>") || rawCode.includes("#include \"raylib.h\"")) {
             return;
         }
 
