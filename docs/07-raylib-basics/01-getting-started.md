@@ -19,9 +19,9 @@ A Raylib program owns its main loop. This explicit structure makes it easy to se
 
 <!-- prettier-ignore-end -->
 
-## Your Course Project
+## A Raylib Starter Projects
 
-Use the [Raylib quick start project](https://github.com/raylib-extras/raylib-quickstart) to set up your game:
+Use the [Raylib quick start project](https://github.com/raylib-extras/raylib-quickstart) to get raylib working with Visual Studio:
 
 1. Clone the repository.
 2. Rename the cloned folder to your game name.
