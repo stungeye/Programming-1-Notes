@@ -34,8 +34,9 @@ public:
     CounterModel(const std::string& counterName, int maxCount = 3) : count(0), maxCount{ maxCount }, counterName{ counterName } {}
 
     int value() const { return count; }
-	int maxValue() const { return maxCount; }
-	std::string name() const { return counterName; }
+	int maximum() const { return maxCount; }
+	const std::string& name() const { return counterName; }
+
     void increment() {
         if (count < maxCount) {
             ++count;
@@ -57,7 +58,7 @@ class BarView {
 public:
     void draw(const CounterModel& model) {
         std::cout << "\n" << model.name() << " [";
-        for (int i = 0; i < model.maxValue(); ++i) {
+        for (int i = 0; i < model.maximum(); ++i) {
             std::cout << (i < model.value() ? '*' : '.');
         }
         std::cout << "]\n\n";
@@ -71,7 +72,7 @@ public:
     void draw(const CounterModel& model) {
         std::cout << clearScreen() << hideCursor() << cursorHome();
         std::cout << "\n" << green() << model.name() << blue() << " [" << white() ;
-        for (int i = 0; i < model.maxValue(); ++i) {
+        for (int i = 0; i < model.maximum(); ++i) {
             if (i < model.value()) {
                 std::cout << green() << '*';
             } else {
@@ -111,7 +112,7 @@ public:
 
 int main() {
     CounterModel model{"Ghosts", 5};
-    AnsiBarView view;
+    NumberView view;
     CounterController controller;
 
     view.draw(model);
