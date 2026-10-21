@@ -114,13 +114,23 @@ public:
 
 };
 
+enum class ControllerState {
+    Running,
+    Quit
+};
+
 class CounterController {
 public:
-    void handleInput(char command, CounterModel& model) {
+    ControllerState handleInput(CounterModel& model) {
+		char command;
+		std::cin >> command;
         switch (command) {
-        case '+': model.increment(); break;
-        case 'r': model.reset();     break;
+			case '+': model.increment(); break;
+			case 'r': model.reset();     break;
+			case 'q': return ControllerState::Quit;
         }
+
+        return ControllerState::Running;
     }
 };
 
@@ -131,10 +141,12 @@ int main() {
 
     view.draw(model);
 
-    char command;
-    while (std::cin >> command && command != 'q') {
-        controller.handleInput(command, model);
+	ControllerState state;
+    do {
+        state = controller.handleInput(model);
         view.draw(model);
-    }
+	} while (state != ControllerState::Quit);
+
+	return 0;
 }
 ```
