@@ -9,7 +9,7 @@ nav_order: 9
 # The Model, View, Controller Pattern
 {: .no_toc }
 
-The following complete program combine the module's ideas into a small project. 
+Model–view–controller (MVC) is a software architectural pattern commonly used for developing user interfaces.
 
 ## Table of Contents
 {: .no_toc }
@@ -18,6 +18,19 @@ The following complete program combine the module's ideas into a small project.
 {:toc}
 
 <!-- prettier-ignore-end -->
+
+## The MVC Design Pattern
+
+From [the Wikipedia entry](https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller): 
+
+> “Model–view–controller (MVC) is a software architectural pattern commonly used for developing user interfaces that divides the related program logic into three interconnected elements. 
+> These elements are:  
+>  
+> •	the model, the internal representations of information  
+> •	the view, the interface that presents information to the user  
+> •	the controller, the software linking the two  
+>  
+> One of the seminal insights in the early development of graphical user interfaces, MVC became one of the first approaches to describe and implement software constructs in terms of their responsibilities.” 
 
 ## Example Program: One Number, Many Views
 
