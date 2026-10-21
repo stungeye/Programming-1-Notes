@@ -1,0 +1,125 @@
+---
+title: Model, View, Controller
+parent: Raylib Basics
+nav_order: 9
+---
+
+<!-- prettier-ignore-start -->
+
+# The Model, View, Controller Pattern
+{: .no_toc }
+
+The following complete program combine the module's ideas into a small project. 
+
+## Table of Contents
+{: .no_toc }
+
+1. TOC
+{:toc}
+
+<!-- prettier-ignore-end -->
+
+## Example Program: One Number, Many Views
+
+```cpp
+#include <iostream>
+#include <string>
+
+class CounterModel {
+    int count;
+	int maxCount;
+    std::string counterName;
+
+public:
+    CounterModel(const std::string& counterName, int maxCount = 3) : count(0), maxCount{ maxCount }, counterName{ counterName } {}
+
+    int value() const { return count; }
+	int maxValue() const { return maxCount; }
+	std::string name() const { return counterName; }
+    void increment() {
+        if (count < maxCount) {
+            ++count;
+        }
+    }
+
+    void reset() { count = 0; }
+};
+
+class NumberView {
+public:
+    void draw(const CounterModel& model) {
+        std::cout << "\n" << model.name() << ": " << model.value() << "\n\n";
+		std::cout << "+ increases, r resets, q quits; press Enter: ";
+    }
+};
+
+class BarView {
+public:
+    void draw(const CounterModel& model) {
+        std::cout << "\n" << model.name() << " [";
+        for (int i = 0; i < model.maxValue(); ++i) {
+            std::cout << (i < model.value() ? '*' : '.');
+        }
+        std::cout << "]\n\n";
+
+		std::cout << "+ increases, r resets, q quits; press Enter: ";
+    }
+};
+
+class AnsiBarView {
+public:
+    void draw(const CounterModel& model) {
+        std::cout << clearScreen() << hideCursor() << cursorHome();
+        std::cout << "\n" << green() << model.name() << blue() << " [" << white() ;
+        for (int i = 0; i < model.maxValue(); ++i) {
+            if (i < model.value()) {
+                std::cout << green() << '*';
+            } else {
+                std::cout << red() << '.';
+			}
+        }
+        std::cout << blue() << "]\n\n";
+		std::cout << white() << "+ increases, r resets, q quits; press Enter: ";
+		std::cout << resetStyles() << showCursor();
+    }
+
+    // ANSI Escape Code Helpers
+    // Returning const char* avoids constructing a std::string on each call.
+    static const char* resetStyles() { return "\x1b[0m"; }
+    static const char* clearScreen() { return "\x1b[2J"; }
+    static const char* hideCursor() { return "\x1b[?25l"; }
+    static const char* showCursor() { return "\x1b[?25h"; }
+    static const char* cursorHome() { return "\x1b[H"; }
+
+    // Fixed 256-colour palette entries keep text readable on the black background.
+    static const char* white() { return "\x1b[38;5;255m"; }
+    static const char* green() { return "\x1b[38;5;82m"; }
+    static const char* blue() { return "\x1b[38;5;33m"; }
+    static const char* red() { return "\x1b[38;5;196m"; }
+
+};
+
+class CounterController {
+public:
+    void handleInput(char command, CounterModel& model) {
+        switch (command) {
+        case '+': model.increment(); break;
+        case 'r': model.reset();     break;
+        }
+    }
+};
+
+int main() {
+    CounterModel model{"Ghosts", 5};
+    AnsiBarView view;
+    CounterController controller;
+
+    view.draw(model);
+
+    char command;
+    while (std::cin >> command && command != 'q') {
+        controller.handleInput(command, model);
+        view.draw(model);
+    }
+}
+```
