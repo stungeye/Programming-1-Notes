@@ -44,7 +44,8 @@ class CounterModel {
     std::string counterName;
 
 public:
-    CounterModel(const std::string& counterName, int maxCount = 3) : count(0), maxCount{ maxCount }, counterName{ counterName } {}
+    CounterModel(const std::string& counterName, int maxCount = 3) 
+        : count{ 0 }, maxCount{ maxCount }, counterName{ counterName } {}
 
     int value() const { return count; }
 	int maximum() const { return maxCount; }
